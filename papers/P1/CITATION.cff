@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite the preprint. CC BY 4.0 covers scholarly documents and mathematical data; executable software rights are reserved."
+type: article
+title: "Eta invariants of transverse-traceless tensor curl on three-dimensional lens spaces"
+authors:
+  - family-names: Mahmood
+    given-names: Luqman
+version: "1.0.0"
+doi: "10.5281/zenodo.21433675"
+license: CC-BY-4.0
+date-released: 2026-10-01

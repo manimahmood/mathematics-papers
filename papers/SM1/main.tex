@@ -1,0 +1,395 @@
+\documentclass[11pt]{article}
+\usepackage{paperreview}
+\title{Preparation Memory and Energy-Ordering Reversals\\
+in Exact Unforced Flows}
+\author{Luqman Mahmood}
+\date{1 October 2026}
+\hypersetup{pdftitle={Preparation Memory and Energy-Ordering Reversals in Exact Unforced Flows},pdfauthor={Luqman Mahmood}}
+\begin{document}
+\maketitle
+\draftstatus{SM1, v1.0.0}{Analytic and computer-assisted results; specialist novelty review remains open.}
+\begin{abstract}
+We study phase-dependent energy ordering in two explicit, globally smooth
+three-component solutions of the unforced Navier--Stokes equation on the torus.
+The solutions are independent of one spatial coordinate: a decaying transverse
+shear transports a vertical velocity field. Their Fourier representation is
+an infinite dissipative nearest-neighbour chain. Initially identical
+mode-energy summaries do not determine subsequent total energy. An exact
+cosine law reduces the phase contrast to a two-column Gram entry. We give
+an explicit all-time no-reversal estimate for family (i) throughout a nonzero
+coupling interval, prove that normalized late amplitudes are entire in coupling, and
+derive local stability and parity rules for the number of ordering reversals.
+Two computer-assisted examples exhibit one reversal each, in opposite
+directions; their certificates include a uniform near-zero truncation bound
+and are kept separate from the analytic results. Both preparation energies
+decrease throughout. The flows are unforced; no laboratory validation is
+involved.
+\end{abstract}
+
+\section{Question, baseline and contribution}
+A dissipating system can retain information not contained in its initial
+energy. The relevant fluid baseline is non-normal shear dynamics: decaying
+eigenmodes alone need not determine transient response \cite{Trefethen}.
+Our energy-ordering contrast does not require either preparation's total
+energy to grow. Relaxation-ordering phenomena, including the Markovian
+Mpemba mechanism, offer another comparison \cite{LuRaz}. Here the question
+is narrower: for an exact unforced fluid family, can one determine the entire
+sign history of the difference between two preparation energies?
+Exact decaying bar states and enhanced dissipation for related torus flows
+are established baselines \cite{BeckWayne,WeiZhangZhao}. Those results make
+clear why the reduction itself is not the proposed novelty. The object here
+is the sign history of a cross-preparation energy contrast, with both
+energies decreasing, rather than a new shear solution or damping mechanism.
+The classical lineage includes Kelvin's sheared disturbances and Orr's
+stability analysis \cite{Kelvin,Orr}. Shear-enhanced scalar mixing and
+vortex relaxation are also established \cite{RhinesYoung,BernoffLingevitch}.
+The reduction belongs to the standard two-and-a-half-dimensional class
+\cite{MajdaBertozzi}. In particular, the result is not Orr transient
+amplification: neither preparation's total energy grows; the signed
+\emph{difference between} their energies changes sign.
+
+The contribution proposed for this manuscript is the explicit family and
+its accounted infinite-dimensional sign analysis. Shear reductions,
+passive advection--diffusion, phase gauges, Dyson expansions, analytic
+perturbation and implicit-function arguments are standard tools.
+Specialist review of closely related transient-energy and observability
+results remains outstanding; this preprint does not claim completed
+external peer review or established priority.
+
+\section{An exact unforced reduction}
+On the $2\pi$-periodic three-torus let spatial brackets denote normalized
+average, and set $\nu=1/16$. For integer horizontal vectors $k,q_0$ and a
+horizontal vector $a$ satisfying
+\[
+ a\cdot k=0,\qquad a\cdot q_0=2c,
+\]
+define
+\[
+ v_\theta(x,t)=a\e^{-\rho t}\cos(k\cdot x+\theta),\quad
+ \rho=\nu|k|^2,\qquad
+ u_\theta=v_\theta+w_\theta e_z,
+\]
+where all fields are independent of $z$ and
+\[
+ \partial_t w_\theta+v_\theta\cdot\nabla w_\theta=\nu\Delta w_\theta,
+ \qquad
+ w_\theta(x,0)=\sin(q_0\cdot x)+\cos((q_0+k)\cdot x).
+\]
+The horizontal self-advection vanishes. All terms involving a $z$ derivative
+vanish as well, and the remaining convection has zero divergence.
+A spatially constant pressure therefore makes $u_\theta$ an exact
+unforced incompressible Navier--Stokes solution. Positive diffusion and the
+smooth prescribed shear give global smooth evolution for this subclass.
+
+We use the following two realizations:
+\begin{center}
+\begin{tabular}{c c c c c}
+\toprule
+Family & $k$ & $q_0$ & $a$ & $\rho$\\
+\midrule
+(i)&$(8,-1,0)$&$(0,2,0)$&$(c/8,c,0)$&$65/16$\\
+(ii)&$(1,1,0)$&$(0,-2,0)$&$(c,-c,0)$&$1/8$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The second is a coordinate realization of the chain used in the
+computer-assisted examples of Section~6.
+For $q_m=q_0+mk$, the chains $q_m$ and $-q_m$ are disjoint.
+Writing the positive-chain coefficient as $b_m$ gives
+\[
+ b_m'=-\lambda_m b_m-\ii c\e^{-\rho t}
+    (\e^{\ii\theta}b_{m-1}+\e^{-\ii\theta}b_{m+1}),\qquad
+ b(0)=-\frac{\ii}{2}e_0+\frac12e_1.
+\]
+Here $\lambda_m=\nu|q_m|^2$:
+\[
+ \lambda_m^{(i)}=\frac{65m^2-4m+4}{16},\qquad
+ \lambda_m^{(ii)}=\frac{(m-1)^2+1}{8}.
+\]
+The vertical energy is $\frac12\langle w^2\rangle=\sum_m|b_m|^2$;
+there is no additional factor two. The phase-independent horizontal energy
+is $|a|^2\e^{-2\rho t}/4$.
+
+\section{Phase contrast and monotone individual energies}
+On real $\ell^2(\Z)$ put $(Jr)_m=r_{m-1}-r_{m+1}$.
+Then $J^*=-J$ and $\norm J\leq2$. Let
+\begin{equation}\label{eq:chain}
+ r_j'=-\Lambda r_j+c\e^{-\rho t}Jr_j,\qquad r_j(0)=e_j,\quad j=0,1.
+\end{equation}
+A diagonal phase gauge followed by multiplication by $(-\ii)^m$ converts
+the Fourier evolution to this real equation.
+\begin{proposition}[Exact cosine law]
+With $C_c(t)=\ip{r_0(t)}{r_1(t)}$,
+\begin{equation}\label{eq:cos}
+ E_\theta(t)=A_c(t)-\frac12 C_c(t)\cos\theta,\quad
+ A_c=E_v+\frac14(\norm{r_0}^2+\norm{r_1}^2).
+\end{equation}
+In particular $E_\pi-E_0=C_c$ and
+\[
+ C_c'(t)=-2\ip{r_0}{\Lambda r_1},\qquad
+ C_c(t)=c(\lambda_0-\lambda_1)t^2+O(t^3).
+\]
+\end{proposition}
+\begin{proof}
+The transformed initial vector is
+$\frac{\ii}{2}(-e_0+\e^{-\ii\theta}e_1)$. Expanding its evolved squared
+norm gives \eqref{eq:cos}. In differentiating the real inner product the
+two $J$ terms cancel. At zero, $C=C'=0$ and
+$C''=2c(\lambda_0-\lambda_1)$. Finite-support initial vectors justify
+the derivatives; a convergent time-Taylor series at zero is not assumed.
+\end{proof}
+For any real or complex column combination $r$,
+$(\norm r^2)'=-2\ip r{\Lambda r}\leq0$ (with the Hermitian inner product
+for complex combinations). Adding the decreasing horizontal energy proves
+that both preparation energies decrease. Ordering reversal is not energy
+growth. The initial per-mode Hermitian covariances are independent of
+$\theta$, and the corresponding pure Stokes energies do not separate.
+
+\begin{remark}[Prediction from the initial covariances]\label{rem:prediction}
+Fix the family, coupling and prediction time. A deterministic energy
+predictor given only the initial per-mode Hermitian covariances must return
+the same value $z$ for preparations $\theta=0$ and $\theta=\pi$.
+The triangle inequality and \eqref{eq:cos} imply
+\[
+ \max\{|z-E_0|,|z-E_\pi|\}\geq\frac{|C_c|}{2},\qquad
+ \frac{(z-E_0)^2+(z-E_\pi)^2}{2}
+   =(z-A_c)^2+\frac{C_c^2}{4}.
+\]
+The midpoint $z=A_c$ attains both two-preparation optima; the second
+expression is the squared risk for equal prior probabilities on these
+two preparations. This is an elementary consequence of their identical
+observations, not a limitation on predictors supplied with distinguishing
+phase-sensitive or later-time data. At a crossing $C_c=0$ this particular
+prediction floor vanishes, so a crossing need not be the time of greatest
+prediction ambiguity.
+\end{remark}
+
+\section{A uniform all-time no-reversal band}
+\begin{theorem}\label{thm:band}
+For family (i), every $0<c\leq1/3$ and every $t>0$ satisfy
+\[
+ C_c(t)\leq-c\e^{-t/2}
+  \min\left\{\frac{37}{1152}t^2,
+       \frac{35422319}{10201651200}\right\}<0.
+\]
+\end{theorem}
+\begin{proof}
+Let $\Gamma=2c(1-\e^{-\rho t})/\rho$. Contractivity of the heat
+semigroup and the ordered integration simplex bound the $n$th Dyson
+term by $\e^{-t/4}\Gamma^n/n!$ for a unit column.
+Only odd total orders survive the phase-flip contrast. Its first term is
+\[
+ C_1=-c\left[\e^{-t/2}F_{63/8}(t)
+                 -\e^{-65t/8}F_{1/4}(t)\right],
+ \quad F_a(t)=\frac{1-\e^{-at}}a .
+\]
+Thus
+\[
+ |C-C_1|\leq \e^{-t/2}\{\sinh(2\Gamma)-2\Gamma\}
+       \leq \e^{-t/2}R,\quad
+ R=\e^{2\Gamma}(2\Gamma)^3/6 .
+\]
+Set $\delta=61/16$ and $L_1=-\e^{t/2}C_1$.
+An integral representation gives $L_1'>0$ and
+$L_1\geq c\delta t^2\e^{-(63/8)t}$.
+For $0<t\leq1/4$, $\e^2<8$, $2\Gamma\leq4ct$, and
+$\e^x\leq(1-x)^{-1}$ give
+\[
+ \frac{L_1}{ct^2}\geq\frac{61}{128},\qquad
+ \frac{R}{ct^2}\leq
+ \frac{(32/3)c^2t}{1-4ct}\leq\frac49.
+\]
+The difference is $37/1152$.
+For $t\geq1/4$, monotonicity gives $L_1/c\geq61/2048$ while
+\[
+ R/c\leq\frac{(64/65)^3}{54(1-64/195)} .
+\]
+Subtracting yields the stated positive rational constant.
+\end{proof}
+At $c=0$ the contrast vanishes identically; negative $c$ reverses its sign.
+The failure of this sufficient estimate at a larger coupling is not itself
+a reversal or a physical phase transition.
+
+\section{Late amplitudes and reversal-count structure}
+Let $\lambda_*=\min_m\lambda_m$ and $s$ be its unique minimizing index.
+These are $(1/4,0)$ in (i) and $(1/8,1)$ in (ii). Set
+$z_j=\e^{\lambda_*t}r_j$ and $H=\Lambda-\lambda_*$.
+
+\begin{theorem}[Analytic late contrast]\label{thm:late}
+There are entire functions $\alpha_j(c)$ such that
+$z_j(t,c)\to\alpha_j(c)e_s$ locally uniformly in complex $c$. For real $c$,
+\[
+ \e^{2\lambda_*t}C_c(t)\longrightarrow
+ L(c)=\alpha_0(c)\alpha_1(c),\quad
+ |\alpha_j^{(n)}(c)|\leq(2/\rho)^n .
+\]
+The entire function $L$ is odd and nonzero, with
+$L'(0)=-8/63$ in (i) and $L'(0)=4$ in (ii).
+Its zeros are isolated and finite on each compact real interval.
+\end{theorem}
+\begin{proof}
+On $|c|\leq R$ the bounded-perturbation series is uniformly dominated by
+$\sum_n(2R/\rho)^n/n!$. Hence $z_j$ is entire and bounded by
+$\e^{2R/\rho}$ uniformly in time.
+Let $P$ project onto $e_s$ and let $Q=I-P$. The positive gap $\delta$
+of $H$ on $Q$ gives
+\[
+ \norm{Qz_j(t)}
+ \leq \e^{-\delta t}
+ +2R\e^{2R/\rho}\int_0^t\e^{-\delta(t-u)}\e^{-\rho u}\dd u\to0
+\]
+uniformly on the disk. Also
+$\norm{(Pz_j)'}\leq2R\e^{2R/\rho}\e^{-\rho t}$ is integrable.
+The resulting uniform holomorphic limit is entire. At real $c$, the
+normalized propagator is contractive. Differentiating the equation and
+integrating its forcing inductively gives
+$\norm{\partial_c^n z_j}\leq[2(1-\e^{-\rho t})/\rho]^n$.
+Pass to the limit.
+
+For $De_m=(-1)^me_m$, $DHD=H$ and $DJD=-J$, so
+$\alpha_j(-c)=(-1)^{s+j}\alpha_j(c)$.
+The first Dyson term gives the two stated derivatives of $L$.
+The identity theorem now excludes accumulating zeros.
+For complex $c$, $L$ is the bilinear product of amplitudes, not an
+antiholomorphic squared norm.
+\end{proof}
+
+\begin{proposition}[Local stability and parity]\label{prop:count}
+Fix $c_0>0$ with $L(c_0)\ne0$, and assume every positive-time zero
+of $C_{c_0}$ is simple. Their number is finite and locally constant in $c$.
+If $\sigma_0$ and $\sigma_\infty$ are the early and late signs, the number
+$n$ of simple crossings satisfies $(-1)^n=\sigma_0\sigma_\infty$.
+\end{proposition}
+\begin{proof}
+The nonzero quadratic early coefficient excludes a common interval next
+to zero. Uniform convergence to nonzero $L$ excludes a common late interval.
+Simple zeros on the remaining compact time interval cannot accumulate:
+an accumulation would have both $C=0$ and $C_t=0$.
+The implicit function theorem continues each root, and a positive
+off-root compact minimum excludes new ones nearby. Each crossing flips sign.
+\end{proof}
+Count changes therefore require a finite-time multiple zero or a late-amplitude
+cancellation, under the stated hypotheses. This is a necessary event list,
+not a global count classification or a claim that every event changes count.
+
+\section{Two certificate-supported reversal examples}
+The computations and their analytic supplement \cite{Internal} support:
+\begin{center}
+\begin{tabular}{c c c c}
+\toprule
+Family, coupling & Early sign of $C$ & Unique zero bracket & Late sign\\
+\midrule
+(ii), $c=1/4$ & $+$ & $[2199/128,10997/640]$ & $-$\\
+(i), $c=8$ & $-$ & $[1307/2400,109/200]$ & $+$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These brackets are nondimensional.
+
+\subsection{Finite-chain error charged to the continuum}
+For a chain truncated on $[-M,M]$, $M=24$, let $v_j$ be extended by zero.
+With $a_t=\e^{-\lambda_*t}$ and the above $\Gamma$, set
+\[
+ \beta=a_t\Gamma^M\e^\Gamma/M!,\qquad \eta=2\beta.
+\]
+Dyson support implies agreement before order $M$, so
+$\norm{r_j-v_j}\leq\eta$ and $|C-C_M|\leq2a_t\eta$.
+If $p(k)=\max_{|m|\leq k}\lambda_m$, then
+\[
+ p_i(k)=65k^2/16+k/4+1/4,\quad
+ p_{ii}(k)=k^2/8+k/4+1/4 .
+\]
+Expanding these polynomials in falling factorials bounds the weighted
+tail by $\norm{\Lambda(r_j-v_j)}\leq p(M+1)\eta$. Consequently
+\[
+ |\ip{r_0}{\Lambda r_1}-\ip{v_0}{\Lambda v_1}|
+ \leq2p(M)a_t\eta+p(M+1)\eta^2 .
+\]
+Near zero, a uniform charge is necessary:
+\[
+ \frac{|C-C_M|}{t^2}
+ \leq \frac{4(2c)^{24}\tau^{22}}{24!(1-2c\tau)}
+ \quad(0<t\leq\tau<1/(2c)).
+\]
+The finite-chain certificates control $C_M$; this bound charges the
+whole-chain difference uniformly down to $t=0$.
+Safe bounds are $C\geq(3/100)t^2$ up to $3/40$ in (ii) and
+$-C\geq(299/10)t^2$ up to $1/300$ in (i).
+
+\subsection{Evidence boundary and reproducibility}
+The accompanying supplement provides interval sources, comparison inputs,
+a replay driver, and the analytic continuum-error and late-time bounds.
+The driver starts from unit initial columns and recomputes both finite-chain
+trajectories, the zero-window derivative certificates and all 4,224 early
+subcells. It checks the sign runs, straddle cells and adjoining interval
+endpoints. The zero-window calculation uses the trajectory computed during
+the same invocation. These are same-code reproductions, not independent
+ODE implementations.
+
+The supplement distinguishes interval predicates from rounded display
+endpoints and requires the corrected whole-chain coefficient. Review of
+the Cauchy and Dyson bounds is part of checking the continuum result;
+matching a sampled trajectory alone is insufficient. Analytic Theorems
+\ref{thm:band}--\ref{thm:late} do not depend on the finite calculations.
+
+\section{Prospective use and limitations}
+A test of the prediction must fix its preparation, coupling, observation
+times, normalization and instrument error before measurement. It must
+compare against the same ordinary unforced equations and retain numerical
+and measurement errors separately. The cosine law predicts a relational
+quantity; a single declining energy record does not reveal the phase.
+
+A finite error budget can hide the contrast early and late while exposing
+it at an intermediate time, although the underlying coupling is continuous.
+The equality $E_\theta=E_{-\theta}$ has a rigid-motion explanation in the
+specified preparation.
+Open questions include the global reversal-count diagram, optimal
+no-reversal thresholds, and robustness to physical preparation and readout
+errors.
+
+\aistatement
+\begin{thebibliography}{99}
+\bibitem{Kelvin} W. Thomson (Lord Kelvin),
+\emph{Stability of fluid motion---Rectilineal motion of viscous fluid between
+two parallel planes}, Philos. Mag. \textbf{24}, 188--196 (1887).
+\url{https://doi.org/10.1080/14786448708628078}.
+\bibitem{Orr} W. M'F. Orr,
+\emph{The stability or instability of the steady motions of a perfect liquid
+and of a viscous liquid}, Parts I and II, Proc. Roy. Irish Acad. A
+\textbf{27}, 9--68 and 69--138 (1907).
+\url{https://www.jstor.org/stable/20490590};
+\url{https://www.jstor.org/stable/20490591}.
+\bibitem{RhinesYoung} P. B. Rhines and W. R. Young,
+\emph{How rapidly is a passive scalar mixed within closed streamlines?},
+J. Fluid Mech. \textbf{133}, 133--145 (1983).
+\url{https://doi.org/10.1017/S0022112083001822}.
+\bibitem{BernoffLingevitch} A. J. Bernoff and J. F. Lingevitch,
+\emph{Rapid relaxation of an axisymmetric vortex},
+Phys. Fluids \textbf{6}, 3717--3723 (1994).
+\url{https://doi.org/10.1063/1.868362}.
+\bibitem{MajdaBertozzi} A. J. Majda and A. L. Bertozzi,
+\emph{Vorticity and Incompressible Flow}, Cambridge University Press (2002).
+\url{https://doi.org/10.1017/CBO9780511613203}.
+\bibitem{Trefethen} L. N. Trefethen, A. E. Trefethen, S. C. Reddy
+and T. A. Driscoll, \emph{Hydrodynamic stability without eigenvalues},
+Science \textbf{261}, 578--584 (1993).
+\url{https://doi.org/10.1126/science.261.5121.578}.
+\bibitem{LuRaz} Z. Lu and O. Raz,
+\emph{Anomalous cooling and heating---the Mpemba effect and its inverse},
+arXiv:1609.05271 (2016); PNAS \textbf{114}, 5083--5088 (2017).
+\url{https://arxiv.org/abs/1609.05271}.
+\bibitem{BeckWayne} M. Beck and C. E. Wayne,
+\emph{Metastability and rapid convergence to quasi-stationary bar states
+for the two-dimensional Navier--Stokes equations},
+Proc. Roy. Soc. Edinburgh A \textbf{143}, 905--927 (2013).
+\url{https://arxiv.org/abs/1108.3416}.
+\bibitem{WeiZhangZhao} D. Wei, Z. Zhang and W. Zhao,
+\emph{Linear inviscid damping and enhanced dissipation for the Kolmogorov flow},
+Adv. Math. \textbf{362}, 106963 (2020).
+\url{https://doi.org/10.1016/j.aim.2019.106963}.
+\bibitem{Internal} L. Mahmood, Reproducibility supplement to this paper,
+\texttt{supplement/README.md} and \texttt{PROOF.md} (2026).
+Distributed with this paper. DOI:
+\url{https://doi.org/10.5281/zenodo.23049605}.
+\end{thebibliography}
+\end{document}

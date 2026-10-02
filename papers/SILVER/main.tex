@@ -1,0 +1,1953 @@
+\ifdefined\pdfsuppressptexinfo
+  \pdfsuppressptexinfo=15
+\fi
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\makeatletter\g@addto@macro{\UrlBreaks}{\do\_}\makeatother
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Silver-rank zeros of the tensor-curl eta invariant on lens spaces: silver S-units, a Pell ladder and a period law},
+  pdfauthor={Luqman Mahmood}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\e}{\mathrm e}
+\newcommand{\sawtooth}[1]{\left(\!\left(#1\right)\!\right)}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Silver-rank zeros of the tensor-curl eta invariant\\
+on lens spaces:\\
+silver $S$-units, a Pell ladder, and a period law}
+\author{Luqman Mahmood}
+\date{1 October 2026\\[3pt]\small Preprint\\
+DOI: \href{https://doi.org/10.5281/zenodo.23049615}{10.5281/zenodo.23049615}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $\eta_J(L(p,q))$ be the eta invariant of the rank-$J$ projected
+transverse-traceless tensor-curl operator on the round lens space
+$L(p,q)$ \cite{MahmoodP1Collection2026}.  At rank one it is $-4s(q,p)$,
+which vanishes exactly on the amphicheiral spaces $q^2\equiv-1\pmod p$,
+so there a zero reads as mirror symmetry.  At higher rank this fails on
+the silver levels $p\mid2J^2-1$, where $\eta_J$ is an even integer and
+zeros of chiral spaces are abundant.  We study the zero set at the level
+$p=2J^2-1$.  Reading $\Z[\sqrt2]$ modulo $p$ through $\sqrt2\mapsto2J$,
+the four zero families of \cite{MahmoodP1Collection2026} become the
+orbits of the silver $S$-units $\sqrt2$, $\delta/\sqrt2$, $\delta$ and
+$2\delta$, $\delta=1+\sqrt2$.  We prove a fifth family,
+$\eta_J(L(p,3-4J))=J-1$ for odd $J$ and $0$ for even $J$, and an infinite
+Pell ladder on the orbits of the powers $\delta^n$: with $P_n$ the Pell
+numbers, $\eta_J=\tfrac23P_{n-2}J$ for even $n$ and $0$ for odd $n$ when
+$P_n\mid J$, and, for $n\geq2$, $\eta_J=\gamma_n(J-1)/P_n$ with an
+explicit $\gamma_n>0$ when $J\equiv1\pmod{P_n}$.
+We conjecture a period law (every nonconstant $S$-unit orbit is eventually
+quasi-polynomial in $J$ with period dividing its coefficient of $\sqrt2$),
+support it by a reported out-of-sample test on $64$ orbits, and prove it
+for every nonconstant orbit of norm $\pm1$ or $\pm2$
+(the powers $\delta^n$, $n\geq1$, and the norm-two orbits; the constant
+orbit $q=\pm1$ lies outside the law and is cubic in $J$).  There, on
+each residue class of $J$, $\eta_J$ is a linear function of $J$ past an
+explicit threshold; the zero set of each orbit is computable by
+finitely many exact evaluations and is eventually periodic, with density
+equal to the proportion of zero classes.  Among these orbits exactly the
+first three families of \cite{MahmoodP1Collection2026} vanish at every
+rank, and in a window of $64$ orbits exactly the four families do.
+Consequently, for every $K$ there is a rank at which $K$ pairwise
+non-homeomorphic chiral lens spaces, none balanced level by level, all
+have $\eta_J=0$.  The period law beyond norm $\pm2$, the zeros outside
+the $S$-units and the complete zero set remain open.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+The paper \cite{MahmoodP1Collection2026} evaluates the eta invariant
+$\eta_J(L(p,q))$ of the rank-$J$ projected transverse-traceless (TT)
+tensor-curl operator on every round lens space and exhibits four
+infinite families of zeros at the level $p=2J^2-1$:
+$q=J$, $J+1$, $2J-1$ and $J(J-1)$.  The eta invariant measures the net
+helicity of the spectrum, and a natural first guess is that it vanishes
+only for a reason of symmetry.  At rank one that guess is right, by
+composition of classical results: $\eta_1(L(p,q))=-4s(q,p)$
+\cite{MahmoodP1Collection2026}, the Dedekind sum $s(q,p)$ vanishes iff
+$q^2\equiv-1\pmod p$ \cite[p.~36]{RademacherGrosswald1972}, and
+$q^2\equiv-1$ is the criterion for $L(p,q)$ to be amphicheiral
+\cite{PrzytyckiYasuhara2003,Boldt2017}; see
+\cite[Cor.~4.4]{LensChirality2026}.  The companion paper
+\cite{LensChirality2026} shows that at prime moduli $p\geq5$ the same
+dichotomy persists at every rank $J$ with $2J^2\not\equiv1\pmod p$ and
+$p\nmid J$ (Corollary~\ref{cor:E}(c) below).  The exceptions are the
+\emph{silver ranks} $2J^2\equiv1\pmod p$.  There $\eta_J$ is an even
+integer, and zeros of chiral spaces are common: at the $31$ silver primes
+in $[211,599]$ about $15\%$ of the $q$-orbits are zeros
+\cite[Obs.~5.6]{LensChirality2026}.  This paper is about those zeros, at
+the level $p=2J^2-1$ itself.
+
+\paragraph{Results.}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{A coordinate.}  The ring homomorphism
+$\Z[\sqrt2]\to\Z/p$, $\sqrt2\mapsto2J$, sends the silver $S$-units
+$\pm\delta^n\sqrt2^{\,m}$ ($\delta=1+\sqrt2$) to units, and the four
+families of \cite{MahmoodP1Collection2026} are the orbits of $\sqrt2$,
+$\delta/\sqrt2$, $\delta$ and $2\delta$ (Lemma~\ref{lem:sunit-four}).
+The Cayley coordinate $\rho=(1+q)/(1-q)$ gives a dictionary for the
+known zero orbits (Proposition~\ref{prop:cayley-dictionary}).
+\item \emph{A fifth family} (Theorem~\ref{thm:C4}):
+$\eta_J(L(2J^2-1,\,3-4J))=(J-1)\ind_{J\text{ odd}}$, the orbit of
+$\delta^{-2}$.
+\item \emph{The Pell ladder} (Theorem~\ref{thm:P}): exact values of
+$\eta_J$ on the orbit of $\delta^n$ on the two slices $P_n\mid J$ and
+$J\equiv1\pmod{P_n}$.  The first two rungs are the third family of
+\cite{MahmoodP1Collection2026} and the fifth family; the orbit of
+$\delta^n$ vanishes at every rank only for $n=1$.
+\item \emph{The period law.}  Conjecture~\ref{conj:PL} with its out-of-sample
+evidence, and Theorem~\ref{thm:PL}, which proves it for every nonconstant
+orbit of norm $\pm1$ or $\pm2$ (the constant orbit $q=\pm1$ is outside
+the law and cubic in $J$), with thresholds, linear class polynomials, a
+decision procedure and complete zero sets for $24$ families, including one isolated zero
+($J=429$) that is not part of any zero class.  The zero sets are
+eventually periodic, with an explicit density
+(Corollary~\ref{cor:eventual}).
+\item \emph{Rank-uniform zeros.}  Among the orbits of norm $\pm1$ and
+$\pm2$, exactly the first three families of
+\cite{MahmoodP1Collection2026} vanish at every rank
+(Corollary~\ref{cor:R}); in a window of $64$ orbits, exactly the four
+families do (Corollary~\ref{cor:U}(a)).
+\item \emph{Unbounded ambiguity} (Corollary~\ref{cor:ambiguity}): for
+every $K$ there is a rank at which $K$ pairwise non-homeomorphic chiral
+lens spaces, none balanced level by level, all have $\eta_J=0$.  This is
+the precise sense in which the rank-one dictionary ``zero $=$ mirror''
+fails at higher rank: a single vanishing eta invariant can hide an
+unbounded amount of handedness.
+\end{enumerate}
+Along the way we record a refuted conjecture (Conjecture~\ref{conj:C5})
+and a refuted ``zero-term principle'' (Remark~\ref{rem:zero-term}), and
+explain why the conjugacy mechanism that proves the family $q=J$ at every
+divisor of $2J^2-1$ in \cite{LensChirality2026} does not close the
+classification (Remark~\ref{rem:kill}).
+
+\paragraph{What is proved, what is observed.}  Every statement is
+labelled as proved, conjectural or observed.  Observations are finite
+computations whose ranges are stated.  The Faulhaber-sum evaluations and
+the leading-coefficient table are certificate-assisted
+(Remarks~\ref{rem:faulhaber-certificate} and \ref{rem:period-certificates},
+checked by two independent computer algebra routes).  The finite
+threshold and class-polynomial reconstruction also uses exact algebraic
+checks, as specified in Theorem~\ref{thm:PL}.  Exact computations
+are listed in Appendix~\ref{app:verification}; they test the identities
+and conventions, and do not replace the proofs.  No physical claim is
+made.  The methods are elementary (Dedekind reciprocity, Pell arithmetic,
+lattice counting and an integrality argument), and Dedekind sums at
+Pell-type arguments are classical territory; we have not made a
+literature search for the individual evaluations and claim no priority
+for them.  Eventual quasi-polynomial behaviour of parametric counting
+functions is also classical in general; for context see the parametric
+Presburger arithmetic of Bogart, Goodrick and Woods \cite{BGW2017}.  We
+do not claim quasi-polynomiality as such.  What is specific here is the
+explicit decomposition of $\eta_J$ into a Dedekind term, a residue term
+and a lattice box, the cancellation that makes every class linear, the
+explicit thresholds, and the resulting zero-set procedure in these
+sectors.
+
+\paragraph{Relation to the companion papers.}  We use the operator, the
+normalization and the master formula of
+\cite{MahmoodP1Collection2026}, and the following results of the
+companion \cite{LensChirality2026}, restated in
+Section~\ref{sec:conventions}: the classification of level-wise balance,
+the Dedekind-sum facts, the universal congruence
+$\eta_J-J(2J^2-1)\eta_1\in2\Z$, the exact denominator and the
+prime-modulus dichotomy, the zero $\eta_J(L(p,J))=0$ at every divisor
+$p>1$ of $2J^2-1$, and the Dedekind sum at the silver unit.  No result of
+\cite{LensChirality2026} depends on the present paper; its Section~9 summarizes the present
+results.
+
+\paragraph{Structure of the proofs.}  Section~\ref{sec:sunit} introduces
+the two coordinates.  The fifth-family and Pell-ladder proofs evaluate
+the Dedekind, residue and lattice terms separately.
+Section~\ref{sec:period-law} states the period-law conjecture and its
+finite evidence.  Section~\ref{sec:period-law-proved} proves the law in
+the norm-one and norm-two sectors, using an integrality argument and
+linear breakpoint bounds, and derives the zero-set procedure and
+unbounded ambiguity.
+
+\section{Conventions and imported results}
+\label{sec:conventions}
+
+We keep the conventions of \cite[Sec.~2]{MahmoodP1Collection2026} and
+\cite[Sec.~2]{LensChirality2026}.  For $p\geq2$ and
+$q\in(\Z/p\Z)^\times$ the generator of $\Z_p$ acts on
+$S^3\subset\C^2$ by $(z_1,z_2)\mapsto(\e^{2\pi i/p}z_1,\e^{2\pi iq/p}z_2)$,
+and $L(p,q)$ is the quotient with its complex quotient orientation.  We
+write $q^*$ for an inverse of $q$ modulo $p$, $\langle k\rangle_p$ for
+the least non-negative residue, and $\tilde q$ for the odd lift of $q$
+($\tilde q=q$ if $q$ is odd, $\tilde q=q+p$ if $q$ is even and $p$ odd).
+Put
+\begin{equation}
+ A=\frac{1+\tilde q}{2},\qquad B=\frac{1-\tilde q}{2},\qquad A+B=1.
+ \label{eq:AB}
+\end{equation}
+Let $W_a=\{-a,-a+2,\ldots,a\}$ be the weights of the $SU(2)$
+representation $V_a$.  The lifted generator acts on the weight vector
+$(w_L,w_R)$ of $V_a\otimes V_b$ by $\exp(2\pi i(Aw_L+Bw_R)/p)$, and for
+$a\equiv b\pmod2$ the invariant count is
+\[
+ I_{a+1,b+1}(p,q)=\#\{(w_L,w_R)\in W_a\times W_b:\ Aw_L+Bw_R\equiv0\pmod p\}.
+\]
+The rank-$J$ operator has signed spectrum $+(n+J+1)$ on
+$V_{n+2J}\otimes V_n$ and $-(n+J+1)$ on $V_n\otimes V_{n+2J}$, $n\geq0$
+\cite[Thm.~3.1]{MahmoodP1Collection2026}.  With
+$D_J(n)=I_{n+2J+1,n+1}-I_{n+1,n+2J+1}$ the level imbalance, $\eta_J$ is
+the value at $s=0$ of the continuation of $\sum_{n\geq0}D_J(n)(n+J+1)^{-s}$
+\cite[Prop.~4.1]{MahmoodP1Collection2026}.  We use the lens symmetries
+\begin{equation}
+ \eta_J(L(p,q^*))=\eta_J(L(p,q)),\qquad
+ \eta_J(L(p,-q))=-\eta_J(L(p,q)),
+ \label{eq:lens-symmetries}
+\end{equation}
+the Dedekind sum
+$s(q,p)=\sum_{a=0}^{p-1}\sawtooth{a/p}\sawtooth{qa/p}$, the rank-one value
+$\eta_1(L(p,q))=-4s(q,p)$ \cite[Cor.~5.8]{MahmoodP1Collection2026}, and
+the master formula \cite[Thm.~5.1]{MahmoodP1Collection2026}
+\begin{align}
+ \eta_J(L(p,q))={}&-4J\,s(q,p)
+ +\frac2p\sum_{a=1}^{J-1}(J-a)\bigl[\rho_p(aq)+\rho_p(aq^*)\bigr]\nonumber\\
+ &-2\!\!\sum_{\substack{a,b\geq1\\a+b\leq J-1}}\!\!(J-a-b)
+ \bigl[\delta_p(aq-b)-\delta_p(aq+b)\bigr]
+ -L_J(p,q),
+ \label{eq:master}
+\end{align}
+with $\rho_p(k)=0$ if $p\mid k$ and $p-2\langle k\rangle_p$ otherwise,
+$\delta_p(k)=\ind_{p\mid k}$, and the low-mode term
+$L_J(p,q)=\sum_{m=1}^{J-1}[I_{J-m,J+m}(p,q)-I_{J+m,J-m}(p,q)]$.
+Equation~\eqref{eq:master} holds for every $p\geq2$, every unit $q$ and
+every $J\geq1$.
+
+\begin{definition}
+\label{def:terms}
+Let $q$ be a unit modulo $p$ and $J\geq1$.  $L(p,q)$ is \emph{rank-$J$
+balanced} if $D_J(n)=0$ for every level $n\geq0$; it is \emph{mirror}
+(amphicheiral) if $q^2\equiv-1\pmod p$ and \emph{chiral} otherwise
+\cite{PrzytyckiYasuhara2003,Boldt2017}.  The rank $J$ is a \emph{silver
+rank} for $p$ if $2J^2\equiv1\pmod p$, and a \emph{blind rank} if
+$p\mid2J$.  The \emph{Clifford condition} is $\gcd(q\mp1,p)\leq2$.
+\end{definition}
+
+The following results of \cite{LensChirality2026} are used; we restate
+them with their numbering there.
+
+\begin{theorem}[{\cite[Thm.~4.1]{LensChirality2026}}]
+\label{thm:classification}
+Let $p\geq3$, $q$ a unit and $J\geq1$.  $L(p,q)$ is rank-$J$ balanced iff
+\textup{(a)} $q^2\equiv-1\pmod p$; or \textup{(b)} $p\mid4J^2-2$ and
+$q\equiv\pm(2J\pm1)\pmod p$; or \textup{(c)} $p\mid2J$ and the Clifford
+condition holds.
+\end{theorem}
+
+\begin{lemma}[{\cite[Lem.~6.2]{LensChirality2026}}]
+\label{lem:dedekind-facts}
+For $p\geq2$ and $q$ a unit, $T:=12p\,s(q,p)\in2\Z$; in particular
+$6p\,s(q,p)\in\Z$.
+\end{lemma}
+
+\begin{theorem}[{Universal congruence, \cite[Thm.~6.7]{LensChirality2026}}]
+\label{thm:U}
+For every $p\geq2$, unit $q$ and $J\geq1$,
+$\eta_J(L(p,q))-J(2J^2-1)\,\eta_1(L(p,q))\in2\Z$.
+\end{theorem}
+
+\begin{theorem}[{\cite[Thm.~6.8(c)]{LensChirality2026}}]
+\label{thm:denominator}
+Write $p=2^a3^bm$ with $\gcd(m,6)=1$ and $C=J(2J^2-1)$.  Then
+$\eta_J(L(p,q))\in2\Z$ iff $m\mid C(q^2+1)$, $(a<2$ or $2^a\mid J)$, and
+$(b=0$ or $3^{b+1}\mid J)$.
+\end{theorem}
+
+\begin{corollary}[{\cite[Cor.~6.4]{LensChirality2026}}]
+\label{cor:E}
+Let $p\geq5$ be prime.  \textup{(b)} If $2J^2\equiv1\pmod p$ then
+$\eta_J(L(p,q))\in2\Z$ for every unit $q$.  \textup{(c)} If
+$2J^2\not\equiv1\pmod p$ and $p\nmid J$, then $\eta_J(L(p,q))=0$ iff
+$q^2\equiv-1\pmod p$.
+\end{corollary}
+
+For $J\geq2$ and a divisor $p>1$ of $2J^2-1$ put
+\begin{equation}
+ \varepsilon:=4J+3,\qquad \varepsilon^2-6\varepsilon+1=8(2J^2-1)\equiv0\pmod p,
+ \label{eq:silver-unit}
+\end{equation}
+the silver unit $3+2\sqrt2$ read modulo $p$ with $\sqrt2\equiv2J$.
+
+\begin{theorem}[{\cite[Thm.~7.1]{LensChirality2026}}]
+\label{thm:C3}
+For every $J\geq2$ and every divisor $p>1$ of $2J^2-1$,
+$\eta_J(L(p,J))=0$, and hence $\eta_J(L(p,q))=0$ for $q\equiv\pm J$ and
+$q\equiv\pm2J\pmod p$.
+\end{theorem}
+
+\begin{corollary}[{\cite[Cor.~7.11]{LensChirality2026}}]
+\label{cor:S}
+Let $p$ be odd and $\varepsilon^2-6\varepsilon+1\equiv0\pmod p$.  Then
+$s(\varepsilon,p)=-(p-1)/(2p)$ if $p\equiv1\pmod8$ and $1/(2p)$ if
+$p\equiv7\pmod8$.
+\end{corollary}
+
+\section{Zeros at silver ranks: what is known}
+\label{sec:overview}
+
+\begin{itemize}
+\item \textup{(Proved.)}  At a silver rank of a prime $p\geq5$, $\eta_J(L(p,q))$ is an
+even integer for every unit $q$ (Corollary~\ref{cor:E}(b)); a silver rank
+exists iff $p\equiv\pm1\pmod8$.  At composite $p\mid2J^2-1$ (odd, coprime
+to $3$), $\eta_J\in2\Z$ iff $p\mid J(2J^2-1)(q^2+1)$, which holds
+(Theorem~\ref{thm:denominator}), so $\eta_J$ is an even integer at
+every silver rank of every modulus.
+\item \textup{(Proved zero orbits.)}  The balanced family
+$q\equiv\pm(2J\pm1)$ (Theorem~\ref{thm:classification}(b)); the orbit
+$q\equiv\pm J,\pm2J$ (Theorem~\ref{thm:C3}); the mirror orbit when
+$-1$ is a square modulo $p$; and, when $p=2J^2-1$ exactly, the orbits of
+$q=J+1$ and $q=J(J-1)$ of \cite[Thm.~7.1]{MahmoodP1Collection2026}, the
+fifth family of Theorem~\ref{thm:C4} (even $J$), and the Pell ladder of
+Theorem~\ref{thm:P}.
+\item \textup{(Observed.)}  \cite[Obs.~5.5 and 5.6]{LensChirality2026}: at the $31$ silver primes in $[211,599]$,
+$471$ of $3{,}076$ $q$-orbits ($15.3\%$) are zeros, with the zero fraction
+highest at small silver ranks ($33\%$ at $p=241$, $J=11$); at
+$(97,7)$ and $(199,10)$ the cube roots of unity are zeros.  In the
+divisor family of Theorem~\ref{thm:C3} with $J\leq59$, further zeros
+occur at roughly $25$--$30\%$ of the rows examined in the supplement
+\cite{LCrecord}.  These fractions are
+descriptive statistics of the examined ranges, computed with different
+orbit conventions, and are not asserted to have limits.
+\end{itemize}
+
+\section{The silver \texorpdfstring{$S$}{S}-unit coordinate and the Cayley coordinate}
+\label{sec:sunit}
+
+From here on $p=2J^2-1$ unless a divisor is explicitly
+allowed, and $\Z[\sqrt2]$ is read modulo $p$ through
+\begin{equation}
+ \sqrt2\longmapsto2J,\qquad\text{since }(2J)^2=2p+2\equiv2\pmod p .
+ \label{eq:sqrt2-reduction}
+\end{equation}
+This is a ring homomorphism $\Z[\sqrt2]\to\Z/p$.  It sends
+$\delta:=1+\sqrt2$ to $2J+1$, $\delta^{-1}=\sqrt2-1$ to $2J-1$,
+$\delta^2=3+2\sqrt2$ to $4J+3=\varepsilon$ (the silver unit of
+\eqref{eq:silver-unit}), $\delta^{-2}=3-2\sqrt2$ to $3-4J$, and $2$ to a
+unit, $p$ being odd.  Hence every \emph{silver $S$-unit}
+$\pm\delta^n\sqrt2^{\,m}$ ($n,m\in\Z$) reduces to a unit modulo $p$; the
+same holds modulo every divisor $p>1$ of $2J^2-1$, where
+\eqref{eq:sqrt2-reduction} still holds.  For $\xi=x+y\sqrt2\in\Z[\sqrt2]$
+the reduction is $\xi(J)=x+2yJ$.  Since $\eta_J$ depends on $q$ only
+through the lens orbit $\{\pm q^{\pm1}\}$ up to sign
+\eqref{eq:lens-symmetries}, we speak of the \emph{orbit} of an $S$-unit
+$\xi$, meaning $\{\pm\xi^{\pm1}\}$, and write $(n,m)$ for the orbit of
+$\delta^n\sqrt2^{\,m}$; every orbit has a representative in $\Z[\sqrt2]$
+(replace $\xi$ by $\xi^{-1}$ if necessary).
+
+\begin{lemma}[The four known families as $S$-unit orbits]
+\label{lem:sunit-four}
+Let $J\geq2$ and $p=2J^2-1$.  Modulo $p$,
+\[
+ J\equiv\sqrt2^{\,-1},\qquad J+1\equiv\delta/\sqrt2,\qquad
+ 2J-1\equiv\delta^{-1},\qquad J(J-1)\equiv-(2\delta)^{-1}.
+\]
+Thus the four zero families $q=J$, $J+1$, $2J-1$, $J(J-1)$ of
+\cite[Thm.~7.1]{MahmoodP1Collection2026} are the orbits $(0,1)$,
+$(1,-1)$, $(1,0)$, $(1,2)$ of $\sqrt2$, $\delta/\sqrt2$, $\delta$ and
+$2\delta$.  The same congruences hold modulo every divisor $p>1$ of
+$2J^2-1$.
+\end{lemma}
+
+\begin{proof}
+$2J\cdot J=2J^2\equiv1$, so $J\equiv(2J)^{-1}\equiv\sqrt2^{\,-1}$; then
+$J+1\equiv\sqrt2^{\,-1}+1=(1+\sqrt2)/\sqrt2$; $2J-1\equiv\sqrt2-1=\delta^{-1}$;
+and $(4J+2)\,J(J-1)=2J(2J^2-1)-2J^2\equiv-1$, so
+$J(J-1)\equiv-(4J+2)^{-1}=-(2+2\sqrt2)^{-1}$.  Only $2J^2\equiv1$ was
+used.
+\end{proof}
+
+\begin{definition}[Cayley coordinate]
+\label{def:cayley}
+Let $p$ be odd and
+\[
+ D_p=\{q\in(\Z/p)^\times:\ \gcd(1-q,p)=\gcd(1+q,p)=1\}
+ =\{q\in(\Z/p)^\times:\ \gcd(q^2-1,p)=1\}.
+\]
+For $q\in D_p$ put
+\begin{equation}
+ \rho=\rho(q)=\frac{1+q}{1-q}\in(\Z/p)^\times ,
+ \label{eq:cayley}
+\end{equation}
+the ratio $A/B$ of the two coefficients in \eqref{eq:AB}, i.e.\ the
+ratio of the left and right Clifford rotation angles of the generator of
+$L(p,q)$.
+\end{definition}
+
+At a prime $p$, $D_p$ is the set of units $q\not\equiv\pm1$.  At a
+composite $p$ it is smaller, and outside it $\rho$ is not a unit: for
+$J=5$, $p=49$, the unit $q=8$ has $1-q=-7$ not invertible, and $q=6$ gives
+$1+q=7$ and $\rho=28$.  On
+$D_p$ the map $q\mapsto\rho$ is a M\"obius transformation, hence
+injective, with inverse $q=(\rho-1)/(\rho+1)$, and $\rho\not\equiv\pm1$.
+The set $D_p$ is closed under $q\mapsto q^{-1}$ (as
+$1-q^{-1}=-q^{-1}(1-q)$) and $q\mapsto-q$ (which exchanges $1\pm q$);
+$q\mapsto q^{-1}$ sends $\rho\mapsto-\rho$ and $q\mapsto-q$ sends
+$\rho\mapsto\rho^{-1}$, so the lens orbit $\{\pm q^{\pm1}\}$ corresponds
+to $\{\pm\rho^{\pm1}\}$, and orientation reversal ($\eta_J\mapsto-\eta_J$)
+is $\rho\mapsto\rho^{-1}$.
+
+\begin{proposition}[Dictionary at silver ranks]
+\label{prop:cayley-dictionary}
+Let $p>1$ divide $2J^2-1$ and read $\sqrt2\equiv2J$, $\delta\equiv2J+1$
+as above.  The orbits below lie in $D_p$ (the mirror orbit whenever it
+exists), and in the coordinate $\rho$:
+\begin{enumerate}[label=(\alph*)]
+\item the balanced family (b) of Theorem~\ref{thm:classification},
+$q\equiv\pm(2J\pm1)$, is $\rho\in\{\pm\delta^{\pm1}\}$;
+\item the orbit of Theorem~\ref{thm:C3}, $q\equiv\pm J^{\pm1}$, is
+$\rho\in\{\pm\delta^{\pm2}\}$;
+\item the mirror orbit $q^2\equiv-1$ is $\rho^2\equiv-1$;
+\item the orbit of $q\equiv3-4J\equiv\delta^{-2}$ is
+$\rho\in\{\pm\sqrt2^{\,\pm1}\}$, with $\rho(3-4J)=\sqrt2$ exactly.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Only $2J^2\equiv1$ is used.  \emph{Membership in $D_p$.}  The residues
+$2J$, $J\pm1$ and $2J\pm1$ are units: a prime dividing $J\pm1$ and
+$2J^2-1$ divides $2J^2-1-2(J\mp1)(J\pm1)=1$, and
+$(2J+1)(2J-1)=2(2J^2-1)+1$.  For $q=\pm(2J\pm1)$ the numbers $1\pm q$
+are, up to sign, among $2J$, $2(J+1)$, $2(J-1)$; for $q=\pm J$, $\pm2J$
+they are $1\pm J$, $1\pm2J$; for $q=3-4J$ they are $2(2J-1)$ and
+$-4(J-1)$, and for its inverse $3+4J$ they are $-2(2J+1)$ and $4(J+1)$;
+and for $q^2\equiv-1$, $q^2-1\equiv-2$.  All are units, $p$ being odd,
+and $D_p$ is closed under $q\mapsto\pm q^{\pm1}$.  (A check over every
+divisor $p>1$ of $2J^2-1$, $2\leq J\leq100$, found no exception
+\cite{LCrecord}.)
+(a) For $q=2J+1$:
+$\rho=(2J+2)/(-2J)=-(J+1)J^{-1}=-(J+1)\cdot2J=-(2J^2+2J)\equiv-(2J+1)=-\delta$.
+(b) For $q=J$: $(3+4J)(1-J)=3+J-4J^2\equiv1+J$, so
+$\rho=(1+J)/(1-J)=3+4J=\delta^2$.
+(c) $(1+q)^2+(1-q)^2=2(1+q^2)$, so $\rho^2\equiv-1$ iff $q^2\equiv-1$.
+(d) For $q=3-4J$: $\rho=(4-4J)/(4J-2)=(2-2J)/(2J-1)$, and
+$2J(2J-1)=4J^2-2J\equiv2-2J$, so $\rho=2J=\sqrt2$.  The orbit statements
+follow from the transformation rules above.
+\end{proof}
+
+\begin{observation}[Silver primes in the coordinate $\rho$]
+\label{obs:rho-statistics}
+The following was found in exploratory computations, every prime $p\leq673$ that has
+a silver rank being taken at its minimal silver rank $J$ (the smaller
+root of $2J^2\equiv1$).  ``Sporadic'' means: not in the three orbits of
+(a).
+\begin{enumerate}[label=(\alph*)]
+\item \textup{(Universal zero orbits.)}  The orbits that are zeros at
+every silver prime examined are the two $S$-unit orbits of
+Proposition~\ref{prop:cayley-dictionary}(a),(b), namely family (b),
+witnessed by level balance, and the orbit of Theorem~\ref{thm:C3},
+witnessed by the inert class $R^2L^2$ of
+\cite[Thm.~8.2(viii)]{LensChirality2026}; and the mirror orbit, witnessed
+by orientation reversal, which is not an $S$-unit orbit and exists
+exactly at the silver primes $p\equiv1\pmod8$.  Among the $S$-units
+$q=s\cdot2^c\sqrt2^{\,a}\delta^{b}$ with $s=\pm1$, $|c|\leq2$, $|a|\leq3$,
+$|b|\leq4$, exactly the $28$ expressions lying in those two orbits are
+zeros at all $57$ silver primes $17\leq p\leq673$; among
+$\rho=\pm\delta^k$, $1\leq k\leq14$, exactly $k=1,2$ are (the next best,
+$k=14$, at $16$ of $56$ primes where it is defined).  These searches were
+first run during exploration on smaller prime ranges.  With the expression
+ranges recovered from the retained scripts, repetition over the stated
+prime range tested and confirmed the same predicted universal-zero sets
+\cite{LCrecord}.
+\item \textup{(Sporadic zeros, primes $<400$.)}  The sporadic zeros show
+no structure in $\rho$ on the unit group or in lattice size: on the
+subgroup $\langle-1,\delta\rangle$ they occur at the subgroup's density
+(for instance $0$ of $3$ at $p=41$ and $0$ of $12$ at $p=199$); their
+rate is flat, $16$--$20\%$, across height buckets of the
+$\Z[\sqrt2]$-lattice; and the hypothesis that the cofactor norm lies in
+$\{m,2m\}$ is refuted (rates $5/51$ and $8/45$ against $229/1384$ for
+all other classes).
+\item \textup{(One signal.)}  Among sporadic cases, lifts of norm $2$
+($\rho\equiv\sqrt2\cdot$unit) are zeros at $40/137=29\%$ against $15\%$
+otherwise (primes $\leq400$); the excess sits at $\rho=\pm\sqrt2$
+exactly, i.e.\ at $q\equiv3-4J\equiv2(J-1)^2$.  At $\rho=\sqrt2$ the
+zero occurs at $0$ of the $28$ primes $p\equiv1\pmod8$ and at $18$ of the
+$29$ primes $p\equiv7\pmod8$ with $p\leq673$; and at the primes
+$p=2J^2-1$ with $3\leq J\leq18$ every row fits
+$\eta_J(L(p,3-4J))=J-1$ for odd $J$ and $0$ for even $J$.
+\end{enumerate}
+\end{observation}
+
+\begin{remark}[Why the mechanism of {\cite[Sec.~7]{LensChirality2026}} does not extend]
+\label{rem:kill}
+The proof of Theorem~\ref{thm:C3} in \cite[Sec.~7]{LensChirality2026} succeeded because at $q=J$ the summand
+of the trace form \cite[eq.~(19)]{LensChirality2026} collapsed \cite[Lems.~7.2--7.3]{LensChirality2026} to a single
+two-factor Fourier--Dedekind sum with the quarter shift of
+\cite[Lem.~7.4]{LensChirality2026}, and that shift produced one untwisted
+Rademacher symbol.  For general $q$ this does not happen.  In the
+variable $\zeta=\e^{2\pi ik/p}$ the denominators of the two terms of
+the trace form are, up to constants and roots of unity,
+$(\zeta^{a}-1)(\zeta^{q-1}-1)(\zeta^{q+1}-1)$ with $a\in\{1,q\}$, so
+$p\,\eta_J$ is a combination of three-factor Fourier--Dedekind sums.
+With $A=\zeta^{q-1}-1$, $B=\zeta^{q+1}-1$ and $C=\zeta^2-1$ one has
+$B-A=\zeta^{q-1}C$, hence the cocycle identity
+\[
+ \frac1{AB}=\frac1C\Bigl(\frac1A-\frac1B\Bigr)-\frac1B ,
+\]
+which reduces them to two-factor sums; but the resulting shifts are $Jq$
+and $(J+1)q$, not quarter shifts, and the sums are twisted Dedekind sums
+(Rademacher symbols at congruence level) rather than one untwisted
+$\Psi$.  Thus the conjugacy mechanism does not by itself close the
+classification at silver ranks.  Nothing about the twisted sums is
+claimed here.
+\end{remark}
+
+\begin{conjecture}[Nonvanishing at $q=3-4J$ for primes $p\equiv1\pmod8$; refuted]
+\label{conj:C5}
+For every prime $p\equiv1\pmod8$ with minimal silver rank $J$,
+$\eta_J(L(p,3-4J))\neq0$.
+\end{conjecture}
+
+This was formulated, together with Observation~\ref{obs:rho-statistics}(c),
+before the $28$ primes $p\equiv1\pmod8$ with $761\leq p\leq1553$ were
+computed.  It is false: $27$ of them give $\eta_J\neq0$, but $p=1129$,
+$J=203$ gives $\eta_{203}(L(1129,\,3-4\cdot203))=0$.  Together with the
+exploratory prime sample, the zero at $\rho=\sqrt2$ occurs at $1$ of $56$ primes
+$p\equiv1\pmod8$ and at $18$ of $29$ primes $p\equiv7\pmod8$; the split
+by $p\bmod8$ is a statistic, not a law, and no replacement conjecture is
+made.  (The complementary control ``a zero at every silver prime'' fails
+at $p\equiv1\pmod8$.)
+
+\section{The fifth family at \texorpdfstring{$p=2J^2-1$}{p = 2J\textasciicircum 2 - 1}}
+\label{sec:fifth}
+
+The orbit $\rho=\sqrt2$, i.e.\ $q\equiv3-4J\equiv\delta^{-2}$, is the
+one place where Observation~\ref{obs:rho-statistics} showed structure.
+Its value at $p=2J^2-1$ was conjectured from the exploratory rows
+$3\leq J\leq18$ with $p$ prime, confirmed on every $J\in[19,60]$ with
+$p$ prime in a subsequent test of that prediction ($19$ rows,
+Appendix~\ref{app:verification}), and then proved for every $J$, prime
+or composite $p$, by the four-term method of
+\cite[Thm.~7.1]{MahmoodP1Collection2026}.  Write the master formula
+\eqref{eq:master} as
+\begin{equation}
+ \eta_J(L(p,q))=-4J\,s(q,p)+R_J(p,q)-2\Delta_J(p,q)-L_J(p,q),
+ \label{eq:master-four-terms}
+\end{equation}
+with the residue term and the triangular sum
+\[
+ R_J=\frac2p\sum_{a=1}^{J-1}(J-a)\bigl[\rho_p(aq)+\rho_p(aq^*)\bigr],\qquad
+ \Delta_J=\!\!\sum_{\substack{a,b\geq1\\a+b\leq J-1}}\!\!(J-a-b)
+ \bigl[\delta_p(aq-b)-\delta_p(aq+b)\bigr],
+\]
+and the low-mode term $L_J$ of Section~\ref{sec:conventions}.
+Throughout, $q^*$ is an integer inverse of $q$ modulo $p$,
+$\ind_{\mathcal P}\in\{0,1\}$ is the indicator of a proposition
+$\mathcal P$, and
+\begin{equation}
+ \mathcal T(x,y)=\frac1{12}\Bigl(\frac xy+\frac yx+\frac1{xy}\Bigr)-\frac14,
+ \qquad s(x,y)+s(y,x)=\mathcal T(x,y)\quad(x,y\geq1,\ \gcd(x,y)=1),
+ \label{eq:reciprocity}
+\end{equation}
+is Dedekind reciprocity.
+
+\begin{theorem}[The fifth family]
+\label{thm:C4}
+Let $J\geq2$, $p=2J^2-1$ (prime or not) and $q\equiv3-4J\pmod p$, whose
+least positive residue is $2(J-1)^2$ and whose inverse is
+$q^*\equiv3+4J$.  Then
+\begin{equation}
+ \eta_J(L(p,q))=(J-1)\,\ind_{J\text{ odd}} .
+ \label{eq:C4}
+\end{equation}
+In particular $q\equiv3-4J$ is a zero of $\eta_J$ exactly for even $J$,
+and the same value holds on the orbit $\pm q^{\pm1}$ up to the sign of
+$q$.
+\end{theorem}
+
+\begin{proof}
+\emph{Units.}  $(3-4J)(3+4J)=9-16J^2=1-8p$, so $q^*\equiv3+4J=:h$; and
+$8p=(4J+3)(4J-3)+1$ gives $\gcd(h,p)=1$.
+
+\emph{Step 1 (the Dedekind sum).}  $s(q,p)=s(q^*,p)=s(h,p)$.  By
+\eqref{eq:reciprocity}, $s(h,p)=-s(p,h)+\mathcal T(h,p)$.  Since
+$8p\equiv1\pmod h$, $s(p,h)=s(8,h)$, and reciprocity again gives
+$s(8,h)=-s(h,8)+\mathcal T(8,h)$.  Using $h^2+1-8p=6h$ the two
+reciprocity terms collapse to $\mathcal T(h,p)-\mathcal T(8,h)=\frac1{2p}-\frac1{16}$,
+so
+\[
+ s(h,p)=s(h,8)+\frac1{2p}-\frac1{16}.
+\]
+Here $h\equiv3\pmod8$ for even $J$ and $h\equiv7\pmod8$ for odd $J$, and
+$s(3,8)=\frac1{16}$, $s(7,8)=-\frac7{16}$.  Hence
+\begin{equation}
+ s(q,p)=\frac1{2p}-\frac{\ind_{J\text{ odd}}}2 ,
+ \label{eq:C4-dedekind}
+\end{equation}
+which is the value of Corollary~\ref{cor:S} at $\varepsilon=q^*$, since
+$p\equiv7\pmod8$ for even $J$ and $p\equiv1\pmod8$ for odd $J$.
+
+\emph{Step 2 (the residue term).}  For $1\leq a\leq J-1$ both $a(4J+3)$
+and $a(4J-3)$ are less than $2p$, so each residue wraps at most once; the
+wrap thresholds are
+\[
+ \frac p{4J+3}=\frac J2-\frac38+\frac1{8(4J+3)},\qquad
+ \frac p{4J-3}=\frac J2+\frac38+\frac1{8(4J-3)} .
+\]
+With $aq\equiv-a(4J-3)$, $aq^*=a(4J+3)$, $\rho_p(-k)=-\rho_p(k)$ and
+$\rho_p(k)=p-2\langle k\rangle_p$, an index $a$ at which neither or both
+residues wrap contributes $\rho_p(aq)+\rho_p(aq^*)=-12a$; the only mixed
+index is $a=J/2$ for even $J$, where $aq^*$ wraps and $a(4J-3)$ does
+not, and it contributes $2p-12a$.  For odd $J$ there is no mixed index.
+Therefore
+\begin{equation}
+ R_J=-\frac{4J(J^2-1)}p+2J\,\ind_{J\text{ even}} .
+ \label{eq:C4-residue}
+\end{equation}
+
+\emph{Step 3 (the triangular sum vanishes).}  A term $aq\pm b\equiv0$
+with $a,b\geq1$, $a+b\leq J-1$ means $a(4J-3)\mp b\in\{p,2p\}$.  Each
+case confines $a$ to an interval of length less than $\frac12$ containing
+no integer, or forces $a>J-1$: $a(4J-3)+b=p$ needs
+$\frac J2+\frac J{4(J-1)}\leq a<\frac J2+\frac38$; $a(4J-3)-b=p$ needs
+$\frac J2+\frac38<a\leq\frac{J+1}2-\frac1{2(2J-1)}$; and the value $2p$
+needs $a>J-1$.  Hence $\Delta_J=0$ (for $J=2$ the sum is empty).
+
+\emph{Step 4 (the low-mode term).}  As in Section~\ref{sec:conventions},
+a weight pair $(w_L,w_R)\in W_{a-1}\times W_{b-1}$ is invariant iff
+$(1+\tilde q)w_L+(1-\tilde q)w_R\equiv0\pmod{2p}$; with
+$u=(w_L-w_R)/2$, $v=(w_L+w_R)/2\in\Z$ (as $w_L\equiv w_R\pmod2$) this
+reads $v+qu\equiv0\pmod p$, i.e.\ $v\equiv(4J-3)u$, and in the low-mode
+range $|u|,|v|\leq J-1$.  Writing $v=(4J-3)u-\ell p$: $\ell=0$ forces
+$u=v=0$; $\ell=1$ needs $(4J-3)u\in[p-J+1,p+J-1]$, i.e.\
+$u\in\bigl[\frac J2+\frac{J/2}{4J-3},\ \frac J2+\frac{5J/2-2}{4J-3}\bigr]$,
+which contains an integer only for odd $J$, namely $u=\frac{J+1}2$,
+$v=\frac{J-1}2$, i.e.\ $(w_L,w_R)=(J,-1)$; $\ell=2$ would need $u>J-1$;
+negative $\ell$ give the negatives of these points.  The solution
+$(0,0)$ lies in $W_{a-1}\times W_{b-1}$ iff $a$ and $b$ are both odd, and
+$J\pm m$ have the same parity, so it contributes equally to
+$I_{J-m,J+m}$ and $I_{J+m,J-m}$ and cancels in $L_J$.  The solutions
+$\pm(J,-1)$ never lie in $W_{J-m-1}\times W_{J+m-1}$ (as
+$|w_L|=J>J-m-1$), and they lie in $W_{J+m-1}\times W_{J-m-1}$ exactly
+when $m$ is odd and $1\leq m\leq J-2$ (the parity and size conditions of
+the two weight sets), which requires $J$ odd.  There are $\frac{J-1}2$
+such $m$, each contributing $2$ to $I_{J+m,J-m}$, so
+\begin{equation}
+ L_J=-(J-1)\,\ind_{J\text{ odd}} .
+ \label{eq:C4-lowmode}
+\end{equation}
+
+\emph{Assembly.}  By \eqref{eq:master-four-terms} and
+\eqref{eq:C4-dedekind}--\eqref{eq:C4-lowmode},
+\begin{align*}
+ \eta_J&=-4J\Bigl(\frac1{2p}-\frac{\ind_{J\text{ odd}}}2\Bigr)
+ -\frac{4J(J^2-1)}p+2J\,\ind_{J\text{ even}}+(J-1)\,\ind_{J\text{ odd}}\\
+ &=-\frac{2J}p\bigl(1+2(J^2-1)\bigr)+2J+(J-1)\,\ind_{J\text{ odd}},
+\end{align*}
+and $1+2(J^2-1)=p$, which gives \eqref{eq:C4}.  The orbit statement is
+\eqref{eq:lens-symmetries}.
+\end{proof}
+
+\begin{remark}
+\label{rem:C4-history}
+(i) Formula \eqref{eq:C4} was first conjectured from the exploratory rows
+$3\leq J\leq18$ with $p$ prime (for instance $\eta_J(L(p,3-4J))=2,0,6,0$
+at $p=17,31,97,127$) and predicted the value on the $19$ rows
+$J\in\{21,22,24,25,28,34,36,38,39,41,42,43,45,46,49,50,52,56,59\}$
+($p$ prime) before they were computed: the odd $J$ gave
+$20,24,38,40,42,44,48,58$ and every even $J$ gave $0$.  The proof adds
+the composite levels, on which nothing had been computed; for instance
+$J=5$, $p=49$, $\eta_5=4$; $J=9$, $p=161$, $\eta_9=8$; $J=12$, $p=287$,
+$\eta_{12}=0$.
+(ii) On every row of the prime-level verification ($J\leq60$) with
+$J\geq6$, the orbit of $3-4J$ is distinct from the four orbits of
+Lemma~\ref{lem:sunit-four}, from family (b), from the orbit of
+Theorem~\ref{thm:C3} and from the mirror orbit; at $J=4$ it coincides
+with the orbit of $J(J-1)$ and at $J=2$ with every family.  On the rows
+examined it is therefore a fifth family at $p=2J^2-1$ for $J\geq6$; a
+proof of distinctness for all $J$ is not written out here.
+(iii) A control for the verification of Theorem~\ref{thm:C4}, which
+assumed that the neighbouring residue $q\equiv4-4J$ is \emph{not} a zero
+on some even-$J$ row, failed: $\eta_J(L(2J^2-1,4-4J))=0$ on all eight
+even $J\in\{12,14,16,20,26,30,32,40\}$ that were checked (all with
+composite $p$).  In $S$-unit terms $4-4J\equiv2\sqrt2\,\delta^{-1}$, the
+orbit $(1,-3)$; its behaviour is covered only by the period law of
+Section~\ref{sec:period-law}, and it is recorded as an observation, not
+a result.
+\end{remark}
+
+\section{The Pell ladder}
+\label{sec:pell}
+
+Theorem~\ref{thm:C4} concerns the orbit of $\delta^2$; the third family
+of \cite[Thm.~7.1]{MahmoodP1Collection2026} is the orbit of $\delta$
+(Lemma~\ref{lem:sunit-four}).  Both are rungs of one ladder.  Write
+\begin{equation}
+ \begin{gathered}
+ \delta^n=(1+\sqrt2)^n=a_n+P_n\sqrt2,\\
+ (a_n)_{n\geq0}=1,1,3,7,17,41,99,\ldots,\qquad
+ (P_n)_{n\geq0}=0,1,2,5,12,29,70,\ldots,
+ \end{gathered}
+ \label{eq:pell-numbers}
+\end{equation}
+so that $a_{n+1}=2a_n+a_{n-1}$, $P_{n+1}=2P_n+P_{n-1}$ and
+$a_n=P_n+P_{n-1}$, and put $\nu_n=(-1)^n$, the norm of $\delta^n$.  For
+$J\geq2$ and $p=2J^2-1$ let
+\begin{equation}
+ q_n:=a_n+2P_nJ ,
+ \label{eq:qn}
+\end{equation}
+the reduction of $\delta^n$ by \eqref{eq:sqrt2-reduction}, taken as a
+positive integer.  Thus $q_1=2J+1$ (family (b), the third family of
+\cite[Thm.~7.1]{MahmoodP1Collection2026}) and
+$q_2=4J+3\equiv(3-4J)^{-1}$ (Theorem~\ref{thm:C4}).  Finally
+$M_n:=2P_n^2$.
+
+\begin{theorem}[The Pell ladder]
+\label{thm:P}
+Let $J\geq2$, $p=2J^2-1$ and $q_n$ as in \eqref{eq:qn}.
+\begin{enumerate}[label=(\roman*)]
+\item If $n\geq1$ and $P_n\mid J$, then
+\[
+ \eta_J(L(p,q_n))=\begin{cases}0,&n\text{ odd},\\[2pt]
+ \tfrac23\,P_{n-2}\,J,&n\text{ even}.\end{cases}
+\]
+\item If $n\geq2$ and $J\equiv1\pmod{P_n}$, then
+\[
+ \eta_J(L(p,q_n))=\gamma_n\,\frac{J-1}{P_n},\qquad
+ \gamma_n=\begin{cases}2P_{n-1}^2,&n\text{ even},\\[2pt]
+ \tfrac43\,P_{n-1}a_{n-1},&n\text{ odd}.\end{cases}
+\]
+\end{enumerate}
+The same values hold on the orbit $\pm q_n^{\pm1}$, with the sign of $q$
+\eqref{eq:lens-symmetries}.
+\end{theorem}
+
+\begin{corollary}
+\label{cor:P}
+\begin{enumerate}[label=(\alph*)]
+\item On the multiples of $P_n$, the orbit of $\delta^n$ is a zero of
+$\eta_J$ iff $n$ is odd or $n=2$.
+\item For positive $n$, the orbit of $\delta^n$ vanishes at every rank
+$J\geq2$, or even at all sufficiently large ranks, iff $n=1$ (the third family of
+\cite[Thm.~7.1]{MahmoodP1Collection2026}); for $n\geq2$ part (ii) gives
+$\eta_J>0$ on the infinite class $J\equiv1\pmod{P_n}$.
+\item $n=2$ recovers Theorem~\ref{thm:C4} on both parities: $0$ for even
+$J$ by (i), and $\gamma_2(J-1)/2=J-1$ for odd $J$ by (ii).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) For odd $n$ the value in (i) is $0$; for even $n$ it is $0$ iff
+$P_{n-2}=0$, i.e.\ $n=2$, since $P_{n-2}\geq2$ for even $n\geq4$.  (b) For
+$n=1$, $P_1=1$ divides every $J$ and (i) gives $0$; for $n\geq2$,
+$\gamma_n>0$.  (c) $P_2=2$ and $\gamma_2=2P_1^2=2$.
+\end{proof}
+
+\begin{lemma}[The Dedekind term at every rank]
+\label{lem:S}
+For $n\geq1$, $J\geq1$, $p=2J^2-1$ and $q_n$ as in \eqref{eq:qn},
+\begin{equation}
+ s(q_n,p)=\mathcal T(q_n,p)-\nu_n\,\mathcal T(M_n,q_n)
+ +\nu_n\,s\bigl(q_n\bmod M_n,\,M_n\bigr),
+ \label{eq:lemma-S}
+\end{equation}
+and $q_n\bmod M_n=a_n+2P_n\,(J\bmod P_n)$ depends on $J$ only modulo
+$P_n$.
+\end{lemma}
+
+\paragraph{Pell facts.}
+Fix $n\geq1$ and write $a=a_n$, $b=P_n$, $\nu=\nu_n$, $M=M_n=2b^2$.
+From $\delta^{n\pm1}=\delta^n\delta^{\pm1}$, $\delta^{-2}=3-2\sqrt2$ and
+the norm:
+\begin{enumerate}[label=(F\arabic*)]
+\item $a^2-M=\nu$.
+\item $a_{n-1}=2b-a\geq1$, $P_{n-1}=a-b\geq0$, $a_{n+1}=a+2b$,
+$P_{n-2}=3b-2a$ for $n\geq2$, and $P_{n-3}=5a-7b$ for $n\geq3$.
+\item $a_{n+1}a_{n-1}=M-\nu$.
+\item $b\leq a<2b$; $a$ is odd and $\gcd(a,2b)=1$; and $2a\leq3b$ for
+every $n\geq1$, with equality only at $n=2$ (for $n\geq2$ this is
+$P_{n-2}\geq0$; at $n=1$ it follows from $a=b=1$).
+\item With $t:=2bJ-a$,
+\begin{equation}
+ M\,p=q_n\,t+\nu ,
+ \label{eq:F5}
+\end{equation}
+because $M(2J^2-1)=(2bJ)^2-a^2+(a^2-2b^2)$.  Hence
+$q_n\cdot(-\nu t)\equiv1\pmod p$, so $q_n^*\equiv-\nu t$ and
+$\rho_p(\alpha q_n^*)=-\nu\,\rho_p(\alpha t)$ for every integer
+$\alpha$.
+\end{enumerate}
+(F2) and (F3) are read off from $(a+b\sqrt2)(\sqrt2\mp1)$,
+$(a+b\sqrt2)(3-2\sqrt2)$ and $(a+2b)(2b-a)=4b^2-a^2$; (F4) follows from
+(F1) and (F2) and the recurrence ($a_n$ is odd).
+
+\begin{proof}[Proof of Lemma~\ref{lem:S}]
+Write $q=q_n$.  By \eqref{eq:F5}, $Mp\equiv\nu\pmod q$, so
+$p\equiv\nu M^{-1}\pmod q$.  Moreover $\gcd(M,q)=1$: $q=a+2bJ$ is odd,
+and modulo each prime factor of $b$ one has $q\equiv a\not\equiv0$ by
+(F4).  Since $s(h^{-1},k)=s(h,k)$ and $s(-h,k)=-s(h,k)$, this gives
+$s(p,q)=\nu\,s(M,q)$.  Two applications of \eqref{eq:reciprocity},
+$s(q,p)=\mathcal T(q,p)-s(p,q)$ and $s(M,q)=\mathcal T(M,q)-s(q,M)$, give
+\eqref{eq:lemma-S}, as $s(q,M)$ depends only on $q\bmod M$.  Finally
+$2bJ\equiv2b(J\bmod b)\pmod{2b^2}$ and $a+2b(b-1)<2b^2$ by (F4).
+\end{proof}
+
+\paragraph{What Lemma~\ref{lem:S} does and does not give.}
+With $r:=a+2b\,(J\bmod b)$ the identity \eqref{eq:lemma-S} simplifies
+exactly to
+\begin{equation}
+ s(q_n,p)=\frac a{6p}-\frac a{6M}+s(r,M)\ \ (n\text{ even}),\qquad
+ s(q_n,p)=\frac{bJ}{3p}+\frac J{6b}-\frac12-s(r,M)\ \ (n\text{ odd}).
+ \label{eq:lemma-S-explicit}
+\end{equation}
+Only the lookup $s(r,M)$ depends on $J$ through $J\bmod P_n$; the
+rational terms do not vanish, and they are not eventually
+quasi-polynomial in $J$ (for $n=1$ there is a single residue class, yet
+$s(5,7)=-\tfrac1{14}$ at $J=2$ and $s(7,17)=\tfrac1{17}$ at $J=3$).
+Lemma~\ref{lem:S} is thus an exact reduction of the Dedekind term to a
+rational function of $J$ plus a finite periodic lookup; it is not a
+proof of a ``Dedekind-term part'' of Conjecture~\ref{conj:PL} below.
+The cancellation of the rational remainders happens only in the
+complete $\eta_J$: on the two slices of Theorem~\ref{thm:P} the residue
+term $R_J$ absorbs them, and in the sectors of
+Section~\ref{sec:period-law-proved} the cancellation is proved through
+the integrality of $\eta_J$ (Theorem~\ref{thm:PL}).
+
+\begin{proof}[Proof of Theorem~\ref{thm:P}]
+We evaluate the four terms of \eqref{eq:master-four-terms} at $q=q_n$,
+using \eqref{eq:F5} to control every residue; $\alpha$ denotes the
+summation index of $R_J$ and $(\alpha,\beta)$ that of $\Delta_J$.
+
+\medskip\noindent\emph{Slice (i): $J=bk$, $k\geq1$, $J\geq2$.}  Here
+$q=Mk+a$, $t=Mk-a$ and $p=Mk^2-1$.
+
+\emph{Step 1 (the Dedekind sum).}  $q\bmod M=a$, and by (F1)
+$M\equiv-\nu\pmod a$, so $s(a,M)=\mathcal T(a,M)+\nu\,s(1,a)$ with
+$s(1,a)=\frac{(a-1)(a-2)}{12a}$.  Lemma~\ref{lem:S} then simplifies to
+\begin{equation}
+ s(q,p)=\frac{Mk+(k-3)p}{6p}\ \ (n\text{ odd}),\qquad
+ s(q,p)=\frac a{6p}+\frac{a-3}6\ \ (n\text{ even}).
+ \label{eq:P-i-dedekind}
+\end{equation}
+At $n=2$ this is $\frac1{2p}$, the even-$J$ value in
+\eqref{eq:C4-dedekind}.
+
+\emph{Step 2 (residues).}  For $1\leq\alpha\leq J-1$ write $\alpha=ck+r$
+with $0\leq c\leq b-1$ and $0\leq r\leq k-1$.  Then
+\[
+ \alpha q=cp+c(ak+1)+rq,\qquad \alpha t=cp-c(ak-1)+rt .
+\]
+The residue $\langle\alpha q\rangle_p=c(ak+1)+rq$ never wraps: its
+largest value is $p-b\,a_{n-1}k+(b-a)<p$.  The residue
+$\langle\alpha t\rangle_p$ equals $rt-c(ak-1)\in(0,p)$ for $r\geq1$, and
+$p-c(ak-1)$ (one wrap) for $r=0$, $c\geq1$.  Hence
+\[
+ \rho_p(\alpha q)=p-2c(ak+1)-2rq,\qquad
+ \rho_p(\alpha t)=p-2rt+2c(ak-1)-2p\,\ind_{r=0},
+\]
+and summing $(J-\alpha)[\rho_p(\alpha q)-\nu\rho_p(\alpha t)]$ over
+$\alpha$ (Faulhaber sums in $c$ and $r$) gives
+\begin{equation}
+ R_J=4J\,s(q,p)\ \ (n\text{ odd}),\qquad
+ R_J=4J\,s(q,p)+\tfrac23P_{n-2}J\ \ (n\text{ even}).
+ \label{eq:P-i-residue}
+\end{equation}
+For odd $n$ this is $R_J=4Js$, the cancellation pattern of the first
+three families of \cite[Thm.~7.1]{MahmoodP1Collection2026}; for even $n$
+it reads $R_J=2b(b-1)k-\frac{4a}{3p}(J^3-J)$.
+
+\emph{Step 3 (the triangular sum is empty).}  A term $\alpha q\equiv\beta$
+with $1\leq\beta\leq J-1-\alpha$ would need
+$\langle\alpha q\rangle_p\leq J-1$; but $\langle\alpha q\rangle_p\geq q>J$
+when $r\geq1$ and $\langle\alpha q\rangle_p\geq ak+1>bk=J$ when $r=0$.  A
+term $\alpha q\equiv-\beta$ would need $p-\langle\alpha q\rangle_p\leq J-1$;
+but $p-\langle\alpha q\rangle_p\geq b\,a_{n-1}k+(a-b)\geq J$.  So
+$\Delta_J=0$.
+
+\emph{Step 4 (the low-mode term vanishes).}  In the coordinates $u,v$ of
+the proof of Theorem~\ref{thm:C4}, the invariant low-mode weights are the
+lattice points with $|u|,|v|\leq J-1$ and $v+qu\equiv0\pmod p$.  For
+$1\leq u\leq J-1$ such a point needs $\langle uq\rangle_p\leq J-1$ or
+$\langle uq\rangle_p\geq p-J+1$, both excluded by Step~3; negative $u$
+follow by symmetry, and $u=0$ forces $v=0$.  Only $(0,0)$ remains, and it
+cancels in $L_J$ as before.  So $L_J=0$.
+
+\emph{Assembly.}  $\eta_J=-4Js+R_J$, which is $0$ for odd $n$ and
+$\frac23P_{n-2}J$ for even $n$; this is (i).
+
+\medskip\noindent\emph{Slice (ii): $n\geq2$, $J=bk+1$, $k\geq1$.}  Write
+$a_-=a_{n-1}$ and $a_+=a_{n+1}$, so that $M=a_+a_-+\nu$ by (F3).  Then
+$q=Mk+a_+$, $t=Mk+a_-$, $p=Mk^2+4bk+1$, and with
+\[
+ g:=a_-k+1,\qquad h:=a_+k+1,\qquad p=kq+g=kt+h .
+\]
+
+\emph{Step 1 (the Dedekind sum).}  $q\bmod M=a_+$ (as $a_+<M$ for
+$b\geq2$), and $M\equiv\nu\pmod{a_+}$ by (F3), so
+$s(a_+,M)=\mathcal T(a_+,M)-\nu\,s(1,a_+)$.  Lemma~\ref{lem:S} then
+simplifies to
+\begin{equation}
+ s(q,p)=-\frac{a(J^2-1)}{3p}\ \ (n\text{ even}),\qquad
+ s(q,p)=\frac{J-1}{6b}-\frac{b(J-1)(2J+1)}{3p}\ \ (n\text{ odd}).
+ \label{eq:P-ii-dedekind}
+\end{equation}
+At $n=2$ this is $\frac1{2p}-\frac12$, the odd-$J$ value in
+\eqref{eq:C4-dedekind}.
+
+\emph{Step 2 (residues).}  For $1\leq\alpha\leq J-1=bk$ write
+$\alpha=ck+r$ with $0\leq c\leq b$ and $0\leq r\leq k-1$, where $c=b$
+occurs only with $r=0$.  Then $\alpha q=cp+rq-cg$ and
+$\alpha t=cp+rt-ch$.  The residue $\langle\alpha q\rangle_p$ equals
+$rq-cg\in(0,p)$ for $r\geq1$ and $p-cg$ for $r=0$.  For
+$\langle\alpha t\rangle_p$ put $c^*:=a_-+\ind_{n\text{ even}}$; then
+$\langle\alpha t\rangle_p=rt-ch$ for $r\geq2$ and for $r=1$ with $c<c^*$;
+$=p+rt-ch$ for $r=1$ with $c\geq c^*$; and $=p-ch$ for $r=0$.  The sign
+at $r=1$ comes from
+\[
+ t-ch=\bigl(a_+(a_--c)+\nu\bigr)k+(a_--c) .
+\]
+For $k=1$ there is no row $r=1$; instead $\langle\alpha t\rangle_p=2p-ch$
+exactly for $c^*+1\leq c\leq b$, because $c^*h\leq p<(c^*+1)h$ at $k=1$.
+That correction equals the $r=1$ correction of the formula for $k\geq2$,
+so one closed form covers every $k\geq1$.  Summing as in slice (i),
+\begin{equation}
+ R_J=4J\,s(q,p)+\kappa_nk,\qquad
+ \kappa_n=\begin{cases}
+ 2P_{n-1}(P_{n-1}-1),&n\text{ even},\\
+ 2P_{n-1}(P_{n-1}-1)-\tfrac23P_{n-1}P_{n-3},&n\text{ odd }(n\geq3).
+ \end{cases}
+ \label{eq:P-ii-residue}
+\end{equation}
+
+\emph{Step 3 (the triangular sum).}  A term $\alpha q\equiv+\beta$ is
+impossible: $\langle\alpha q\rangle_p>J$ when $r\geq1$ and
+$\langle\alpha q\rangle_p\geq p-bg>J$ when $r=0$.  For
+$\alpha q\equiv-\beta$ with $r\geq1$, $p-\langle\alpha q\rangle_p\geq g+q>J$.
+For $r=0$, $\alpha=ck$ and $\beta=cg$, and $\alpha+\beta\leq J-1$ reads
+$c(1+a_-)k+c\leq bk$; this holds only for $c=1$, since $2(1+a_-)>b$ by
+(F4), and it needs $P_{n-1}=b-a_-\geq2$.  So there is exactly one pair,
+$(\alpha,\beta)=(k,\,a_-k+1)$, of type $\alpha q+\beta\equiv0$, with
+weight $J-\alpha-\beta=(P_{n-1}-1)k$, and
+\begin{equation}
+ \Delta_J=-(P_{n-1}-1)\,k ,
+ \label{eq:P-ii-delta}
+\end{equation}
+which is $0$ for $n=2$.
+
+\emph{Step 4 (the low-mode term).}  By the same bounds the only nonzero
+lattice points with $|u|,|v|\leq J-1$ and $v+qu\equiv0$ are
+$\pm(k,\,a_-k+1)$; the point with $c=2$ would need $2(a_-k+1)\leq bk$,
+false by (F4).  In weights,
+$(w_L,w_R)=\bigl((1+a_-)k+1,\ (a_--1)k+1\bigr)$, both odd since $a_-$ is
+odd.  This point lies in $W_{J-m-1}\times W_{J+m-1}$ for
+$m\equiv J\pmod2$ with $1\leq m\leq(P_{n-1}-1)k-1$, and in
+$W_{J+m-1}\times W_{J-m-1}$ for $m\equiv J\pmod2$ with
+$1\leq m\leq(P_{n-1}+1)k-1$.  The two ranges differ by exactly $k$ values
+of $m$ (an interval of $2k$ consecutive integers, or $[1,2k-1]$ for
+$n=2$ with $J$ odd).  Counting both points $\pm$ with the sign of $L_J$,
+\begin{equation}
+ L_J=-2k .
+ \label{eq:P-ii-lowmode}
+\end{equation}
+
+\emph{Assembly.}  By \eqref{eq:master-four-terms} and
+\eqref{eq:P-ii-residue}--\eqref{eq:P-ii-lowmode},
+\[
+ \eta_J=\bigl(\kappa_n+2(P_{n-1}-1)+2\bigr)k=\gamma_nk ,
+\]
+using $P_{n-3}=P_{n-1}-2P_{n-2}$ and $a_{n-1}=P_{n-1}+P_{n-2}$ for odd
+$n$; and $k=(J-1)/P_n$.  This is (ii).  The orbit statement is
+\eqref{eq:lens-symmetries}.
+\end{proof}
+
+\begin{remark}[Certificate for the finite sums]
+\label{rem:faulhaber-certificate}
+The closed forms \eqref{eq:P-i-dedekind}, \eqref{eq:P-i-residue},
+\eqref{eq:P-ii-dedekind} and \eqref{eq:P-ii-residue} are identities
+between rational functions of $(a,b,k)$ modulo the relation
+$a^2=2b^2+\nu$; they follow from the residue structure of Steps~1--2 by
+Faulhaber sums, which are not written out above.  They were checked by
+two independent routes: with sympy over exact rationals (polynomial
+remainder modulo $a^2-2b^2-\nu$, no numerical simplification) and with
+the local Wolfram Engine~14.3 (\texttt{PolynomialRemainder}), four
+identity sets on each route, all true.  Every step was also checked
+numerically on every row of Appendix~\ref{app:verification}.  The proof
+of Theorem~\ref{thm:P} is certificate-assisted at exactly this point;
+the residue analysis, the emptiness and one-pair statements of Step~3,
+and the lattice counts of Step~4 are as written.  (The certificates of
+Section~\ref{sec:period-law-proved} also have both routes; see
+Remark~\ref{rem:period-certificates}.)
+\end{remark}
+
+\begin{remark}[Verification, and the size of the rungs]
+\label{rem:P-verification}
+Theorem~\ref{thm:P} was verified term by term on $212$ rows, $81$ of
+which were never computed before the statement was fixed, up to $n=16$;
+the largest are $J=2P_{16}=941{,}664$, $p=1{,}773{,}462{,}177{,}791$ in
+slice (i), with $\eta_J=50{,}713{,}000{,}832=\frac23P_{14}J$, and
+$J=941{,}665$ in slice (ii), with $\Delta_J=-390{,}048=-(P_{15}-1)\cdot2$,
+$L_J=-4$ and $\eta_J=152{,}139{,}002{,}500=2\gamma_{16}$.
+Lemma~\ref{lem:S} reproduces the value of Corollary~\ref{cor:S} on every
+$n=2$ row.  A mutated modulus, ``$\eta_J=0$ on $J\equiv0\pmod{a_n}$'',
+fails at every $n$ tested, for instance $\eta_J=284,-1144,1152$ at
+$J=707,714,721$ ($n=3$).
+\end{remark}
+
+\section{The period law}
+\label{sec:period-law}
+
+Theorem~\ref{thm:P} says that on the orbit of $\delta^n$ the value of
+$\eta_J$ is governed by $J$ modulo $P_n$, the coefficient of $\sqrt2$.
+Exploratory calculations (Observation~\ref{obs:window} below)
+suggested that this is the general shape.  For an $S$-unit orbit choose
+a representative $\xi=x+y\sqrt2\in\Z[\sqrt2]$ with $y\neq0$; its
+reduction is $\xi(J)=x+2yJ$, and by \eqref{eq:lens-symmetries} the choice
+of representative changes $\eta_J$ at most by sign.
+
+\begin{conjecture}[Period law]
+\label{conj:PL}
+For every $S$-unit orbit with representative $\xi=x+y\sqrt2$, $y\neq0$,
+the function $J\mapsto\eta_J\bigl(L(2J^2-1,\,x+2yJ)\bigr)$ is, for
+$J\geq J_0(\xi)$, a quasi-polynomial in $J$ whose period divides $|y|$.
+\end{conjecture}
+
+\emph{Status.}  Conjecture~\ref{conj:PL} is proved for every orbit of
+norm $\pm1$ (the silver powers, $m=0$) and of norm $\pm2$ ($|m|=1$) to
+which it applies, that is with $y\neq0$; this excludes only the constant
+orbit $q=\pm1$, where $\eta_J$ is cubic in $J$ (Lemma~\ref{lem:N0}):
+Theorem~\ref{thm:PL} in Section~\ref{sec:period-law-proved}, with
+Lemma~\ref{lem:S} and Theorem~\ref{thm:P} as its first ingredients.  For
+$|m|\geq2$, for example the fourth family $2\delta=(1,2)$ and the orbit
+$(1,-3)$ of $q\equiv4-4J$, it remains a conjecture, supported by the
+held-out test below.
+
+\emph{Held-out numerical test.}  Let $\mathcal W$ be the set of $64$ orbits
+$(n,m)$ of $\delta^n\sqrt2^{\,m}$ with $0\leq n\leq5$, $|m|\leq9$
+($m\geq0$ when $n=0$), $y\neq0$ and $|y|\leq41$; here
+$|y|=2^{\lfloor|m|/2\rfloor}P_n$ for even $m$ and
+$2^{\lfloor|m|/2\rfloor}a_n$ for odd $m$.  On $J\in[150,400]$ every orbit
+of $\mathcal W$ was fitted by one polynomial per residue class of $J$
+modulo $|y|$ (through the first four points of the class, verified on
+the rest).  These fits were then used to predict $\eta_J$ for every orbit
+of $\mathcal W$ and every $J\in[1401,1600]$, $12{,}800$ values, before
+those rows were computed; all $12{,}800$ predictions were exact (only
+the summary counts of this test were retained, not the individual
+values).  This is finite evidence for Conjecture~\ref{conj:PL}; it does
+not locate the onset $J_0(\xi)$, and nothing below uses it as a proof.
+
+\begin{corollary}[Window]
+\label{cor:U}
+\begin{enumerate}[label=(\alph*)]
+\item \textup{(Every rank; proved.)}  Among the $64$ orbits of
+$\mathcal W$, exactly four vanish at every rank $J\geq2$: the orbits
+$(0,1)$, $(1,-1)$, $(1,0)$, $(1,2)$ of Lemma~\ref{lem:sunit-four}, i.e.\
+the four families of \cite[Thm.~7.1]{MahmoodP1Collection2026}.
+\item \textup{(All large ranks.)}  For the orbits of $\mathcal W$ with
+$|m|\leq1$ (norm $\pm1$ or $\pm2$), none but $(0,1)$, $(1,-1)$, $(1,0)$
+vanishes at all sufficiently large ranks; this is proved
+(Corollary~\ref{cor:R} below).  For the orbits with $|m|\geq2$, which
+include the fourth family $(1,2)$, the corresponding statement is
+observed on $J\in[150,400]\cup[1401,1600]$ and follows from
+Conjecture~\ref{conj:PL} only together with the assumption that the
+onset $J_0(\xi)$ of each such orbit lies below $150$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) The four orbits vanish at every $J\geq2$ by
+\cite[Thm.~7.1]{MahmoodP1Collection2026}.  For each of the other $60$
+orbits a single exact nonzero value refutes vanishing at every rank.
+The following ledger gives one such witness $(J,q,\eta_J)$ per orbit
+$(n,m)$, with $p=2J^2-1$ and $q$ the reduction of $\delta^n\sqrt2^{\,m}$
+modulo $p$; every witness has $J\leq6$, and each value was cross-checked
+against the independent evaluator of Appendix~\ref{app:verification}.
+\begin{center}
+\small
+\begin{tabular}{@{}lrrr@{\qquad}lrrr@{\qquad}lrrr@{}}
+\toprule
+$(n,m)$ & $J$ & $q$ & $\eta_J$ & $(n,m)$ & $J$ & $q$ & $\eta_J$ & $(n,m)$ & $J$ & $q$ & $\eta_J$\\
+\midrule
+$(0,3)$ & 2 & 1 & $-2$ & $(2,-8)$ & 3 & 2 & $-2$ & $(3,-3)$ & 2 & 6 & $2$\\
+$(0,5)$ & 4 & 1 & $-28$ & $(2,-7)$ & 2 & 1 & $-2$ & $(3,-2)$ & 5 & 4 & $-2$\\
+$(0,7)$ & 4 & 2 & $-8$ & $(2,-6)$ & 4 & 14 & $2$ & $(3,-1)$ & 3 & 9 & $-2$\\
+$(0,9)$ & 2 & 1 & $-2$ & $(2,-5)$ & 6 & 5 & $-2$ & $(3,0)$ & 2 & 6 & $2$\\
+$(1,-9)$ & 4 & 10 & $2$ & $(2,-4)$ & 2 & 1 & $-2$ & $(3,1)$ & 3 & 1 & $-10$\\
+$(1,-8)$ & 2 & 6 & $2$ & $(2,-3)$ & 5 & 33 & $-8$ & $(3,2)$ & 4 & 1 & $-28$\\
+$(1,-7)$ & 3 & 9 & $-2$ & $(2,-2)$ & 3 & 16 & $10$ & $(3,3)$ & 2 & 6 & $2$\\
+$(1,-6)$ & 5 & 32 & $4$ & $(2,-1)$ & 2 & 1 & $-2$ & $(3,4)$ & 4 & 2 & $-8$\\
+$(1,-5)$ & 2 & 6 & $2$ & $(2,0)$ & 3 & 15 & $2$ & $(3,5)$ & 4 & 16 & $-8$\\
+$(1,-4)$ & 4 & 10 & $2$ & $(2,1)$ & 4 & 28 & $2$ & $(3,6)$ & 2 & 6 & $2$\\
+$(1,-3)$ & 3 & 2 & $-2$ & $(2,2)$ & 2 & 1 & $-2$ & $(4,-3)$ & 5 & 24 & $20$\\
+$(1,-2)$ & 2 & 6 & $2$ & $(2,3)$ & 6 & 9 & $4$ & $(4,-2)$ & 2 & 1 & $-2$\\
+$(1,1)$ & 2 & 6 & $2$ & $(2,4)$ & 3 & 9 & $-2$ & $(4,-1)$ & 5 & 48 & $60$\\
+$(1,3)$ & 3 & 16 & $10$ & $(2,5)$ & 2 & 1 & $-2$ & $(4,0)$ & 4 & 20 & $2$\\
+$(1,4)$ & 2 & 6 & $2$ & $(2,6)$ & 3 & 1 & $-10$ & $(4,1)$ & 2 & 1 & $-2$\\
+$(1,5)$ & 3 & 15 & $2$ & $(2,7)$ & 6 & 36 & $-40$ & $(4,2)$ & 3 & 8 & $2$\\
+$(1,6)$ & 4 & 10 & $2$ & $(2,8)$ & 2 & 1 & $-2$ & $(4,3)$ & 4 & 10 & $2$\\
+$(1,7)$ & 2 & 6 & $2$ & $(3,-6)$ & 2 & 6 & $2$ & $(5,-1)$ & 2 & 6 & $2$\\
+$(1,8)$ & 4 & 20 & $2$ & $(3,-5)$ & 3 & 15 & $2$ & $(5,0)$ & 5 & 37 & $-2$\\
+$(1,9)$ & 3 & 9 & $-2$ & $(3,-4)$ & 5 & 2 & $-20$ & $(5,1)$ & 3 & 15 & $2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+(b) The first statement is Corollary~\ref{cor:R}.  For the second, an
+orbit that vanishes at all sufficiently large ranks has, under
+Conjecture~\ref{conj:PL}, identically zero class polynomials from its
+onset on; if the onset lies below $150$ these are the fitted
+polynomials, which are not all zero for any of the other $60$ orbits.
+\end{proof}
+
+The every-rank statement (a) rests on exact witnesses and the four
+all-rank proofs of \cite{MahmoodP1Collection2026}; it uses neither
+Conjecture~\ref{conj:PL} nor the held-out test.
+
+\begin{observation}[The zero set at $p=2J^2-1$; exploratory data]
+\label{obs:window}
+\begin{enumerate}[label=(\alph*)]
+\item On $J\in[150,400]$ each orbit of $\mathcal W$ is a quasi-polynomial
+in $J$ of degree at most $2$ on each residue class modulo $|y|$.  The
+period-$2$ zero families in $\mathcal W$ are $(2,0)$
+(Theorem~\ref{thm:C4}: even $J$), $(1,-3)$
+(Remark~\ref{rem:C4-history}(iii): even $J$), $(1,-2)$ (odd $J$) and
+$(0,3)$ (odd $J$).  Larger periods give scattered zero classes:
+$\delta^5$ vanishes for $J\equiv0,\pm10\pmod{29}$ and $\delta^7$ for
+$J\equiv0,\pm24,\pm46,\pm75\pmod{169}$.
+\item The zero set is not confined to $S$-units.  At the ranks
+$J=20,30,40$ ($p=799,1799,3199$) the numbers of units $q$ with
+$\eta_J(L(p,q))=0$ are $120$, $180$ and $268$, among the $734$, $1{,}534$
+and $2{,}734$ units $q\not\equiv\pm1$: about $6J$ zeros per rank.  About $41\%$ of
+the units have no nonzero lattice point with $|u|,|v|\leq J-1$; between
+$95\%$ and $100\%$ of the zeros at these ranks are of that kind, and for
+them $\eta_J$ equals $-4Js+R_J$ alone.
+\item What these counts do and do not show.  The zero set contains
+infinitely many congruence families (Theorem~\ref{thm:P}); no $S$-unit
+orbit of norm $\pm1$ or $\pm2$ other than the first three families of
+\cite[Thm.~7.1]{MahmoodP1Collection2026} vanishes at every rank
+(Corollary~\ref{cor:R}); and in $\mathcal W$ exactly the four families
+vanish at every rank (Corollary~\ref{cor:U}(a)).  Whether the full zero
+set at $p=2J^2-1$ admits a finite parametrized description is open: an
+infinite indexed ladder can itself have one finite defining formula,
+and the counts at three ranks do not decide this.
+\end{enumerate}
+\end{observation}
+
+\begin{remark}[A refuted ``zero-term principle'']
+\label{rem:zero-term}
+One might guess that on a zero class each of $-4Js+R_J$, $\Delta_J$ and
+$L_J$ vanishes separately, as in slice (i) of Theorem~\ref{thm:P}.  This
+is false: in $52$ of $4{,}383$ zero-class rows examined, all in the
+orbits $(4,\pm2)$, the term $-4Js+R_J$ cancels against $L_J$ instead.
+Zeros of $\eta_J$ can arise from cancellation between the
+Dedekind--residue part and the lattice part.
+\end{remark}
+
+\begin{remark}[Narrowing of Observation~\ref{obs:rho-statistics}]
+\label{rem:narrowing}
+Observation~\ref{obs:rho-statistics}(b) describes statistics in the
+coordinate $\rho$ at primes taken one silver rank each.  It does not test
+congruence classes of ranks along $p=2J^2-1$: in the coordinate $q$ the
+silver-power orbits carry structured zeros on such classes
+(Theorem~\ref{thm:P}).  Thus those finite coordinate statistics do not
+justify describing these zeros as accidental.  No structural claim is
+made about the remaining sporadic zeros, and
+Observation~\ref{obs:rho-statistics} remains a description of its stated
+ranges.
+\end{remark}
+
+\section{The period law in the unit and norm-two sectors}
+\label{sec:period-law-proved}
+
+Conjecture~\ref{conj:PL} is a theorem for every nonconstant $S$-unit
+orbit of norm $\pm1$ or $\pm2$, that is every such orbit with $y\neq0$.
+Concretely, with $a=a_n$, $b=P_n$, $\nu=\nu_n$ as in
+Section~\ref{sec:pell}, the orbits of Theorem~\ref{thm:PL} are
+\begin{itemize}
+\item the \emph{unit sector} $\mathsf S_0$: $q=a_n+2P_nJ=q_n$, the
+reduction of $\delta^n$, $n\geq1$, of period $P_n$;
+\item the \emph{norm-two sector} $\mathsf S_1$: $q=a_nJ+\sigma P_n$
+with $\sigma=\pm1$, $n\geq2$, of period $a_n$; here $\sigma=+1$ is the
+reduction of $\delta^n/\sqrt2$, the orbit $(n,-1)$, and $\sigma=-1$ is,
+up to the sign $\nu$, the reduction of $\delta^{-n}/\sqrt2$, the orbit
+$(n,1)$ of $\delta^n\sqrt2$;
+\end{itemize}
+and the small nonconstant orbits $q=J$ and $q=J\pm1$ ($n=0,1$ in
+$\mathsf S_1$, period $1$) are covered by Theorem~\ref{thm:C3},
+\cite[Thm.~7.1]{MahmoodP1Collection2026} and Lemma~\ref{lem:N}, where
+$\eta_J$ is $0$, $0$ and $-2$.  The constant orbit $q=\pm1$ ($n=0$ in
+$\mathsf S_0$, $y=0$) lies outside Conjecture~\ref{conj:PL}; there
+$\eta_J(L(2J^2-1,1))=-J(J-1)(2J-1)/3$ is cubic in $J$
+(Lemma~\ref{lem:N0}), and no statement below about linear class
+polynomials applies to it.  An orbit $(n,m)$ has norm
+$\pm1$ iff $m=0$ and contains an element of norm $\pm2$ iff $|m|=1$; the
+fourth family $2\delta=(1,2)$ has norm $-4$ and lies outside this
+section.  The proof has four ingredients: Lemma~\ref{lem:S} and its
+norm-two analogue make the Dedekind term a rational function of $k$ on
+each residue class; a breakpoint lemma does the same for the residue
+term; Theorem~\ref{thm:U} bounds the denominators of $\eta_J$, which
+forces a rational function to be a polynomial; and a box form of the two
+lattice terms of \eqref{eq:master} shows that they are eventually linear
+in $k$.  Throughout, $\Lambda_q=\{(u,v)\in\Z^2:\ v+qu\equiv0\pmod p\}$,
+$\|(u,v)\|=\max(|u|,|v|)$, and $\langle x\rangle$ is the least
+non-negative residue modulo $p$.
+
+\begin{lemma}[Box form of the lattice terms]
+\label{lem:box}
+For every $p\geq2$, every unit $q$ modulo $p$ and every $J\geq1$,
+\begin{equation}
+ -2\Delta_J-L_J=\sum_{\substack{(u,v)\in\Lambda_q\setminus\{0\}\\
+ \|(u,v)\|\leq J-1}}\sgn(uv)\,\bigl(J-\|(u,v)\|\bigr)=:\mathcal B_J(q).
+ \label{eq:box}
+\end{equation}
+Hence $\eta_J(L(p,q))=\bigl[-4J\,s(q,p)+R_J\bigr]+\mathcal B_J(q)$.  This
+is a rewriting of the two lattice terms of \eqref{eq:master}, not a new
+invariant.
+\end{lemma}
+
+\begin{proof}
+\emph{The low-mode term.}  By the substitution of the proof of
+Theorem~\ref{thm:C4}, $w_L=u+v$, $w_R=v-u$, the pairs counted by
+$I_{J-m,J+m}$ are the lattice points $(u,v)\in\Lambda_q$ with
+$|u+v|\leq J-m-1$, $|v-u|\leq J+m-1$ and $u+v\equiv J-m-1\pmod2$, and
+those counted by $I_{J+m,J-m}$ are the same with the two bounds
+exchanged; every such point has $\|(u,v)\|\leq J-1$.  Fix a nonzero
+$(u,v)\in\Lambda_q$ with $M:=\|(u,v)\|\leq J-1$, put
+$m_0:=\min(|u|,|v|)$, $r=u+v$, $t=v-u$ (so $r\equiv t\pmod2$), and
+count the $m\in[1,J-1]$ for which the point is counted.  If $|r|\leq J$
+and $|t|\leq J$, the two counts are $\lfloor(J-|r|)/2\rfloor$ and
+$\lfloor(J-|t|)/2\rfloor$, whose difference is
+$(|t|-|r|)/2=-\sgn(uv)\,m_0$.  Otherwise exactly one of the two counts
+is nonzero and equals $J-M$, the count with the sign
+$-\sgn(uv)$.  Hence the point contributes $-\sgn(uv)\min(m_0,\,J-M)$
+to $L_J$; points with $uv=0$ contribute nothing.
+
+\emph{The triangular sum.}  A pair $(a,b)$ with $aq\equiv b$ is the
+point $(a,-b)\in\Lambda_q$ and a pair with $aq\equiv-b$ is the point
+$(a,b)$, with weight $J-|u|-|v|$ when $|u|+|v|\leq J-1$; so, using the
+symmetry $(u,v)\mapsto(-u,-v)$ of $\Lambda_q$ and of $\sgn(uv)$,
+$-2\Delta_J=\sum\sgn(uv)\,(J-|u|-|v|)_+$ over the nonzero points of
+$\Lambda_q$.
+
+\emph{Sum.}  If $m_0+M\leq J-1$ the two contributions add to
+$(J-M-m_0)+m_0=J-M$; otherwise $(J-|u|-|v|)_+=0$ and
+$\min(m_0,J-M)=J-M$.
+\end{proof}
+
+\begin{lemma}[Norm-two Dedekind reduction]
+\label{lem:Sprime}
+Let $n\geq1$, $J\geq2$, $p=2J^2-1$, $\sigma=\pm1$, $q=aJ+\sigma b$ and
+$t=aJ-\sigma b$.  Then $a^2p=2qt-\nu$, hence $q^*\equiv2\nu t\pmod p$, and
+\begin{equation}
+ s(q,p)=\mathcal T(q,p)+\nu\,\mathcal T(a^2,q)-\nu\,s\bigl(q\bmod a^2,\,a^2\bigr),
+ \label{eq:lemma-Sprime}
+\end{equation}
+where $q\bmod a^2=(aJ+\sigma b)\bmod a^2$ depends only on $J\bmod a$.
+\end{lemma}
+
+\begin{proof}
+$2qt=2(a^2J^2-b^2)=a^2(p+1)-2b^2=a^2p+\nu$ by (F1).  So $2qt\equiv\nu$
+modulo $p$, which gives $q^*$, and $a^2p\equiv-\nu\pmod q$, so
+$p\equiv-\nu a^{-2}\pmod q$; here $\gcd(a,q)=\gcd(a,b)=1$.  Hence
+$s(p,q)=-\nu\,s(a^2,q)$, and two applications of
+\eqref{eq:reciprocity} give \eqref{eq:lemma-Sprime}.
+\end{proof}
+
+\begin{lemma}[Breakpoints]
+\label{lem:K}
+Let $k\geq1$.
+\begin{enumerate}[label=(\alph*)]
+\item \textup{($\mathsf S_0$.)}  Let $J=bk+j$ with $0\leq j<b$,
+$q=q_n$, $t=2bJ-a$, $d_j=2bj-a$ and $q_j=a+2bj$.  For $1\leq c\leq b$,
+$\lceil cp/q\rceil=ck+e_c$ with $e_c=\lceil c\,d_j/(2b^2)\rceil$, or
+$c\,d_j/(2b^2)+\ind_{\nu=1}$ when that quotient is an integer; and
+$\lceil cp/t\rceil=ck+e'_c$, the same with $q_j$ in place of $d_j$.
+\item \textup{($\mathsf S_1$.)}  Let $J=ak+j$ with $0\leq j<a$,
+$q=aJ+\sigma b$, $t=aJ-\sigma b$.  Then
+$\lceil cp/q\rceil=2ck+\lceil2c(aj-\sigma b)/a^2\rceil$ for
+$1\leq c\leq(a+1)/2$ and
+$\lceil cp/(2t)\rceil=ck+\lceil c(aj+\sigma b)/a^2\rceil$ for
+$1\leq c\leq a$, both ceilings being of non-integers.
+\item In both sectors $q^*\equiv-\nu t$ ($\mathsf S_0$) or $2\nu t$
+($\mathsf S_1$).  The number of wraps $\lfloor\alpha x/p\rfloor$ of a
+residue $\langle\alpha x\rangle$, $1\leq\alpha\leq J-1$, equals the number
+of the breakpoints $\lceil cp/x\rceil$ that are $\leq\alpha$.  The
+breakpoints entering the layer-cake sums below ($c\leq b-1$ in
+$\mathsf S_0$; $c\leq(a-1)/2$ for $q$ and $c\leq a-1$ for $2t$ in
+$\mathsf S_1$) are all $\leq J+1$, and in $\mathsf S_1$ all $\leq J$,
+whenever $J\geq P$ (the period).  The $\mathsf S_1$ breakpoint
+$c=(a+1)/2$ of $q$ is listed only to show that it is $\geq J$; it is
+inactive and can exceed $J+1$ (for $a=3$, $b=2$, $\sigma=-1$, $J=3$ it is
+$\lceil34/7\rceil=5$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) From $M_np=qt+\nu$ \eqref{eq:F5} and $t=M_nk+d_j$, $q=M_nk+q_j$:
+$cp/q=ck+c\,d_j/M_n+c\nu/(M_nq)$ and $cp/t=ck+c\,q_j/M_n+c\nu/(M_nt)$.
+The last terms have absolute value $<1/M_n$ because $c<q$ and $c<t$, so
+the ceiling is decided by $c\,d_j/M_n$ (resp.\ $c\,q_j/M_n$), or, when
+that is an integer, by the sign of $\nu$.  Also $\lceil bp/q\rceil=J$
+and $\lceil bp/t\rceil=J+1$, because $0<a/(2b)<1$.
+(b) From $a^2p=2qt-\nu$ (Lemma~\ref{lem:Sprime}) and $t=a^2k+aj-\sigma b$,
+$q=a^2k+aj+\sigma b$: $cp/q=2ck+2c(aj-\sigma b)/a^2-c\nu/(a^2q)$ and
+$cp/(2t)=ck+c(aj+\sigma b)/a^2-c\nu/(2a^2t)$.  In the stated ranges
+$a^2$ divides neither $2c(aj-\sigma b)$ nor $c(aj+\sigma b)$, because
+every prime $\ell\mid a$ has $\ell\nmid b$, hence
+$\ell\nmid(aj\mp\sigma b)$; so the ceilings are of non-integers, and
+the corrections are below $1/a^2$ in absolute value.
+(c) The inverses are \eqref{eq:F5} and Lemma~\ref{lem:Sprime}; the wrap
+count is the definition of the breakpoints.  In $\mathsf S_1$ the
+breakpoint $c=(a+1)/2$ of $q$ is at least $(a+1)k+j-1>J-1$, and
+$\lceil ap/(2t)\rceil\geq J$; in $\mathsf S_0$ the last breakpoints are
+$J$ and $J+1$ by (a), and they bound every earlier active breakpoint by
+monotonicity in $c$.  For the active $\mathsf S_1$ breakpoints we use the
+following identities: with $a$ odd,
+\[
+ Jq-\tfrac{a-1}2\,p=J^2+\sigma bJ+\tfrac{a-1}2,\qquad
+ J(2t)-(a-1)\,p=2J^2-2\sigma bJ+a-1,
+\]
+both positive for $J\geq a>b$.  Hence
+$\lceil\frac{a-1}2\,p/q\rceil\leq J$ and $\lceil(a-1)p/(2t)\rceil\leq J$,
+and by monotonicity in $c$ every active breakpoint is $\leq J$.  The
+layer-cake form is used below only for $k\geq1$, that is for $J\geq P$,
+which in $\mathsf S_1$ is $J\geq a$.
+\end{proof}
+
+The finite breakpoint checks, on every class $j<40$ with $k\leq5$ of
+the $24$ families of Observation~\ref{obs:zero-classes}, are reported
+separately in Appendix~\ref{app:verification}.
+
+\begin{theorem}[The period law in $\mathsf S_0$ and $\mathsf S_1$]
+\label{thm:PL}
+Let the family be $\mathsf S_0$ ($n\geq1$) or $\mathsf S_1$ ($n\geq2$,
+$\sigma=\pm1$), with period $P=P_n$ ($\mathsf S_0$) or $P=a_n$
+($\mathsf S_1$).  For each residue $j$ modulo $P$ there is a polynomial
+$\mathcal Q_j$ of degree at most $1$ and a threshold $k^*_j\geq1$, computed
+from linear data of the class, such that
+\begin{equation}
+ \eta_J(L(p,q))=\mathcal Q_j(k)\qquad\text{for every }J=Pk+j\text{ with }k\geq k^*_j .
+ \label{eq:PL}
+\end{equation}
+A class is a zero class ($\mathcal Q_j\equiv0$) iff $\mathcal Q_j$
+vanishes at $k^*_j$ and $k^*_j+1$.  The complete zero set of
+the orbit is the union of the zero classes (for $k\geq k^*_j$), the
+isolated zeros (integer roots $k\geq k^*_j$ of the nonzero
+$\mathcal Q_j$, at most one per class), and the finitely many zeros with
+$k<k^*_j$, which are checked directly.  A nonzero class polynomial can
+vanish at an isolated rank, so the zero set need not be a union of whole
+residue classes beyond the thresholds.
+\end{theorem}
+
+\begin{proof}
+Write $\eta_J=f(k)+\mathcal B_J$ with $f=-4Js+R_J$ (Lemma~\ref{lem:box}),
+and fix the class $j$.
+
+\emph{(1) The bulk $f$ is a rational function of $k$ for every $k\geq1$.}
+The Dedekind term is given by Lemma~\ref{lem:S} ($\mathsf S_0$) or
+Lemma~\ref{lem:Sprime} ($\mathsf S_1$); its only arithmetic input is a
+Dedekind sum of fixed modulus ($2b^2$ or $a^2$) at an argument fixed by
+$j$, and the rest is the rational function $\mathcal T$.  The residue
+term is $\frac2p\sum_\alpha(J-\alpha)\rho_p(\alpha q)$ plus the inverse
+part, which is $-\nu\frac2p\sum_\alpha(J-\alpha)\rho_p(\alpha t)$ in
+$\mathsf S_0$ and $\nu\frac2p\sum_\alpha(J-\alpha)\rho_p(2\alpha t)$ in
+$\mathsf S_1$ (Lemma~\ref{lem:K}(c)).  Here
+$\rho_p(\alpha x)=p\,(1+2c_x(\alpha))-2\alpha x$ with $c_x(\alpha)$ the
+number of wraps, and by Lemma~\ref{lem:K} and the layer-cake identity
+$\sum_\alpha(J-\alpha)c_x(\alpha)=\sum_{\beta}(J-\beta)(J-\beta+1)/2$
+over the active breakpoints $\beta$ of Lemma~\ref{lem:K}(c) (all
+$\leq J+1$, so a breakpoint equal to $J$ or $J+1$ contributes $0$),
+$p\,R_J$ is a polynomial in $k$.
+
+\emph{(2) $f(k)\in\frac23\Z$ for every $k\geq1$.}  By
+Theorem~\ref{thm:U} at $p=2J^2-1$, $\eta_J\in-4Jp\,s(q,p)+2\Z$, and
+$6p\,s(q,p)\in\Z$ by Lemma~\ref{lem:dedekind-facts}, so
+$\eta_J\in\frac23\Z$; and $\mathcal B_J\in2\Z$, because its summand is
+invariant under $(u,v)\mapsto(-u,-v)$ and $(0,0)$ is excluded, so the
+points pair up.  (An integer $\mathcal B_J$ would already give
+$f\in\frac13\Z$, which also suffices below.)
+
+\emph{(3) Rational to polynomial.}  A rational function
+$g\in\Q(k)$ with $g(k)\in\frac1D\Z$ for all large integers $k$ is a
+polynomial: write $g=S+R/Q$ with $\deg R<\deg Q$; then
+$D'\,R(k)/Q(k)\in\Z$ for large $k$ and tends to $0$, so $R\equiv0$.
+Growth: $s=O(J)$ by Lemma~\ref{lem:S} or \ref{lem:Sprime}, so
+$f=O(k^2)$ and $\deg f\leq2$.
+
+\emph{(3$'$) The $k^2$ coefficient of $f$ vanishes.}  Write
+$\rho_p(\alpha x)=p(1+2c_x(\alpha))-2\alpha x$ with $c_x(\alpha)$ the
+number of wraps.  Then $R_J$ is the sum of a constant part
+$2(1\mp\nu)\sum_\alpha(J-\alpha)$ (upper sign $\mathsf S_0$), the
+layer-cake part $4\sum_\alpha(J-\alpha)\bigl(c_q(\alpha)\mp\nu\,c_x(\alpha)\bigr)$
+with $x=t$ ($\mathsf S_0$) or $x=2t$ and the lower sign
+($\mathsf S_1$), and the part $-\frac4p\sum_\alpha(J-\alpha)\alpha\,(q-\nu t)$,
+resp.\ $(q+2\nu t)$, with $\sum_\alpha(J-\alpha)\alpha=(J^3-J)/6$.  The
+breakpoints are linear in $k$ with bounded offsets (Lemma~\ref{lem:K}),
+and the Dedekind lookups are bounded, so only leading slopes enter the
+$k^2$ coefficient $\lim f/k^2$.  Part by part it is
+\begin{center}
+\small
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+& $-4J\cdot$(rational part of $s$) & constant & layer cake & $\alpha$-part & sum\\
+\midrule
+$\mathsf S_0$, $\nu=+1$ & $0$ & $0$ & $0$ & $0$ & $0$\\
+$\mathsf S_0$, $\nu=-1$ & $-\frac{2b}3$ & $2b^2$ & $\frac23(b-1)b(2b-1)$ & $-\frac43b^3$ & $0$\\
+$\mathsf S_1$, $\nu=+1$ & $-a$ & $2a^2$ & $a(a-1)^2$ & $-a^3$ & $0$\\
+$\mathsf S_1$, $\nu=-1$ & $-\frac a3$ & $0$ & $-\frac13(a-1)a(a+1)$ & $\frac{a^3}3$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+independently of $\sigma$, so $\deg f\leq1$.  (The values were derived by
+hand and certified symbolically by sympy and by the local Wolfram
+Engine~14.3, with identical part values; Remark~\ref{rem:period-certificates}.)
+
+\emph{(4) The box $\mathcal B_J$ is linear in $k$ for $k\geq k^*_j$.}
+Within one wrap interval $\langle\alpha q\rangle$ increases by $q>J-1$,
+so a lattice point of the box with $u=\alpha\geq1$ sits at an interval
+start ($\langle\alpha q\rangle\leq J-1$, $v=-\langle\alpha q\rangle$) or
+at an interval end ($p-\langle\alpha q\rangle\leq J-1$,
+$v=p-\langle\alpha q\rangle$); negative $u$ follow by symmetry, and
+$u=0$ gives $v=0$.  At the starts and at the regular ends
+($\alpha=\beta-1$ for a breakpoint $\beta\leq J$) both $u$ and $|v|$ are
+linear in $k$: $\langle\alpha_cq\rangle=\alpha_cq-cp$ has no $k^2$ term,
+and $p-\langle(\beta-1)q\rangle=q-\langle\beta q\rangle$.  The last
+element $u=J-1$ is a regular end, except in $\mathsf S_1$ when it lies
+in the interval $c=(a-1)/2$ truncated at $J-1$; there
+$p-\langle(J-1)q\rangle=\tfrac{a+1}2p-(J-1)q=J^2+(a-\sigma b)J+\sigma b-\tfrac{a+1}2$,
+which exceeds $J-1$ for $J\geq a$ because $a^2>b+(a-1)/2$, so it is
+never in the box (if that breakpoint exceeds $J-1$, which happens only
+at $k=1$, it equals $J$ and $J-1$ is a regular end).  Now $k^*_j\geq1$ is
+the first $k\geq1$ beyond every crossing of the linear conditions $|v|\leq J-1$,
+$u\leq J-1$ and $u\lessgtr|v|$; each linear form is fixed by three exact
+values, and collinearity certifies that its $k^2$ term is absent.  For
+$k\geq k^*_j$, $\mathcal B_J$ is a fixed signed sum of terms
+$J-\max(u,|v|)$, hence linear in $k$.
+
+\emph{(5)} $\eta_J=f+\mathcal B_J$ is a polynomial of degree at most $1$
+for $k\geq k^*_j$; two values determine it.
+\end{proof}
+
+\emph{The decision procedure.}  For a family and a class $j$, compute
+the threshold $k^*_j$ from the linear data of step~(4), evaluate
+$\eta_J$ exactly at $k=k^*_j,k^*_j+1,k^*_j+2$, and read off
+$\mathcal Q_j$; the class is a zero class iff the values vanish (two
+suffice by the degree bound; the recorded computations used three).
+For the complete zero set, also solve each nonzero $\mathcal Q_j$ for
+integer roots $k\geq k^*_j$ and evaluate the finitely many ranks with
+$k<k^*_j$ directly.  The zero classes for $\mathsf S_0$, $n\leq10$, and
+$\mathsf S_1$, $n\leq8$, are in Observation~\ref{obs:zero-classes}.
+Across these $24$ families there is exactly one isolated zero beyond the
+thresholds: $\mathsf S_1$, $n=7$, $\sigma=+1$, class $j=190$, where
+$\mathcal Q_{190}(k)=2-2k$ vanishes at $k=1$, $J=429$ (and
+$\eta=-2,-4$ at $J=668,907$).  There are also $363$ zeros below the
+thresholds, mostly at the smallest rank of a class.  The isolated zero
+and all $364$ zeros were re-evaluated exactly;
+the complete sets are retained with the sources
+(\path{results/LC14B_ZERO_SETS.json} of \cite{LCrecord}).
+
+\begin{corollary}[Eventual periodicity of the zero set]
+\label{cor:eventual}
+In each family of Theorem~\ref{thm:PL}, with period $P$, put
+\[
+ J_1=\max_j\Bigl(P\,(k^*_j+1)+j,\ \max_r\bigl(P\,(r+1)+j\bigr)\Bigr),
+\]
+where $r$ runs over the integer roots of the nonzero $\mathcal Q_j$ (the
+inner maximum is omitted when there are no such roots).  For
+$J\geq J_1$, $\eta_J(L(2J^2-1,q))=0$ iff $J\bmod P$ is a zero class.
+Hence the zero set of the orbit is eventually periodic, and its natural
+density is (number of zero classes)$/P$.
+\end{corollary}
+
+\begin{proof}
+For $J=Pk+j\geq J_1$ one has $k>k^*_j$ and $k$ exceeds every root of
+$\mathcal Q_j$, so $\eta_J=\mathcal Q_j(k)$ vanishes iff
+$\mathcal Q_j\equiv0$.
+\end{proof}
+
+The periodic onset need not equal a class threshold:
+the isolated zero $J=429$ lies past its class threshold but below $J_1$.
+Regular class laws and one-off cancellations coexist.  For example, the
+densities of the zero sets of $\delta^3,\ldots,\delta^9$ are $1/5$,
+$2/12$, $3/29$, $10/70$, $7/169$, $18/408$ and $3/985$, read off from
+Observation~\ref{obs:zero-classes}.
+
+\begin{theorem}[The norm-two slice $J\equiv0\pmod{a_n}$]
+\label{thm:Q}
+For every $n\geq2$, $k\geq1$ and $J=a_nk$, $p=2J^2-1$,
+\[
+ \eta_J\bigl(L(p,\,a_nJ-P_n)\bigr)=
+ \begin{cases}-P_{n-1}^2\,k,&n\text{ odd},\\[2pt]
+ \tfrac13P_nP_{n-2}\,k,&n\text{ even},\end{cases}
+ \qquad
+ \eta_J\bigl(L(p,\,a_nJ+P_n)\bigr)=-\eta_J\bigl(L(p,\,a_nJ-P_n)\bigr).
+\]
+It is zero only for $n=2$.
+\end{theorem}
+
+\begin{proof}
+This is the class $j=0$ of $\mathsf S_1$.  By Lemma~\ref{lem:Sprime},
+since $q\bmod a^2\equiv\sigma b$ and $a^2\equiv\nu\pmod b$ by (F1),
+$s(q,p)=\mathcal T(q,p)+\nu\mathcal T(a^2,q)-\nu\sigma\mathcal T(b,a^2)+\sigma s(1,b)$.
+Lemma~\ref{lem:K}(b) gives the breakpoints $2ck+\ind_{\sigma=-1}$ for
+$q$, $1\leq c\leq(a-1)/2$, and $ck+\ind_{\sigma=1}$ for $2t$,
+$1\leq c\leq a-1$.  The box is empty for every $k\geq1$: at the interval
+starts $\langle\alpha_cq\rangle=k(2c\sigma b+\ind_{\sigma=-1}a^2)+(\ind_{\sigma=-1}\sigma b+c)$
+exceeds $J-1$; at the regular ends $p-\langle\alpha q\rangle$ equals
+$(c+1)(2bk-1)$ for $\sigma=-1$ and $k(a^2-2(c+1)b)+(b-c-1)$ for
+$\sigma=+1$, both exceeding $J-1$ by (F4) ($b\leq a<2b$); and the final
+end is excluded as in step~(4) of Theorem~\ref{thm:PL}.  So
+$\eta_J=f=-4Js+R_J$, and the Faulhaber sums give the stated values
+(certificate, Remark~\ref{rem:period-certificates}).  For $n\geq3$ the
+values are nonzero since $P_{n-1},P_{n-2}\geq1$; for $n=2$, $P_0=0$.
+\end{proof}
+
+\begin{lemma}
+\label{lem:N}
+$\eta_J(L(2J^2-1,\,J-1))=-2$ for every $J\geq2$.
+\end{lemma}
+
+\begin{proof}
+$p=(J-1)(2J+2)+1$, so $s(J-1,p)=\mathcal T(J-1,p)-s(1,J-1)$ and
+$q^*\equiv-(2J+2)$.  No residue wraps, as $\alpha(2J+2)\leq p-1$ for
+$\alpha\leq J-1$.  The box is $\{\pm(1,-(J-1))\}$, giving
+$\mathcal B_J=-2$, and the bulk $-4Js+R_J$ vanishes identically
+(certificate, Remark~\ref{rem:period-certificates}).
+\end{proof}
+
+\begin{lemma}
+\label{lem:N0}
+$\eta_J(L(2J^2-1,\,1))=-J(J-1)(2J-1)/3$ for every $J\geq2$.
+\end{lemma}
+
+\begin{proof}
+$s(1,p)=(p-1)(p-2)/(12p)$ and $\rho_p(\alpha)=p-2\alpha$.  The box is
+$\{(u,-u):\ 1\leq|u|\leq J-1\}$, since $p>2J-2$, so
+$\mathcal B_J=-J(J-1)$.  Summing gives the value (certificate,
+Remark~\ref{rem:period-certificates}).
+\end{proof}
+
+\begin{corollary}[Rank-uniform zeros of norm $\pm1$ and $\pm2$]
+\label{cor:R}
+The $S$-unit orbits of norm $\pm1$ or $\pm2$ are $\pm1$,
+$\pm\delta^{\pm n}$ and the norm-two orbits $a_nJ\pm P_n$ ($n\geq0$).
+Those for which $\eta_J$ vanishes at every rank $J\geq2$, or at all
+sufficiently large ranks, are exactly the first three families of
+\cite[Thm.~7.1]{MahmoodP1Collection2026}: $q\equiv J$, $J+1$, $2J-1$, up
+to orbit.  The fourth family $2\delta$ has norm $-4$ and is not covered.
+\end{corollary}
+
+\begin{proof}
+\emph{Norm $\pm1$.}  $q=\pm1$ never vanishes (Lemma~\ref{lem:N0});
+$\delta$ is the third family; $\delta^n$ with $n\geq2$ is nonzero on
+$J\equiv1\pmod{P_n}$ (Theorem~\ref{thm:P}(ii)).
+\emph{Norm $\pm2$, $n\geq3$.}  These orbits are nonzero on
+$J\equiv0\pmod{a_n}$ (Theorem~\ref{thm:Q}).
+\emph{$n=2$, i.e.\ $q=3J\mp2$.}  Both orbits are nonzero on the class
+$J\equiv1\pmod3$, where the procedure's certified polynomial is
+$\mathcal Q(k)=2k$ for both signs.
+\emph{$n=1$.}  $q=J+1$ is the second family; $q=J-1$ gives $-2$
+(Lemma~\ref{lem:N}).
+\emph{$n=0$.}  $q=J$ is the first family.
+\end{proof}
+
+\begin{observation}[Zero classes in the proved sectors]
+\label{obs:zero-classes}
+The decision procedure gives the complete zero-class sets below
+($J\equiv j$ modulo the period); the entries for $\delta^{10}$ and for
+$n=8$ in $\mathsf S_1$ were never computed before the procedure was
+fixed.  For $\delta^{10}$ the $58$ classes are enumerated in the
+supplementary JSON cited after the table; only their number is printed
+in the table.
+\begin{center}
+\small
+\begin{tabular}{@{}lcL{0.58\textwidth}@{}}
+\toprule
+orbit & period & zero classes\\
+\midrule
+$\delta$ & $1$ & all $J\geq2$ (third family)\\
+$\delta^2$ & $2$ & $\{0\}$ (Theorem~\ref{thm:C4})\\
+$\delta^3$ & $5$ & $\{0\}$\\
+$\delta^4$ & $12$ & $\{3,9\}$\\
+$\delta^5$ & $29$ & $\{0,10,19\}$\\
+$\delta^6$ & $70$ & $\{7,10,13,14,20,50,56,57,60,63\}$\\
+$\delta^7$ & $169$ & $\{0,24,46,75,94,123,145\}$\\
+$\delta^8$ & $408$ & $\{17,24,34,48,72,85,96,109,119,\allowbreak
+289,299,312,323,336,360,374,384,391\}$\\
+$\delta^9$ & $985$ & $\{0,193,792\}$\\
+$\delta^{10}$ & $2378$ & $58$ classes\\
+\midrule
+$a_nJ-P_n$ / $a_nJ+P_n$, $n=2$ & $3$ & $\{0\}$ / $\{0\}$\\
+$n=3$ & $7$ & $\{2\}$ / $\{5\}$\\
+$n=4$ & $17$ & $\{4,13,14\}$ / $\{3,4,13\}$\\
+$n=5$ & $41$ & $\{8,12,27\}$ / $\{14,29,33\}$\\
+$n=6$ & $99$ & $\{20,21,28,31,71,78,79\}$ / $\{20,21,28,68,71,78,79\}$\\
+$n=7$ & $239$ & $\{41,46,70,75,113,193\}$ / $\{46,126,164,169,193,198\}$\\
+$n=8$ & $577$ & $\{32,119,120,122,168,409,\allowbreak410,439,457,458,547\}$ /
+$\{30,119,120,138,167,168,\allowbreak409,455,457,458,545\}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The full list of $58$ classes for $\delta^{10}$ is included in
+\path{results/LC14B_ZERO_SETS.json} of the supplement \cite{LCrecord}.
+Across these $24$ families the largest threshold $k^*_j$ is $2$ and
+every $\mathcal Q_j$ has degree at most $1$, as Theorem~\ref{thm:PL}
+now proves.  \emph{Observed, not proved:} the zero sets of $\delta^n$
+are symmetric under $j\mapsto-j$, and the two signs of the norm-two
+orbits have mirror-image zero sets.
+\end{observation}
+
+\begin{remark}[Symbolic certificates]
+\label{rem:period-certificates}
+The Faulhaber-sum evaluations behind Theorem~\ref{thm:Q} (four cases
+$(\nu,\sigma)$), the vanishing bulk of Lemma~\ref{lem:N} and the sum of
+Lemma~\ref{lem:N0} were certified symbolically by sympy (exact
+rationals, polynomial remainder modulo $a^2-2b^2-\nu$, no numerical
+simplification), together with a re-run of the identities of
+Remark~\ref{rem:faulhaber-certificate}; seven identity sets, all true.
+The same identities were independently checked in Wolfram
+Engine~14.3.  Theorem~\ref{thm:Q} in all four cases and
+Lemmas~\ref{lem:N} and~\ref{lem:N0} agree in both routes.  The
+certificates of Theorem~\ref{thm:P} remain those of
+Remark~\ref{rem:faulhaber-certificate}, sympy and Wolfram Engine~14.3.
+The leading-coefficient table of step~(3$'$) of Theorem~\ref{thm:PL}
+was certified separately by sympy and by Wolfram
+Engine~14.3: each part's $k^2$ coefficient was computed as
+$\lim_{k\to\infty}(\text{part})/k^2$ from the exact expressions, with
+the layer-cake parts as symbolic sums over $c$; the two routes give
+identical part values and total $0$ in all six cases $(\mathsf S_0,\nu)$
+and $(\mathsf S_1,\nu,\sigma)$.
+Every identity is also confirmed by exact evaluation on every row of
+Appendix~\ref{app:verification}.
+\end{remark}
+
+\begin{remark}[Verification]
+\label{rem:period-verification}
+Lemma~\ref{lem:box} was checked against the literal $\Delta_J$ and $L_J$
+on $181$ random triples $(p,q,J)$ with arbitrary moduli $2\leq p\leq150$
+and $J\leq40$, and the mutated weight $J-|u|-|v|$ fails.
+Theorem~\ref{thm:Q} was checked on $70$ exploratory rows ($n\leq8$,
+$2\leq k\leq6$, both signs) and $82$ rows fixed before computation
+($n\leq12$ with $k=7,8,9$ and $13\leq n\leq16$ with $k=1,2$, both
+signs), the largest being $n=16$, $J=1{,}331{,}714$ with
+$\eta_J(L(p,a_{16}J-P_{16}))=25{,}356{,}500{,}416=\frac13P_{16}P_{14}\cdot2$;
+also $n=15$, $J=551{,}614$: $\eta_J=-13{,}051{,}463{,}048=-P_{14}^2\cdot2$;
+the sign-flipped statement fails on every odd-$n$ held-out row.
+Lemmas~\ref{lem:N} and \ref{lem:N0} were checked at $J=401,\ldots,410$
+and at $J=10{,}000$, resp.\ $J=5{,}000$.  For Theorem~\ref{thm:PL} the
+procedure's polynomial $\mathcal Q_j$ of every class of the $24$
+families predicted $\eta_J$ at $k^*_j+3$ and $k^*_j+4$ (and, for
+$\delta^n$ with $n\leq8$ and the norm-two orbits with $n\leq6$, at
+$3k^*_j+11$) before those rows were computed: $13{,}080$ predictions,
+none missed.  A fit with the wrong period $P_n+1$ mispredicts $6$, $13$,
+$30$, $71$ and $170$ classes for $n=3,\ldots,7$.
+\end{remark}
+
+\begin{corollary}[Unbounded ambiguity of a vanishing eta invariant]
+\label{cor:ambiguity}
+For every $K\geq1$ there are a rank $J$ and the level $p=2J^2-1$ with
+$K$ chiral lens spaces $L(p,q_1),\ldots,L(p,q_K)$ whose orbits
+$\{\pm q_i^{\pm1}\}$ are pairwise distinct (so no two are homeomorphic,
+even after orientation reversal), all with $\eta_J(L(p,q_i))=0$ and
+none rank-$J$ balanced.  One can take the $q_i$ to be the reductions of
+$\delta^{n_i}$ for any $K$ distinct odd $n_i\geq3$, and $J$ any
+sufficiently large multiple of
+$\operatorname{lcm}(P_{n_1},\ldots,P_{n_K})$.
+\end{corollary}
+
+\begin{proof}
+Fix distinct odd $n_1,\ldots,n_K\geq3$, put
+$\Lambda=\operatorname{lcm}(P_{n_1},\ldots,P_{n_K})$ and let $J$ be a
+multiple of $\Lambda$.  Then $P_{n_i}\mid J$ and Theorem~\ref{thm:P}(i)
+gives $\eta_J(L(p,q_{n_i}))=0$ for every $i$.  Since
+\eqref{eq:sqrt2-reduction} is a ring homomorphism,
+$q_nq_m\equiv q_{n+m}\pmod p$.  Hence each of the relations
+$q_{n_i}\equiv\pm q_{n_j}$ ($i\neq j$) and $q_{n_i}q_{n_j}\equiv\pm1$
+(the orbit collisions), $q_{n_i}^2\equiv-1$ (the mirror condition,
+i.e.\ $q_{2n_i}+1\equiv0$) and $q_{n_i}\equiv\pm(2J\pm1)$ (family (b)
+of Theorem~\ref{thm:classification}) says that $p$ divides one of the
+integers
+\[
+ a_{n_i}\mp a_{n_j}+2(P_{n_i}\mp P_{n_j})J,\qquad
+ a_{n_i+n_j}\mp1+2P_{n_i+n_j}J,\qquad
+ a_{2n_i}+1+2P_{2n_i}J,\qquad
+ a_{n_i}\mp1+2(P_{n_i}\mp1)J,
+\]
+each an affine function of $J$ whose coefficient of $J$ is nonzero
+($P_n$ is strictly increasing and $P_{n_i}\geq5$).  Finitely many such
+functions occur; each is nonzero and of absolute value less than
+$p=2J^2-1$ for all large $J$, so $p$ divides none of them.  Family (c)
+of Theorem~\ref{thm:classification} is impossible because $p>2J$.
+Hence, for all sufficiently large multiples $J$ of $\Lambda$, the $K$
+orbits are pairwise distinct, none is mirror, and by
+Theorem~\ref{thm:classification} none of the $L(p,q_{n_i})$ is rank-$J$
+balanced.
+\end{proof}
+
+This deduction from Theorem~\ref{thm:P} and
+Theorem~\ref{thm:classification} says that the single
+number $\eta_J$ can lose an unbounded amount of information about the
+handedness of the geometry: at a suitable rank, as many pairwise
+non-homeomorphic chiral lens spaces as desired share the reading
+$\eta_J=0$ while having unequal level counts.  It says nothing about the
+full level sequences $(D_J(n))_{n\geq0}$, the all-rank sequences
+$(\eta_J)_{J\geq1}$ or other invariants, which may well separate them.
+
+\begin{remark}[Rank one against higher rank]
+\label{rem:rank-one}
+At $J=1$ the opposite holds: $\eta_1(L(p,q))=-4s(q,p)$ vanishes iff
+$q^2\equiv-1\pmod p$ \cite[p.~36]{RademacherGrosswald1972}, iff $L(p,q)$
+is amphicheiral, and then it is balanced at every level
+\cite[Cor.~4.4]{LensChirality2026}; so a zero of $\eta_1$ is exactly a
+mirror symmetry.  (As an independent check of the convention,
+$\eta_1=0\iff q^2\equiv-1$ was re-verified with the literal Dedekind sum
+for every $2\leq p<400$ and every unit $q$: $191$ zeros among $48{,}517$
+pairs, no exception; Appendix~\ref{app:verification}.)  At prime moduli
+$p\geq5$ the dichotomy survives at every rank with $2J^2\not\equiv1\pmod p$
+and $p\nmid J$ (Corollary~\ref{cor:E}(c)); at the blind ranks $p\mid J$
+every $q\not\equiv\pm1$ is a zero \cite[Cor.~6.4(d)]{LensChirality2026}.  Corollary~\ref{cor:ambiguity} shows that at
+silver ranks it fails without bound.  In the language of chemistry, the
+chiral spaces of Corollary~\ref{cor:ambiguity} are cryptochiral for
+$\eta_J$: handed, with a vanishing net helicity.
+\end{remark}
+
+\section{Open problems}
+\label{sec:open}
+
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{The period law beyond norm $\pm2$.}  Prove
+Conjecture~\ref{conj:PL} for the orbits with $|m|\geq2$, for example the
+fourth family $2\delta=(1,2)$ and the orbit $(1,-3)$ of $q\equiv4-4J$,
+with effective onsets.
+\item \emph{Symmetries.}  The reflection $j\mapsto-j$ of the zero classes
+of $\delta^n$ and the mirror relation between the two signs of the
+norm-two orbits are observed only.
+\item \emph{Zeros outside the $S$-units.}  At $J=20,30,40$ there are about
+$6J$ zeros per rank, most of them with an empty box
+(Observation~\ref{obs:window}(b)); they are not classified.
+\item \emph{Divisors.}  At divisors $p<2J^2-1$ of $2J^2-1$ only the
+universal orbits of Observation~\ref{obs:rho-statistics}(a) are proved to
+be zeros; Sections~\ref{sec:period-law} and \ref{sec:period-law-proved}
+concern the level $p=2J^2-1$ only.
+\item \emph{A finite description.}  Whether the full zero set at
+$p=2J^2-1$ admits a finite parametrized description is open
+(Observation~\ref{obs:window}(c)).
+\item \emph{Literature.}  The Dedekind-sum evaluations at Pell-type
+arguments used here, and Corollary~\ref{cor:S}, are likely classical;
+no literature search has been made for them.
+\end{enumerate}
+
+\appendix
+
+\section{Exact computations}
+\label{app:verification}
+
+Every statement was accompanied by exact computations in integer or
+rational arithmetic, several with predictions fixed before the
+corresponding rows were computed (``held-out''; ``exploratory'' rows were
+available when the statement was formulated).  They test the identities
+and conventions; they do not replace the proofs.  The independent
+evaluator named below is the pinned exact implementation of the master
+formula used throughout the companion \cite{LensChirality2026}.
+
+\begin{small}
+\begin{longtable}{@{}L{0.24\textwidth}L{0.41\textwidth}L{0.2\textwidth}L{0.07\textwidth}@{}}
+\toprule
+statement & what was checked & rows & failures\\
+\midrule
+\endhead
+Remark~\ref{rem:rank-one} & $s(q,p)=0\iff q^2\equiv-1\pmod p$ by the
+literal Dedekind sum, every $2\leq p<400$, every unit $q$
+(direct Dedekind sums) & $48{,}517$ ($191$
+zeros) & $0$\\
+Observation~\ref{obs:rho-statistics}(a), Definition~\ref{def:cayley} &
+re-run of the exploration searches, ranges recovered from the retained
+scripts and the outcome predicted before computation: the $630$ $S$-units
+$s\cdot2^c\sqrt2^{\,a}\delta^b$ ($|c|\leq2$, $|a|\leq3$, $|b|\leq4$) and
+$\rho=\pm\delta^k$ ($k\leq14$) at the $57$ silver primes
+$17\leq p\leq673$, pinned exact evaluator; universal sets exactly as
+predicted; the named orbits lie in $D_p$ for every divisor $p>1$ of
+$2J^2-1$, $J\leq100$; counterexamples at $p=49$ &
+$57$ primes; $1{,}734$ values & $0$\\
+Theorem~\ref{thm:C4} (conjectural stage) & the value
+$(J-1)\ind_{J\text{ odd}}$ predicted before computation on every
+$J\in[19,60]$ with $p=2J^2-1$ prime; the anchors $p=17,31,97,127$
+re-verified; distinctness of the orbit of $3-4J$ from the four orbits of
+Lemma~\ref{lem:sunit-four}, family (b), the orbit of
+Theorem~\ref{thm:C3} and the mirror orbit on every row; the inverse
+orbit $3+4J$ gives the same value on every row & $19$ (held-out) & $0$\\
+Conjecture~\ref{conj:C5} & $\eta_J(L(p,3-4J))\neq0$ predicted for every
+prime $p\equiv1\pmod8$ with $761\leq p\leq1553$ at its minimal silver
+rank & $28$ (held-out) & $1$ ($p=1129$, $J=203$: $\eta=0$)\\
+Theorem~\ref{thm:C4} & each of $s$, $R_J$, $\Delta_J$, $L_J$ against its
+closed form (direct Dedekind sum, direct residues, enumeration of the
+triangle, enumeration of $W\times W$), the assembled value against
+\eqref{eq:C4}, and against the independent evaluator, on every $J\leq60$
+with $p$ prime ($31$ exploratory rows), every $2\leq J\leq80$ with $p$
+composite ($41$) and every $61\leq J\leq100$ with $p$ prime ($14$);
+controls: dropping $L_J$ changes every odd-$J$ row; the inverse orbit
+gives the same value ($18$ rows); the control premise ``$q=4-4J$ is
+nonzero on some even-$J$ row'' failed ($\eta=0$ on all $8$ even rows
+checked, Remark~\ref{rem:C4-history}(iii)) & $86$ ($55$ held-out, $41$
+composite) & $0$ (one control premise failed)\\
+Theorem~\ref{thm:P}, Lemma~\ref{lem:S} & on every row: the unit identity
+$q_n(-\nu_nt)\equiv1$; $s(q_n,p)$ by a generic reciprocity algorithm
+against \eqref{eq:P-i-dedekind}, \eqref{eq:P-ii-dedekind} (against the
+literal Dedekind sum for $J\leq120$; against Corollary~\ref{cor:S} on
+every $n=2$ row); Lemma~\ref{lem:S}; $R_J$, $\Delta_J$, $L_J$ from their
+definitions against \eqref{eq:P-i-residue}--\eqref{eq:P-ii-lowmode}
+(against the literal functions of the previous row for $J\leq100$);
+$\eta_J$ against the claim (against the pinned evaluator for $J\leq60$).
+Rows: slice (i) $n\leq10$, $k\leq6$ ($59$, exploratory) and $42$ rows never
+computed before with $n\leq16$; slice (ii) $n\leq10$, $k\leq8$ ($72$,
+exploratory) and $39$ never computed before with $n\leq16$; largest
+$J=941{,}664$ (slice (i)) and $941{,}665$ (slice (ii)).  Faulhaber-sum
+identities (Remark~\ref{rem:faulhaber-certificate}): four identity sets
+by sympy and by Wolfram Engine~14.3.  Fast evaluator against the literal
+terms and the pinned evaluator: $106$ rows.  Controls: $R_J-4Js\neq\eta_J$
+on all $39$ held-out slice-(ii) rows; $\eta(q^*)=\eta(q)$,
+$\eta(-q)=-\eta(q)$ on the $65$ held-out rows with $n\leq12$; the mutated
+modulus $a_n$ refuted at $n=3,5,7$ ($9$ fresh rows) & $212$ ($81$
+held-out); $8$; $106$; $9$ & $0$\\
+Conjecture~\ref{conj:PL} & one polynomial per class modulo $|y|$ fitted
+on $J\in[150,400]$ for each of the $64$ orbits of $\mathcal W$ (no fit
+failure); $12{,}800$ values at $J\in[1401,1600]$ predicted from the fits
+before computation (summary counts retained, not the individual
+values); on these ranges the identically vanishing orbits are exactly
+$(0,1)$, $(1,-1)$, $(1,0)$, $(1,2)$ & $12{,}800$ (held-out) & $0$\\
+Corollary~\ref{cor:U}(a) & one exact nonzero value $\eta_J$ at a rank
+$J\leq6$ for each of the $60$ orbits of $\mathcal W$ outside the four
+families, each cross-checked against the pinned independent evaluator
+(ledger printed in Section~\ref{sec:period-law}) & $60$ & $0$\\
+Lemma~\ref{lem:box} & the box sum against the literal $\Delta_J$ and
+$L_J$ on random $(p,q,J)$ with $2\leq p\leq150$, $J\leq40$ (draws with
+$\gcd(q,p)>1$ skipped); control: the weight $J-|u|-|v|$ fails & $181$
+(held-out) & $0$\\
+Theorem~\ref{thm:Q} & on every row: $q\cdot2\nu_nt\equiv1$, empty box,
+closed form of $s$, $\eta_J$ against the claim; $n\leq8$, $2\leq k\leq6$,
+both signs (exploratory), and $n\leq12$ with $k\in\{7,8,9\}$, $13\leq n\leq16$
+with $k\in\{1,2\}$, both signs (held-out; largest $J=1{,}331{,}714$);
+control: the sign-flipped claim fails on every odd-$n$ held-out row & $70$;
+$82$ (held-out) & $0$\\
+Lemmas~\ref{lem:N}, \ref{lem:N0} & $J=401,\ldots,410$ and $10{,}000$
+(Lemma~\ref{lem:N}); $J=401,\ldots,410$ and $5{,}000$
+(Lemma~\ref{lem:N0}) & $22$ (held-out) & $0$\\
+Theorem~\ref{thm:PL} (decision procedure) & thresholds and per-class
+polynomials for the $24$ families $\delta^n$, $n\leq10$, and
+$a_nJ\pm P_n$, $n\leq8$ ($\delta^{10}$ and $n=8$ never computed
+before); every class predicted at $k^*_j+3$, $k^*_j+4$ (and $3k^*_j+11$
+for $\delta^n$, $n\leq8$, and $a_nJ\pm P_n$, $n\leq6$) before
+computation; control: period $P_n+1$ mispredicts $6,13,30,71,170$
+classes for $n=3,\ldots,7$; symbolic certificates by sympy and by
+Wolfram Engine~14.3 (Remark~\ref{rem:period-certificates}) & $13{,}080$
+(held-out); $7$ & $0$\\
+Theorem~\ref{thm:PL} (complete zero sets) & for each class of the $24$
+families: the class polynomial from three exact values at the
+threshold; its integer roots past the threshold (exact integer square
+roots, with a pinned self-test on a root of size $10^{18}$), each
+re-evaluated exactly; every rank below the threshold evaluated exactly;
+the active breakpoints $\leq J+1$ on every class $j<40$, $k\leq5$; box
+parity.  Result: one isolated zero ($J=429$), $363$ zeros below the
+thresholds, every class polynomial of degree $\leq1$ & $24$ families
+& $0$\\
+Theorem~\ref{thm:PL} (degree $\leq1$) & the $k^2$ coefficient of each of
+the four parts of the bulk (Dedekind, constant, layer cake,
+$\alpha$-part) as $\lim(\text{part})/k^2$ from exact expressions, in
+$\mathsf S_0$ ($\nu=\pm1$) and $\mathsf S_1$ ($\nu,\sigma=\pm1$), by sympy
+and by Wolfram Engine~14.3; corroboration: the
+$6{,}025$ retained class triples of the decision-procedure run all have
+degree $\leq1$ & $6$ cases; $6{,}025$ & $0$\\
+\bottomrule
+\end{longtable}
+\end{small}
+
+Negative controls (a wrong sign, a dropped term, a wrong modulus, a wrong
+period) were evaluated in each block and failed at the stated
+counterexamples.  Two nonvanishing predictions were refuted and are
+recorded above: Conjecture~\ref{conj:C5} at $p=1129$, and the control
+premise of Theorem~\ref{thm:C4} at $q=4-4J$.  The supplementary
+integer-root routine uses exact integer arithmetic and includes a
+regression test above $10^{18}$; all retained class polynomials here are
+linear.
+
+\paragraph{Scope of the computations.}  The accompanying supplement
+\cite{LCrecord} supplies exact evaluators and retained calculation records
+for the finite checks summarized above.  These checks cover the stated
+parameter ranges; the universal statements rest on the written proofs.
+The counterexamples to Conjecture~\ref{conj:C5} and to the
+$q=4-4J$ control premise remain part of the reported findings.
+
+\input{disclosure}
+\begin{thebibliography}{99}
+
+\bibitem{MahmoodP1Collection2026}
+L. Mahmood, \emph{Eta invariants of transverse-traceless tensor curl on
+three-dimensional lens spaces}, companion preprint, 2026,
+\texttt{doi:10.5281/zenodo.21433675}.
+
+\bibitem{LensChirality2026}
+L. Mahmood, \emph{Spectral chirality of lens spaces: level-wise helicity
+balance, eta congruences, and silver zeros for transverse-traceless
+tensor curl}, companion preprint, 2026. DOI:
+\url{https://doi.org/10.5281/zenodo.23049613}.
+
+\bibitem{BGW2017}
+T. Bogart, J. Goodrick and K. Woods, Parametric Presburger arithmetic:
+logic, combinatorics, and quasi-polynomial behavior, \emph{Discrete
+Analysis} \textbf{2017}:4, 34 pp., \texttt{doi:10.19086/da.1254}.
+
+\bibitem{Boldt2017}
+S. Boldt, Properties of the Dirac spectrum on three dimensional lens
+spaces, \emph{Osaka J. Math.} \textbf{54} (2017), 747--765; arXiv:1504.03121.
+
+\bibitem{PrzytyckiYasuhara2003}
+J. H. Przytycki and A. Yasuhara, Symmetry of links and classification of
+lens spaces, \emph{Geom. Dedicata} \textbf{98} (2003), 57--61;
+arXiv:math/0011119.
+
+\bibitem{RademacherGrosswald1972}
+H. Rademacher and E. Grosswald, \emph{Dedekind sums}, Carus Mathematical
+Monographs \textbf{16}, Mathematical Association of America, 1972.
+
+\bibitem{LCrecord}
+L. Mahmood, \emph{Silver-rank zeros: computational supplement}, 2026,
+distributed with this paper; see \path{supplement/README.md}.
+DOI: \url{https://doi.org/10.5281/zenodo.23049615}.
+
+\end{thebibliography}
+
+\end{document}

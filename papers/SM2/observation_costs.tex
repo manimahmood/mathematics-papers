@@ -1,0 +1,231 @@
+\section{Statistical cost and the readout trade-off}
+\label{sec:measurement-cost}
+We now distinguish a probability-error allowance from the number of trials
+required to attain it. Throughout this section $v=D=1$, $\gamma\geq32$,
+$\delta=\gamma^{-1}$ and $\sigma=\gamma^{-4}$. At $s=1$ measure both
+opposed preparations in the orthonormal triad
+\[
+ f_1,\quad e_x,\quad (0,f_{1z},-f_{1y}),
+\]
+and at $s=5/4$ along $f_2$, where $f_i$ is the freely rotated initial
+vector at the corresponding time. All axes and counts are fixed before
+acquisition. This gives eight binary settings, with pair gains
+$g_1,g_2,g_3,g_4$ and witness
+$W=g_4^2-g_1^2-g_2^2-g_3^2$.
+
+The following control and axis-error estimates for the target are proved
+in the supplement \cite{Internal}:
+\begin{gather}
+ g_2=0,\qquad \sigma/48<W<2\sigma,\qquad
+ q_1,q_4\leq C_0\sigma,\quad C_0=7109689/4194304<7/4,\label{eq:target-bounds}\\
+ |g_3|\leq(85/1024)\sqrt\sigma,\qquad
+ \norm{m_1-f_1}\leq A\delta^3,\quad A=85/32.
+\end{gather}
+Here $q_i=(1-g_i)/2$ are the aligned failures for either preparation of
+this unital target. The detector and the null do not assume unitality.
+These estimates are not consequences of a finite numerical scan.
+Their proofs are in Section~6 of \emph{A bounded-strength endpoint-return
+law} and Section~7 of \emph{Time-averaged tomography, closure, and an
+admissible region}. The separate \emph{Finite-sample rare-event return
+witness} takes these as inputs for the count argument. The supplement
+README maps these titles to the supplied files.
+Finite interval controls do not replace those proofs.
+
+\subsection{A sound finite-count rule}
+Let $a=k/n$ be the observed failure fraction in an aligned setting, and
+let $\vartheta>0$ be the confidence parameter. The data-derived radius
+\[
+ R(a,n,\vartheta)=\sqrt{2a\vartheta/n}+4\vartheta/n
+\]
+covers the true Bernoulli mean with error probability at most
+$2e^{-\vartheta}$, for every mean, including nonrare nulls. Indeed Bernstein's
+bound gives $|a-q|\leq\sqrt{2q\vartheta/n}+2\vartheta/(3n)$.
+For $q>a$, solving the quadratic gives
+\[
+ q-a\leq\frac{5\vartheta}{3n}
+       +\sqrt{\frac{2a\vartheta}{n}+\frac{7\vartheta^2}{3n^2}}
+       <R(a,n,\vartheta);
+\]
+for $q\leq a$ the result is immediate. In particular, zero observed
+failures still leave radius $4\vartheta/n$.
+
+At an aligned axis use $\widehat g=1-a_+-a_-$ and
+$e=R_++R_-+2\beta$, where $\beta$ bounds each probability's nonclock
+systematic error. At a transverse axis use the difference of positive-outcome
+frequencies and $e=\sqrt{\vartheta/(2n_+)}+
+\sqrt{\vartheta/(2n_-)}+2\beta$. Reject only if
+\begin{equation}\label{eq:count-rule}
+ \max(0,|\widehat g_4|-e_4)^2
+ -\sum_{j=1}^3\min(1,|\widehat g_j|+e_j)^2>16w^2/3.
+\end{equation}
+IID reset trials within each setting and the prescribed clock law imply
+simultaneous coverage except with probability $16e^{-\vartheta}$.
+On coverage, the expression is a lower bound on the clock-averaged witness;
+the qualified contractive null cannot exceed $16w^2/3$.
+Soundness uses no rare-event property of the null.
+
+With $w\leq1/(256\gamma^2)$ and $\beta\leq\sigma/100000$, the detailed
+target power estimate in the supplied confidence/count proof gives the sufficient count
+\begin{equation}\label{eq:sufficient-count}
+ N_{\rm suff}=4\lceil2^{22}\vartheta\gamma^4\rceil
+             +4\lceil2^{16}\vartheta\gamma^4\rceil
+\end{equation}
+for both errors at most $16e^{-\vartheta}$, $\vartheta\geq3$.
+The first four counts use aligned failures; the other four use transverse
+positive outcomes. This is a conservative sufficient guarantee, not an
+optimal test. It includes both displacement of the empirical centre and
+the confidence radius, and does not divide systematic error by sample size.
+
+\subsection{Why fourth-power cost cannot be removed at point times}
+The following lower bound applies to independent single-time trials chosen
+from these eight settings at $w=0$. It is not a bound on arbitrary multitime
+quantum experiments. The null includes CP-divisible rotations and isotropic
+depolarization, with pair-state speed at most four in physical time.
+
+\begin{theorem}[Point-time information obstruction]\label{thm:information}
+If both errors of such a test are at most $16e^{-\vartheta}$, where
+$\vartheta>\log64$, then its total trial count satisfies
+\[
+ N>2(\vartheta-\log64)(1-6\sigma)\gamma^4.
+\]
+\end{theorem}
+\begin{proof}
+Put $C=7/4$, $b_*=1-2C\sigma>1/2$ and
+$r_1=\sqrt{g_1^2+g_3^2}\geq g_1\geq b_*$.
+A null can match the first-time vector, then rotate at fixed norm $r_1$
+to the final measurement axis. Its only differing setting probabilities
+have shift
+\[
+ d=(g_4-r_1)/2=\frac{W}{2(g_4+r_1)}<\frac{\sigma}{2b_*}.
+\]
+To check admissibility, interpolate the norm from one to $r_1$ by isotropic
+depolarization and rotate along the shorter arc from the initial vector to
+$m_1/r_1$; then rotate at fixed norm to $f_2$.
+Here $b_*^2\leq1-A^2\delta^6$, so the vector-error bound and
+$\arcsin u\leq u/\sqrt{1-u^2}$ give angle bounds
+$2\delta+A\delta^3/b_*$ and $\delta/2+A\delta^3/b_*$.
+Linear schedules have pair speeds at most
+$2+A\delta^2/b_*+2C\delta^3$ and $2+4A\delta^2/b_*$, both below three.
+The path is therefore an admitted CP-divisible null, not merely a list of
+unrelated endpoints.
+
+For a changed failure probability $q$ and $q'=q+d$, the elementary
+Bernoulli relative-entropy bound gives
+\begin{align*}
+ D_{\rm KL}(q\Vert q')&\leq\frac{d^2}{q'(1-q')}
+ \leq\frac d{1-q'}\\
+ &<\frac{\sigma}{2\{b_*(1-C\sigma)-\sigma/2\}}
+ \leq\frac{\sigma}{2(1-6\sigma)}.
+\end{align*}
+The final inequality uses $3C+1/2=23/4<6$.
+The Bretagnolle--Huber testing inequality gives
+$\alpha+\beta_{\rm II}\geq\tfrac12\exp(-D_{\rm KL}(P\Vert Q))$
+\cite[Cor.~4]{Canonne}. Since the total information is at most $N$ times
+the largest per-trial divergence and $\alpha+\beta_{\rm II}\leq
+32e^{-\vartheta}$, the stated result follows.
+\end{proof}
+The point-time case is a necessary obstruction for any rule uniform over
+an allowed clock class containing $w=0$. Constants for a fixed nonzero
+jitter require the actual averaged target and null probabilities.
+
+\subsection{Systematic masking and random detector errors are different}
+Within a split-null family that increases $g_1$ by $2d$ and decreases
+$g_4$ by $2d$, equal endpoint probability shifts satisfy
+\[
+ (g_4-2d)^2=(g_1+2d)^2+g_3^2,\qquad
+ \beta_{\rm split}=\frac d2=\frac{W}{8(g_4+g_1)}.
+\]
+An error allowance $\beta_{\rm split}$ on each of the two hypotheses
+admits their common midpoint law. This is a masking example for
+settingwise adversarial bias, not the global minimax threshold.
+
+If all eight settings instead share one affine readout
+$p_{\rm obs}=a_{\rm det}+b_{\rm det}p$ with $b_{\rm det}>0$, differences of
+opposed preparations cancel the offset exactly:
+\[
+ g_{j,\rm obs}=b_{\rm det}g_j,\qquad
+ W_{\rm obs}=b_{\rm det}^2W.
+\]
+This preserves the point-time sign. It neither proves shared gain in an
+apparatus nor cancels sampling variance.
+In particular, symmetric independent outcome flips are this same affine
+readout with $a_{\rm det}=r$ and $b_{\rm det}=1-2r$: cancellation of the
+offset in the mean does not cancel the Bernoulli variance floor below.
+
+\begin{proposition}[Fixed random readout flips change the necessary order]
+Under the hypotheses of Theorem~\ref{thm:information}, suppose each outcome
+is independently flipped with a known fixed probability $r\in(0,1/2)$.
+Writing $\mu=1-2r$, every such test requires
+\[
+ N>\frac{4b_*^2r(1-r)(\vartheta-\log64)}{\mu^2}\,\gamma^8.
+\]
+\end{proposition}
+\begin{proof}
+An ideal failure probability becomes $r+\mu q$, bounded between $r$ and
+$1-r$. The same null changes it by $\mu d$, so
+\[
+ D_{\rm KL,obs}\leq\frac{\mu^2d^2}{r(1-r)}
+       <\frac{\mu^2\sigma^2}{4b_*^2r(1-r)}.
+\]
+Apply the same testing inequality. Knowing $r$ exactly does not remove
+the random flips or their variance floor.
+\end{proof}
+This proposition is detector-specific. Heralded errors, correlated reference
+readings, or a different acquisition are not excluded by it. With ideal
+readout the variance per aligned trial is $O(\gamma^{-4})$, whereas the
+standard deviation is $O(\gamma^{-2})$; those quantities must not be confused.
+
+\begin{corollary}[Necessary readout-noise crossover]\label{cor:readout-crossover}
+Keep the point-time experiment of Theorem~\ref{thm:information} and fix
+$\vartheta>\log64$. At each $\gamma\geq32$, suppose all outcomes are
+independently flipped with the same known probability
+$0<r_\gamma<1/2$. Set $H=\vartheta-\log64$ and
+$b_*=1-7\gamma^{-4}/2$. Then every such test whose two error
+probabilities are at most $16e^{-\vartheta}$ has total trial count
+\[
+ N>H\max\left\{2(1-6\gamma^{-4})\gamma^4,\quad
+ 4b_*^2\frac{r_\gamma(1-r_\gamma)}{(1-2r_\gamma)^2}\gamma^8\right\}.
+\]
+If $r_\gamma\asymp\gamma^{-a}$ with $a\geq0$ and
+$r_\gamma\leq1/2-\eta$ for some fixed $\eta>0$, this gives
+$N=\Omega(\gamma^{\max\{4,8-a\}})$. A trial budget
+$N=O(\gamma^4)$ therefore requires $r_\gamma=O(\gamma^{-4})$
+in this model; this condition alone is not a sufficient protocol.
+\end{corollary}
+\begin{proof}
+The preceding KL inequality is finite-parameter and holds for every
+$0<r<1/2$, so it applies directly at $r=r_\gamma$. Data processing under
+the independent flip channel also bounds the observed per-trial KL by
+the clean per-trial KL in Theorem~\ref{thm:information}. Combining the
+two testing bounds gives the maximum. For $\gamma\geq32$, the factors
+$2(1-6\gamma^{-4})$ and $4b_*^2$ lie between one and four, independently
+of $r_\gamma$. Away from $1/2$, the ratio
+$r(1-r)/(1-2r)^2$ is comparable to $r$, proving the stated powers.
+Moreover that ratio is at least $r$ on $[0,1/2)$, so the second bound
+forces $r_\gamma=O(\gamma^{-4})$ whenever $N=O(\gamma^4)$.
+\end{proof}
+At $r=0$ the clean bound applies. At $r=1/2$ every observed outcome is a
+fair coin under both hypotheses, so no finite number of these observations
+meets the stated error requirement. Rates approaching $1/2$ can impose
+a stronger obstruction than the power comparison above. The corollary
+does not establish a matching upper bound or extend to correlated or
+heralded errors, multitime instruments, or a fixed nonzero exposure.
+
+\paragraph{Numerical scale, not an experimental forecast.}
+For $\gamma=32$, $\vartheta=10$, a separately coded six-state generator
+and split-null calculation at 80 digits give a clean-readout lower bound
+of approximately $5.798\times10^{10}$ trials and
+$\beta_{\rm split}\simeq5.446\times10^{-9}$. Equation~\eqref{eq:sufficient-count}
+gives $178{,}670{,}639{,}513{,}600$ trials. With independent flips at
+$r=0.001$, the same numerical null family gives a lower bound near
+$9.883\times10^{13}$. These lower bounds are neither exact optima nor
+achieved tests. The portable Arb certificate independently encloses these
+rounded values using both the six-dimensional $(m,h)$ and the reduced
+three-dimensional systems at 256 and 384 bits. It certifies finite controls
+at $\gamma=32,64,128,256$, and brackets the best lower bound within the
+specified split-null family at the quoted readout settings. It is not a
+global minimax optimization or a proof for all $\gamma$ by sampling.
+The separate 80-digit calculation remains a floating-point cross-check.
+No apparatus, shot rate or physical unit
+conversion is supplied. A viable instrument must address stable common
+gain \emph{and} sufficiently rare or independently flagged readout errors.

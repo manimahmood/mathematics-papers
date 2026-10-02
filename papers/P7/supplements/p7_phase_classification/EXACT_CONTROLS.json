@@ -1,0 +1,52 @@
+{
+ "census": [
+  {
+   "oriented": 4,
+   "p": 7,
+   "unoriented": 0
+  },
+  {
+   "oriented": 24,
+   "p": 11,
+   "unoriented": 16
+  },
+  {
+   "oriented": 40,
+   "p": 13,
+   "unoriented": 32
+  },
+  {
+   "oriented": 4,
+   "p": 14,
+   "unoriented": 0
+  },
+  {
+   "oriented": 24,
+   "p": 22,
+   "unoriented": 16
+  },
+  {
+   "oriented": 40,
+   "p": 26,
+   "unoriented": 32
+  }
+ ],
+ "counts": {
+  "closed_phase": 23688,
+  "collapse_label_tests": 29225,
+  "composite_blind_entries": 1690,
+  "hodge_generators": 6,
+  "prime_blind_entries": 3644,
+  "rank_one_generation": 23688,
+  "relative_phase": 23688,
+  "symbol_dictionary": 8
+ },
+ "result": "P7_REVISION6_EXACT_CONTROLS_PASS",
+ "scope": "Retrospective finite controls; no geometric filling verdict",
+ "sources": {
+  "supplements/p7_phase_classification/check_phase_theorems.py": "c10e3b99bf7fd66890fbef060ebeb59064237720f448d32a7dbce3e498ad435e",
+  "supplements/p7_signed_boundary/character_route.py": "2541e8e745a6a6de10e62935b89ce27984119e30b27d7a7a9cd0288620189e1a"
+ },
+ "sympy": "1.13.1",
+ "table_sha256": "e85d444a4d85ccf2529fe1ff1458e15eeb5f238241c12443ba8ec2991eb87605"
+}

@@ -1,0 +1,108 @@
+{
+  "members": [
+    {
+      "bytes": 425,
+      "path": "CITATION.cff",
+      "sha256": "edeeba7959e51ed7f1ad99f589babdcfeea7a0044ebd0115e57c4d7c6462414f"
+    },
+    {
+      "bytes": 2398,
+      "path": "README.md",
+      "sha256": "679c7ce4a8da521fae1da463c3a9cd1b5ab780d79da0fad94d005ad49b87316a"
+    },
+    {
+      "bytes": 529,
+      "path": "RIGHTS.md",
+      "sha256": "ace9dc56d57f2806c7a8854a30badf9c3aed805a3840461590b5e9fa787a8a63"
+    },
+    {
+      "bytes": 287483,
+      "path": "main.pdf",
+      "sha256": "08c7af8287791af712a403aa794929b8a2a587620373158aedeae87c87abdabe"
+    },
+    {
+      "bytes": 13239,
+      "path": "main.tex",
+      "sha256": "4209490a1116c06a26f077f1c597dcd24d4c5c6bb004e4bfab071e3a8f88a5c8"
+    },
+    {
+      "bytes": 2177,
+      "path": "paperreview.sty",
+      "sha256": "a1224a3d89a2c0ea443ed6d46c8d15071adf74f9b9051422b76eb3879c707907"
+    },
+    {
+      "bytes": 4313,
+      "path": "supplement/PROTOCOL_ANNEX.md",
+      "sha256": "e005705224263521244bd563f471ca01d51b2fe7b2c56799555526867fb7f3f0"
+    },
+    {
+      "bytes": 1595,
+      "path": "supplement/README.md",
+      "sha256": "e04b784aad9c6aa5c5fc20a3f4350eabd50013b0410b7d183ba5c2edbdb25a2b"
+    },
+    {
+      "bytes": 2459,
+      "path": "supplement/check_ideal.py",
+      "sha256": "7a78c5c4c2c43c87dee9a97cbfe4e70368d7d3112d78c606d74e08a790005136"
+    },
+    {
+      "bytes": 9562,
+      "path": "supplement/component_blind_predictions_20260914/verify.py",
+      "sha256": "f874c33ce468070a33d2f92487a10c71b0b67771d5ab67b054ddf4419d0ded06"
+    },
+    {
+      "bytes": 82077,
+      "path": "supplement/data/CALIBRATION.json",
+      "sha256": "b79b0d4c4bd4d17a85a4ae6c689e179b4197597e5a5767877602d0c9048f899d"
+    },
+    {
+      "bytes": 10865,
+      "path": "supplement/data/ORIGINAL_CHECK.json",
+      "sha256": "9584b81ba1c2f01671bb63b34b3ea0eb1b72f4fecb7bd22bca2552736eddcf1a"
+    },
+    {
+      "bytes": 10272,
+      "path": "supplement/data/OWNER.json",
+      "sha256": "c1669b3b7bcbefbd233b5ffaea8eefb4ad7ab9ba194cd9181d96369e409a00c4"
+    },
+    {
+      "bytes": 67037,
+      "path": "supplement/data/PREDICTION.json",
+      "sha256": "d0f9a941ae893d344491c1904e5aa5cd9b22559cd187841c9f39eb37b57aa6c5"
+    },
+    {
+      "bytes": 41635,
+      "path": "supplement/data/TARGETS.json",
+      "sha256": "87f722361a6714c0cd199d20d32770c567e0f86ac239d1c2b5ac6ed351283d88"
+    },
+    {
+      "bytes": 3503,
+      "path": "supplement/replay_ri7.py",
+      "sha256": "5296f5871fe824ff7b4cf8fb2cc390be3b8657f1d32c8089de5324bd9448def2"
+    },
+    {
+      "bytes": 1532,
+      "path": "supplement/retained_replay/IDEAL.json",
+      "sha256": "ea292af509cf390423b3d0bacb88f16d66e326074efb9742b1613ab741ec9a71"
+    },
+    {
+      "bytes": 977,
+      "path": "supplement/retained_replay/REDUCED.json",
+      "sha256": "9b3d3da17f2d7cde86c44bdd4a615d7bb4d30f00ac4c8e24649b925e656be100"
+    },
+    {
+      "bytes": 11555,
+      "path": "supplement/ri7/verify.py",
+      "sha256": "4e4bcf81b23b218d55d2c97942fde291e2dacbbbb5f6e0f30f5d6831ebb9ad37"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "SM4",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

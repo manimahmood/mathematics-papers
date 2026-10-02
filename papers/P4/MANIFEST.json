@@ -1,0 +1,58 @@
+{
+  "members": [
+    {
+      "bytes": 254,
+      "path": "AI_DISCLOSURE.txt",
+      "sha256": "20d37ba3bc552aefcce75044d04e93d44bea3f40cfb6f4102d824f97d2c480fc"
+    },
+    {
+      "bytes": 425,
+      "path": "CITATION.cff",
+      "sha256": "6aebf8308b83f8eba6e937e6d1e38aa3ea05f04540c68a29ea9959fdc1a353a7"
+    },
+    {
+      "bytes": 706,
+      "path": "LICENSE.md",
+      "sha256": "7a6f04e52d2b0464a47053a4aca3f4907e6994432daebdf7dd2ae4f82e9c7f52"
+    },
+    {
+      "bytes": 3438,
+      "path": "README.md",
+      "sha256": "cef410635c18d993cb54d80a22057b2ac156f7133616bac2009154ca229847ec"
+    },
+    {
+      "bytes": 546352,
+      "path": "bivariate_mckay_spectral_functions.pdf",
+      "sha256": "ae4d22b12c0d6ed2b9b6098e9543dc4fa73c525e816b3a2199083b0b11301c51"
+    },
+    {
+      "bytes": 1447,
+      "path": "metadata.json",
+      "sha256": "77c9dc33277f7631b1cf648034ae0c4e9383b213cca71813e0c0b9a5586fcb04"
+    },
+    {
+      "bytes": 45455,
+      "path": "paper/bivariate_mckay_spectral_functions.tex",
+      "sha256": "e45c51ca5ffc7988299698c58916694398c5bf86af5d8cefcfbcfd3f5e1de738"
+    },
+    {
+      "bytes": 21435,
+      "path": "paper/references.bib",
+      "sha256": "5add3b09d2c6b0da36d1f18360424a06ecfdbabde733e306fd44a15a79f264bc"
+    },
+    {
+      "bytes": 15053,
+      "path": "supplement/check_coefficients_offsets.py",
+      "sha256": "8c947990f888ec01de827f90866938cb97736bc1b0352dfcff859c7c8aaf0947"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "P4",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

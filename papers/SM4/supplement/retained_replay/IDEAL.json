@@ -1,0 +1,82 @@
+{
+ "check_count": 22,
+ "checks": {
+  "Hermitian_substitution_detected": true,
+  "completion_-1": true,
+  "completion_-2": true,
+  "completion_0": true,
+  "completion_1": true,
+  "completion_2": true,
+  "complex_completion": true,
+  "complex_reciprocity": true,
+  "doublet_condition_-1": true,
+  "doublet_condition_1": true,
+  "missing_rank_is_not_completed": true,
+  "projector_-1": true,
+  "projector_-2": true,
+  "projector_0": true,
+  "projector_1": true,
+  "projector_2": true,
+  "reference_rank_-1": true,
+  "reference_rank_-2": true,
+  "reference_rank_0": true,
+  "reference_rank_1": true,
+  "reference_rank_2": true,
+  "spectrum": true
+ },
+ "clusters": [
+  {
+   "eigenvalue": -2,
+   "frequency_MHz": "7.87934379275163",
+   "rank": 1,
+   "reference_condition": "1"
+  },
+  {
+   "eigenvalue": -1,
+   "frequency_MHz": "8.63138866725676",
+   "rank": 2,
+   "reference_condition": "3"
+  },
+  {
+   "eigenvalue": 0,
+   "frequency_MHz": "9.65018590010371",
+   "rank": 1,
+   "reference_condition": "1"
+  },
+  {
+   "eigenvalue": 1,
+   "frequency_MHz": "11.1430748543096",
+   "rank": 2,
+   "reference_condition": "3"
+  },
+  {
+   "eigenvalue": 2,
+   "frequency_MHz": "13.6474237793483",
+   "rank": 1,
+   "reference_condition": "1"
+  }
+ ],
+ "node_map": {
+  "center": 0,
+  "inner": [
+   1,
+   3,
+   5
+  ],
+  "outer": [
+   2,
+   4,
+   6
+  ],
+  "references": [
+   2,
+   4
+  ],
+  "targets": [
+   1,
+   3
+  ]
+ },
+ "result": "SM4_IDEAL_CONTROLS_PASS",
+ "scope": "Ideal LC identity and algebra controls only. No hardware admission or accuracy."
+}

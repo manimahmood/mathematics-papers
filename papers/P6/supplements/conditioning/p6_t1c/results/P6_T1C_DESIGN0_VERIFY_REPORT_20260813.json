@@ -1,0 +1,18 @@
+{
+ "checks_passed": 72,
+ "date": "2026-08-13",
+ "negative_tests_rejected": [
+  "glo-forgery",
+  "radius-forgery",
+  "kernel-corruption",
+  "m0-inflation",
+  "box-forgery",
+  "log-truncation",
+  "verdict-token-swap",
+  "stats-forgery"
+ ],
+ "results1_sha256": "16ed1a8676574377acace61b7e4809fb7ffe4b326b46eb4fa4bdc6266bd7cd65",
+ "results2_sha256": "0f0d84b7d080f8c97e937e279325a9b06a33888e01e70b68e63accd0a77b4989",
+ "schema": "p6.t1c.design0.verify.v1",
+ "verdict_confirmed": "DESIGN_IMPROVED_CERTIFIED(m0=1/32)"
+}

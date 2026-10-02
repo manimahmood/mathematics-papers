@@ -1,0 +1,441 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem,graphicx,microtype,longtable}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\ifdefined\pdftrailerid
+  \pdftrailerid{[<A8C6D7E83B4F19A7D05C2E164DB8F271>
+                 <A8C6D7E83B4F19A7D05C2E164DB8F271>]}
+\fi
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\target}{t}
+
+\title{Exact Rank Obstruction and Dictionary-Relative Completion\\
+in a Finite Quadratic Response Model}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{1 October 2026}
+\hypersetup{pdftitle={Exact Rank Obstruction and Dictionary-Relative Completion in a Finite Quadratic Response Model},pdfauthor={Luqman Mahmood}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We resolve an exact linear-algebra question in a fixed rational response
+model with $19$ coordinates and $2{,}106$ evaluation functionals.  Nine native
+rows have rank $9$; adjoining a distinguished target raises the rank to $10$,
+whereas adjoining two formal-family rows gives rank $11$.  An explicit
+coordinate functional separates the target from the native coefficient span,
+while an exact identity locates it in the formal-family extension.  A second,
+rank-$13$ assembly also misses the target.  Five linear equalities and one
+nonvanishing condition classify every rational single-row addition that
+completes this assembly.  The seven-element dictionary is a specialization:
+exactly $r_5$ and $r_7$ complete it, with both identities in closed form.
+A nineteen-texture minor has determinant $-2/9$, so evaluation separates the
+entire coefficient space.  The classification is confined to this fixed
+response model and does not establish physical availability of its rows.
+\end{abstract}
+
+\section{Introduction}\label{sec:perimeter}
+
+Finite quadratic response models lead to a basic reachability problem: given
+a collection of response rows, does a distinguished target lie in their span,
+and if not, which additional generators remove the deficit?  This note studies
+one such problem over $\QQ$.  The data consist of a $19$-coordinate coefficient
+space, a pool of $2{,}106$ scalar evaluations, nine native rows, a target, two
+formal-family rows, and a separate seven-element completion dictionary.  The
+goal is not to infer the data from measurements, but to certify exactly what
+these fixed data can and cannot span.
+
+The rows are the stipulated inputs of a finite generator-selection problem,
+not observations from an experiment.  Their coordinates distinguish scalar,
+gradient, and quadratic response terms in the declared model.  This makes
+the example a test of which extra response generators resolve a specified
+linear obstruction; it does not derive a constitutive law or assert that a
+particular apparatus realizes these rows.  No physical interpretation is
+attached to these results.
+
+Three features make the example useful.  First, small rational minors certify
+a rank hierarchy $9<10<11$ without numerical conditioning questions.  Second,
+an explicit coordinate functional identifies the direction missing from the
+native rows.  Third, an explicit annihilator calculation classifies all
+rational single-row completions of a larger rank-$13$ assembly.  The original
+seven-candidate calculation is a corollary; its successful formulas share a
+coefficient forced by the native obstruction.  A full-rank nineteen-texture
+certificate makes coefficient-space and texture-response statements
+equivalent.  The classification uses elementary quotient-space linear algebra;
+its content is the explicit criterion for these stipulated rows.
+
+The measurement language is standard.  Model-relative distinguishability and
+operator-system span are discussed by Heinosaari, Mazzarella, and Wolf, while
+Scott develops informationally complete operator frames and reconstruction
+formulas \cite{HeinosaariMazzarellaWolf2013,Scott2006}.  Exact experimental
+design over a finite candidate set is likewise an established optimization
+setting \cite{AhipasaogluCipollaGondzio2026}.  Here these ideas are used only
+in their elementary finite-dimensional form: a nonzero $d\times d$ response
+minor proves that $d$ selected scalar evaluations distinguish the specified
+$d$-dimensional row family.
+
+All conclusions are relative to the definitions below.  The continuum names
+attached to a few rows are mnemonic labels, not a microscopic derivation or a
+claim of physical co-realizability.  Section~\ref{sec:model} defines the model
+and the evaluation map; Sections~\ref{sec:ranks}--\ref{sec:completion} prove
+the rank, obstruction, and completion statements; the supplement supplies the
+exact minors, including a machine-readable full-model certificate and a
+bounded independent checker.
+
+\section{The fixed response model}\label{sec:model}
+
+\begin{definition}[Coefficient space]
+Let $V=\QQ^{19}$ in the ordered basis
+\[
+(a_0,a_1,a_2,b_1,b_2,b_3,g_1,g_2,
+ r_1,r_2,r_3,r_4,r_5,r_6,r_7,m_0,m_1,m_2,\mu_0).
+\]
+All omitted coordinates in the row definitions below are zero.
+\end{definition}
+
+The nine native rows are
+\begin{align*}
+e_0&=a_0+\tfrac23 b_2+\tfrac13 g_2,\\
+e_1&=a_1+b_1-b_3+\tfrac12 g_1-\tfrac12 g_2,\\
+e_2&=a_2+b_1-\tfrac23 b_2+b_3+\tfrac12 g_1+\tfrac16 g_2,\\
+\beta_0&=\tfrac13r_1-\tfrac13r_3-\tfrac13r_4-\tfrac13r_5+\tfrac23r_6,\\
+\beta_1&=\tfrac12r_2+\tfrac12r_5-r_7,\\
+\beta_2&=\tfrac23r_1-\tfrac12r_2+\tfrac13r_3-\tfrac23r_4
+          -\tfrac16r_5-\tfrac23r_6+r_7,\\
+M_s&=2m_0+\tfrac12m_1+\tfrac12m_2,\qquad
+M_t=\mu_0,\qquad \kappa=r_1+r_2.
+\end{align*}
+The two formal-family rows and target are
+\begin{equation}\label{eq:formal-target}
+F_A=b_2-r_7,\qquad F_B=-\tfrac14r_2,\qquad
+\target=-\tfrac23b_2-\tfrac19r_2+\tfrac23r_7.
+\end{equation}
+
+The texture pool is also fixed.  Let $\omega\in\{0,1,2\}$, let $k$ range
+over the nine integer triples listed in Supplement~\ref{supp:textures}, and let
+the twelve-component field vector
+have either one unit entry or two unit entries.  The resulting
+$3\cdot9\cdot(12+\binom{12}{2})=2{,}106$ textures are ordered
+by $\omega$, then by the displayed order of $k$, then by field: the twelve
+single-unit fields in coordinate order, followed by the $66$ two-unit fields
+in lexicographic order of their occupied-position pairs.  The exact
+contractions defining all nineteen response
+coordinates are collected in Supplement~\ref{supp:textures}; no floating-point
+arithmetic enters the proof.
+
+Write $\mathcal T$ for this ordered texture pool.  Each texture defines a
+linear functional on $V$, and together they define the evaluation map
+\[
+\mathcal E:V\longrightarrow\QQ^{\mathcal T},\qquad
+v\longmapsto\bigl(v(\tau)\bigr)_{\tau\in\mathcal T}.
+\]
+Thus a row has both a coefficient vector in $V$ and a response vector
+$\mathcal E(v)$.  Unless stated otherwise, ranks and residual counts below
+refer to response vectors on $\mathcal T$; identities such as
+Eq.~\eqref{eq:formal-target} are identities in the coefficient space $V$.
+A nonzero response minor certifies coefficientwise independence as well,
+because any relation in $V$ would remain a relation after applying
+$\mathcal E$.
+
+\begin{lemma}[Full-coefficient separation]\label{lem:full-separation}
+The evaluation map $\mathcal E$ has rank $19$ and is injective on $V$.
+Nineteen textures from the specified pool already separate every pair of
+coefficient rows.  In particular, a linear identity holds on all textures
+if and only if it holds coefficientwise in $V$.
+\end{lemma}
+
+\begin{proof}
+In the ordered coordinate basis of $V$, the nineteen texture columns listed
+in Supplement~\ref{supp:full-separation} form a $19\times19$ matrix with
+determinant $-2/9$.  Its entries are given by the texture contractions and
+supplied as exact rational data.  The minor gives rank at least $19$;
+$\dim V=19$ gives the upper bound and injectivity.
+\end{proof}
+
+\section{Ranks 9, 10, and 11}\label{sec:ranks}
+
+\begin{theorem}[Exact rank hierarchy]\label{thm:rank-hierarchy}
+On the texture pool of Section~\ref{sec:model},
+\begin{align*}
+\rank\{e_0,e_1,e_2,\beta_0,\beta_1,\beta_2,M_s,M_t,\kappa\}&=9,\\
+\rank\{e_0,e_1,e_2,\beta_0,\beta_1,\beta_2,M_s,M_t,\kappa,\target\}&=10,\\
+\rank\{e_0,e_1,e_2,\beta_0,\beta_1,\beta_2,M_s,M_t,\kappa,F_A,F_B\}&=11.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Supplement~\ref{supp:minors} displays exact square response minors with
+determinants
+\[
+\det R_9=\frac29,\qquad
+\det R_{10}=-\frac5{81},\qquad
+\det R_{11}=-\frac1{36}.
+\]
+They give the three lower bounds.  The corresponding families contain exactly
+$9$, $10$, and $11$ rows, which gives the matching upper bounds.
+\end{proof}
+
+\begin{proposition}[Coordinate obstruction]\label{prop:obstruction}
+The functional
+\begin{equation}\label{eq:obstruction}
+\mathcal L=-\tfrac23a_0^*+\tfrac23a_2^*+b_2^*
+\end{equation}
+annihilates every native row and satisfies $\mathcal L(\target)=-2/3$.
+Consequently $\target$ is not in the native coefficient span in $V$.
+\end{proposition}
+
+\begin{proof}
+Substitution in the nine displayed native rows gives zero; substitution in
+Eq.~\eqref{eq:formal-target} gives $-2/3$.
+\end{proof}
+
+\begin{proposition}[Formal-family identity]\label{prop:identity}
+Coefficientwise in $V$,
+\begin{equation}\label{eq:target-identity}
+\target=-\frac23F_A+\frac49F_B.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The right side is
+$-(2/3)(b_2-r_7)+(4/9)(-r_2/4)$, which is exactly
+Eq.~\eqref{eq:formal-target}.
+\end{proof}
+
+\begin{remark}[Model-relative number of readings]
+Every texture supplies one scalar linear functional.  No set of fewer than
+$d$ scalar readings can be injective on a $d$-dimensional response space.  The
+displayed nonzero minors show that selected sets of $d=9,10,11$ readings attain
+the corresponding ranks for the row families above.  This is a statement only
+about the fixed model and texture pool, not a lower bound for arbitrary
+experiments, encodings, models, or operator families.
+\end{remark}
+
+\section{A thirteen-row named assembly}\label{sec:assembly}
+
+Four coordinate rows are appended to the native family:
+\[
+S_{r_4}=r_4,\qquad H_{b_1}=b_1,\qquad
+H_{b_3}=b_3,\qquad H_{\mathrm{dilat}}=b_2.
+\]
+Let $\mathcal A$ denote the resulting thirteen-row assembly.  It is a second
+span problem, not a revision of the native rank-$9$ family.
+
+The labels recall familiar continuum ingredients: parity-even quadratic
+torsion models \cite{HayashiShirafuji1979,BlixtHohmannPfeifer2019},
+Oseen--Frank and saddle-splay terms \cite{Frank1958,Napoli2010},
+Ericksen--Leslie couplings \cite{Leslie1968,GuoEtAl2024}, and generalized
+continua \cite{Mindlin1964,GreenRivlin1964}.  In this note they serve only as
+mnemonic names for the four finite rows displayed above.  No argument depends
+on a microscopic model, material interpretation, or physical co-realization.
+
+We use one fixed residual convention in the completion calculation.  With the
+textures in the specified order, exact left-to-right pivot reduction of a
+response vector against an ordered row family produces a remainder in
+$\QQ^{\mathcal T}$; its \emph{residual count} is the number of nonzero
+coordinates.  In the table below, the generator residual reduces
+$\mathcal E(r_j)$ against $\mathcal E(\mathcal A)$, while the target residual
+reduces $\mathcal E(\target)$ against the assembly augmented by $r_j$.
+
+\begin{proposition}[Rank-$13$ assembly]\label{prop:rank13}
+The named assembly $\mathcal A$ has rank $13$.  The target is not in its
+span and leaves $792$ nonzero texture residuals after exact pivot reduction.
+\end{proposition}
+
+\begin{proof}
+The exact $13\times13$ minor in Supplement~\ref{supp:assembly-minors} has
+determinant $-1/9$.  The family contains thirteen rows, giving the upper bound.  Exact
+pivot back-substitution of the target followed by a scan of all $2{,}106$
+responses gives $792$ nonzero residuals.
+\end{proof}
+
+\section{Single-row completion in the fixed model}\label{sec:all-completions}
+
+Write $A=\Span(\mathcal A)$ and $B=A+\Span\{\target\}$.  For a coefficient
+row $x\in V$, define the five linear forms
+\begin{equation}\label{eq:completion-annihilators}
+\begin{aligned}
+\phi_1(x)&=x_{g_1}-\tfrac12(x_{a_1}+x_{a_2}),\\
+\phi_2(x)&=x_{g_2}-\tfrac13x_{a_0}+\tfrac12x_{a_1}-\tfrac16x_{a_2},\\
+\phi_3(x)&=2x_{r_3}+x_{r_6},\\
+\phi_4(x)&=x_{m_1}-\tfrac14x_{m_0},\\
+\phi_5(x)&=x_{m_2}-\tfrac14x_{m_0},
+\end{aligned}
+\end{equation}
+and the additional functional
+\begin{equation}\label{eq:assembly-functional}
+s(x)=-2x_{r_3}+2x_{r_5}+x_{r_7}.
+\end{equation}
+
+\begin{theorem}[All rational single-row completions]\label{thm:all-completions}
+For any $x\in V$,
+\[
+\target\in A+\Span\{x\}
+\quad\Longleftrightarrow\quad
+\phi_1(x)=\cdots=\phi_5(x)=0\quad\hbox{and}\quad s(x)\ne0.
+\]
+Equivalently, the completing rows are exactly $B\setminus A$.  For every such
+row the coefficient of $x$ is forced, and
+\begin{equation}\label{eq:general-completion}
+\target-\frac{2}{3s(x)}x\in A.
+\end{equation}
+The same criterion holds for the corresponding texture-response vectors.
+\end{theorem}
+
+\begin{proof}
+Substitution shows that all five $\phi_i$ vanish on the thirteen rows of
+$\mathcal A$ and on $\target$.  They are independent: their coefficients at
+$g_1,g_2,r_6,m_1,m_2$, respectively, form the $5\times5$ identity matrix.
+Their common kernel therefore has dimension $14$.  Substitution also gives
+$s|_A=0$ and $s(\target)=2/3$.  By Proposition~\ref{prop:rank13},
+$\dim A=13$, so $\dim B=14$.  Since $s(\target)\ne0$, the subspace
+$B\cap\ker s$ is a hyperplane of $B$ containing $A$, hence equals $A$.
+Consequently,
+\[
+B=\bigcap_{i=1}^5\ker\phi_i,\qquad A=B\cap\ker s.
+\]
+If the stated conditions hold, $x\in B$ and the left side of
+Eq.~\eqref{eq:general-completion} lies in $B\cap\ker s=A$.
+Conversely, if $\target=a+cx$ with $a\in A$, then $c\ne0$ because
+$\target\notin A$.  Thus $x\in B$ and applying $s$ gives
+$2/3=c\,s(x)$, proving both the conditions and the forced coefficient.
+Lemma~\ref{lem:full-separation} transfers the equivalence to response vectors.
+\end{proof}
+
+Both parts of the criterion are needed.  The row $r_1$ satisfies the five
+equalities but has $s(r_1)=0$; the row $r_3$ has $s(r_3)=-2\ne0$ but
+$\phi_3(r_3)=2$.  Neither completes the target.  The theorem classifies
+algebraically available rows of $V$, not physically realizable generators.
+
+\section{Seven-candidate completion}\label{sec:completion}
+
+The candidate dictionary is the seven-element set
+$\mathcal D=\{r_1,\ldots,r_7\}$.  Each candidate is appended singly to
+$\mathcal A$.  The following specialization of
+Theorem~\ref{thm:all-completions} retains the dictionary-specific identities
+and the complete residual enumeration.
+
+\begin{corollary}[Dictionary-relative completion]\label{thm:completion}
+Exactly $r_5$ and $r_7$ complete the named assembly to the target.  Their
+augmented ranks are $14$, witnessed by determinants $-2/9$ and $-1/9$.
+The exact identities are
+\begin{align}
+\target={}&-\tfrac29\beta_0-\tfrac89\beta_1-\tfrac29\beta_2
+ +\tfrac29\kappa-\tfrac29S_{r_4}-\tfrac23H_{\mathrm{dilat}}
+ +\tfrac13r_5,\label{eq:r5-recipe}\\
+\target={}&\phantom{-}\tfrac19\beta_0+\tfrac19\beta_1+\tfrac19\beta_2
+ -\tfrac19\kappa+\tfrac19S_{r_4}-\tfrac23H_{\mathrm{dilat}}
+ +\tfrac23r_7.\label{eq:r7-recipe}
+\end{align}
+\end{corollary}
+
+\begin{proof}
+The rows $r_1,r_2,r_4$ fail the nonzero test in
+Theorem~\ref{thm:all-completions}; $r_3,r_6$ fail its third equality.
+The rows $r_5,r_7$ satisfy all five equalities and have $s$-values $2,1$,
+respectively, so they are exactly the completing dictionary members.
+For each $r_j$, exact pivot reduction determines whether the appended row
+raises rank and whether the target residual then vanishes on all $2{,}106$
+textures.  The complete table is
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+candidate & augmented rank & generator residual & target residual & closes \\
+\midrule
+$r_1$ & 13 & 0   & 792 & no \\
+$r_2$ & 13 & 0   & 792 & no \\
+$r_3$ & 14 & 234 & 756 & no \\
+$r_4$ & 13 & 0   & 792 & no \\
+$r_5$ & 14 & 792 & 0   & yes \\
+$r_6$ & 14 & 819 & 234 & no \\
+$r_7$ & 14 & 792 & 0   & yes \\
+\bottomrule
+\end{tabular}
+\end{center}
+Supplement~\ref{supp:assembly-minors} displays both nonzero rank-$14$ minors.
+Back-substitution gives Eqs.~\eqref{eq:r5-recipe} and \eqref{eq:r7-recipe};
+direct substitution kills all nineteen coefficient residuals and the full
+texture scan kills all $2{,}106$ response residuals.
+\end{proof}
+
+\begin{remark}[The obstructed direction]\label{rem:forced-coefficient}
+The functional $\mathcal L$ from Eq.~\eqref{eq:obstruction} annihilates the
+nine native rows, $S_{r_4}$, $H_{b_1}$, $H_{b_3}$, and every candidate
+$r_j$, while $\mathcal L(H_{\mathrm{dilat}})=1$.  Hence any coefficient-space
+expansion of $\target$ using $\mathcal A$ and one candidate from $\mathcal D$
+must give
+$H_{\mathrm{dilat}}$ the coefficient
+$\mathcal L(\target)=-2/3$.  The common coefficient in
+Eqs.~\eqref{eq:r5-recipe} and \eqref{eq:r7-recipe} is therefore forced by the
+obstruction, rather than selected by the enumeration.  Subtracting the two
+identities also shows that $r_5-2r_7\in\Span(\mathcal A)$: the successful
+candidates determine proportional nonzero directions in the quotient
+$V/\Span(\mathcal A)$.
+This $-2/3$ coefficient law is dictionary-relative, not a statement for every
+$x\in V$.  For example, the allowed algebraic choice $x=\target$ completes
+with no assembly contribution.  In a general expansion $\target=a+cx$, the
+coefficient of $H_{\mathrm{dilat}}$ in $a$ is
+$-2/3-c\mathcal L(x)$; it equals $-2/3$ for the dictionary because
+$\mathcal L(r_j)=0$.
+\end{remark}
+
+\section{Conclusion}\label{sec:limits}
+
+The fixed response model has a simple exact structure.  Its nine native rows
+have rank $9$, the target adds one independent direction, and two formal rows
+contain that target through an explicit coefficient identity.  A larger
+rank-$13$ assembly still misses the target.  Five independent annihilator
+conditions and one nonzero test classify every rational single-row completion
+within $V$.  Precisely two members of the seven-element dictionary pass.
+The native obstruction functional explains the coefficient shared by those
+two formulas, while the general criterion identifies the required quotient
+direction.  Nineteen specified textures separate the entire coefficient
+space, so this classification is equivalent in coefficient and response form.
+
+All calculations use rational arithmetic.  An independent implementation
+reconstructed the texture pool, response rows, ranks, obstruction values,
+residual counts, and completion identities directly from the definitions.
+The supplement records the rank certificates and provides the full-model
+minor as exact rational data.  The accompanying bounded checker independently
+reconstructs that minor from the four-index projector formulas, verifies the
+annihilator criterion and dictionary identities, and tests negative controls.
+It does not replay the complete $2{,}106$-texture residual counts.
+
+The result is deliberately finite and model-relative.  The classification
+covers all rational single-row additions in this $19$-coordinate model, but
+does not classify generators in larger response spaces or arbitrary
+multi-row additions.  It proves neither universal measurement minimality,
+stability under perturbation, nor a physical realization of the mnemonic
+continuum ingredients.  Extension to larger response models requires their
+own row definitions and separation certificates.
+
+\appendix
+\input{exact_supplement.tex}
+
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

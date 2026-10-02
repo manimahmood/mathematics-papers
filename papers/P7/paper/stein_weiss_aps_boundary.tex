@@ -1,0 +1,969 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={Square Elliptic Completions and APS Boundary Information on Round Spherical Quotients},
+  pdfauthor={Luqman Mahmood},
+  pdfsubject={Full elliptic completion, signed boundary spectrum and phase classification}
+}
+
+\geometry{margin=1in}
+\setlist{nosep}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\etaInv}{\eta}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Spin}{\operatorname{Spin}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\TT}{\mathrm{TT}}
+\newcommand{\aux}{\mathrm{aux}}
+\newcommand{\full}{\mathrm{full}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\title{Square Elliptic Completions and APS Boundary Information\\
+on Round Spherical Quotients}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{30 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Atiyah--Patodi--Singer correction combines spectral asymmetry with zero
+modes. We distinguish a sparse elliptic completion (one permitted off-diagonal
+block is set to zero) from its fully coupled
+twisted-Dirac completion, and derive the latter's signed round-boundary
+spectrum from its homogeneous connection. For its round-lens character
+transform we derive a closed Dedekind-sum phase law at
+every rank and modulus, prove that rank one generates the entire
+exponentiated ladder, and give a necessary-and-sufficient criterion for
+equality under a coherent character relabeling.  We also prove infinite
+families in which two adjacent ranks lose all dependence on the lens
+parameter, including composite moduli.  The 23,688 exact table
+entries remain reproducible by two routes. The sparse and Dirac completions
+are elliptically homotopic, but no equality of their boundary spectra is
+asserted. We supply neither a numerical index on a chosen filling nor a
+physical interpretation of the phase.
+\end{abstract}
+
+\paragraph{Scope.}
+This paper supplies an operator-level derivation, not an identification
+inferred from a character match. Sections~2--4 specify the full completion,
+its connection, chirality, collar and signed spectrum; the subsequent phase
+proofs use the resulting transform. No
+chosen-filling index, off-round extension or physical phase is claimed.
+
+\section{Introduction}
+
+Elliptic boundary problems naturally separate an interior symbol question
+from a boundary-information question.  The first asks whether an
+overdetermined differential operator can be completed to a square elliptic
+one.  The second asks how much geometry survives in its spectral boundary
+correction.  For the operators considered here these questions meet in a
+particularly explicit form: adding the missing cross-block to a sparse
+Stein--Weiss completion and normalizing the columns gives a twisted-Dirac
+operator, whose round boundary operator contains the
+tensor-curl family as one reducing summand.  The remaining summand is not
+spectrally negligible; its eta and kernel contributions are essential to the
+APS correction.
+
+Let $(a,b)_{\rm str}$ denote the irreducible complex structure-group
+$\Spin(4)$ representation
+$V_a\boxtimes V_b$, where $V_m$ is the $(m+1)$-dimensional irreducible
+$SU(2)$ representation.  The integer $J\geq 1$ is the tensor rank in the
+normalization used below. Unsubscripted pairs in Section~2 are structure
+labels; pairs describing boundary eigenspaces from Section~3 onwards are
+isometry labels. Their relation is stated in Section~\ref{sec:dictionary}.
+Our objects are a sparse square elliptic operator $\mathcal S_J$, a full
+completion $\mathcal G_J$, its Clifford normalization $D^+_{T_J}$, the
+latter's intrinsic self-adjoint boundary operator $B_J$,
+and the tensor-curl block $A_J$ on a free round quotient
+$Y=S^3/\Gamma$.  Flat twists are denoted by $\rho$.
+
+The argument has three stages. Sections~2--3 identify the full elliptic
+completion and derive the first-order round operator and reducing split.
+Sections~4--5 assemble the complementary eta
+and kernel, derive a cumulative formula with the companion tensor-curl and
+McKay identities, and evaluate a finite lens-space reference table by two
+independent exact routes.  Sections~6--7 use the resulting class transforms to
+compare real eta data, reduced APS corrections, and their exponentials.
+
+Generalized-gradient ellipticity and higher-spin Dirac factorization on
+constant-curvature spaces are established machinery
+\cite[arXiv v1, p.~1 and Thms.~3.12--3.13]{Pilca2011}
+\cite[Prop.~1 and Thms.~5, 7, 10]{HommaTomihisa2021}.  Explicit spin-Dirac
+spectra and twisted eta formulas on round spherical space forms are likewise
+classical
+\cite[Thms.~1--2]{Bar1996}
+\cite[Thm.~4.3]{BoldtLauret2017}
+\cite[Lemmas~2.1--2.2 and Thm.~2.5]{Gilkey1984}
+\cite{CisnerosMolina2001,CacicMarcolliTeh2014}.  We use those frameworks at
+the point where the exact normalization-specific calculation enters.
+
+The principal statements are as follows.
+
+\begin{enumerate}[label=(\roman*)]
+\item The specified overdetermined Stein--Weiss operator has an explicit
+square elliptic completion for every integer $J\geq1$, with a closed positive
+determinant-square law.
+\item On free round spherical quotients,
+\[
+ B_J\cong A_J\oplus B_J^{\aux}
+\]
+is an orthogonal reducing split.  The eta invariant and kernel dimension of
+$B_J^{\aux}$ have exact all-rank representation-ring formulas.
+\item An exact calculation covers every $2\leq p\leq24$, every unit
+$q$, both spin lifts where distinct, $J=1,\ldots,6$, and every flat character.
+It contains $23{,}688$ exact triples $(\etaInv,h,\xi)$, with independent
+rank-seven and rank-eight checks.
+\item The complete class transforms of $\etaInv$, $h$, and
+$\xi=(\etaInv+h)/2$ are rational character expressions.  Reduced ranks one
+and two have universal nonidentity-class support, while the rank-one
+reconstruction theorem itself is known.
+\item Exact finite computation refutes universal oriented adjacent-rank
+reconstruction.  Sixteen rows represent four colliding oriented-orbit
+pairs; two collisions remain nonhomeomorphic even after orientation reversal.
+\item For the derived transform, a Dedekind-sum formula gives every
+phase, rank one generates every higher phase, and a complete coherent-label
+collapse criterion follows. The pair $L(16,1)$ and $L(16,9)$ is a corollary.
+Infinite blind adjacent-rank families include admissible composite moduli.
+\end{enumerate}
+
+The arithmetic uses classical Fourier--Dedekind sums and congruences; no
+priority claim follows from the local verification. The transform-specific
+deductions are separated from those inputs and from any filling-index claim.
+
+\section{The square completion}
+
+\subsection{A sparse elliptic square}
+
+The generalized-gradient construction begins with the Levi-Civita covariant
+derivative and orthogonal projection onto irreducible $\Spin(4)$ summands.
+Pilca's ellipticity classification provides the ambient framework
+\cite[arXiv v1, p.~9, Thms.~3.12--3.13]{Pilca2011}.  The essential data here are
+the exact representation choice, column normalization, and determinant law.
+
+For $J\geq2$, choose the right-handed mirror of the sparse completion and set
+\[
+ \mathcal S_J:
+ (J,J)\oplus(J,J-2)
+ \longrightarrow
+ (J+1,J-1)\oplus(J-1,J-1).
+\]
+Write $E=(J,J)$, $C=(J,J-2)$, $F_1=(J+1,J-1)$ and $F_2=(J-1,J-1)$.
+If $P_{UV}\nabla$ denotes covariant differentiation followed by the
+orthogonal projection from $U$ to $V$, the sparse operator is
+\[
+ \mathcal S_J=
+ \begin{pmatrix}P_{EF_1}\nabla&0\\P_{EF_2}\nabla&P_{CF_2}\nabla\end{pmatrix}.
+\]
+There are three nonzero entries, not four. In a
+left-handed presentation the auxiliary summand is $(J-2,J)$; the two choices
+are mirrors, not distinct ellipticity statements.  The source and target both
+have complex rank $2J(J+1)$.  At $J=1$ the negative-label auxiliary summand is
+absent and the same statement is read in the reduced two-summand convention.
+
+Fix a unit covector.  Restriction to its diagonal $SU(2)$ stabilizer makes the
+symbol block triangular.  With orthonormal irreducible bases, the diagonal
+amplitude squares are
+\begin{align}
+ \alpha_r^2&=\frac{r(r+1)}{2(J+1)^2}, &&1\leq r\leq J,\\
+ \beta_r^2&=\frac{(J-r)(J+r+1)}{2(J+1)^2}, &&0\leq r\leq J-1,\\
+ \gamma_r^2&=\frac{r(r+1)}{2(J^2-1)}, &&1\leq r\leq J-1.
+\end{align}
+Every factor in its actual range is positive.  Stabilizer transitivity and
+symbol homogeneity then extend invertibility from the chosen unit covector to
+every nonzero covector.
+
+\begin{theorem}[Exact square completion]
+For every integer $J\geq1$, the operator $\mathcal S_J$ is square elliptic.
+For $J\geq2$, its invariant determinant-square is
+\[
+ \left(\frac{J}{2(J+1)}\right)^{2J+2}
+ \prod_{r=1}^{J-1}
+ \left(
+  \frac{r^2(r+1)^2}{4(J+1)^2(J^2-1)}
+ \right)^{2r+1}>0.
+\]
+\end{theorem}
+
+\begin{proof}
+At a unit covector, restriction to the diagonal $SU(2)$ stabilizer makes the
+symbol block triangular. Its one-copy endpoints are $\beta_0$ and
+$\alpha_J$; each intermediate two-copy determinant is $\alpha_r\gamma_r$.
+All are nonzero. These amplitude formulas can be obtained from the
+spin-half projectors: for spin $j$, the projections in
+$\tfrac12\otimes j$ are $(2\boldsymbol S\cdot\boldsymbol J+j+1)/(2j+1)$
+and $(j-2\boldsymbol S\cdot\boldsymbol J)/(2j+1)$. At a unit covector
+the vector representation is the normalized singlet of its two spin halves.
+Thus $\langle2\boldsymbol S_L\cdot\boldsymbol J_L\rangle=
+\langle2\boldsymbol S_R\cdot\boldsymbol J_R\rangle=0$ and their product
+has expectation $-\boldsymbol J_L\cdot\boldsymbol J_R$.
+Substitute $2\boldsymbol J_L\cdot\boldsymbol J_R=
+r(r+1)-j_L(j_L+1)-j_R(j_R+1)$ into the two projectors to obtain the displayed
+squares. The symbol is therefore invertible at that
+covector.  Stabilizer transitivity and homogeneity give invertibility at every
+nonzero covector, proving square ellipticity.  Multiplying the squared
+diagonal factors with their stabilizer multiplicities $2r+1$ gives the stated
+determinant-square formula.  For $J=1$ the absent auxiliary column is omitted
+and the same argument applies to the reduced block.
+\end{proof}
+
+This formula belongs to the stated sparse normalization.  It is not detached
+from the operator and advertised as a general determinant construction.
+
+\subsection{The full completion and its twisted-Dirac identification}
+
+Define the half-spinors by
+\[
+ S^+=(0,1)_{\rm str},\qquad S^-=(1,0)_{\rm str},\qquad
+ \operatorname{Sym}^2 S^\pm=\Lambda^2_\pm.
+\]
+These definitions incorporate the structure/isometry dictionary of
+Section~\ref{sec:dictionary}; the superscripts are not the order of the
+structure factors. Let
+$T_J=\operatorname{Sym}^J S^-\otimes\operatorname{Sym}^{J-1}S^+=(J,J-1)_{\rm str}$.
+The chiral twisted-Dirac operator
+\[
+ D^+_{T_J}:S^+\otimes T_J\longrightarrow S^-\otimes T_J
+\]
+has source and target decomposition
+\[
+ (J,J)\oplus(J,J-2)
+ \longrightarrow
+ (J+1,J-1)\oplus(J-1,J-1),
+\]
+and uses all four projected gradients. Choose the constant unitary
+identifications of the irreducible summands and their phases so that
+\[
+ \mathcal G_J=
+ \begin{pmatrix}P_{EF_1}\nabla&P_{CF_1}\nabla\\
+ P_{EF_2}\nabla&P_{CF_2}\nabla\end{pmatrix}.
+\]
+The omitted entry of $\mathcal S_J$ is essential. Multiplying the two
+source columns of $\mathcal G_J$ by
+\[
+ c_E=\sqrt{\frac{2(J+1)}{J}},
+ \qquad
+ c_C=\sqrt{\frac{2(J-1)}{J}},
+\]
+with the second column absent at $J=1$, gives exactly the Clifford symbol.
+In intermediate diagonal spin $1\leq r<J$, the
+recoupling matrix is
+\[
+ R_{J,r}=
+ \begin{pmatrix}
+ \sqrt{t_r}&-\sqrt{1-t_r}\\
+ \sqrt{1-t_r}&\sqrt{t_r}
+ \end{pmatrix},
+ \qquad
+ t_r=\frac{r(r+1)}{J(J+1)}.
+\]
+The column norms follow from the projector formulas above; orthogonality
+then fixes the second column as $(-\sqrt{1-t_r},\sqrt{t_r})^T$.
+At spins $0,J$ the normalized one-copy symbol is an isometry.
+Equivariance gives the Clifford symbol at every covector. Moreover, this is
+an equality of operators, not just symbols:
+\[
+ D^+_{T_J}=\mathcal G_J\operatorname{diag}(c_E,c_C).
+\]
+Both sides are the same parallel bundle map composed with the same
+Levi-Civita-induced connection. There is no adjustable zeroth-order term.
+The four-block framework is classical
+\cite[Sec.~2, Eq.~(2.3)]{HommaTomihisa2021}; the normalization is fixed here.
+
+For clarity, the determinant-square of the unnormalized full completion is
+\[
+ |\det\sigma(\mathcal G_J)|^2=
+ \left(\frac{J}{2(J+1)}\right)^{(J+1)^2}
+ \left(\frac{J}{2(J-1)}\right)^{J^2-1},\qquad J\geq2,
+\]
+whereas the normalized Clifford determinant-square is $1$ at a unit
+covector. These are not the sparse determinant. At $J=2$ the sparse and
+full values are respectively $1/14348907$ and $1/19683$.
+
+There is nevertheless an elliptic homotopy: in a normalized intermediate
+block multiply the upper-right entry of $R_{J,r}$ by $s\in[0,1]$.
+Its determinant is $t_r+s(1-t_r)>0$, and the endpoints are unchanged.
+This preserves the interior symbol class. It does not identify the sparse
+operator's boundary spectrum with that of $D^+_{T_J}$. From now on $B_J$
+always refers to the fully coupled Dirac completion.
+
+Although $S^\pm$ and $T_J$ individually require spin lifts, their tensor
+products above descend to $SO(4)$: the diagonal central element
+$(-1,-1)\in\Spin(4)$ acts by
+$(-1)(-1)=1$. The operator therefore exists on an oriented Riemannian
+four-manifold without a chosen global spin structure, using these associated
+bundles. Spin notation gives its local factorization. On the boundary a
+change of spin lift acts on both factors and cancels, explaining the
+spin-lift independence of the tensorial spectrum.
+
+\section{The round boundary operator}
+
+\subsection{Structure labels versus isometry labels}
+\label{sec:dictionary}
+On $\mathbb H$ oriented by $(1,i,j,k)$ use the isometry action
+$q\mapsto zqw^{-1}$, with the left factor first. Left infinitesimal
+multiplications correspond to the self-dual two-forms
+$e^{01}+e^{23}$ and their cyclic partners; right multiplications correspond
+to the anti-self-dual forms $e^{01}-e^{23}$ and their partners.
+For the $d^-$ choice below, Section~2's target $(2,0)_{\rm str}$ is
+$\Lambda^2_-$, so the explicit dictionary is
+\[
+ (a,b)_{\rm str}=(b,a)_{\rm iso}.
+\]
+These distinguish structure-group labels from isometry labels. For fundamental
+isometry characters $x=\chi_1(z)$, $y=\chi_1(w)$ and $P=x-y$, the
+source-minus-target character of the printed symbol is
+\[
+ -P_{\rm str}\chi_J^{\rm str,L}\chi_{J-1}^{\rm str,R}
+       =P\chi_{J-1}(z)\chi_J(w).
+\]
+The identity follows directly from
+$\chi_{r+1}+\chi_{r-1}=\chi_1\chi_r$; it is valid at every rank.
+At $J=1$, the independent exterior-algebra calculation reads
+\[
+ \frac{\operatorname{tr}\Lambda^1-\operatorname{tr}\Lambda^2_-
+       -\operatorname{tr}\Lambda^0}{\det(1-g)}
+ =\frac{xy-(y^2-1)-1}{(x-y)^2}=\frac y{x-y}.
+\]
+Thus the swapped symbol term, rather than the same-labelled one, agrees
+with the proposed fixed-point numerator. Together with
+Christoffel--Darboux below, its difference from the reduced transform is
+minus the kernel character. This is a character-level consistency check;
+a full filling statement is intentionally not inferred from it.
+
+\subsection{Collar, Clifford convention, and a first-order calibration}
+\label{sec:collar}
+
+Give $Y$ its boundary orientation and write the product orientation as
+$dx\wedge\mathrm{vol}_Y$, with $x$ increasing outwards.  The inward collar
+coordinate is $u=-x$.  We define $B_J$ by
+\[
+ D^+_{T_J}=c(du)(\partial_u+B_J)
+\]
+using the product Levi-Civita connection and the induced connection on $T_J$.
+The APS condition annihilates the nonnegative spectral part of $B_J$; its
+index correction is $-\xi(B_J)$, using the inward-normal convention of
+\cite[Theorem~3.10, p.~57; equations~(4.1)--(4.3), pp.~60--62]{APS1975I}.
+A change of the normal factorization without
+changing this spectral convention is not innocuous.
+
+Here is a calibration that fixes the sign independently of a squared
+operator.  At $J=1$ the Clifford-normalized completion is
+$(\sqrt{2}d^-,\delta)$ on one-forms.  Write a one-form as $f\,dx+\beta$ and
+identify an anti-self-dual two-form with
+$(dx\wedge v-*_Yv)/\sqrt{2}$.  In the resulting target coordinates its value is
+\[
+ (\partial_x\beta-d_Yf-*_Yd_Y\beta,\ -\partial_xf+\delta_Y\beta).
+\]
+The normal symbol sends $(f,\beta)$ to $(\beta,-f)$.  Factoring with the
+inward coordinate therefore gives
+\begin{equation}\label{eq:j1-collar}
+ B_1=\begin{pmatrix}0&\delta_Y\\ d_Y&*_Yd_Y\end{pmatrix}.
+\end{equation}
+In particular, the co-closed one-form block is positive curl.  On the unit
+quaternions with the boundary orientation, the right-invariant form
+$dq\,q^{-1}$ has curl $+2$ and type $(2,0)$; its left-invariant counterpart
+has curl $-2$ and type $(0,2)$.  Thus the positive TT branch is
+$(n+2r,n)$, with eigenvalue $n+r+1$.  This is the convention of the companion
+tensor-curl papers~\cite{Mahmood2026LensEta,Mahmood2026DiracToTensorCurlEtaTransfer},
+not its negative.
+
+For use at every rank, view the unit sphere as the symmetric space
+$\Spin(4)/\Spin(3)$.  The canonical and Levi-Civita connections agree here;
+the homogeneous Dirac formula has no cubic bracket term
+\cite[Sections~2--3]{Agricola2002}. The following calculation also fixes the
+twisting connection, not merely a Casimir eigenvalue.
+Let $e_k\in\{i,j,k\}$ and take horizontal generators
+$X_k=(e_k/2,-e_k/2)$; the curve $\exp(tX_k)\cdot1=\exp(te_k)$ has unit
+speed. A section of the associated spinor-twist bundle is an equivariant
+function on $\Spin(4)$, differentiated horizontally by the canonical
+connection. In its Peter--Weyl decomposition write $L_k,R_k$ for the
+Hermitian generators on the contragredient representation of type $(p,q)$.
+The derivative along $X_k$ is $i(L_k-R_k)$. On the boundary spinor factor
+put $c_Y(e_k)=2iS_k$, $S=1/2$, with the Clifford sign selected by
+\eqref{eq:j1-collar}. Consequently, on the invariant multiplicity space
+for a twisting summand $V_{2r-1}$, the actual first-order operator is
+\begin{equation}\label{eq:signed-angular}
+ D=2\boldsymbol S\mathbin{\cdot}(\boldsymbol R-\boldsymbol L),
+ \qquad S=\tfrac12,\quad L=\tfrac p2,\quad R=\tfrac q2.
+\end{equation}
+Here the diagonal invariance condition says that $\boldsymbol S+\boldsymbol
+L+\boldsymbol R$ couples to twisting spin $r-1/2$. The $SU(2)$ duals have
+the same highest weights, so $p,q$ remain the isometry labels. The
+horizontal bracket has no horizontal component, hence neither the spin nor
+twist connection contributes an additional horizontal algebraic term.
+This derives \eqref{eq:signed-angular} from the specified connection. The
+first-order $J=1$ calibration fixes the remaining overall sign; it is not
+inferred from the Casimir square used below.
+
+\subsection{A reducing tensor-curl sector}
+
+On a product collar, the tangential operator of $D^+_{T_J}$ is the intrinsic
+Dirac operator on
+\[
+ S_Y\otimes T_J|_{\Spin(3)}
+ =W_0\oplus2W_1\oplus\cdots\oplus2W_{J-1}\oplus W_J.
+\]
+The rank-$J$ transverse-traceless compression is the tensor-curl operator
+$A_J$.  On the round three-sphere its two helicities have $\Spin(4)$ support
+$(n+2J,n)$ and $(n,n+2J)$.  A lower-spin bundle $W_r$, $r<J$, only contains
+types with $|p-q|\leq2r<2J$.  Equivariance therefore prohibits mixing between
+the TT helicities and the auxiliary summands.
+
+\begin{theorem}[Round reducing split]
+On $S^3$ and every free round spherical quotient,
+\[
+ B_J\cong A_J\oplus B_J^{\aux}
+\]
+as an orthogonal reducing split.  Consequently, for every flat twist $\rho$,
+\begin{align}
+ \etaInv_\rho(B_J)&=\etaInv_\rho(A_J)+\etaInv_\rho(B_J^{\aux}),\\
+ h_\rho(B_J)&=h_\rho(A_J)+h_\rho(B_J^{\aux}).
+\end{align}
+\end{theorem}
+
+\begin{proof}
+The two helicity branches of $A_J$ have $\Spin(4)$ types $(n+2J,n)$ and
+$(n,n+2J)$.  Every lower-spin summand $W_r$, $r<J$, has
+$|p-q|\leq2r<2J$, so no irreducible type occurring in the tensor-curl sector
+occurs in the auxiliary sector.  Since $B_J$ is equivariant and self-adjoint,
+the orthogonal projections onto these inequivalent supports commute with it.
+This gives the reducing split on $S^3$; equivariance makes the decomposition
+descend to a free quotient and persist after a flat twist.  Additivity of eta
+and kernel over an orthogonal direct sum gives the two displayed identities.
+\end{proof}
+
+The word ``round'' is essential.  No corresponding reducing theorem is used
+for Berger or arbitrary boundary metrics.
+
+\subsection{Local index density}
+
+Let $x_+,x_-$ be the formal half-spinor roots, with
+$x_+^2=(p_1+2e)/4$ and $x_-^2=(p_1-2e)/4$.
+The weight-square sum in $\operatorname{Sym}^n\mathbb C^2$ is
+\[
+ \sum_{k=0}^n(n-2k)^2=\frac{n(n+1)(n+2)}3.
+\]
+Expanding
+$\mathrm{ch}(\operatorname{Sym}^J S^-)
+\mathrm{ch}(\operatorname{Sym}^{J-1}S^+)$ through degree four and multiplying
+by $\widehat A=1-p_1/24+\cdots$ gives, for the displayed positive-chiral
+source,
+\[
+[\widehat A\,\mathrm{ch}(T_J)]_4
+ =\frac{J(J+1)}{12}
+\bigl((J^2+J-1)p_1-(2J+1)e\bigr).
+\]
+On a nonspin manifold the left side denotes the invariant polynomial
+computed in local spin lifts; the right side is globally defined.
+On a closed four-manifold this integrates to
+\[
+ \frac{J(J+1)}{12}
+ \bigl(3(J^2+J-1)\tau-(2J+1)\chi\bigr).
+\]
+At $J=1$ the expression is $(\tau-\chi)/2$, matching the calibrated
+$d^-+\delta$ control.  We do not choose a filling in this paper, so the local
+density is not converted into a numerical APS index.
+
+\section{Eta, kernel, and the all-rank auxiliary assembly}
+
+\subsection{Classical quotient machinery and APS normalization}
+
+The ordinary spin-Dirac spectrum on $S^3$ and free spherical quotients is
+described by character generating functions
+\cite[pp.~74--76, Thms.~1--2]{Bar1996}.  Lens-space multiplicities admit an
+explicit affine-congruence-lattice formula
+\cite[arXiv v1, p.~14, Thm.~4.3]{BoldtLauret2017}.  Twisted eta and defect formulas on
+odd-dimensional spherical space forms, including spin-structure typing, are
+classical
+\cite[pp.~427--432]{Gilkey1984}.  For twisted Dirac spectra on $S^3/\Gamma$ we
+cite Cisneros-Molina's research article \cite{CisnerosMolina2001} together
+with the theorem-level reproduction
+\cite[pp.~480--481, Thm.~2.2]{CacicMarcolliTeh2014}.  No physical inference is
+taken from the latter article.
+
+For a self-adjoint boundary operator $B$, the APS reduced correction is
+\begin{equation}\label{eq:xi-definition}
+ \xi_\rho(B)=\frac{\etaInv_\rho(B)+h_\rho(B)}{2},
+ \qquad h_\rho(B)=\dim\ker B_\rho.
+\end{equation}
+The kernel term is part of the definition and of the index correction
+\cite[p.~414, Eq.~(3.1) and Thm.~3.3]{APS1975}.  Eta-only quantities below are
+always labeled separately.
+
+\subsection{The auxiliary formula}
+
+For $r\geq1$, define the finite virtual character
+\[
+ E_r=\sum_{m=0}^{2r-2}
+ \sgn(m-r+1)
+ [V_m\boxtimes V_{2r-2-m}].
+\]
+Let $\langle\rho,E_r\rangle$ denote the corresponding finite character
+pairing.  In the angular-momentum calculation let $C_L,C_R$ be the Casimirs
+of the two factors of the type $(p,q)$, with
+$C(V_n)=n(n+2)/4$.  The auxiliary correction is as follows.
+
+\begin{theorem}[All-rank auxiliary eta and kernel]
+For every integer $J\geq1$, free round spherical quotient $S^3/\Gamma$, and
+flat twist $\rho$,
+\begin{align}
+ \etaInv_\rho(B_J^{\aux})
+ &=\sum_{r=1}^{J-1}\etaInv_\rho(A_r)
+   -\sum_{r=1}^{J}\langle\rho,E_r\rangle,\label{eq:aux-eta}\\
+ h_\rho(B_J^{\aux})
+ &=\sum_{r=1}^{J}
+ \dim\Hom_\Gamma
+ \bigl(\rho,V_{r-1}\boxtimes V_{r-1}\bigr).\label{eq:aux-kernel}
+\end{align}
+Therefore
+\begin{align}
+ \etaInv_\rho(B_J)
+ &=\sum_{r=1}^{J}\etaInv_\rho(A_r)
+   -\sum_{r=1}^{J}\langle\rho,E_r\rangle,\label{eq:full-eta}\\
+ h_\rho(B_J)&=h_\rho(A_J)+h_\rho(B_J^{\aux}).\label{eq:full-kernel}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+The diagonal restriction is
+$T_J|_{\Spin(3)}=\bigoplus_{r=1}^J V_{2r-1}$.  On its $r$th summand,
+\eqref{eq:signed-angular} and the angular-momentum commutators give
+\[
+ D^2=2(C_L+C_R)+\tfrac34-C_{S+L+R}
+     =2(C_L+C_R)+1-r^2.
+\]
+To fix the signed spectrum, couple $L+R$ first.  In a multiplicity-two
+space the two intermediate spins are $t=r-1,r$.  The diagonal matrix elements
+of $D$ are respectively $(C_R-C_L)/r$ and $-(C_R-C_L)/r$.
+For $r=1,t=0$ the first is zero, as $C_L=C_R$ there.  Hence the trace is
+zero, and the square law makes the two eigenvalues opposite.  They cancel
+in eta before taking the quotient.
+
+On the one-copy type $(n+2r,n)$ only $t=r$ is available, giving
+$D=(C_L-C_R)/r=n+r+1$; the mirror type has the negative eigenvalue.
+On the finite one-copy type $(m,2r-2-m)$ only $t=r-1$ is available, giving
+\[
+ D=(C_R-C_L)/r=r-1-m,\qquad 0\leq m\leq2r-2.
+\]
+Its signed character is therefore $-E_r$, not $E_r$.  The only zero type is
+$V_{r-1}\boxtimes V_{r-1}$.  Passing to $\Gamma$-invariants after twisting by
+$\rho$, and then summing in $r$, gives
+the full formula.  Removing the $r=J$ TT ladder leaves
+\eqref{eq:aux-eta}; the TT ladders have no kernel, so all zero types remain
+in \eqref{eq:aux-kernel}.  The square law alone would not have fixed the
+relative sign between the infinite and finite branches.
+\end{proof}
+
+\subsection{Auxiliary characters and cumulative assembly}
+
+The generic odd-Chebyshev and representation-ring
+algebra used in the cumulative calculation is developed in
+\cite{Mahmood2026BivariateMcKay}.  It is algebraic input only; the square
+completion, reducing split, local density, and auxiliary APS formulas are the
+boundary results proved here.  The cumulative corollary below also uses the
+rankwise Dirac-to-tensor-curl eta formula of
+\cite{Mahmood2026DiracToTensorCurlEtaTransfer}, restricted to the common
+hypotheses of the two papers.
+
+Every multiplicity-two representation has a paired
+$(+\lambda,-\lambda)$ spectrum and cancels before quotient projection.  The
+unpaired infinite branches are the tensor-curl ladders; what remains is the
+finite $-E_r$ contribution and the zero representation counted in
+\eqref{eq:aux-kernel}.
+
+The auxiliary eta does not vanish universally.  For the trivial sector at
+ranks $J=1,2,3,4$, the exact values include
+\[
+ S^3/Q_8:\quad 0,\ -\frac94,\ -\frac{15}{4},\ -\frac32,
+ \qquad
+ S^3/(2T):\quad 0,\ -\frac{59}{36},\ -\frac{55}{12},\ -\frac{43}{6}.
+\]
+Here the groups act by right multiplication.  Both the signed spectral
+assembly and direct class averaging reproduce these values.  Thus the
+auxiliary term carries genuine nonabelian representation data.
+
+The higher-spin operators, sphere spectra, twisted quotient formulas, eta
+invariant, and APS kernel correction are established components.  What was
+not found in the surveyed primary sources is the combined formula
+\eqref{eq:aux-eta}--\eqref{eq:aux-kernel} in this natural round-boundary
+normalization.
+
+\subsection{Bounded cumulative eta and reduced correction}
+
+Fix the common domain of the cited rankwise transfer and the boundary
+assembly above: the same free effective round spherical quotient $S^3/\Gamma$,
+injective $\Spin(4)$ lift, orientation, operator and copy-multiplicity
+normalization, and flat twist.  Let $A_L,A_R$ be multiplication by the two
+lifted defining representations in the common representation-ring
+convention, let $U_m$ be the Chebyshev polynomial of the second kind, and put
+\[
+ C_J(A)=U_{J-1}(A/2)U_J(A/2),\qquad
+(\boldsymbol e_r)_\rho=\langle\rho,E_r\rangle,\qquad
+ \boldsymbol e_{\leq J}=\sum_{r=1}^{J}\boldsymbol e_r.
+\]
+Write $\boldsymbol\eta^B_J=(\etaInv_\rho(B_J))_\rho$ and let
+$\boldsymbol\eta^D_C$ be the twisted spin--Dirac eta vector in the convention
+of \cite{Mahmood2026DiracToTensorCurlEtaTransfer}: its positive branch is
+$V_n\boxtimes V_{n+1}$.  This is the opposite of the untwisted Dirac sign
+induced by the signed-angular boundary convention of the present paper.
+The subscript $C$ records the companion convention; the factor $-1/2$ below
+uses that sign and must not be combined with its negative.
+
+\begin{corollary}[Cumulative boundary eta and reduced correction]
+\label{cor:cumulative-boundary-eta-xi}
+For every integer $J\geq1$ on the common domain above,
+\begin{align}
+ \boldsymbol\eta^B_J
+ &=-\frac12\bigl[C_J(A_L)+C_J(A_R)\bigr]
+   \boldsymbol\eta^D_C-\boldsymbol e_{\leq J},
+ \label{eq:cumulative-boundary-eta}\\
+ \xi_\rho(B_J)
+ &=\frac12\left\{\etaInv_\rho(B_J)+h_\rho(A_J)
+   +\sum_{r=1}^{J}\dim\Hom_\Gamma
+   \bigl(\rho,V_{r-1}\boxtimes V_{r-1}\bigr)\right\}.
+ \label{eq:cumulative-boundary-xi}
+\end{align}
+\end{corollary}
+
+\begin{proof}
+The rankwise transfer theorem of
+\cite{Mahmood2026DiracToTensorCurlEtaTransfer} gives
+$\boldsymbol\eta^{\TT}_r=-\tfrac12(A^L_{2r-1}+A^R_{2r-1})
+\boldsymbol\eta^D_C$.  In the common representation-ring convention,
+$A^X_m=U_m(A_X/2)$.  Substitute this formula for each
+$\etaInv_\rho(A_r)$ in \eqref{eq:full-eta}, then apply the two separate
+Chebyshev identities from \cite{Mahmood2026BivariateMcKay},
+$\sum_{r=1}^{J}U_{2r-1}(A_X/2)=C_J(A_X)$ for $X=L,R$.  This gives
+\eqref{eq:cumulative-boundary-eta}.  Equation
+\eqref{eq:cumulative-boundary-xi} follows from
+\eqref{eq:xi-definition}, \eqref{eq:full-kernel}, and
+\eqref{eq:aux-kernel}.
+\end{proof}
+
+This corollary is a composition of two cited inputs with the boundary
+assembly proved here; it is not a new operator intertwining or isospectrality
+statement.  Its hypotheses are exactly the common round quotient, lift,
+orientation, normalization, and flat-twist hypotheses stated above.
+
+\section{Exact round-lens calculations}
+
+\subsection{Domain and two routes}
+
+We next calculate a finite-domain reference table for round lens spaces and
+ranks.  The eta, kernel, and reduced correction values are independently
+reconstructed by assembly and cyclotomic Fourier routes.  The calculation is
+not an all-level classification or a numerical index on a chosen filling.
+
+The calculation domain is
+\[
+ 2\leq p\leq24,
+ \quad q\in(\Z/p\Z)^\times,
+ \quad J=1,\ldots,6,
+\]
+with both spin lifts where distinct and every flat character $a\in\Z/p\Z$.
+It comprises 242 lens/lift cells, 1,452 rank rows, and 23,688 exact triples
+\[
+ \bigl(\etaInv_a(B_J),h_a(B_J),\xi_a(B_J)\bigr).
+\]
+
+Route A uses the all-rank split
+\eqref{eq:aux-eta}--\eqref{eq:full-kernel}, the exact
+Hurwitz/quasipolynomial tensor-curl formula, and direct weight enumeration for
+the finite terms.  Route B starts from the closed geometric-twist class
+transform in Section~\ref{sec:class-transforms}, recovers per-rank blocks by
+transform differences, and applies exact finite Fourier inversion.  The
+implementation works in
+$\Q[X]/(1+X+\cdots+X^{p-1})$, which retains all nonidentity $p$th roots,
+including imprimitive ones; the odd lift makes both character exponents
+integral.  Route B uses no Hurwitz continuation.  At the identity
+class the eta coefficient is zero by left-right spectral symmetry, while kernel and
+finite terms are exact dimension counts.
+
+Across the finite domain the routes agree in 94,752 exact value checks.  The
+complete tables are supplied as ancillary machine-readable data, with both
+route implementations and exact assertion-driven checks.  Two further
+out-of-domain cells are supplied as additional reproducibility checks, not
+as unobserved predictions.
+
+\subsection{Selected values and independent checks}
+
+Table~\ref{tab:selected-values} records a small human-readable selection.
+The $L(17,3)$ row checks the auxiliary formula directly; the other rows were
+calculated outside the working domain without changing the formulas.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+space & $J$ & $a$ & $\etaInv_a(B_J)$ & $h_a(B_J)$ & $\xi_a(B_J)$\\
+\midrule
+$L(17,3)$  & 6 & 5  & $-9/17$  & 6 & $93/34$\\
+$L(17,3)$  & 6 & 12 & $-9/17$  & 6 & $93/34$\\
+$L(29,12)$ & 7 & 3  & $-13/29$ & 5 & $66/29$\\
+$L(29,12)$ & 7 & 26 & $-13/29$ & 5 & $66/29$\\
+$L(27,7)$  & 8 & 9  & $-1/9$   & 7 & $31/9$\\
+\bottomrule
+\end{tabular}
+\caption{Selected exact values from the assembly and Fourier calculations.}
+\label{tab:selected-values}
+\end{table}
+
+At $L(17,3)$, $J=6$, $a=5$ and its conjugate $a=12$, the auxiliary values are
+$\etaInv(B_6^{\aux})=-8/17$ and $h(B_6^{\aux})=6$, while the full eta is
+$-9/17$.  Conjugation, orientation reversal, spin-lift invariance, exact
+denominator typing, and the identities
+\[
+ \sum_a\etaInv_a(B_J)=0,
+ \qquad
+ \sum_a h_a(B_J)=\frac{J(J+1)(2J+1)}6
+\]
+are verified throughout the table domain.
+
+\section{Class transforms and oriented reconstruction}
+\label{sec:class-transforms}
+
+Let $L(p,q)$ carry the fixed odd lift $\widetilde q$.  For a nonidentity
+cyclic class represented by $k$, $1\leq k\leq p-1$, put
+\[
+ \zeta=e^{\pi i/p},\qquad
+ e_L=k(1+\widetilde q),\qquad
+ e_R=k(1-\widetilde q),
+\]
+\[
+ P_k=(\zeta^k-\zeta^{-k})
+ (\zeta^{k\widetilde q}-\zeta^{-k\widetilde q}).
+\]
+For the $SU(2)$ character
+\[
+ \chi_m(z)=\sum_{j=0}^m z^{m-2j}
+ =\frac{z^{m+1}-z^{-(m+1)}}{z-z^{-1}},
+\]
+with the polynomial value used also at $z=\pm1$, write
+$\chi_m^L=\chi_m(\zeta^{e_L})$ and
+$\chi_m^R=\chi_m(\zeta^{e_R})$.  On nonidentity free classes, exact Fourier
+inversion of the complete flat-twist vectors gives
+\begin{equation}\label{eq:eta-transform}
+ \widehat\etaInv_J^{\full}(k)
+ =\frac{
+  \chi_J^L\chi_{J-1}^R+\chi_{J-1}^L\chi_J^R
+ }{P_k}.
+\end{equation}
+To see the relative sign algebraically, put $x=\chi_1^L$, $y=\chi_1^R$,
+so $P_k=x-y$.  The recurrence $\chi_{m+1}(x)=x\chi_m(x)-\chi_{m-1}(x)$
+telescopes the finite character to
+\[
+ P_k\sum_{r=1}^J E_r
+ =(\chi_J^L-\chi_J^R)(\chi_{J-1}^L-\chi_{J-1}^R).
+\]
+The positive-TT cumulative numerator is
+$\chi_J^L\chi_{J-1}^L+\chi_J^R\chi_{J-1}^R$.
+Subtracting the finite term gives exactly the cross numerator in
+\eqref{eq:eta-transform}.
+
+The kernel character is
+\[
+ H_J=\sum_{r=0}^{J-1}\chi_r^L\chi_r^R.
+\]
+Christoffel--Darboux gives
+\[
+ P_kH_J
+ =\chi_J^L\chi_{J-1}^R-\chi_{J-1}^L\chi_J^R.
+\]
+Combining eta and kernel according to
+\eqref{eq:xi-definition} selects one chirality:
+\begin{equation}\label{eq:xi-transform}
+ \widehat\xi_J(k)
+ =\frac{\chi_J^L\chi_{J-1}^R}{P_k}.
+\end{equation}
+
+\subsection{Blind classes}
+
+The full-eta blind set is the cyclotomic divisibility locus of
+\[
+ \chi_J^L\chi_{J-1}^R+\chi_{J-1}^L\chi_J^R.
+\]
+For every even $p$, the half-turn class $k=p/2$ is blind for every rank and
+lift.  Thus no finite collection of full-eta ranks has complete Fourier
+support at all levels.
+
+The reduced transform vanishes precisely when
+\[
+ (J+1)e_L\equiv0\pmod p,
+ \qquad e_L\not\equiv0,p\pmod{2p},
+\]
+or
+\[
+ Je_R\equiv0\pmod p,
+ \qquad e_R\not\equiv0,p\pmod{2p}.
+\]
+Reduced ranks one and two have no common blind nonidentity class for any
+$p,q$, or lift.  This is a universal support statement, not by itself a
+reconstruction theorem.
+
+\subsection{The known rank-one base}
+
+At $J=1$, the auxiliary eta is zero and the kernel vector is
+$h_1=(1,0,\ldots,0)$ in flat-character coordinates.  Hence
+\[
+ \etaInv_1=2\xi_1-h_1
+\]
+is a $q$-independent invertible translation.  The rank-one twist-eta
+reconstruction theorem is known: under one coherently typed multiplicative
+character relabeling, equality of the full twist vector forces
+$q'\equiv q^{\pm1}\pmod p$
+\cite[pp.~23--24, Thm.~2.1; pp.~34--35, Thm.~4.3]{Katase1990}.
+
+\subsection{Adjacent-rank reconstruction is refuted}
+
+Do two adjacent ranks, each retaining the full coherently labelled twist
+vector, determine the oriented lens space?  The answer is no.
+The all-rank multipliers, chiral reduction, and support algebra above do not
+promote to universal oriented reconstruction from two adjacent ranks.  Under
+our convention, oriented equivalence of lens spaces requires
+$q'\equiv q^{\pm1}\pmod p$, while unoriented homeomorphism allows
+$q'\equiv\pm q^{\pm1}\pmod p$; this is the classical topological
+classification perimeter \cite{Brody1960}.
+
+The adjacent-rank calculation yields 16 witness rows, all recomputed by both
+exact routes in the present convention.  They represent
+four pairs of colliding oriented orbits:
+\begin{center}
+\small
+\begin{tabular}{@{}ccllr@{}}
+\toprule
+$p$ & ranks & left orbit & right orbit & rows\\
+\midrule
+7  & $(6,7)$ & $\{2,4\}$ & $\{3,5\}$ & 4\\
+14 & $(6,7)$ & $\{3,5\}$ & $\{9,11\}$ & 4\\
+27 & $(8,9)$ & $\{4,7\}$ & $\{16,22\}$ & 4\\
+27 & $(8,9)$ & $\{5,11\}$ & $\{20,23\}$ & 4\\
+\bottomrule
+\end{tabular}
+\end{center}
+Every row refutes oriented reconstruction.  The rows at $p=7$ and $p=14$
+belong to the blind-rank families proved in Section~\ref{sec:phases}; their
+rank vectors carry no information about $q$.  Those eight rows also merge
+under orientation reversal, so they are orientation-reversing
+homeomorphic.  The eight rows at $p=27$, representing two orbit-pair
+collisions, remain nonhomeomorphic even unoriented.  In particular, the
+adjacent-rank vectors for $L(27,4)$ and $L(27,22)$ agree exactly with no
+character relabeling.
+
+A representative of the second $p=27$ pair is $L(27,5)$ versus $L(27,20)$
+with the same relabeling applied to both the reduced vectors and the kernels:
+$a\mapsto7a$ (also $a\mapsto20a$).
+
+On the computed domain, the divisibility/size pattern
+$(J+1)\mid p$ together with $p\leq3(J+1)$ is an observation, not a theorem.
+A refined positive reconstruction criterion remains open.  This negative
+result is also distinct from the phase collapse below: $L(16,1)$ and
+$L(16,9)$ are exactly distinguished at every computed adjacent pair
+$(1,2),\ldots,(8,9)$.  Their all-rank phase loss is therefore not exact-value
+loss on this range.
+
+\section{Exponentiated reduced correction and information loss}
+\label{sec:phases}
+
+Exponentiation retains the class of the reduced correction modulo integers:
+\[
+ \tau(B)=\exp(2\pi i\,\xi(B)).
+\]
+The reduced eta and determinant-line formalism, including the deliberate loss
+of the integer lift, is classical
+\cite[arXiv v4, pp.~1, 6--8, 12--13]{DaiFreed1994}.  Fractional eta-type information is
+related to torsion linking pairings
+\cite[arXiv v2, pp.~2, 15, 18]{SavinSternin2002}.  Ordinary Dirac spectra can also lose
+geometric information on spherical space forms
+\cite[pp.~80--82, Thm.~5]{Bar1996}.  Current second-jet equivariant eta
+separations retain different data and concern different lens pairs
+\cite[Thm.~1.1, Thm.~4.2, Thm.~5.14, Cor.~5.30]{Sharma2026}.
+
+\input{phase_classification}
+
+Selected exact lifts illustrate the equality modulo integers.
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$J$ & $a$ & $5a\bmod16$ & $\xi_{J,a}(16,1)$ &
+$\xi_{J,5a}(16,9)$ & difference\\
+\midrule
+1 & 1 & 5 & $-7/4$  & $1/4$ & $-2$\\
+2 & 1 & 5 & $-7/2$ & $1/2$ & $-4$\\
+6 & 1 & 5 & $-1/4$ & $11/4$ & $-3$\\
+\bottomrule
+\end{tabular}
+\caption{Exact phase-lift values for one flat label.  Integer differences
+give identical exponentials.}
+\label{tab:phase-values}
+\end{table}
+
+The kernel term is essential.  The eta-only comparison $[\etaInv/2]$
+separates the same pair already at rank two, while the genuine APS class
+$[(\etaInv+h)/2]$ does not.  Hence the real eta vector, eta-only reduction,
+and exponentiated APS correction retain genuinely different information.
+The collapse criterion classifies equality of this exponentiated transform
+under coherent relabeling, not homeomorphism of lens spaces.  It does not
+classify equality of the full real-valued invariants.
+
+\section{Conclusion and open problems}
+
+The full Dirac completion and its sparse predecessor must be distinguished,
+even though their interior symbols are elliptically homotopic. For the
+full completion the first-order homogeneous derivation fixes the signed
+spectrum and hence the character transform. The auxiliary sector cannot be
+discarded: it contributes both
+spectral asymmetry and zero modes, and the latter can change what survives
+after exponentiation.  At the level of real class transforms the data can be
+strongly reconstructive; at the level of exponentiated reduced corrections,
+the pair $L(16,1)$ and $L(16,9)$ shows an all-rank loss of oriented
+information.  More strongly, the entire phase ladder is generated by rank
+one, whereas selected adjacent real-valued ranks can be completely blind to
+the lens parameter.  These are distinct information losses.
+
+Several natural questions remain. The fixed-point formula must use the actual
+source and target fiber characters \cite[Sec.~4.5]{GilkeyBook1984}; the
+character check in Section~\ref{sec:dictionary} is complementary to, not a
+replacement for, the first-order operator derivation. The present calculation does not choose a
+four-dimensional filling and therefore gives no numerical APS index.  A
+positive reconstruction criterion beyond the rank-one theorem is still open,
+despite the adjacent-rank counterexamples found here.  It is also unknown how
+much of the reducing split and phase law persists for Berger or more general
+off-round metrics.  Finally, determinant magnitudes require information not
+contained in the reduced correction.  These are analytic and geometric
+questions; no physical interpretation is attached to the phase notation used
+in this paper.
+
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\bibliographystyle{alpha}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,73 @@
+{
+  "schema": "eta-lens-spaces.spectral-flow-manifest.v1",
+  "date": "2026-07-12",
+  "status": "SCIENTIFIC_MANUSCRIPT_AND_EXACT_SUPPLEMENT",
+  "paper_version": "manuscript dated 2026-07-15",
+  "runtime": "Python >= 3.9 (standard library only)",
+  "generator_contract": "standard-library exact arithmetic; no floating-point values in certificates",
+  "verification_contract": {
+    "primary": "exact equality to the certified I_n",
+    "secondary": "independent Zagier mod-four parity diagnoses orientation/sign errors and errors outside 4Z",
+    "analytic_assembly": "integrality diagnoses independently assembled analytic phase terms; it is not sufficient for an integer crossing counter"
+  },
+  "counts": {
+    "main_blocks": 788,
+    "main_rows": 16028,
+    "showcase_blocks": 3,
+    "showcase_rows": 149,
+    "total_blocks": 791,
+    "total_rows": 16177,
+    "eta_rank_max": 8
+  },
+  "commands": {
+    "generate": "python -B benchmarks/spectral_flow_certificates/generate_certificates.py",
+    "verify": "python -B benchmarks/spectral_flow_certificates/verify_certificates.py"
+  },
+  "release_boundaries": [
+    "J>=2 eta values are outputs of the proved compact-manifold formula",
+    "no one-loop, Hamiltonian, phase-diagram, or preferred-level claim",
+    "no experimental or phenomenological claim"
+  ],
+  "files": [
+    {
+      "path": "benchmarks/spectral_flow_certificates/README.md",
+      "bytes": 4935,
+      "sha256": "459ab92093aea3f5548cbbfac19daad46e83b528d94df90d6df914d343c757ff"
+    },
+    {
+      "path": "benchmarks/spectral_flow_certificates/generate_certificates.py",
+      "bytes": 12193,
+      "sha256": "e6892e796b38815823ca088cd81ff4161ae1f840f88c3df857174c5764db00e7"
+    },
+    {
+      "path": "benchmarks/spectral_flow_certificates/verify_certificates.py",
+      "bytes": 21418,
+      "sha256": "55256321f680d0c1e858d0807ec5f9fe920afe5ba75f7d0cc3f590cd5bf45338"
+    },
+    {
+      "path": "paper/integer_spin_eta_lens_spaces/spectral_flow_certificate_note.tex",
+      "bytes": 4522,
+      "sha256": "f530ae511945e60e0fcd6b06c946b18b5fd9eb42a20a9f4873456f9d9237932c"
+    },
+    {
+      "path": "paper/integer_spin_eta_lens_spaces/spectral_flow_certificate_note_standalone.tex",
+      "bytes": 1084,
+      "sha256": "411c82c97a3d930db3e8b77dee8c65ea45056de73e0113c22c3179cf6fd98a95"
+    },
+    {
+      "path": "benchmarks/spectral_flow_certificates/certificates_p3_61.json",
+      "bytes": 2579359,
+      "sha256": "1915f93968fbd763b3adf16784c1cd5170caa0a28ed0953b39290751f0297fef"
+    },
+    {
+      "path": "benchmarks/spectral_flow_certificates/certificates_showcase.json",
+      "bytes": 23185,
+      "sha256": "091d1ad941c6447550ce5ee1cebe1d15fd75fa4e1ab610546c28856dd1fc66de"
+    },
+    {
+      "path": "benchmarks/spectral_flow_certificates/certificates.csv",
+      "bytes": 1952391,
+      "sha256": "dff7a8f80997e3b5811b2b311190f5c91249d48ca6ac3234b3b9b0b38392ef4d"
+    }
+  ]
+}

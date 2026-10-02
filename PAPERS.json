@@ -1,0 +1,455 @@
+{
+  "author": "Luqman Mahmood",
+  "b_manuscript_source_commit": "02fe612e5c644425b4d2ce291f1ef765ad56f0c9",
+  "b_review_sha256": "c98788bb9fcbad96dcf99d1fb9abd55eecb6897a2e4c5de6f965a14b14d861a7",
+  "claim_review_ledger": "CLAIM_REVIEW_LEDGER.md",
+  "excluded": {
+    "SM5": "HOLD: run-specific prediction contract and tested scorer incomplete"
+  },
+  "final_b_review_sha256": "301564d01a3e9ba83788b05b82779546b9c6111a87b0d2fccde9b9a55f763086",
+  "final_publication_baseline_commit": "7244ff08373bed12ed0bc5dc27593fa74b72da74",
+  "final_review_baseline_commit": "b2da6547be399ce7373c45a6f0ba58ed87d812a3",
+  "final_review_report": "FINAL_REVIEW_20260930.md",
+  "license": "CC BY 4.0 for scholarly documents and mathematical data only; software rights reserved",
+  "manuscript_version": "1.0.0",
+  "oct1_final_edit_baseline_commit": "3fa142c37150cc231308f5019c4af76574334714",
+  "oct1_final_edit_report": "FINAL_EDIT_NOTES_20261001.md",
+  "oct1_revision_baseline_commit": "27775534ed2e2ca621a7c72684a399118d8f535f",
+  "oct1_revision_report": "REVISION_NOTES_20261001.md",
+  "p1_p8_corrected_package_commit": "1fd43cdbfc61fafcb7b08a356e1fcc409b5b6359",
+  "p1_p8_review_baseline_commit": "513c78c9ac07b576dbde26ec17d2ec4fc9e2c344",
+  "p1_p8_source_commit": "f6e97dd6cec113c6ce5d8c2e19a43419e979adcd",
+  "p1_p8_source_inventory_sha256": "7f580f8d7ab1595b33fc48e902d85b010d0ee475792299579b7dee221f1f05a7",
+  "papers": [
+    {
+      "archive": "archives/P1_source_and_supplement.zip",
+      "archive_sha256": "ae86b38b437650bd156cade68e6388edafbf678dbd1691401d19ff1af66daec7",
+      "directory": "papers/P1",
+      "doi": "10.5281/zenodo.21433675",
+      "id": "P1",
+      "last_verified_remote_draft": {
+        "archive_sha256": "13630fdfb1b80acd53e92a312e43b6b345900e89e737e84c065722a0afe290c2",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "8fc0bfc3ce8bc96fd053b46f4b63603942073a8473493624ed45ea134f5d0357",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "c918354fd470987502bb7110a3cb9b9925c6bfea10c118c1c1e4a6fc94ea3862",
+      "pdf": "papers/P1/integer_spin_eta_lens_spaces.pdf",
+      "pdf_sha256": "9b9ab0f3e98cea295a0d4ae5156882d03fa179529da838555f5df06a4a19361c",
+      "public_record_url": "https://zenodo.org/records/21433675",
+      "public_verification": {
+        "archive_sha256": "ae86b38b437650bd156cade68e6388edafbf678dbd1691401d19ff1af66daec7",
+        "doi_resolves_to": "https://zenodo.org/records/21433675",
+        "pdf_sha256": "9b9ab0f3e98cea295a0d4ae5156882d03fa179529da838555f5df06a4a19361c",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>Exact eta invariants for the projected transverse-traceless tensor-curl family on oriented three-dimensional lens spaces, with all-rank formulas, rank symmetries, zero families and an exact spectral-flow data supplement. The orientation, projection and auxiliary-boundary distinctions are explicit. No physical interpretation or preferred lens-space order is inferred.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Eta invariants of transverse-traceless tensor curl on three-dimensional lens spaces",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P2_source_and_supplement.zip",
+      "archive_sha256": "d87b2f500a1815d4c8125c147363a07ad597d11e6121e5d27bd05d2aeabd43ac",
+      "directory": "papers/P2",
+      "doi": "10.5281/zenodo.21433679",
+      "id": "P2",
+      "last_verified_remote_draft": {
+        "archive_sha256": "b4fc4c77a3c138d63d6a708b360ed0f3a5eaad565209658a98e85ed54295fdb2",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "de59d42b89206f2a2012670b41b377ebfb2001cedbd0086f9f2dea8794e08698",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "5a6fd4a6120ab6a68ff8fac9fa254b0350716fe633b0a6f2042fd7f55d93099c",
+      "pdf": "papers/P2/main.pdf",
+      "pdf_sha256": "5a98c4d9d96032aa937c80a353288756b6303ed73f415509cc97f6b7a1383ece",
+      "public_record_url": "https://zenodo.org/records/21433679",
+      "public_verification": {
+        "archive_sha256": "d87b2f500a1815d4c8125c147363a07ad597d11e6121e5d27bd05d2aeabd43ac",
+        "doi_resolves_to": "https://zenodo.org/records/21433679",
+        "pdf_sha256": "5a98c4d9d96032aa937c80a353288756b6303ed73f415509cc97f6b7a1383ece",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>An exact arithmetic study of X0(137): Fricke eigenspaces, newform coefficient fields, a certified modular-symbol period map, and Dedekind-sum data. Target values taken from level 137 illustrate an exact inverse-arithmetic decision procedure in stated prime families; they are inputs, not independently selected constants. Exact arithmetic certificates accompany the manuscript.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "An Exact Arithmetic Profile of X0(137): Fricke Decomposition, Newform Orbits, Period Maps, and Dedekind Data",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P3_source_and_supplement.zip",
+      "archive_sha256": "b552851ebad123a84736b9e97573034924a88b99761d29a0bd36bd423ae97d98",
+      "directory": "papers/P3",
+      "doi": "10.5281/zenodo.21433687",
+      "id": "P3",
+      "last_verified_remote_draft": {
+        "archive_sha256": "9eea6438a81fc80fbbf0c587a87522ac461b30a50d0204691f4c66f061f8feec",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "ca18b6d05a23fa117ecd14b0b0023942b03085d2bc44f24acd011a69af740db0",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "869ab283dea93b634018738d48c8cefe5aa3ce025824980173a27b80bd36c30e",
+      "pdf": "papers/P3/affine_ade_twisted_tt_eta.pdf",
+      "pdf_sha256": "84f03a0bac66f773b951f976862414ca73dea04a76c35e80723ca98fc522c07d",
+      "public_record_url": "https://zenodo.org/records/21433687",
+      "public_verification": {
+        "archive_sha256": "b552851ebad123a84736b9e97573034924a88b99761d29a0bd36bd423ae97d98",
+        "doi_resolves_to": "https://zenodo.org/records/21433687",
+        "pdf_sha256": "84f03a0bac66f773b951f976862414ca73dea04a76c35e80723ca98fc522c07d",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>A representation-theoretic transfer from flat-twisted spin-Dirac eta data to projected integer-rank tensor-curl invariants on round spherical space forms. Closed cyclic and binary-dihedral formulas, exceptional-family source recurrences, and two-sided lens and nonabelian direct-product examples are given. Operator, spin-lift, multiplicity and orientation conventions are explicit.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Dirac-to-Tensor-Curl Eta Transfer on Round Spherical Space Forms with Affine-ADE Specializations",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P4_source_and_supplement.zip",
+      "archive_sha256": "efded67a03047a8e282af32799d6289c551fe0a11bd947283846a4645b5e28d2",
+      "directory": "papers/P4",
+      "doi": "10.5281/zenodo.21433689",
+      "id": "P4",
+      "last_verified_remote_draft": {
+        "archive_sha256": "37a650402394799bb45ea474fa1c13bac6b790bd5c7e30c21f1c0b0a6ee24b2d",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "bb8f0910d01451f5c0900a3922c1c7718f2d70a989d351aa8d4e44236c43d0c4",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "d7de3586305de73f555b597da7550ea7ff6848dc32d82df0c7f35281f4774c72",
+      "pdf": "papers/P4/bivariate_mckay_spectral_functions.pdf",
+      "pdf_sha256": "ae4d22b12c0d6ed2b9b6098e9543dc4fa73c525e816b3a2199083b0b11301c51",
+      "public_record_url": "https://zenodo.org/records/21433689",
+      "public_verification": {
+        "archive_sha256": "efded67a03047a8e282af32799d6289c551fe0a11bd947283846a4645b5e28d2",
+        "doi_resolves_to": "https://zenodo.org/records/21433689",
+        "pdf_sha256": "ae4d22b12c0d6ed2b9b6098e9543dc4fa73c525e816b3a2199083b0b11301c51",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>Commuting bivariate McKay recurrences organize representation multiplicities and round tensor-curl spectral functions. The paper derives finite Hurwitz-zeta continuation, pole and heat-coefficient structure, moving-offset boundary terms and relative zeta-determinant recurrences. Scope is mathematical and confined to the stated operators and quotients.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Bivariate McKay Recurrences and Meromorphic Tensor-Curl Spectral Functions on Spherical Space Forms",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P5_source_and_supplement.zip",
+      "archive_sha256": "3532e02859e6be8db3e339bf31a0f2ec95d03ec365305efdf6d454eff3986314",
+      "directory": "papers/P5",
+      "doi": "10.5281/zenodo.22917335",
+      "id": "P5",
+      "last_verified_remote_draft": {
+        "archive_sha256": "3949f6bbd12ab1ca50de400f99307efca0e33c208ee17dbc29e8fe9c33dcbefc",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "42065c1fef12531d53045e11d251ec30cbe382e3a3c4a634962d5bd4981fcb8a",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "0a74ca8ba7b923c87bb570bf6875e183845266f28e8612606c76c5f4ba98f903",
+      "pdf": "papers/P5/coexact_spectral_hydrodynamics_l137.pdf",
+      "pdf_sha256": "144ee228e4941af501792b894ae15894445e7e37ccaf7e9bae3ddc4319406ff7",
+      "public_record_url": "https://zenodo.org/records/22917335",
+      "public_verification": {
+        "archive_sha256": "3532e02859e6be8db3e339bf31a0f2ec95d03ec365305efdf6d454eff3986314",
+        "doi_resolves_to": "https://zenodo.org/records/22917335",
+        "pdf_sha256": "144ee228e4941af501792b894ae15894445e7e37ccaf7e9bae3ddc4319406ff7",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>Exact coexact modes and convention-fixed triad coefficients on the round lens space L(137,1), together with decay and attractor statements for the declared unforced Hodge-Stokes evolution. The finite triad data and normalization layers are supplied. No three-dimensional regularity theorem, turbulent cascade, physical coupling or preferred topology is claimed.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Coexact Spectral Hydrodynamics on L(137,1): Exact Modes, Triad Couplings, and Decay",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P6_source_and_supplement.zip",
+      "archive_sha256": "4c1fc01f6263be00ac62bf7a5e01e3374195d30dd19642d9f847788c6a1ac375",
+      "directory": "papers/P6",
+      "doi": "10.5281/zenodo.22917339",
+      "id": "P6",
+      "last_verified_remote_draft": {
+        "archive_sha256": "b43cda8b5cec5d944bbca09f6b4d45f00835400823bec5d65574c82e52b8320f",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "b1fbe9d499894627fea56ce0b01bfaf315ca23b79bcbae90aabaa4a38261a1bf",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "8e0e6de81cdea820d24202589eff08eb175ff5756860e33891cf3f5a3f82da20",
+      "pdf": "papers/P6/green_geometry_positive_hermitian.pdf",
+      "pdf_sha256": "091d3748cf80551e64f072c5fa53048f4e5f3e4ba66bb80bb908e2475838315b",
+      "public_record_url": "https://zenodo.org/records/22917339",
+      "public_verification": {
+        "archive_sha256": "4c1fc01f6263be00ac62bf7a5e01e3374195d30dd19642d9f847788c6a1ac375",
+        "doi_resolves_to": "https://zenodo.org/records/22917339",
+        "pdf_sha256": "091d3748cf80551e64f072c5fa53048f4e5f3e4ba66bb80bb908e2475838315b",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>Green geometry on positive Hermitian 2-by-2 instruments, hyperbolic transport, relational holonomy, and fixed five-functional reconstruction of SO(3). Exact projector and elimination data, complete rational kernel-floor covers and their replay engine accompany the construction. Fixed-linear optimality uses the cited published phase-retrieval theorem. Five synthesized functionals are not five primitive experimental shots.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Green Geometry of Positive Hermitian Instruments: Hyperbolic Transport, Relational Holonomy, and Fixed Five-Functional Tomography",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P7_source_and_supplement.zip",
+      "archive_sha256": "8b9bd77bc8c5d84b3f841ea26bb020fca50436bdf7461485c08b91816484495d",
+      "directory": "papers/P7",
+      "doi": "10.5281/zenodo.22917346",
+      "id": "P7",
+      "last_verified_remote_draft": {
+        "archive_sha256": "ed3311fb38595b9156533950ff731d84d9038e3b499c121ca5859b47ed27073e",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "1274fea09f9939453800ba42438edc6fc8bea94e325e27798fba4e34656d4e00",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "9c226a927ff893e649b930dab5347763afb958b65ac683e34cab6e023043d03f",
+      "pdf": "papers/P7/stein_weiss_aps_boundary.pdf",
+      "pdf_sha256": "9b08595a45ae41e32fc573301c9e65da8cbebb59d8ca10fbb21b71f64087a659",
+      "public_record_url": "https://zenodo.org/records/22917346",
+      "public_verification": {
+        "archive_sha256": "8b9bd77bc8c5d84b3f841ea26bb020fca50436bdf7461485c08b91816484495d",
+        "doi_resolves_to": "https://zenodo.org/records/22917346",
+        "pdf_sha256": "9b08595a45ae41e32fc573301c9e65da8cbebb59d8ca10fbb21b71f64087a659",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>Sparse elliptic and fully coupled twisted-Dirac completions are distinguished, with an operator-level derivation of the signed round-boundary spectrum. An all-rank Dedekind-sum phase law, coherent-label collapse criterion and infinite blind adjacent-rank families are proved. Exact tables and verification scripts are supplied; no chosen-filling index is asserted.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Square Elliptic Completions and APS Boundary Information on Round Spherical Quotients",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/P8_source_and_supplement.zip",
+      "archive_sha256": "a887000464ea3b44004c53587e7837a3069189295e2803aefb8e85594c0e4ad7",
+      "directory": "papers/P8",
+      "doi": "10.5281/zenodo.22917349",
+      "id": "P8",
+      "last_verified_remote_draft": {
+        "archive_sha256": "4c5c6a614b668e5f9ab7f5703489d7e5d782d3efde9b6cbcfb9660f6c3cd03bb",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "96ba541a654a4e3e77060f0a62c307698c98d5df190c76bc637e9e6613eb4209",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "807ed0871a88de6d9a11bafcffe52e0c2031a510940909a6fdbb065fb27dde00",
+      "pdf": "papers/P8/exact_quadratic_response_note.pdf",
+      "pdf_sha256": "3e17a2cc983e2bdebe5928eae62b8aaad7a622a7b72c907e3c12c71bd8cb4b13",
+      "public_record_url": "https://zenodo.org/records/22917349",
+      "public_verification": {
+        "archive_sha256": "a887000464ea3b44004c53587e7837a3069189295e2803aefb8e85594c0e4ad7",
+        "doi_resolves_to": "https://zenodo.org/records/22917349",
+        "pdf_sha256": "3e17a2cc983e2bdebe5928eae62b8aaad7a622a7b72c907e3c12c71bd8cb4b13",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "<p>An exact finite quadratic-response model exhibits ranks 9, 10 and 11 and a native-family obstruction. A complete algebraic criterion characterizes every rational single-row completion of the rank-13 assembly in the declared 19-dimensional response space; the seven-candidate dictionary result is a corollary. A 19-texture minor proves that evaluation separates the whole response space. The classification does not make every completing row physically available and is not a microscopic derivation.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+      "title": "Exact Rank Obstruction and Dictionary-Relative Completion in a Finite Quadratic Response Model",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/SM1_source_and_supplement.zip",
+      "archive_sha256": "595affe65f7843fabce0fe42b35597f3ec96c05e9e0ddba583e8705456882b26",
+      "directory": "papers/SM1",
+      "doi": "10.5281/zenodo.23049605",
+      "id": "SM1",
+      "last_verified_remote_draft": {
+        "archive_sha256": "f8fbd6fc50c643757419a8f92e18132e0571745e3d9114ac26f52a0e6cab4fdf",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "5b3378d480d1e63a3cf713879a791f43abafb24149da7c4b4538dc3771691ff2",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "c089f317144427e9bb88001532181cf8e95a7c8e1141b6d3fde51512c7795499",
+      "pdf": "papers/SM1/main.pdf",
+      "pdf_sha256": "212a7876867441c88c5825f1506e79e63e09440941cd0a7580aaeadffb7c28f1",
+      "public_record_url": "https://zenodo.org/records/23049605",
+      "public_verification": {
+        "archive_sha256": "595affe65f7843fabce0fe42b35597f3ec96c05e9e0ddba583e8705456882b26",
+        "doi_resolves_to": "https://zenodo.org/records/23049605",
+        "pdf_sha256": "212a7876867441c88c5825f1506e79e63e09440941cd0a7580aaeadffb7c28f1",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED__SPECIALIST_SCRUTINY_OUTSTANDING",
+      "scope": "Conditional and computer-assisted results on preparation-dependent energy ordering in an explicit family of smooth unforced viscous flows. The manuscript distinguishes rigorous certificates from demonstrations and makes no claim about singularity formation, a new force, or laboratory validation.",
+      "title": "Preparation Memory and Energy-Ordering Reversals in Exact Unforced Flows",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/SM2_source_and_supplement.zip",
+      "archive_sha256": "52a3b46176b32f042d44dc48246885481f2609837a5765ab6368b9bfd9ec1ffd",
+      "directory": "papers/SM2",
+      "doi": "10.5281/zenodo.23049607",
+      "id": "SM2",
+      "last_verified_remote_draft": {
+        "archive_sha256": "b5f7eb61aea4f0185afc0e707f3a69bee649d5251050010755a01c8d7f00ab2f",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "f91d797005f8327a5d274db64a63b85223191a077a226cfa5375e1f64612c0ae",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "07823fee22d05c6f7976dbe8a1cacfecd7083ea1e30e4391824701fe4f4715d5",
+      "pdf": "papers/SM2/main.pdf",
+      "pdf_sha256": "d82212773333675cd4093b598db6404b4586f87de79addde30f34261d3e5f045",
+      "public_record_url": "https://zenodo.org/records/23049607",
+      "public_verification": {
+        "archive_sha256": "52a3b46176b32f042d44dc48246885481f2609837a5765ab6368b9bfd9ec1ffd",
+        "doi_resolves_to": "https://zenodo.org/records/23049607",
+        "pdf_sha256": "d82212773333675cd4093b598db6404b4586f87de79addde30f34261d3e5f045",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "Bounds and counterexamples for observing memory under stated control, timing, and readout assumptions, with interval-certified scale estimates and explicit calibration limitations. This is a mathematical study, not a performed physical experiment.",
+      "title": "When Memory Is Observable: Control Bounds and Temporal-Coarse-Graining Obstructions",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/SM3_source_and_supplement.zip",
+      "archive_sha256": "10ea4e58a7099a52ce5bc253619ec7814ac91e165d4bb2ac91228db0c44274ea",
+      "directory": "papers/SM3",
+      "doi": "10.5281/zenodo.23049609",
+      "id": "SM3",
+      "last_verified_remote_draft": {
+        "archive_sha256": "8bc0112245f8a0eff354a072203e295d218c62ac38d2e4a4ee659cc26de87435",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "1fe0d57fe105bf82a422fb15a75b4c16d933711ea982c6dcac3072fd52cd6f97",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "b60caff484e0b5e102090a6db07ff808ea7e01b811db763de6f97689463c1519",
+      "pdf": "papers/SM3/main.pdf",
+      "pdf_sha256": "32b5ea670f972646a6a8d6214ff1c9128efdae0c9c9e66c623cd0fe4cddfdf62",
+      "public_record_url": "https://zenodo.org/records/23049609",
+      "public_verification": {
+        "archive_sha256": "10ea4e58a7099a52ce5bc253619ec7814ac91e165d4bb2ac91228db0c44274ea",
+        "doi_resolves_to": "https://zenodo.org/records/23049609",
+        "pdf_sha256": "32b5ea670f972646a6a8d6214ff1c9128efdae0c9c9e66c623cd0fe4cddfdf62",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "Conditional classification and inverse results for the stated collision-law and Gaussian-mixture model classes, with exact symbolic controls. The conclusions do not assert universal kinetic closure or validation in a physical gas.",
+      "title": "Which Collision Laws Admit Finite-Moment Prediction? A Gaussian-Mixture Classification and a Clock-Free Inverse",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/SM4_source_and_supplement.zip",
+      "archive_sha256": "e9f796977b9a00e9234928b399ab5da73cdb5cef87a785a0b35f9f17fd687bef",
+      "directory": "papers/SM4",
+      "doi": "10.5281/zenodo.23049611",
+      "id": "SM4",
+      "last_verified_remote_draft": {
+        "archive_sha256": "cec82696aeb026fc2ba25bc234c5baa021fda84eadd53d4fe8ad64e590cf53d5",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "83abe2f670eb4123ca819e89f0f3d30c6c3360df94fd7de0564a2ac7641133ab",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "dbe89f08ba60b655f3696cc93a23511bdac9718a912a5bf5ba9f4a6f1011dcf4",
+      "pdf": "papers/SM4/main.pdf",
+      "pdf_sha256": "08c7af8287791af712a403aa794929b8a2a587620373158aedeae87c87abdabe",
+      "public_record_url": "https://zenodo.org/records/23049611",
+      "public_verification": {
+        "archive_sha256": "e9f796977b9a00e9234928b399ab5da73cdb5cef87a785a0b35f9f17fd687bef",
+        "doi_resolves_to": "https://zenodo.org/records/23049611",
+        "pdf_sha256": "08c7af8287791af712a403aa794929b8a2a587620373158aedeae87c87abdabe",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED__METHODS_PROSPECTIVE_NOT_HARDWARE_VALIDATION",
+      "scope": "A methods paper on cluster-residue completion in reciprocal resonator networks, supported by ideal and reduced-model checks and a prospective RF protocol. No physical RF measurement or fabricated-device performance is reported.",
+      "title": "Blind Response Prediction in Reciprocal Resonator Networks: A Methods Paper and Prospective RF Test",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/LENS_source_and_supplement.zip",
+      "archive_sha256": "214604490e9f702f31b86f3331fac855c38d9012bf5f483923371b03fa0e4afc",
+      "directory": "papers/LENS",
+      "doi": "10.5281/zenodo.23049613",
+      "id": "LENS",
+      "last_verified_remote_draft": {
+        "archive_sha256": "aad97103dc83d73b5d63e8c9bbcdb31ff845bba63040fc991800b03b4d87d94e",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "0a713a1383564505045dbe8ab6015911d19cbb5a19d46b0c7da3c2b872419f01",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "7475850972deba585355d65014ed7fa2fe2e0c5620cdeab6f9e9aad7b7c55437",
+      "pdf": "papers/LENS/main.pdf",
+      "pdf_sha256": "f3b0ffd472108675267c1104a220fe2ce8db8dbde084b69b3dec51527567c574",
+      "public_record_url": "https://zenodo.org/records/23049613",
+      "public_verification": {
+        "archive_sha256": "214604490e9f702f31b86f3331fac855c38d9012bf5f483923371b03fa0e4afc",
+        "doi_resolves_to": "https://zenodo.org/records/23049613",
+        "pdf_sha256": "f3b0ffd472108675267c1104a220fe2ce8db8dbde084b69b3dec51527567c574",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "Results for the projected transverse-traceless tensor-curl family on oriented lens spaces, including helicity balance, eta congruences, and connections to silver-rank zeros. Operator and orientation conventions are explicit; no physical identification is inferred.",
+      "title": "Spectral chirality of lens spaces: level-wise helicity balance, eta congruences, and silver zeros for transverse-traceless tensor curl",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/SILVER_source_and_supplement.zip",
+      "archive_sha256": "68c5839579937d7bdd9591a8199582413f0576913694c4b1278ad0d27b8e3975",
+      "directory": "papers/SILVER",
+      "doi": "10.5281/zenodo.23049615",
+      "id": "SILVER",
+      "last_verified_remote_draft": {
+        "archive_sha256": "780224e9d8121cf965adb951d6db4f975f20cb7fd374cbf9ead9b481214b761b",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "f71a160557038d68efe02e8e834fc46b1dbcc47f041afb7ecdc7057c3d8be2c1",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "a630995f55eb6d5e8884e3d5379d9bb892c69a6126e1f01760dc462e03361aee",
+      "pdf": "papers/SILVER/main.pdf",
+      "pdf_sha256": "d6193717ee8b6d0e4e19621a34acdc72916d39e095dcdd7309cbec286379121e",
+      "public_record_url": "https://zenodo.org/records/23049615",
+      "public_verification": {
+        "archive_sha256": "68c5839579937d7bdd9591a8199582413f0576913694c4b1278ad0d27b8e3975",
+        "doi_resolves_to": "https://zenodo.org/records/23049615",
+        "pdf_sha256": "d6193717ee8b6d0e4e19621a34acdc72916d39e095dcdd7309cbec286379121e",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "Arithmetic results for silver-rank zeros of the specified tensor-curl eta invariant: S-unit and Pell constructions and residue-class period laws. Bounded computational searches are distinguished from classification theorems.",
+      "title": "Silver-rank zeros of the tensor-curl eta invariant on lens spaces: silver S-units, a Pell ladder, and a period law",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    },
+    {
+      "archive": "archives/EP_source_and_supplement.zip",
+      "archive_sha256": "8298de5e80b5b5513d3a81749c0974221d9c288f65d89b1e67f6de0e7ee2c114",
+      "directory": "papers/EP",
+      "doi": "10.5281/zenodo.23049617",
+      "id": "EP",
+      "last_verified_remote_draft": {
+        "archive_sha256": "acf8b214afbef660c26081c39c2423b23e01d188e129399f8c15aeb60b97e2b5",
+        "current_remote_not_requeried": true,
+        "pdf_sha256": "3abf1d4d760a29784ec0fa9f403ed49c9c54828829cd372f06b44269754b570d",
+        "record_status": "UNPUBLISHED"
+      },
+      "package_manifest_sha256": "03c62596b7b034780295d3306d92260adbb3917096bff3c86b6ea47538cc6dc1",
+      "pdf": "papers/EP/main.pdf",
+      "pdf_sha256": "88ca8d518affd9acc516211c34c8911311f7bacbfcb545378166881df7e4a9c3",
+      "public_record_url": "https://zenodo.org/records/23049617",
+      "public_verification": {
+        "archive_sha256": "8298de5e80b5b5513d3a81749c0974221d9c288f65d89b1e67f6de0e7ee2c114",
+        "doi_resolves_to": "https://zenodo.org/records/23049617",
+        "pdf_sha256": "88ca8d518affd9acc516211c34c8911311f7bacbfcb545378166881df7e4a9c3",
+        "verified_utc": "2026-10-02T00:13:56.147241+00:00",
+        "version": "1.0.0"
+      },
+      "review_status": "FINAL_INTERNAL_REVIEW_ACCEPTED_AUTHOR_APPROVED_PREPRINT_NOT_EXTERNALLY_PEER_REVIEWED",
+      "scope": "A bound under known time symmetry, a no-go result for universal quantitative bounds without that information, and a locality analysis of the pairwise estimator. Model assumptions, block statistics, and the distinction between quantitative and qualitative claims are explicit.",
+      "title": "Phase-erased arrows of time and entropy production under periodic driving",
+      "zenodo_status": "PUBLISHED_PUBLIC_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED"
+    }
+  ],
+  "public_github_repository": "https://github.com/manimahmood/mathematics-papers",
+  "public_verification": "PUBLICATION_RECORDS.json",
+  "publication_date": "2026-10-01",
+  "publication_report": "RELEASE_20261001.md",
+  "schema": "math-papers.collection.v1",
+  "sm_source_commit": "68e3d31c1e3002362640d91c861deac33ac37230",
+  "staging_date": "2026-09-29",
+  "status": "ALL15_PUBLISHED_AUTHOR_APPROVED_PERSONAL_PREPRINTS",
+  "visibility": "private",
+  "zenodo_status": "All fifteen public records, DOI resolutions and all thirty PDF/ZIP downloads verified without authentication."
+}

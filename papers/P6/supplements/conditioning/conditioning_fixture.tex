@@ -1,0 +1,254 @@
+% Exact mathematical excerpt for the conditioning reproducibility checks.
+% Sections on fixed functionals and the kernel certificate, verbatim.
+% This is a data/reference fragment, not the current manuscript or a standalone build.
+% See ../../paper/green_geometry_positive_hermitian.tex for the full paper.
+\section{Five fixed real-linear Green functionals}
+\label{sec:fixed_five}
+
+\begin{definition}[Fixed functional]\label{def:fixed-functional}
+A fixed real-linear Green functional is
+\[
+ \ell_K(C)=\ip{K}{C}_F=\tr(K^\mathsf TC),
+ \qquad K\in\RR^{3\times3},
+\]
+where $K$ is selected before $C$ is known.  Because the nine entries of
+$C$ are the fixed-reference readings~\eqref{eq:fixed-green-readout},
+$\ell_K$ lies in their real-linear span.  Fixed excludes data-dependent
+pivots or a change of $K$ after observing $C$.
+\end{definition}
+
+Use quaternion order $q=(w,x,y,z)^\mathsf T$ and the standard double cover
+$q\mapsto R(q)$:
+\begin{equation}\label{eq:quaternion-rotation}
+R(q)=
+\begin{pmatrix}
+w^2+x^2-y^2-z^2&2(xy-wz)&2(xz+wy)\\
+2(xy+wz)&w^2-x^2+y^2-z^2&2(yz-wx)\\
+2(xz-wy)&2(yz+wx)&w^2-x^2-y^2+z^2
+\end{pmatrix}.
+\end{equation}
+For unit $q$, $R(q)\in\SO(3)$ and $R(q)=R(-q)$.
+
+\begin{lemma}[Quaternion--rotation dictionary]
+\label{lem:quaternion-dictionary}
+Let $D=(d_{\mu\nu})_{\mu,\nu=0}^3$ be real symmetric and trace-free.  Define
+$K(D)\in\RR^{3\times3}$ by
+\begin{align}
+K_{11}&=(d_{00}+d_{11})/2,&
+K_{22}&=(d_{00}+d_{22})/2,&
+K_{33}&=(d_{00}+d_{33})/2,\notag\\
+K_{23}&=(d_{23}-d_{01})/2,&
+K_{32}&=(d_{23}+d_{01})/2,\notag\\
+K_{13}&=(d_{02}+d_{13})/2,&
+K_{31}&=(d_{13}-d_{02})/2,\label{eq:inverse-dictionary}\\
+K_{12}&=(d_{12}-d_{03})/2,&
+K_{21}&=(d_{12}+d_{03})/2.\notag
+\end{align}
+Then, coefficientwise for every $q\in\RR^4$,
+\begin{equation}\label{eq:dictionary-readback}
+ q^\mathsf TDq=\ip{K(D)}{R(q)}_F.
+\end{equation}
+Together with $q^\mathsf Tq$, the nine quadratic entries of $R(q)$ span
+$\operatorname{Sym}(4)$ with rank ten.
+\end{lemma}
+
+\begin{proof}
+Substitute~\eqref{eq:quaternion-rotation} into
+~\eqref{eq:dictionary-readback}.  Direct coefficient comparison gives
+$d_{00},d_{11},d_{22},d_{33}$ on the diagonal, using $\tr D=0$, and
+$2d_{\mu\nu}$ on each cross term.  This proves the identity.  The inverse recovers
+all nine trace-free coordinates, while the norm recovers the scalar
+direction, giving rank ten.
+\end{proof}
+
+The fixed construction starts from Xu's six rank-two projections
+\cite[Theorem~4.2]{Xu2018}, represented here by the columns $u_j,v_j$ of
+\begin{equation}\label{eq:exact-uv}
+U=\begin{pmatrix}
+1&0&0&0&1&1\\
+0&1&0&0&0&1\\
+0&0&1&0&-4&2\\
+0&0&0&1&-3&3
+\end{pmatrix},\qquad
+V=\begin{pmatrix}
+0&5&-1&-1&-17&-5\\
+-5&0&0&5&4&4\\
+2&-2&0&-3&-2&2\\
+-2&1&0&0&-3&-1
+\end{pmatrix}.
+\end{equation}
+Define
+\begin{equation}\label{eq:projectors}
+ P_j=\frac{u_ju_j^\mathsf T}{u_j^\mathsf Tu_j}
+     +\frac{v_jv_j^\mathsf T}{v_j^\mathsf Tv_j},
+\qquad S=\sum_{j=1}^6P_j.
+\end{equation}
+The exact factorization used below is $S=LDL^\mathsf T$, with
+\begin{equation}\label{eq:L-factor}
+L=\begin{pmatrix}
+1&0&0&0\\
+-1206036/7353455&1&0&0\\
+-629974/7353455&-620743491/3418884916&1&0\\
+865837/7353455&562593553/3418884916&
+39888940419/121436249827&1
+\end{pmatrix}
+\end{equation}
+and
+\begin{equation}\label{eq:D-factor}
+D=\operatorname{diag}\!\left(
+\frac{1470691}{332787},
+\frac{3418884916}{1213320075},
+\frac{121436249827}{51283273740},
+\frac{213445555084}{121436249827}
+\right).
+\end{equation}
+Put
+\begin{equation}\label{eq:whitening}
+ C_{\mathrm w}=D^{-1/2}L^{-1},\qquad
+ B_j=C_{\mathrm w}P_jC_{\mathrm w}^{\mathsf T}.
+\end{equation}
+
+\begin{lemma}[Exact projector and whitening identities]\label{lem:projectors}
+\label{lem:whitening}
+For every $j$, $u_j^\mathsf Tv_j=0$, $P_j=P_j^\mathsf T=P_j^2$,
+$P_j\ge0$, and $\rank P_j=2$.  The four diagonal entries of~\eqref{eq:D-factor}
+are positive, $S=LDL^\mathsf T$, and
+\begin{equation}\label{eq:tight-sum}
+ \sum_{j=1}^6B_j=I_4.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+All claims before the factorization follow directly from the six integer
+column pairs in~\eqref{eq:exact-uv}; orthogonality makes
+~\eqref{eq:projectors} the sum of two orthogonal rank-one projections.
+Every diagonal entry of $D$ has positive numerator and denominator.
+Rational multiplication verifies $S=LDL^\mathsf T$.  Therefore
+\[
+\sum_jB_j
+=D^{-1/2}L^{-1}(LDL^\mathsf T)L^{-\mathsf T}D^{-1/2}=I_4.
+\]
+\end{proof}
+
+For each $j$, write
+\begin{equation}\label{eq:Dj-alpha}
+ \alpha_j=\tfrac14\tr B_j,\qquad
+ D_j=B_j-\alpha_jI_4,\qquad K_j=K(D_j).
+\end{equation}
+The five promised functionals are
+\begin{equation}\label{eq:functionals}
+ \ell_j(C)=\ip{K_j}{C}_F,\qquad j=1,\ldots,5.
+\end{equation}
+Equations~\eqref{eq:exact-uv}--\eqref{eq:Dj-alpha} are the exact definition of
+every coefficient; no decimal or fitted parameter enters.
+
+\section{Exact rank-two-kernel certificate and global injectivity}
+\label{sec:certificate}
+
+\begin{lemma}[Real phase-retrieval kernel criterion]
+\label{lem:rank-two-kernel}
+Let $B_1,\ldots,B_m$ be real symmetric matrices with
+$\sum_jB_j=I$.  The quadratic map
+\[
+ q\longmapsto(q^\mathsf TB_1q,\ldots,q^\mathsf TB_mq)
+\]
+determines every $q\in\RR^4$ up to sign if and only if its symmetric kernel
+contains no nonzero matrix of rank at most two.
+\end{lemma}
+
+\begin{proof}
+If $q$ and $r$ have equal measurements, then
+$Q=qq^\mathsf T-rr^\mathsf T$ is a symmetric kernel element of rank at most
+two.  Conversely, let a nonzero symmetric kernel element $Q$ have rank at
+most two.  Since $\sum B_j=I$, $\tr Q=0$.  It cannot be nonzero semidefinite,
+so its spectral form is $\lambda aa^\mathsf T-\lambda bb^\mathsf T$ with
+$\lambda>0$ and orthonormal $a,b$.  The two non-antipodal vectors
+$\sqrt\lambda a,\sqrt\lambda b$ then have equal quadratic measurements.
+\end{proof}
+
+\begin{theorem}[Exact six-map kernel certificate]
+\label{thm:kernel-certificate}
+For the six projectors~\eqref{eq:projectors}, the linear map
+\[
+ \mathcal M(Q)=(\tr(P_1Q),\ldots,\tr(P_6Q)),
+ \qquad Q\in\operatorname{Sym}(4),
+\]
+has rank six and a four-dimensional kernel, and that kernel contains no
+nonzero real matrix of rank at most two.  Consequently both
+$(P_j)_{j=1}^6$ and their congruence-whitened family
+$(B_j)_{j=1}^6$ perform real phase retrieval in dimension four.
+\end{theorem}
+
+\begin{proof}
+Use symmetric coordinate order
+\[
+(q_{00},q_{01},q_{02},q_{03},q_{11},q_{12},q_{13},q_{22},q_{23},q_{33}).
+\]
+Exact row reduction of the $6\times10$ measurement matrix gives rank six and
+the four rational kernel vectors printed in the exact supplement.  Write a
+general kernel matrix as
+\[
+ Q(a,b,c,d)=aQ_a+bQ_b+cQ_c+dQ_d.
+\]
+A symmetric $4\times4$ matrix has rank at most two exactly when all ten
+upper-triangular cofactors of its adjugate vanish.  Homogeneity permits the
+projective cover
+\[
+d=1,\quad d=0,c=1,\quad d=c=0,b=1,\quad d=c=b=0,a=1.
+\]
+On $d=1$, exact lexicographic elimination gives a three-element basis and a
+degree-ten univariate eliminant in $c$.  Its complete integer coefficients
+are printed in the supplement.  A signed-remainder Sturm chain has degree
+sequence
+\[
+10,9,8,7,6,5,4,3,2,1,0
+\]
+and five sign variations at each of $-\infty$ and $+\infty$, hence no real
+root.  The $d=0,c=1$ and $d=c=0,b=1$ ideals both contain $1$.  On the last
+patch, clear denominators from each cofactor polynomial, divide its integer
+coefficient content, and fix its sign.  This nonzero rational rescaling
+preserves the common determinantal zero locus.  The first declared nonzero
+primitive denominator-cleared cofactor polynomial then evaluates to
+\[
+2324385247266000.
+\]
+Thus the projective cofactor system has no real point, proving the kernel
+claim.  Invertible congruence preserves rank and transports kernels between
+$P_j$ and $B_j$, so the whitened family has the same property.
+\end{proof}
+
+\begin{theorem}[Five fixed-function global tomography]\label{thm:fixed-five}
+The fixed map
+\begin{equation}\label{eq:fixed-map}
+ \Phi:\SO(3)\longrightarrow\RR^5,\qquad
+ \Phi(C)=(\ell_1(C),\ldots,\ell_5(C)),
+\end{equation}
+defined by~\eqref{eq:exact-uv}--\eqref{eq:functionals} is injective.
+All five $K_j$ have exact rank three and nonzero determinant.
+\end{theorem}
+
+\begin{proof}
+Let $C=R(q)$ with $q^\mathsf Tq=1$.  By
+Lemma~\ref{lem:quaternion-dictionary},
+\begin{equation}\label{eq:y-readings}
+ y_j:=q^\mathsf TB_jq=\alpha_j+\ell_j(C).
+\end{equation}
+The five values in~\eqref{eq:fixed-map} therefore recover
+$y_1,\ldots,y_5$.  Tightness~\eqref{eq:tight-sum} and unit norm give
+\begin{equation}\label{eq:sixth-recovery}
+ y_6=1-\sum_{j=1}^5y_j.
+\end{equation}
+Theorem~\ref{thm:kernel-certificate} says that the six $y_j$ determine $q$
+up to the unavoidable sign $q\sim-q$.  Since $R(q)=R(-q)$, they determine
+$C$ uniquely.  Exact determinant evaluation gives the five nonzero values
+listed in the supplement, proving the rank statement.
+\end{proof}
+
+\begin{remark}[What five counts]\label{rem:not-shots}
+The five objects in~\eqref{eq:functionals} are synthesized real-linear
+functionals of the nine primitive matrix-entry readings.  Each coefficient
+matrix has rank three.  The sum of those ranks, $15$, is only an algebraic
+upper bound on a rank-one coefficient decomposition.  It is neither a
+primitive Green-shot count nor an optimal implementation cost.
+\end{remark}
+

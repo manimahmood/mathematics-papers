@@ -1,0 +1,118 @@
+{
+  "members": [
+    {
+      "bytes": 254,
+      "path": "AI_DISCLOSURE.txt",
+      "sha256": "20d37ba3bc552aefcce75044d04e93d44bea3f40cfb6f4102d824f97d2c480fc"
+    },
+    {
+      "bytes": 411,
+      "path": "CITATION.cff",
+      "sha256": "3e48c714958f648092d175b1a72e71d0515dbc5bdbe500fd7b77ef4f2183d85f"
+    },
+    {
+      "bytes": 706,
+      "path": "LICENSE.md",
+      "sha256": "7a6f04e52d2b0464a47053a4aca3f4907e6994432daebdf7dd2ae4f82e9c7f52"
+    },
+    {
+      "bytes": 2363,
+      "path": "README.md",
+      "sha256": "17124dc9700566b16734efbe33906d9eb8132b88aad00849831f664cd61cdb8e"
+    },
+    {
+      "bytes": 1545,
+      "path": "metadata.json",
+      "sha256": "0984c796a9502b78be33555427d13faa7f1d518d5a6149e51fc5cce84661299a"
+    },
+    {
+      "bytes": 8485,
+      "path": "paper/phase_classification.tex",
+      "sha256": "6c84dfc267001d4198ae658dde3dc53b0abe8359cc6a1976446c407c5504a8ce"
+    },
+    {
+      "bytes": 6775,
+      "path": "paper/references.bib",
+      "sha256": "c0d7e0b8f7f5c9a60f2abbfc33d23e3e1716cfafad1108d04f7897bc3393720c"
+    },
+    {
+      "bytes": 41663,
+      "path": "paper/stein_weiss_aps_boundary.tex",
+      "sha256": "b9e0de73ca5b268792eac14f68efc0533cbd578b52b350d42a58fe7e619f2533"
+    },
+    {
+      "bytes": 519190,
+      "path": "stein_weiss_aps_boundary.pdf",
+      "sha256": "9b08595a45ae41e32fc573301c9e65da8cbebb59d8ca10fbb21b71f64087a659"
+    },
+    {
+      "bytes": 2406,
+      "path": "supplements/p7_operator_closure/EXACT_CONTROLS.json",
+      "sha256": "368658bbc1a5a667427ad96ee566e763a4f37f23ab9a6930a16544db5be60011"
+    },
+    {
+      "bytes": 3478,
+      "path": "supplements/p7_operator_closure/check_operator_closure.wls",
+      "sha256": "3a5a37be0a6e844ecbe38b622f32f0e51a256e2c1a5c6fe2a979a00d814b930b"
+    },
+    {
+      "bytes": 1122,
+      "path": "supplements/p7_phase_classification/EXACT_CONTROLS.json",
+      "sha256": "59c9cd271282e0e853dbbde4aacd6d93a84f2e62c3de83de8d6238ca03322762"
+    },
+    {
+      "bytes": 6734,
+      "path": "supplements/p7_phase_classification/check_phase_theorems.py",
+      "sha256": "c10e3b99bf7fd66890fbef060ebeb59064237720f448d32a7dbce3e498ad435e"
+    },
+    {
+      "bytes": 3651,
+      "path": "supplements/p7_signed_boundary/character_route.py",
+      "sha256": "2541e8e745a6a6de10e62935b89ce27984119e30b27d7a7a9cd0288620189e1a"
+    },
+    {
+      "bytes": 4413,
+      "path": "supplements/p7_signed_boundary/check_signed_branches.py",
+      "sha256": "22d586ab13d18a5c86af3fbe93747b46d3b001a680056e6969405ae6fc951cce"
+    },
+    {
+      "bytes": 26768,
+      "path": "supplements/p7_signed_boundary/data/CHECKS.json",
+      "sha256": "f8ad8598c0c3ac7daec8a2698d38418d19916ab0246750799630e729463f03a3"
+    },
+    {
+      "bytes": 33036,
+      "path": "supplements/p7_signed_boundary/data/HISTORICAL_HOLDOUT_REPLAYS.json",
+      "sha256": "13b52da353fc8541cc3d2f71cf6c24f50d627d16f59a9ef874e0d2f905db76ff"
+    },
+    {
+      "bytes": 2091999,
+      "path": "supplements/p7_signed_boundary/data/LENS_TABLES.json",
+      "sha256": "e85d444a4d85ccf2529fe1ff1458e15eeb5f238241c12443ba8ec2991eb87605"
+    },
+    {
+      "bytes": 21447,
+      "path": "supplements/p7_signed_boundary/data/SIGNED_BRANCH_CHECK.json",
+      "sha256": "789dad1b694765aad415a6ad9357ea7522b79b3d9c4ae89ada15c82741cb6c94"
+    },
+    {
+      "bytes": 8207,
+      "path": "supplements/p7_signed_boundary/reproduce.py",
+      "sha256": "dff09d5bb0e2cb38d1a51a4985398fc2eddcd3abd8d0ceba43200c9892cbc81d"
+    },
+    {
+      "bytes": 3821,
+      "path": "supplements/p7_signed_boundary/spectral_route.py",
+      "sha256": "aafe74fcec405a5e72986df1f2bb94dafa1ce77f8a2c5ba6325cc2473e3e9b32"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "P7",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

@@ -1,0 +1,72 @@
+{
+ "check_count": 42,
+ "checks": {
+  "R_scalar_evolution": true,
+  "admitted_initial_y_R": true,
+  "conditional_weak_increment": true,
+  "diagonal_Leibniz_m2": true,
+  "diagonal_Leibniz_m3": true,
+  "diagonal_Leibniz_m4": true,
+  "diagonal_Leibniz_m5": true,
+  "diagonal_Leibniz_m6": true,
+  "diagonal_Leibniz_m7": true,
+  "diagonal_Leibniz_m8": true,
+  "endpoint_integrated_G": true,
+  "midpoint_integrated_G_differs": true,
+  "nonpolynomial_response_separates": true,
+  "polynomial_formula_10_1": true,
+  "polynomial_formula_11_2": true,
+  "polynomial_formula_12_3": true,
+  "polynomial_formula_13_4": true,
+  "polynomial_formula_14_5": true,
+  "polynomial_formula_15_6": true,
+  "polynomial_formula_16_0": true,
+  "polynomial_formula_17_1": true,
+  "polynomial_formula_18_2": true,
+  "polynomial_formula_19_3": true,
+  "polynomial_formula_20_4": true,
+  "polynomial_formula_21_5": true,
+  "polynomial_formula_22_6": true,
+  "polynomial_formula_2_0": true,
+  "polynomial_formula_3_1": true,
+  "polynomial_formula_4_2": true,
+  "polynomial_formula_5_3": true,
+  "polynomial_formula_6_4": true,
+  "polynomial_formula_7_5": true,
+  "polynomial_formula_8_6": true,
+  "polynomial_formula_9_0": true,
+  "radial_transform_j0": true,
+  "radial_transform_j1": true,
+  "radial_transform_j2": true,
+  "radial_transform_j3": true,
+  "radial_transform_j4": true,
+  "radial_transform_j5": true,
+  "radial_transform_j6": true,
+  "same_M0_M1_M2": true
+ },
+ "result": "SM3_EXACT_CONTROLS_PASS",
+ "scope": "Finite exact controls. General classification and transform uniqueness rest on written proofs.",
+ "values": {
+  "Phi_1_over_s_responses": [
+   "-3/8",
+   "-1/4"
+  ],
+  "common_moments": [
+   "1",
+   "5/2",
+   "7"
+  ],
+  "equal_exposure_2_endpoint": {
+   "Ghat": "7/5",
+   "R": "exp(-37/20)/4",
+   "y": "exp(-1)/4"
+  },
+  "initial_temperature_moments": [
+   "1",
+   "1",
+   "5/4",
+   "7/4",
+   "41/16"
+  ]
+ }
+}

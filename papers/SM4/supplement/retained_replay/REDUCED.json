@@ -1,0 +1,41 @@
+{
+ "checks": {
+  "baseline_pass": true,
+  "forecasts_16": true,
+  "maps_108": true,
+  "missing_calibration_killed": true,
+  "refusals_10": true,
+  "tampered_forecast_killed": true,
+  "zero_sigma_killed": true
+ },
+ "mutations": {
+  "missing_calibration": {
+   "exit": 1,
+   "expected_owner": "OBSERVATION_COUNT",
+   "owner": "OBSERVATION_COUNT"
+  },
+  "tampered_forecast": {
+   "exit": 1,
+   "expected_owner": "PREDICTION_MISMATCH",
+   "owner": "PREDICTION_MISMATCH"
+  },
+  "zero_sigma": {
+   "exit": 1,
+   "expected_owner": "SIGMA_INVALID",
+   "owner": "SIGMA_INVALID"
+  }
+ },
+ "result": "SM4_REDUCED_ARRAY_REPLAY_PASS",
+ "scope": "Reduced response arrays and bound reconstruction, not raw-capture execution, blindness re-establishment, or physical data.",
+ "values": {
+  "forecast_error_ppm": [
+   0.3681793005153793,
+   1.697746234203691
+  ],
+  "radius_percent": [
+   0.014000654670484239,
+   0.08365103663065777
+  ],
+  "same_data_comparator_max": 5.251901629077697e-16
+ }
+}

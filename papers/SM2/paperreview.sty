@@ -1,0 +1,48 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{paperreview}[2026/09/29 public-edition preprint style]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable,enumitem,microtype,xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,pdfsubject={Preprint; not externally peer reviewed}}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\e}{\mathrm e}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\draftstatus}[2]{%
+\begin{center}\small\color{blue!35!black}
+\textbf{PREPRINT --- #1}\\
+#2\\
+DOI: \href{https://doi.org/10.5281/zenodo.23049607}{10.5281/zenodo.23049607}.
+\end{center}\medskip}
+\newcommand{\aistatement}{\section*{Drafting and verification disclosure}
+Luqman Mahmood directed the research and is responsible for its claims and
+final text. OpenAI Codex and Anthropic Claude assisted mathematical work,
+computation, checking and editing. Statements have different evidence
+classes: written conditional proofs, computer-assisted certificates,
+numerical demonstrations, and prospective protocols. These are labelled
+as such in the text and do not constitute external peer review.
+No claim of literature priority follows from computational verification.
+The paper and mathematical data are licensed CC BY 4.0. Software source
+and executable verification scripts are excluded from that grant, with
+rights reserved unless a file explicitly states otherwise.}

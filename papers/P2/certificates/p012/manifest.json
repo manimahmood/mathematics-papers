@@ -1,0 +1,84 @@
+{
+  "certificate": {
+    "compressed_bytes": 1513923,
+    "compressed_sha256": "8aedede3a9864e5b04284acd1a1afbc7ac7507069c0bc6bf19a4f648d72b4247",
+    "filename": "coefficient_certificate.jsonl.gz",
+    "format": "gzip",
+    "gzip_compresslevel": 9,
+    "gzip_mtime": 0,
+    "jsonl_rows": 3920,
+    "uncompressed_canonical_bytes": 29796438,
+    "uncompressed_canonical_sha256": "bded6a0d1c20f65b9cf57cd2f81f20bdf842605a151b665ee4c6a7db6ea9e771"
+  },
+  "certificate_id": "X0-137-H28-COEFFICIENT-CERTIFICATE-v2",
+  "classification": "preprint_supporting_pure_mathematics",
+  "date": "2026-07-14",
+  "expected_and_observed": {
+    "choice_rows": 3920,
+    "constant_nonzero_rows": 5,
+    "empty_choice_rows": 3725,
+    "identity_rows": 0,
+    "intersection": [
+      137
+    ],
+    "largest_prime_root": 11813,
+    "linear_rows": 223,
+    "nonempty_choice_rows": 195,
+    "p137_witnesses": [
+      [
+        [
+          19,
+          28
+        ],
+        [
+          22,
+          7
+        ]
+      ],
+      [
+        [
+          19,
+          9
+        ]
+      ],
+      [
+        [
+          13,
+          7
+        ]
+      ],
+      [
+        [
+          14,
+          28
+        ]
+      ],
+      [
+        [
+          15,
+          18
+        ]
+      ]
+    ],
+    "quadratic_rows": 252712,
+    "target_prime_counts": [
+      31,
+      12,
+      40,
+      8,
+      7
+    ],
+    "unit_residue_rows": 252940
+  },
+  "hash_algorithm": "SHA-256",
+  "hash_scope": "text bindings and decompressed JSONL use canonical LF bytes; the gzip artifact is bound by exact compressed bytes with mtime=0",
+  "nonclaim": "This finite exact certificate does not derive the targets, the cutoff, level 137, a topology, or any physical interpretation.",
+  "schema": "x0-137.h28-coefficient-manifest.v2",
+  "standalone_contract": "Keep this manifest, the named certificate, and the named verifier together; invoke the verifier with explicit certificate and manifest paths. No repository checkout or external source artifact is required.",
+  "theorem_scope": "For the five supplied targets and supplied h<=28 window, the exact reciprocity coefficient map classifies all defined prime solutions.",
+  "verifier": {
+    "canonical_bytes": 13970,
+    "canonical_sha256": "3eb6b292603dcd549e9fbd8e2b8d6835b4b08ad46df4cc5cec3ae857ef629f3e",
+    "filename": "verify_p012_certificate.py"
+  }
+}

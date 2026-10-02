@@ -1,0 +1,21 @@
+{
+ "access_right": "open",
+ "creators": [
+  {
+   "name": "Mahmood, Luqman"
+  }
+ ],
+ "description": "<p>An exact finite quadratic-response model exhibits ranks 9, 10 and 11 and a native-family obstruction. A complete algebraic criterion characterizes every rational single-row completion of the rank-13 assembly in the declared 19-dimensional response space; the seven-candidate dictionary result is a corollary. A 19-texture minor proves that evaluation separates the whole response space. The classification does not make every completing row physically available and is not a microscopic derivation.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+ "keywords": [
+  "quadratic response",
+  "rank obstruction",
+  "finite dictionaries"
+ ],
+ "language": "eng",
+ "license": "cc-by-4.0",
+ "publication_date": "2026-10-01",
+ "publication_type": "preprint",
+ "title": "Exact Rank Obstruction and Dictionary-Relative Completion in a Finite Quadratic Response Model",
+ "upload_type": "publication",
+ "version": "1.0.0"
+}

@@ -1,0 +1,59 @@
+{
+ "checks": {
+  "four_retained_gate_predicates": true,
+  "i_complete_grid": true,
+  "i_continuum_charge_keeps_safe_coefficient": true,
+  "i_initial_join": true,
+  "i_sign_runs": true,
+  "i_step_grid": true,
+  "i_straddle_rows": true,
+  "i_zero_join": true,
+  "ii_complete_grid": true,
+  "ii_continuum_charge_keeps_safe_coefficient": true,
+  "ii_initial_join": true,
+  "ii_sign_runs": true,
+  "ii_step_grid": true,
+  "ii_straddle_rows": true,
+  "pf97_fresh_pf96_filename": true,
+  "pf97_fresh_pf96_sha256": true,
+  "processes_exit_0": true,
+  "slow_slabs": true,
+  "slow_zero_bracket": true,
+  "strong_slabs": true,
+  "strong_zero_bracket": true
+ },
+ "driver_sha256": "14834ce4d27a7bf7a6a6fc7ed40a461342d864fc827df439f4bbf7284fa313d8",
+ "join_checker_sha256": "9f4c2273eff14a2c2a41abdfcb342a37457608d787e242d2660b194dc5c6b014",
+ "result": "SM1_FRESH_SOLVER_REPLAY_PASS",
+ "runs": [
+  {
+   "exit": 0,
+   "seconds": 453.56300000008196,
+   "source": "pf96b_certified_late_sign.py"
+  },
+  {
+   "exit": 0,
+   "seconds": 201.71900000004098,
+   "source": "pf97b_certified_unique_zero.py"
+  },
+  {
+   "exit": 0,
+   "seconds": 361.45300000021234,
+   "source": "pf98b_strong_geometry_certified.py"
+  },
+  {
+   "exit": 0,
+   "seconds": 68.7819999998901,
+   "source": "pf99b_initial_stretch_certified.py"
+  }
+ ],
+ "scope": "Same-code known-result replay, not independent arithmetic or a new prediction.",
+ "seconds": 655.405999999959,
+ "sources": {
+  "pf96b_certified_late_sign.py": "8489c31623d29c31d818f8134e14658d6bc4069c52712879bab299941c450812",
+  "pf97b_certified_unique_zero.py": "7fe63a911d4dcdee25076260a5ffade540f0daf42033393383d198b577c6c1e9",
+  "pf98b_strong_geometry_certified.py": "cb73379bb56d7bae995f6c253087e9c2f97a7c2c9616495e2581a477b54c8480",
+  "pf99b_initial_stretch_certified.py": "f9bf1ab668c9cd3ceb3bef315668b0f9193905c8ca0c5f75b1266d77023aa0cd",
+  "ptw1_chain_interval.py": "990f4083fbf26c9c98a2d5fe2b628817dfab8f12e8a962d2c1f8604e930ca369"
+ }
+}

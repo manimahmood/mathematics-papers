@@ -1,0 +1,1257 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem,microtype}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\ii}{\mathrm i}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\Herm}{\operatorname{Herm}}
+\newcommand{\Pos}{\mathcal P}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
+
+\title{Green Geometry of Positive Hermitian Instruments:\\
+Hyperbolic Transport, Relational Holonomy, and\\
+Fixed Five-Functional Tomography}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{1 October 2026}
+\hypersetup{pdftitle={Green Geometry of Positive Hermitian Instruments: Hyperbolic Transport, Relational Holonomy, and Fixed Five-Functional Tomography},pdfauthor={Luqman Mahmood}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the cone $\Pos$ of positive Hermitian $2\times2$ matrices with the
+Green/Riesz metric
+$g_G(U,V)=\operatorname{Re}\tr(G^{-1}UG^{-1}V)$.  A direct calculation gives
+its Levi--Civita connection and splits the geometry into a flat scale
+direction and determinant-one shape leaves of sectional curvature $-1/2$.
+Parallel transport around a closed instrument loop acts on the traceless
+Hermitian directions by a rotation in $\SO(3)$.  This return is relational: it
+is visible against a fixed reference frame and disappears when the reference
+is co-transported.  We then ask how few real-linear readings determine the
+return rotation.  Three antisymmetric readings give local coordinates, while
+adding the trace still fails at half-turns.  Five fixed functionals suffice
+globally.  The proof combines six rank-two projections in $\RR^4$, exact
+whitening, the quaternion--rotation dictionary, and an exact real-kernel
+exclusion.  By the published identity $m_{\RR}(4)=6$, five is also
+minimal among fixed real-linear schemes.  For the resulting positive-projector
+design we prove a kernel floor $1/1024$, a two-sided rotation-angle estimate,
+and condition number at most $560.681$.  A separate rational four-plane has
+proved floor $1/32$ and an explicit abstract isometric realization with a
+larger lower angle constant.  These are comparisons of proved bounds, not of
+unknown true optima; no stochastic-noise, device, or physical-realization conclusion is
+drawn.
+\end{abstract}
+
+\section{Introduction}\label{sec:introduction}
+
+Positive-definite matrix geometry is classical.  In particular, the
+affine-invariant trace metric, its congruence invariance, geodesics, connection,
+and nonpositive curvature belong to the established geometry of positive
+matrices
+\cite{PennecFillardAyache2006,Moakher2005,Bhatia2007,
+ThanwerdasPennec2023,HiaiPetz2009,BhatiaHolbrook2006}.  Its covariance
+Fisher--Rao geometry is likewise established
+\cite{Skovgaard1984,AmariNagaoka2000,LengletEtAl2006}.  Quantum-state
+monotone metrics are a distinct comparison family
+\cite{PetzSudar1996}; no quantum statistical interpretation is inferred here.
+The determinant-one
+positive Hermitian $2\times2$ model is the standard hyperbolic
+$\mathrm{SL}(2,\CC)/\SU(2)$ model \cite{Bryant1987}.  Likewise, attitude
+estimation, rotation synchronization, continuous Euclidean representations
+of $\SO(3)$, and real generalized phase retrieval are established subjects
+\cite{Wahba1965,WangSinger2013,ZhouEtAl2019,Xu2018,WangXu2019}.
+
+The return matrix $C_{ab}=\tfrac12\tr(\sigma_aH\sigma_bH^\dagger)$ is
+also the Pauli transfer matrix of a unitary qubit channel.  The closest
+tomographic comparison is therefore process tomography under a unitarity
+promise, rather than state tomography
+\cite{GutoskiJohnston2014,BaldwinKalevDeutsch2014,DiColandreaEtAl2023}.
+Our count concerns exact synthesized real-linear coordinates on $\SO(3)$;
+it is not a count of experimental settings, samples, or interactive
+observables in those works.
+
+Our question has two parts.  What does an observer who retains a fixed Green
+reference frame see after parallel transport around a loop?  And how few
+real-linear readings determine that return?  We derive the geometry from the
+Green/Riesz pairing, express the return as a relational rotation, and then
+solve the associated fixed-functional reconstruction problem.
+
+The mathematical chain is
+\[
+\begin{array}{ccccc}
+\boxed{\text{Green pairing}}&\longrightarrow&
+\boxed{\text{instrument metric}}&\longrightarrow&
+\boxed{\text{parallel transport}}\\[-1mm]
+&&&&\big\downarrow\\[-1mm]
+&&\boxed{\text{five fixed functionals}}&\longleftarrow&
+\boxed{\text{relational }\SO(3)\text{ return}}
+\end{array}.
+\]
+Every arrow is finite-dimensional and exact.  The geometry is mathematical:
+we do not infer an evolution law or physical realization of arbitrary loops.
+
+The paper has five main steps.  First,
+Theorem~\ref{thm:green-geometry} derives the metric connection, curvature, and
+scale--shape product.  Second, Proposition~\ref{prop:exact-transport} and
+Theorem~\ref{thm:relational-holonomy} derive exact transport and relational
+holonomy.  Third, Theorem~\ref{thm:local-three} and
+Proposition~\ref{prop:half-turn-wall} distinguish local coordinates from a
+global wall.  Fourth, Theorems~\ref{thm:kernel-certificate} and
+\ref{thm:fixed-five} give a fixed, nonadaptive, globally injective
+five-functional construction.  Corollary~\ref{cor:fixed-five-optimality-external}
+uses the known phase-retrieval count to obtain fixed-linear optimality, and
+Proposition~\ref{prop:adaptive-five} records the adaptive comparison.
+ Theorem~\ref{thm:projector-conditioning} and
+ Corollary~\ref{cor:projector-conditioning} give quantitative bounds
+for the positive-projector construction.  Finally,
+Theorem~\ref{thm:kstar-floor} and Corollary~\ref{cor:kstar-conditioning}
+record a separately specified rational four-plane with a larger proved
+conditioning floor.  The two designs serve different purposes: the first is
+tied to positive projections, whereas the second is an abstract measurement
+kernel.
+
+\section{The Green metric and hyperbolic shape geometry}
+\label{sec:green_metric}
+
+\begin{definition}[Instrument and tangent carrier]\label{def:instrument-space}
+Let
+\[
+ \Pos=\{G\in\Herm(2):G>0\}.
+\]
+The canonical tangent identification is $T_G\Pos=\Herm(2)$.  Under an
+invertible passive complex frame $W$, instrument and tangent transform by the
+same congruence,
+\begin{equation}\label{eq:passive-congruence}
+ G'=W^{-\dagger}GW^{-1},\qquad
+ U'=W^{-\dagger}UW^{-1}.
+\end{equation}
+\end{definition}
+
+\begin{definition}[Green source and reading]\label{def:green-reading}
+For $G\in\Pos$ and $Q\in\Herm(2)$, the Green/Riesz source is
+$S_Q=G^{-1}Q$.  The scalar reading of a tangent response $U$ is
+\begin{equation}\label{eq:green-reading}
+ \mathcal E_G(Q,U)
+ =\operatorname{Re}\tr(G^{-1}QG^{-1}U).
+\end{equation}
+We apply the same pairing to tangent variations and write
+\begin{equation}\label{eq:green-metric}
+ g_G(U,V)=\operatorname{Re}\tr(G^{-1}UG^{-1}V).
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Determinant tangent and scale split]\label{lem:det-tangent}
+For $G\in\Pos$,
+\begin{equation}\label{eq:det-derivative}
+ d(\det)_G[U]=\det(G)\tr(G^{-1}U).
+\end{equation}
+Consequently the tangent space to a fixed-determinant leaf is
+\[
+ T_G\Pos_{\det G}=\{U\in\Herm(2):\tr(G^{-1}U)=0\},
+\]
+and the exact projection onto it is
+\begin{equation}\label{eq:shape-projector}
+ \Pi_G(U)=U-\tfrac12\tr(G^{-1}U)G.
+\end{equation}
+The scale vector $G$ is orthogonal to this leaf and $g_G(G,G)=2$.
+\end{lemma}
+
+\begin{proof}
+Jacobi's formula gives~\eqref{eq:det-derivative}.  Since
+$\tr(G^{-1}G)=2$, equation~\eqref{eq:shape-projector} is trace-free in the
+required sense.  Finally,
+$g_G(G,U)=\tr(G^{-1}U)$ and $g_G(G,G)=\tr I_2=2$.
+\end{proof}
+
+The next theorem derives the normalization of the classical affine-invariant
+positive-matrix geometry induced by this Green/Riesz pairing
+\cite{PennecFillardAyache2006,Moakher2005,Bhatia2007,
+ThanwerdasPennec2023,HiaiPetz2009}.
+
+\begin{theorem}[Green geometry]\label{thm:green-geometry}
+The pairing~\eqref{eq:green-metric} is a positive Riemannian metric,
+invariant under~\eqref{eq:passive-congruence}.  Its unique torsion-free,
+metric-compatible connection is
+\begin{equation}\label{eq:levi-civita}
+ \nabla_XY
+ =DY[X]-\tfrac12\bigl(XG^{-1}Y+YG^{-1}X\bigr).
+\end{equation}
+With the curvature convention
+$R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z$,
+\begin{align}
+R_G(X,Y)Z=-\tfrac14\bigl(
+ &XG^{-1}YG^{-1}Z-YG^{-1}XG^{-1}Z \notag\\
+ &-ZG^{-1}XG^{-1}Y+ZG^{-1}YG^{-1}X
+\bigr).\label{eq:curvature}
+\end{align}
+The fixed-determinant leaves are totally geodesic.  Every nondegenerate
+two-plane tangent to such a leaf has sectional curvature
+\begin{equation}\label{eq:shape-curvature}
+ K=-\tfrac12.
+\end{equation}
+If
+\begin{equation}\label{eq:scale-shape-coordinate}
+ G=e^sP,\qquad \det P=1,
+\end{equation}
+then the metric splits exactly as
+\begin{equation}\label{eq:metric-product}
+ g_G=2\,ds^2+g_P.
+\end{equation}
+Thus the full cone is nonpositively curved but not constant-curvature:
+scale--shape planes are flat.
+\end{theorem}
+
+\begin{proof}
+Put $A=G^{-1}$ and
+$H=A^{1/2}UA^{1/2}$.  Then $H$ is Hermitian and
+\[
+ g_G(U,U)=\tr(H^2)>0
+\]
+for $U\ne0$.  Under~\eqref{eq:passive-congruence},
+$(G')^{-1}=WG^{-1}W^\dagger$; cyclicity of trace proves invariance.
+
+To derive, rather than import, the connection, use
+$D_XA=-AXA$.  For constant Hermitian vector fields,
+\[
+D_Xg(Y,Z)
+=-\operatorname{Re}\tr(AXAYAZ+AYAXAZ).
+\]
+Insert this identity and its cyclic permutations into the Koszul formula.
+For the general symmetric one-coefficient bilinear ansatz
+$\Gamma_G(X,Y)=\alpha(XAY+YAX)$, cyclic trace reduction leaves
+$2\alpha+1=0$.  Hence $\alpha=-1/2$, which gives
+~\eqref{eq:levi-civita}.  Symmetry in $X,Y$ gives zero torsion; substituting
+$D_XA=-AXA$ gives $\nabla g=0$.  Uniqueness is the standard uniqueness part
+of the Koszul construction.
+
+Differentiate~\eqref{eq:levi-civita}, again using $D_XA=-AXA$, and subtract
+the expression with $X,Y$ exchanged.  The derivative terms cancel and leave
+~\eqref{eq:curvature}.  Whitening by $G^{-1/2}$ reduces it to
+\begin{equation}\label{eq:whitened-curvature}
+ R(X,Y)Z=-\tfrac14[[X,Y],Z],
+\end{equation}
+and therefore
+\begin{equation}\label{eq:sectional-numerator}
+ \ip{R(X,Y)Y}{X}
+ =\tfrac14\tr([X,Y]^2)\le0.
+\end{equation}
+For traceless Hermitian $2\times2$ matrices,
+\[
+ -\tr([X,Y]^2)
+ =2\{\tr(X^2)\tr(Y^2)-\tr(XY)^2\}.
+\]
+Division by the Gram determinant in~\eqref{eq:sectional-numerator} gives
+$K=-1/2$.
+
+If tangent fields $X,Y$ obey $\tr(AX)=\tr(AY)=0$, differentiating the first
+constraint in the $Y$ direction and using~\eqref{eq:levi-civita} shows
+$\tr(A\nabla_YX)=0$.  Hence the leaf is totally geodesic.  Finally,
+$G^{-1}dG=ds\,I+P^{-1}dP$ in the trace calculation, and
+$\tr(P^{-1}dP)=d\log\det P=0$.  The cross term vanishes and $\tr I_2=2$,
+giving~\eqref{eq:metric-product}.
+\end{proof}
+
+\begin{remark}[Classical identification]\label{rem:classical-geometry}
+Theorem~\ref{thm:green-geometry} recovers the classical affine-invariant
+positive-matrix metric \cite{ThanwerdasPennec2023,HiaiPetz2009}.  On
+$\det P=1$, the conventional hyperbolic metric has curvature $-1$; the
+normalization~\eqref{eq:green-metric} is twice that metric and therefore has
+curvature $-1/2$ \cite{Bryant1987}.  No new affine-invariant metric or
+hyperbolic model is claimed.  Geometrically, radial motion changes only the
+overall scale, while motion inside a determinant-one leaf follows the
+three-dimensional hyperbolic shape geometry.  Curvature then predicts the
+leading small-loop return: an infinitesimal loop of oriented area $A$ in an
+orthonormal shape plane produces a rotation of order $A/2$.
+\end{remark}
+
+\section{Exact geodesics and parallel transport}\label{sec:transport}
+
+Affine-invariant positive-matrix geodesics are classical
+\cite{BhatiaHolbrook2006}; this section derives the endpoint formula used by
+the Green normalization above.
+
+The geodesic equation obtained by setting
+$\nabla_{\dot G}\dot G=0$ in~\eqref{eq:levi-civita} is
+\begin{equation}\label{eq:geodesic-equation}
+ \ddot G=\dot G\,G^{-1}\dot G.
+\end{equation}
+The parallel-field equation along the same path is
+\begin{equation}\label{eq:parallel-ode}
+ \dot U=\tfrac12\bigl(\dot G\,G^{-1}U+UG^{-1}\dot G\bigr).
+\end{equation}
+
+\begin{proposition}[Exact endpoint transport]\label{prop:exact-transport}
+Let $G,H\in\Pos$ satisfy $\det G=\det H$.  Put
+\[
+ M=HG^{-1},\qquad
+ E_{G\to H}=\frac{M+I}{\sqrt{\tr(M)+2}},
+\]
+where the square root in the denominator is the positive one.  Then
+\begin{equation}\label{eq:transport-identities}
+ E_{G\to H}^{\,2}=M,\quad
+ E_{G\to H}G=GE_{G\to H}^{\dagger},\quad
+ E_{G\to H}GE_{G\to H}^{\dagger}=H,\quad
+ \det E_{G\to H}=1.
+\end{equation}
+Parallel transport along the affine-invariant geodesic from $G$ to $H$ is
+\begin{equation}\label{eq:parallel-transport}
+ \mathcal T_{G\to H}(U)=E_{G\to H}UE_{G\to H}^{\dagger}.
+\end{equation}
+It preserves Hermiticity, the determinant-tangent constraint, and the metric,
+and its reverse is $\mathcal T_{H\to G}$.  Segment transports compose in
+chronological order.  Under the passive congruence
+\eqref{eq:passive-congruence}, the transport is covariant:
+\begin{equation}\label{eq:transport-covariance}
+ \mathcal T_{G'\to H'}(U')
+ =W^{-\dagger}\mathcal T_{G\to H}(U)W^{-1}.
+\end{equation}
+Equal determinants are needed for the displayed closed form and for the
+path to stay on one determinant leaf.  For arbitrary positive $G,H$, the
+same transport formula holds with $E_{G\to H}=(HG^{-1})^{1/2}$, using the
+positive spectral square root.
+\end{proposition}
+
+\begin{proof}
+$M$ is similar to the positive Hermitian matrix
+$G^{-1/2}HG^{-1/2}$, so its eigenvalues are positive.  Equal determinants
+give $\det M=1$.  Cayley--Hamilton then yields
+$M^2-(\tr M)M+I=0$, hence
+$(M+I)^2=(\tr M+2)M$ and the first identity in
+~\eqref{eq:transport-identities}.  Since $MG=H=GM^\dagger$, every real
+polynomial in $M$ satisfies the analogous $G$-adjoint identity; this proves
+the second identity.  The third follows from
+$EGE^\dagger=E^2G=MG=H$, and the positive square root has determinant one.
+
+Define $G(t)=M^tG$ by the positive spectral calculus.  Direct differentiation
+gives~\eqref{eq:geodesic-equation}.  Substitution shows that
+$U(t)=M^{t/2}U(0)(M^\dagger)^{t/2}$ solves~\eqref{eq:parallel-ode};
+at $t=1$ it is~\eqref{eq:parallel-transport}.  The remaining assertions
+follow by congruence, cyclicity of trace, composition of the segment maps,
+and reversal of the geodesic.  In particular,
+$M'=W^{-\dagger}MW^\dagger$ and
+$E_{G'\to H'}=W^{-\dagger}E_{G\to H}W^\dagger$, which gives
+\eqref{eq:transport-covariance}.
+\end{proof}
+
+\section{Closed loops and relational Green holonomy}\label{sec:holonomy}
+
+Holonomy of symmetric spaces is classical
+\cite{KobayashiNomizu1963,AmbroseSinger1953}.  Berry-phase anholonomy is a
+useful neighboring comparison \cite{Berry1984}, but the return below is a
+relational Green-frame rotation; it is not a physical quantum phase or an
+adiabatic-time claim.
+
+\begin{definition}[Relational return]\label{def:relational-return}
+Let $G_0,\ldots,G_n$ be positive determinant-one instruments with
+$G_n=G_0=I$.  In chronological order put
+\begin{equation}\label{eq:loop-spin}
+ H_{\mathcal L}
+ =E_{G_{n-1}\to G_n}\cdots E_{G_1\to G_2}E_{G_0\to G_1}.
+\end{equation}
+For the Pauli frame $(\sigma_1,\sigma_2,\sigma_3)$, define
+\begin{equation}\label{eq:return-action}
+ C_{ab}(\mathcal L)
+ =\tfrac12\tr\!\left(
+ \sigma_aH_{\mathcal L}\sigma_bH_{\mathcal L}^{\dagger}\right).
+\end{equation}
+\end{definition}
+
+Because~\eqref{eq:loop-spin} returns the base instrument,
+$H_{\mathcal L}H_{\mathcal L}^{\dagger}=I$ and
+$\det H_{\mathcal L}=1$.  Thus $H_{\mathcal L}\in\SU(2)$ and
+$C(\mathcal L)\in\SO(3)$.  The rotation-matrix readout lies within the
+classical literature on attitude estimation and rotation synchronization
+\cite{Wahba1965,WangSinger2013}; the statement here concerns its exact
+derivation from retained versus transported Green reference frames.
+
+\begin{theorem}[Relational holonomy and source readout]
+\label{thm:relational-holonomy}
+For every determinant-one loop based at $I$,
+\begin{equation}\label{eq:fixed-green-readout}
+ C_{ab}(\mathcal L)
+ =\tfrac12 g_I\!\left(
+ \sigma_a,H_{\mathcal L}\sigma_bH_{\mathcal L}^{\dagger}\right).
+\end{equation}
+If both the query and reference frames are co-transported, their mutual
+reading is instead
+\begin{equation}\label{eq:cotransported-readout}
+ \tfrac12g_I(H_{\mathcal L}\sigma_aH_{\mathcal L}^{\dagger},
+             H_{\mathcal L}\sigma_bH_{\mathcal L}^{\dagger})
+ =\delta_{ab}.
+\end{equation}
+Loop reversal gives $C^{-1}$, concatenation gives the ordered product, and
+$H_{\mathcal L}$ and $-H_{\mathcal L}$ have the same readout.  Noncollinear
+loops can have $C\ne I$, while collinear geodesic loops return $I$.  The
+infinitesimal return algebra on the three Pauli modalities is all of
+$\mathfrak{so}(3)$.
+\end{theorem}
+
+\begin{proof}
+At $G=I$, equation~\eqref{eq:green-metric} is the Hilbert--Schmidt pairing,
+so~\eqref{eq:fixed-green-readout} is exactly
+~\eqref{eq:return-action}.  Metric preservation proves
+~\eqref{eq:cotransported-readout}.  Functoriality of parallel transport gives
+the reversal and concatenation laws, and the adjoint action is blind to the
+center of $\SU(2)$.
+
+For traceless Hermitian $X,Y$, the small-loop return generator is
+$[X,Y]/4$ with the boundary orientation fixed above.  Its adjoint action on
+the Pauli frame is a real skew $3\times3$ matrix.  The three independent
+Pauli pairs produce three independent generators and close under commutator
+as $\mathfrak{so}(3)$.  This is the local holonomy algebra, consistent with
+the classical curvature--holonomy relation \cite{AmbroseSinger1953}.
+Exact finite nonidentity and collinear examples are displayed below.
+\end{proof}
+
+Here are three exact loops realizing nontrivial returns.  For $a,b>0$ and
+$|z|=1$, write
+\[
+ \mathcal D(a)=\begin{pmatrix}a^2&0\\0&a^{-2}\end{pmatrix},\qquad
+ \mathcal B(b,z)=\begin{pmatrix}c_b&z s_b\\\bar z s_b&c_b\end{pmatrix},
+ \quad
+ c_b=\frac{b^2+b^{-2}}2,\quad s_b=\frac{b^2-b^{-2}}2.
+\]
+Both matrices are positive Hermitian with determinant one.
+
+\begin{example}[A real-axis triangle]\label{ex:holonomy-real}
+The geodesic triangle
+$I\to\mathcal D(7/3)\to\mathcal B(5/3,1)\to I$ has return
+\begin{equation}\label{eq:return-real-axis}
+C_1=
+\begin{pmatrix}
+217449/268649&0&-157760/268649\\
+0&1&0\\
+157760/268649&0&217449/268649
+\end{pmatrix}.
+\end{equation}
+It fixes the second Pauli axis.
+\end{example}
+
+\begin{example}[An imaginary-axis triangle]\label{ex:holonomy-imaginary}
+The triangle
+$I\to\mathcal D(8/5)\to\mathcal B(9/4,\ii)\to I$ has return
+\begin{equation}\label{eq:return-imaginary-axis}
+C_2=
+\begin{pmatrix}
+1&0&0\\
+0&34051232/40477457&21884655/40477457\\
+0&-21884655/40477457&34051232/40477457
+\end{pmatrix}.
+\end{equation}
+It fixes the first Pauli axis.
+\end{example}
+
+\begin{example}[A generic complex-axis triangle]\label{ex:holonomy-generic}
+For $z=(3+4\ii)/5$, the triangle
+$I\to\mathcal D(11/7)\to\mathcal B(6/5,z)\to I$ has return
+\begin{equation}\label{eq:return-generic-axis}
+C_3=
+\begin{pmatrix}
+673203337/676026025&3763584/676026025&-2463912/27041041\\
+3763584/676026025&671007913/676026025&3285216/27041041\\
+2463912/27041041&-3285216/27041041&26727409/27041041
+\end{pmatrix}.
+\end{equation}
+Its fixed axis is not a coordinate Pauli axis.  By contrast, every collinear
+loop $I\to\mathcal D(a)\to\mathcal D(b)\to I$ has identity return.
+\end{example}
+
+\section{Local tomography and the half-turn wall}
+\label{sec:local_tomography}
+
+Minimal tomography for trace-one qubits and informational completeness under
+prior information are established, with measurement objects and counts that
+differ from the unnormalized positive-cone Green-response model used here
+\cite{RehacekEtAl2004,HeinosaariMazzarellaWolf2013}.  Consequently, every
+minimality statement below is restricted to its declared reading scheme or
+to the separately stated class of fixed real-linear functionals; it is not a
+general tomography lower bound.
+
+\begin{definition}[Antisymmetric local reading]\label{def:local-reading}
+For $C\in\SO(3)$, set
+\begin{equation}\label{eq:w-reading}
+ w(C)=\tfrac12
+ \begin{pmatrix}
+ C_{32}-C_{23}\\ C_{13}-C_{31}\\ C_{21}-C_{12}
+ \end{pmatrix}.
+\end{equation}
+For $w\in\RR^3$, let $[w]_\times x=w\times x$.
+\end{definition}
+
+\begin{theorem}[Three local readings]\label{thm:local-three}
+The differential of~\eqref{eq:w-reading} at the identity has rank three.
+On the branch
+\[
+ c=\tfrac12(\tr C-1)>0,
+\]
+the three readings determine $C$ exactly by
+\begin{equation}\label{eq:local-rodrigues}
+ c=+\sqrt{1-w^\mathsf Tw},\qquad
+ C=cI+[w]_\times+\frac{ww^\mathsf T}{1+c}.
+\end{equation}
+No continuous scalar instrument with fewer than three outputs is locally
+injective on an open subset of the three-dimensional return manifold.
+\end{theorem}
+
+\begin{proof}
+Write a rotation near the identity as
+$C=\exp([\omega]_\times)$.  Then $w(C)=\omega+O(|\omega|^2)$, proving the
+rank statement.  Rodrigues' formula gives
+$w=\sin\theta\,n$ and $c=\cos\theta$; on $c>0$ the positive square-root
+choice is forced and rearrangement yields~\eqref{eq:local-rodrigues}.
+Exact multiplication verifies $C^\mathsf TC=I$, $\det C=1$, and readback.
+The lower bound is invariance of dimension: an open subset of a
+three-manifold cannot embed continuously into $\RR^m$ for $m<3$.
+\end{proof}
+
+\begin{proposition}[Natural four-reading wall]\label{prop:half-turn-wall}
+The four readings $(w(C),\tr C)$ are not globally injective.  Every half-turn
+about a unit axis $n$ has
+\begin{equation}\label{eq:half-turn}
+ C_n=2nn^\mathsf T-I,\qquad
+ (w(C_n),\tr C_n)=(0,0,0,-1).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+$C_n$ is symmetric, so its antisymmetric reading is zero.  Its eigenvalues
+are $(1,-1,-1)$, so its trace is $-1$.  Distinct axes not related by sign
+give distinct rotations with the same four-reading code.
+\end{proof}
+
+\section{Five fixed real-linear Green functionals}
+\label{sec:fixed_five}
+
+\begin{definition}[Fixed functional]\label{def:fixed-functional}
+A fixed real-linear Green functional is
+\[
+ \ell_K(C)=\ip{K}{C}_F=\tr(K^\mathsf TC),
+ \qquad K\in\RR^{3\times3},
+\]
+where $K$ is selected before $C$ is known.  Because the nine entries of
+$C$ are the fixed-reference readings~\eqref{eq:fixed-green-readout},
+$\ell_K$ lies in their real-linear span.  Fixed excludes data-dependent
+pivots or a change of $K$ after observing $C$.
+\end{definition}
+
+Use quaternion order $q=(w,x,y,z)^\mathsf T$ and the standard double cover
+$q\mapsto R(q)$:
+\begin{equation}\label{eq:quaternion-rotation}
+R(q)=
+\begin{pmatrix}
+w^2+x^2-y^2-z^2&2(xy-wz)&2(xz+wy)\\
+2(xy+wz)&w^2-x^2+y^2-z^2&2(yz-wx)\\
+2(xz-wy)&2(yz+wx)&w^2-x^2-y^2+z^2
+\end{pmatrix}.
+\end{equation}
+For unit $q$, $R(q)\in\SO(3)$ and $R(q)=R(-q)$.
+
+\begin{lemma}[Quaternion--rotation dictionary]
+\label{lem:quaternion-dictionary}
+Let $D=(d_{\mu\nu})_{\mu,\nu=0}^3$ be real symmetric and trace-free.  Define
+$K(D)\in\RR^{3\times3}$ by
+\begin{align}
+K_{11}&=(d_{00}+d_{11})/2,&
+K_{22}&=(d_{00}+d_{22})/2,&
+K_{33}&=(d_{00}+d_{33})/2,\notag\\
+K_{23}&=(d_{23}-d_{01})/2,&
+K_{32}&=(d_{23}+d_{01})/2,\notag\\
+K_{13}&=(d_{02}+d_{13})/2,&
+K_{31}&=(d_{13}-d_{02})/2,\label{eq:inverse-dictionary}\\
+K_{12}&=(d_{12}-d_{03})/2,&
+K_{21}&=(d_{12}+d_{03})/2.\notag
+\end{align}
+Then, coefficientwise for every $q\in\RR^4$,
+\begin{equation}\label{eq:dictionary-readback}
+ q^\mathsf TDq=\ip{K(D)}{R(q)}_F.
+\end{equation}
+Together with $q^\mathsf Tq$, the nine quadratic entries of $R(q)$ span
+$\operatorname{Sym}(4)$ with rank ten.
+\end{lemma}
+
+\begin{proof}
+Substitute~\eqref{eq:quaternion-rotation} into
+~\eqref{eq:dictionary-readback}.  Direct coefficient comparison gives
+$d_{00},d_{11},d_{22},d_{33}$ on the diagonal, using $\tr D=0$, and
+$2d_{\mu\nu}$ on each cross term.  This proves the identity.  The inverse recovers
+all nine trace-free coordinates, while the norm recovers the scalar
+direction, giving rank ten.
+\end{proof}
+
+The fixed construction starts from Xu's six rank-two projections
+\cite[Theorem~4.2]{Xu2018}, represented here by the columns $u_j,v_j$ of
+\begin{equation}\label{eq:exact-uv}
+U=\begin{pmatrix}
+1&0&0&0&1&1\\
+0&1&0&0&0&1\\
+0&0&1&0&-4&2\\
+0&0&0&1&-3&3
+\end{pmatrix},\qquad
+V=\begin{pmatrix}
+0&5&-1&-1&-17&-5\\
+-5&0&0&5&4&4\\
+2&-2&0&-3&-2&2\\
+-2&1&0&0&-3&-1
+\end{pmatrix}.
+\end{equation}
+Define
+\begin{equation}\label{eq:projectors}
+ P_j=\frac{u_ju_j^\mathsf T}{u_j^\mathsf Tu_j}
+     +\frac{v_jv_j^\mathsf T}{v_j^\mathsf Tv_j},
+\qquad S=\sum_{j=1}^6P_j.
+\end{equation}
+The exact factorization used below is $S=LDL^\mathsf T$, with
+\begin{equation}\label{eq:L-factor}
+L=\begin{pmatrix}
+1&0&0&0\\
+-1206036/7353455&1&0&0\\
+-629974/7353455&-620743491/3418884916&1&0\\
+865837/7353455&562593553/3418884916&
+39888940419/121436249827&1
+\end{pmatrix}
+\end{equation}
+and
+\begin{equation}\label{eq:D-factor}
+D=\operatorname{diag}\!\left(
+\frac{1470691}{332787},
+\frac{3418884916}{1213320075},
+\frac{121436249827}{51283273740},
+\frac{213445555084}{121436249827}
+\right).
+\end{equation}
+Put
+\begin{equation}\label{eq:whitening}
+ C_{\mathrm w}=D^{-1/2}L^{-1},\qquad
+ B_j=C_{\mathrm w}P_jC_{\mathrm w}^{\mathsf T}.
+\end{equation}
+
+\begin{lemma}[Exact projector and whitening identities]\label{lem:projectors}
+\label{lem:whitening}
+For every $j$, $u_j^\mathsf Tv_j=0$, $P_j=P_j^\mathsf T=P_j^2$,
+$P_j\ge0$, and $\rank P_j=2$.  The four diagonal entries of~\eqref{eq:D-factor}
+are positive, $S=LDL^\mathsf T$, and
+\begin{equation}\label{eq:tight-sum}
+ \sum_{j=1}^6B_j=I_4.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+All claims before the factorization follow directly from the six integer
+column pairs in~\eqref{eq:exact-uv}; orthogonality makes
+~\eqref{eq:projectors} the sum of two orthogonal rank-one projections.
+Every diagonal entry of $D$ has positive numerator and denominator.
+Rational multiplication verifies $S=LDL^\mathsf T$.  Therefore
+\[
+\sum_jB_j
+=D^{-1/2}L^{-1}(LDL^\mathsf T)L^{-\mathsf T}D^{-1/2}=I_4.
+\]
+\end{proof}
+
+For each $j$, write
+\begin{equation}\label{eq:Dj-alpha}
+ \alpha_j=\tfrac14\tr B_j,\qquad
+ D_j=B_j-\alpha_jI_4,\qquad K_j=K(D_j).
+\end{equation}
+The five promised functionals are
+\begin{equation}\label{eq:functionals}
+ \ell_j(C)=\ip{K_j}{C}_F,\qquad j=1,\ldots,5.
+\end{equation}
+Equations~\eqref{eq:exact-uv}--\eqref{eq:Dj-alpha} are the exact definition of
+every coefficient; no decimal or fitted parameter enters.
+
+\section{Exact rank-two-kernel reconstruction and global injectivity}
+\label{sec:certificate}
+
+\begin{lemma}[Real phase-retrieval kernel criterion]
+\label{lem:rank-two-kernel}
+Let $B_1,\ldots,B_m$ be real symmetric matrices with
+$\sum_jB_j=I$.  The quadratic map
+\[
+ q\longmapsto(q^\mathsf TB_1q,\ldots,q^\mathsf TB_mq)
+\]
+determines every $q\in\RR^4$ up to sign if and only if its symmetric kernel
+contains no nonzero matrix of rank at most two.
+\end{lemma}
+
+\begin{proof}
+If $q$ and $r$ have equal measurements, then
+$Q=qq^\mathsf T-rr^\mathsf T$ is a symmetric kernel element of rank at most
+two.  Conversely, let a nonzero symmetric kernel element $Q$ have rank at
+most two.  Since $\sum B_j=I$, $\tr Q=0$.  It cannot be nonzero semidefinite,
+so its spectral form is $\lambda aa^\mathsf T-\lambda bb^\mathsf T$ with
+$\lambda>0$ and orthonormal $a,b$.  The two non-antipodal vectors
+$\sqrt\lambda a,\sqrt\lambda b$ then have equal quadratic measurements.
+\end{proof}
+
+\begin{theorem}[Exact six-map kernel exclusion]
+\label{thm:kernel-certificate}
+For the six projectors~\eqref{eq:projectors}, the linear map
+\[
+ \mathcal M(Q)=(\tr(P_1Q),\ldots,\tr(P_6Q)),
+ \qquad Q\in\operatorname{Sym}(4),
+\]
+has rank six and a four-dimensional kernel, and that kernel contains no
+nonzero real matrix of rank at most two.  Consequently both
+$(P_j)_{j=1}^6$ and their congruence-whitened family
+$(B_j)_{j=1}^6$ perform real phase retrieval in dimension four.
+\end{theorem}
+
+\begin{proof}
+Use symmetric coordinate order
+\[
+(q_{00},q_{01},q_{02},q_{03},q_{11},q_{12},q_{13},q_{22},q_{23},q_{33}).
+\]
+Exact row reduction of the $6\times10$ measurement matrix gives rank six and
+the four rational kernel vectors printed in the exact supplement.  Write a
+general kernel matrix as
+\[
+ Q(a,b,c,d)=aQ_a+bQ_b+cQ_c+dQ_d.
+\]
+A symmetric $4\times4$ matrix has rank at most two exactly when all ten
+upper-triangular entries of its adjugate (the corresponding $3\times3$
+cofactors of the matrix) vanish.  Homogeneity permits the
+projective cover
+\[
+d=1,\quad d=0,c=1,\quad d=c=0,b=1,\quad d=c=b=0,a=1.
+\]
+On $d=1$, exact lexicographic elimination gives a three-element basis and a
+degree-ten univariate eliminant in $c$.  Its complete integer coefficients
+are printed in the supplement.  A signed-remainder Sturm chain has degree
+sequence
+\[
+10,9,8,7,6,5,4,3,2,1,0
+\]
+and five sign variations at each of $-\infty$ and $+\infty$, hence no real
+root.  The $d=0,c=1$ and $d=c=0,b=1$ ideals both contain $1$.  On the last
+patch, clear denominators from each cofactor polynomial, divide its integer
+coefficient content, and fix its sign.  This nonzero rational rescaling
+preserves the common determinantal zero locus.  The first declared nonzero
+primitive denominator-cleared cofactor polynomial then evaluates to
+\[
+2324385247266000.
+\]
+Thus the projective cofactor system has no real point, proving the kernel
+claim.  Invertible congruence preserves rank and transports kernels between
+$P_j$ and $B_j$, so the whitened family has the same property.
+\end{proof}
+
+\begin{theorem}[Five fixed-function global tomography]\label{thm:fixed-five}
+The fixed map
+\begin{equation}\label{eq:fixed-map}
+ \Phi:\SO(3)\longrightarrow\RR^5,\qquad
+ \Phi(C)=(\ell_1(C),\ldots,\ell_5(C)),
+\end{equation}
+defined by~\eqref{eq:exact-uv}--\eqref{eq:functionals} is injective.
+All five $K_j$ have exact rank three and nonzero determinant.
+\end{theorem}
+
+\begin{proof}
+Let $C=R(q)$ with $q^\mathsf Tq=1$.  By
+Lemma~\ref{lem:quaternion-dictionary},
+\begin{equation}\label{eq:y-readings}
+ y_j:=q^\mathsf TB_jq=\alpha_j+\ell_j(C).
+\end{equation}
+The five values in~\eqref{eq:fixed-map} therefore recover
+$y_1,\ldots,y_5$.  Tightness~\eqref{eq:tight-sum} and unit norm give
+\begin{equation}\label{eq:sixth-recovery}
+ y_6=1-\sum_{j=1}^5y_j.
+\end{equation}
+Theorem~\ref{thm:kernel-certificate} says that the six $y_j$ determine $q$
+up to the unavoidable sign $q\sim-q$.  Since $R(q)=R(-q)$, they determine
+$C$ uniquely.  Exact determinant evaluation gives the five nonzero values
+listed in the supplement, proving the rank statement.
+\end{proof}
+
+\begin{remark}[What five counts]\label{rem:not-shots}
+The five objects in~\eqref{eq:functionals} are synthesized real-linear
+functionals of the nine primitive matrix-entry readings.  Each coefficient
+matrix has rank three.  The sum of those ranks, $15$, is only an algebraic
+upper bound on a rank-one coefficient decomposition.  It is neither a
+primitive Green-shot count nor an optimal implementation cost.
+\end{remark}
+
+\subsection{Kernel floors and angle constants}\label{sec:conditioning-definitions}
+
+Let $\mathcal S_0$ be the space of trace-zero real symmetric $4\times4$
+matrices with Frobenius inner product, and let
+\begin{equation}\label{eq:pair-orbit}
+ \mathcal W=\{aa^{\mathsf T}-bb^{\mathsf T}:a,b\in\RR^4,
+ \ a^{\mathsf T}a=b^{\mathsf T}b=1,\ a^{\mathsf T}b=0\}.
+\end{equation}
+Every $Z\in\mathcal W$ has $\|Z\|_F^2=2$.  For a four-plane
+$K\subset\mathcal S_0$, with Frobenius projection $\Pi_K$, define its
+\emph{kernel floor} by
+\begin{equation}\label{eq:kernel-floor-definition}
+ m(K)=\min_{Z\in\mathcal W}\|\Pi_{K^\perp}Z\|_F^2
+     =2-\max_{Z\in\mathcal W}\|\Pi_KZ\|_F^2.
+\end{equation}
+This is the normalization used for both four-planes below.  If
+$K_1,\ldots,K_4$ is a basis of $K$, put
+$\Gamma_{ij}=\tr(K_iK_j)$ and
+$t_K(Z)_i=\tr(K_iZ)$.  Then
+\begin{equation}\label{eq:projection-height}
+ \|\Pi_KZ\|_F^2=t_K(Z)^{\mathsf T}\Gamma^{-1}t_K(Z).
+\end{equation}
+Equivalently, if $S_K(c)=\sum_i c_iK_i$ and
+$\operatorname{spr}(A)=\lambda_{\max}(A)-\lambda_{\min}(A)$, the
+spread-pencil identity is
+\begin{equation}\label{eq:spread-pencil}
+ m(K)=2-\max_{c\ne0}
+ \frac{\operatorname{spr}(S_K(c))^2}{c^{\mathsf T}\Gamma c}.
+\end{equation}
+Indeed, maximizing $\tr(AZ)$ over $Z\in\mathcal W$ gives
+$\operatorname{spr}(A)$, and duality with~\eqref{eq:projection-height}
+gives~\eqref{eq:spread-pencil}.
+
+For symmetric coordinate matrices $A_1,\ldots,A_5$, write
+\begin{equation}\label{eq:realized-objective}
+ F_A(a,b)=\sum_{j=1}^5
+ \tr\!\bigl(A_j(aa^{\mathsf T}-bb^{\mathsf T})\bigr)^2,
+ \qquad (a,b)\text{ orthonormal},
+\end{equation}
+and let $m_A$ and $M_A$ be its minimum and maximum.
+For an injective map $\Psi$, define
+\[
+c_\Psi=\inf_{R_1\ne R_2}\frac{\|\Psi(R_1)-\Psi(R_2)\|}{d_\angle(R_1,R_2)},
+\quad C_\Psi=\sup_{R_1\ne R_2}\frac{\|\Psi(R_1)-\Psi(R_2)\|}{d_\angle(R_1,R_2)},
+\quad \kappa_\Psi=C_\Psi/c_\Psi
+\]
+when $c_\Psi>0$.
+
+\begin{lemma}[Rotation-angle reduction]\label{lem:angle-reduction}
+Suppose a map $\Psi:\SO(3)\to\RR^5$ and symmetric matrices
+$A_1,\ldots,A_5$ satisfy
+\begin{equation}\label{eq:coordinate-difference-identity}
+ \Psi(R(q))-\Psi(R(r))
+ =\left(\tr\!\bigl(A_j(qq^{\mathsf T}-rr^{\mathsf T})\bigr)\right)_{j=1}^5
+\end{equation}
+for all unit quaternions $q,r$.  If $d_\angle$ is the rotation angle, then
+\begin{equation}\label{eq:generic-angle-reduction}
+ \frac{\sqrt{m_A}}{\pi}d_\angle(R_1,R_2)
+ \leq\|\Psi(R_1)-\Psi(R_2)\|
+ \leq\frac{\sqrt{M_A}}2d_\angle(R_1,R_2).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose unit quaternions $q,r$ for $R_1,R_2$ and let
+$\theta\in[0,\pi/2]$ be their line angle.  A two-dimensional spectral
+decomposition gives
+ $qq^{\mathsf T}-rr^{\mathsf T}=\sin\theta\,(aa^{\mathsf T}-bb^{\mathsf T})$
+ for an orthonormal pair $(a,b)$, while $d_\angle=2\theta$.  Hence
+ $\|\Psi(R(q))-\Psi(R(r))\|^2=\sin^2\theta\,F_A(a,b)$, and the bounds follow
+ from $2\theta/\pi\leq\sin\theta\leq\theta$.  Conversely, every direction
+ $aa^{\mathsf T}-bb^{\mathsf T}$ in~\eqref{eq:pair-orbit} occurs as the
+ normalized tangent direction of such a pair difference, so the constants
+ $m_A$ and $M_A$ govern the full tangent cone rather than only a subset of it.
+\end{proof}
+
+\section{Conditioning of the positive-projector design}
+\label{sec:projector-conditioning}
+
+The preceding injectivity construction can now be quantified in the same
+finite-dimensional model.  Let $D$ be the positive diagonal factor
+in~\eqref{eq:D-factor}.  Let $\widehat K_{\rm proj}$ denote the
+four-plane obtained by whitening the symmetric kernel with the $D$-weighted
+trace pairing, and let $G_1,\ldots,G_5$ be the exact rational representatives
+of the five trace-projected functionals in those coordinates.  Their rational
+frame Gram is
+\begin{equation}\label{eq:projector-frame-gram}
+ (H_{\rm proj})_{jk}=\tr(G_jD^{-1}G_kD^{-1})
+ -\frac14\tr(G_jD^{-1})\tr(G_kD^{-1}).
+\end{equation}
+Write $F_{\rm proj}$ for the realized objective~\eqref{eq:realized-objective}
+in these coordinates and set
+\begin{align}
+ s_{\rm lo}
+ &=\frac{812873440394747353670787185015095602549}
+ {105051913151663586578335579326020229005312},\label{eq:slo}\\
+ L_0=\frac{s_{\rm lo}}{1024}
+ &=\frac{812873440394747353670787185015095602549}
+ {107573159067303512656215633229844714501439488},\label{eq:L0}\\
+ M_0&=\frac{270988332696903}{281474976710656}.\label{eq:M0}
+\end{align}
+
+\begin{theorem}[Positive-projector kernel and frame-factor floor]
+\label{thm:projector-conditioning}
+For the positive-projector construction,
+\[
+ m(\widehat K_{\rm proj})\geq\frac1{1024},
+ \qquad s_{\rm lo}<\lambda_{\min}(H_{\rm proj}),
+ \qquad F_{\rm proj}\geq
+ \lambda_{\min}(H_{\rm proj})m(\widehat K_{\rm proj})\geq L_0.
+\]
+In particular, the realized five-functional objective has
+$\min F_{\rm proj}\geq L_0\approx7.556470846841732\times10^{-6}$.
+\end{theorem}
+
+\begin{proof}
+The inequality $m(\widehat K_{\rm proj})\geq1/1024$ is proved by exact
+branch-and-bound in rational arithmetic.  The compact coefficient domain in
+\eqref{eq:spread-pencil} is covered by finitely many boxes.  Rational
+quadratic bounds discard boxes outside the normalized coefficient shell.
+Vertex-cone bounds close every remaining box in the supplied cover.  Vertex
+eigenvalue bounds use exact integer characteristic polynomials and outward
+derivative-test bisection.  The complete replay supplies all $87\,525$
+closed and $4\,626$ pruned leaves, with no unresolved box.  The supplementary
+proof guide explains the convexity step and the replay checks the entire
+subdivision, not merely the earlier one-in-$100$ sample.
+
+The characteristic polynomial of the rational matrix $H_{\rm proj}$ and a
+Sturm root count give $H_{\rm proj}>0$ and the strict bracket
+$s_{\rm lo}<\lambda_{\min}(H_{\rm proj})$.  The realized five coordinates are
+a frame analysis of $\Pi_{\widehat K_{\rm proj}^{\perp}}Z$; the Rayleigh
+quotient for~\eqref{eq:projector-frame-gram} therefore gives
+\[
+ F_{\rm proj}\geq\lambda_{\min}(H_{\rm proj})
+ \|\Pi_{\widehat K_{\rm proj}^{\perp}}Z\|_F^2.
+\]
+Taking the minimum over $\mathcal W$ and substituting the two rational lower
+bounds yields~\eqref{eq:L0}.
+\end{proof}
+
+\begin{corollary}[Positive-projector rotation-angle stability]
+\label{cor:projector-conditioning}
+For the map $\Phi$ in~\eqref{eq:fixed-map} and rotation-angle
+distance $d_\angle$,
+\begin{equation}\label{eq:projector-angle-bounds}
+ \frac{\sqrt{L_0}}{\pi}d_\angle(R_1,R_2)
+ \leq\|\Phi(R_1)-\Phi(R_2)\|
+ \leq\frac{\sqrt{M_0}}2d_\angle(R_1,R_2).
+\end{equation}
+Consequently
+\[
+ c_{\rm proj}\geq\frac{\sqrt{L_0}}\pi
+ \approx8.750031830575377\times10^{-4},\qquad
+ \kappa_{\rm proj}\leq\frac\pi2\sqrt{\frac{M_0}{L_0}}
+ \approx560.6809131191.
+\]
+\end{corollary}
+
+\begin{proof}
+A separate Sturm calculation supplies outward eigenvalue brackets for the
+positive matrices $B_j$.  Since
+$|a^{\mathsf T}B_ja-b^{\mathsf T}B_jb|\leq\lambda_{\max}(B_j)$,
+$M_A\leq\sum_{j=1}^5\lambda_{\max}(B_j)^2\leq M_0$.
+This is independent of the frame-factor lower bound.
+Apply Lemma~\ref{lem:angle-reduction} with
+$m_A\geq L_0$.  The result uses one-sided bounds; it does not identify the
+unknown true extrema.
+\end{proof}
+
+\section{A separate rational conditioning construction}
+\label{sec:kstar-conditioning}
+
+It is natural to ask whether a different four-plane improves the floor of
+Theorem~\ref{thm:projector-conditioning}.  The supplementary data specify four
+rational trace-zero symmetric matrices whose span is a four-plane
+$K^\ast\subset\mathcal S_0$.  Unlike $\widehat K_{\rm proj}$, this plane is
+not obtained from positive rank-two projections; it is an abstract
+measurement design.  Its floor is nevertheless defined by exactly
+\eqref{eq:kernel-floor-definition}.
+
+\begin{theorem}[Floor for the rational four-plane]
+\label{thm:kstar-floor}
+For the rational four-plane $K^\ast$ reproduced in the supplement,
+\[
+  m(K^\ast)\geq \frac{1}{32}.
+\]
+\end{theorem}
+
+\begin{proof}
+Insert the four rational basis matrices into~\eqref{eq:spread-pencil}.  Exact
+branch-and-bound, using the same rational interval and vertex-cone procedure
+as above, proves that the normalized squared spread is at most $63/32$.
+Equation~\eqref{eq:spread-pencil} then gives $m(K^\ast)\geq1/32$.  The finite
+cover, consisting of $1\,786$ closed and $285$ pruned leaves, and the engine
+recomputing its rational bounds are supplied in the supplement.
+\end{proof}
+
+The two designs may therefore be compared only at the level of their
+proved lower-bound values.  The floor $1/32$ for $K^\ast$ is exactly
+$32$ times the positive-projector floor $1/1024$.  Likewise,
+\[
+ \frac{1/(\pi\sqrt{32})}{\sqrt{L_0}/\pi}
+ =\frac1{\sqrt{32L_0}}\approx64.3081.
+\]
+This is not a ratio of the unknown true minima or true stability constants.
+The rational four-plane has the stronger proved guarantee, while the
+positive-projector design retains the constructive tomography interpretation.
+
+Exploratory floating-point optimization gives approximately
+$m(\widehat K_{\rm proj})=0.0010212$ and $m(K^\ast)=0.10407$.
+These are uncertified estimates, not proofs of global optimality. They
+suggest that the projector floor is comparatively tight while the rational
+floor is conservative; none of the inequalities above depends on them.
+
+\begin{corollary}[An abstract isometric rotation-angle bound]
+\label{cor:kstar-conditioning}
+Let $E=K^{\ast\perp}\cap\mathcal S_0$ and
+$H=\{x\in\RR^6:\sum_{j=1}^6x_j=0\}$.  Both spaces have dimension five,
+so choose any linear isometry $T:E\to H$ and define
+$\Psi_6(R(q))=T\Pi_E(qq^{\mathsf T}-I/4)$.
+This is well defined under $q\sim-q$ and realizes pair differences by
+\begin{equation}\label{eq:kstar-difference-realization}
+ \Psi_6(R(q))-\Psi_6(R(r))
+ =T\!\left(\Pi_E(qq^{\mathsf T}-rr^{\mathsf T})\right)
+\end{equation}
+for all unit quaternions $q,r$.  Define $L:\RR^6\to\RR^5$ by
+\begin{equation}\label{eq:H-partial-isometry}
+ L_{ij}=\begin{cases}
+  1/\sqrt{i(i+1)},&j\leq i,\\
+  -i/\sqrt{i(i+1)},&j=i+1,\\
+  0,&j>i+1,
+  \end{cases}
+  \qquad 1\leq i\leq5,\quad 1\leq j\leq6.
+\end{equation}
+Then $LL^{\mathsf T}=I_5$ and $\|Lx\|_2=\|x\|_2$ for $x\in H$.  For the
+five-coordinate map $\Phi^\ast=L\Psi_6$ and rotation-angle distance
+$d_\angle$,
+\[
+ \|\Phi^\ast(R_1)-\Phi^\ast(R_2)\|
+ \geq \frac{1}{\pi\sqrt{32}}d_\angle(R_1,R_2),
+ \qquad
+ c_{\Phi^\ast}\geq\frac{1}{\pi\sqrt{32}}>0.0562.
+\]
+The quaternion dictionary makes these fixed linear coordinates on $\SO(3)$;
+the conclusion concerns this abstract $K^\ast$ construction, not a
+positive-projector or device realization.
+\end{corollary}
+
+\begin{proof}
+The rows of $L$ are orthonormal, and its kernel is the span of
+$(1,1,1,1,1,1)$, proving the asserted isometry on $H$.  Hence
+\eqref{eq:kstar-difference-realization} and
+Theorem~\ref{thm:kstar-floor} make the realized objective equal to
+$\|\Pi_EZ\|_F^2$ with lower bound $1/32$ on $\mathcal W$.  Apply
+Lemma~\ref{lem:angle-reduction}.
+\end{proof}
+
+The distinction between injectivity and
+stability in abstract phase retrieval, including compact-group formulations,
+is treated in the primary literature
+\cite{BandeiraCahillMixonNelson2014,XiaXuXu2024,AmirBendoryDymEdidin2025}.
+
+\section{Fixed-linear optimality}\label{sec:optimality}
+
+Wang and Xu define the minimal number $m_{\RR}(d)$ of generalized real
+quadratic measurements required for phase retrieval and prove
+$m_{\RR}(4)=6$ \cite[Theorem 5.1 and the following remark]{WangXu2019}.
+The six rank-two projection construction used above originates in Xu's
+low-rank-recovery and projection phase-retrieval construction
+\cite{Xu2018}; Theorem~\ref{thm:kernel-certificate} supplies the exact
+specialization needed here.
+These generalized quadratic counts are not general tomography counts:
+minimal qubit tomography and tomography under prior information use different
+objects and measurement classes
+\cite{RehacekEtAl2004,HeinosaariMazzarellaWolf2013}.
+
+\begin{corollary}[Fixed-linear optimality]
+\label{cor:fixed-five-optimality-external}
+By the published theorem $m_{\RR}(4)=6$, five is the minimum
+number of fixed real-linear functionals on the standard embedded
+$\SO(3)\subset\RR^9$ that can be globally injective.
+\end{corollary}
+
+\begin{proof}
+Suppose four fixed linear functionals were injective on $\SO(3)$.  Composing
+them with the homogeneous quadratic map $q\mapsto R(q)$ gives four
+generalized quadratic measurements on $\RR^4$.  Adjoin the norm measurement
+$q^\mathsf Tq$.  If two nonzero vectors have the same five quadratic values,
+their norms agree; after normalization, injectivity on $\SO(3)$ identifies
+their unit quaternions up to sign.  Hence these five quadratics would perform
+real phase retrieval in $\RR^4$, contradicting $m_{\RR}(4)=6$.
+\end{proof}
+
+The value $m_{\RR}(4)=6$ is a published input and is not reproved here.  The
+conclusion concerns fixed real-linear functionals, not adaptive queries,
+nonlinear encodings, primitive physical readings, or experimental cost.
+There is also an independent topological obstruction: the compact space
+$\SO(3)$, homeomorphic to $\mathbb{RP}^3$, does not embed in $\RR^4$, although it embeds
+in $\RR^5$ \cite[Sec.~4.1]{ZhouEtAl2019}.  A continuous injective map
+from a compact space into Euclidean space is an embedding, so this rules
+out every continuous four-coordinate encoding, not only fixed linear
+functionals.  The phase-retrieval reduction above gives a second proof
+within the declared quadratic measurement model.
+
+\section{Adaptive five-reading implementation comparison}
+\label{sec:adaptive_comparison}
+
+Here \emph{minimal} is relative to the column-first real-linear model below.
+It does not transfer to POVM tomography, trace-one state estimation, or
+arbitrary prior information
+\cite{RehacekEtAl2004,HeinosaariMazzarellaWolf2013}.
+
+\begin{definition}[Column-first adaptive scheme]\label{def:adaptive-protocol}
+For $C=[u\ v\ z]\in\SO(3)$, first read all three entries of $u$.  Choose
+$p\in\arg\max_i|u_i|$, taking the smallest index in a tie.  Then read the two components $v_j$ with
+$j\ne p$, set
+\begin{equation}\label{eq:adaptive-solve}
+ v_p=-\frac{\sum_{j\ne p}u_jv_j}{u_p},
+\end{equation}
+ and complete $z=u\times v$.  The resulting matrix can be checked directly
+ for unit columns, orthogonality, and positive orientation.
+\end{definition}
+
+\begin{proposition}[Scoped adaptive sufficiency and minimality]
+\label{prop:adaptive-five}
+The column-first scheme reconstructs every $C\in\SO(3)$ from five
+support-aware readings.  After a full first column has been fixed, one
+additional real-linear reading cannot be injective on the residual circle,
+whereas the two selected nonpivot entries are injective.  Thus five is
+necessary and sufficient within this declared column-first real-linear
+scheme.
+\end{proposition}
+
+\begin{proof}
+A unit vector $u$ has $|u_p|\geq1/\sqrt3$ at the selected
+maximum-magnitude component.  Orthogonality
+$u^\mathsf Tv=0$ gives~\eqref{eq:adaptive-solve}; the two nonpivot
+coordinates therefore determine $v$ uniquely.  Exact checks certify
+$u,v$ as an orthonormal pair, and $u\times v$ chooses the
+orientation-preserving completion.
+
+Once $u$ is fixed, write the residual column as
+$v(\phi)=a\cos\phi+b\sin\phi$ in an orthonormal basis of $u^\perp$.  Any
+one real-linear reading is $A\cos\phi+B\sin\phi$ and has an exact collision
+on the circle.  By contrast, equality of the two nonpivot components and
+orthogonality force equality of the pivot component, hence of $v$.
+\end{proof}
+
+\begin{proposition}[Conditional stability of the adaptive pivot]
+\label{prop:adaptive-stability}
+Suppose the first column $u$ is known exactly.  If the two measured
+nonpivot coordinates of $v$ have error vector $e\in\mathbb R^2$, the
+reconstruction~\eqref{eq:adaptive-solve}, before any normalization or
+orthogonality correction, has error
+\begin{equation}\label{eq:adaptive-stability}
+ \|\delta v\|\leq \frac{\|e\|}{|u_p|}\leq\sqrt3\,\|e\|.
+\end{equation}
+Thus maximum-magnitude pivoting gives a uniform bound for this step
+without another reading.
+\end{proposition}
+\begin{proof}
+Since $\|u\|=1$, the selected pivot satisfies $|u_p|\geq1/\sqrt3$.
+Writing $u_{-p}$ for its two nonpivot coordinates, the pivot error is
+$\delta v_p=-u_{-p}^{\mathsf T}e/u_p$.  Cauchy--Schwarz gives
+\[
+ \|\delta v\|^2
+ =\|e\|^2+\frac{|u_{-p}^{\mathsf T}e|^2}{|u_p|^2}
+ \leq \left(1+\frac{1-|u_p|^2}{|u_p|^2}\right)\|e\|^2.
+\]
+\end{proof}
+This is not a full noisy-instrument theorem: errors in $u$, pivot selection
+from noisy first-column data, and subsequent completion are not covered.
+Choosing the first nonzero component would preserve exact reconstruction
+but allow an arbitrarily small denominator.  The supplement supplies an
+exact-rational regression of the pivot rule and this distinction; the
+general bound follows from the proof above, not from those examples.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}p{0.28\textwidth}p{0.12\textwidth}p{0.49\textwidth}@{}}
+\toprule
+Instrument & Count & Mathematical scope\\
+\midrule
+Antisymmetric $w(C)$ & $3$ & Local chart on the positive-cosine branch\\
+$w(C)$ plus trace & $4$ & Fails globally on every half-turn\\
+Column-first scheme & $5$ & Global, exact, adaptive; minimal only in its
+declared model\\
+Functionals $\ell_1,\ldots,\ell_5$ & $5$ & Global, exact, fixed and
+nonadaptive; quantitative positive-projector bounds; fixed-linear optimality
+by $m_{\RR}(4)=6$\\
+Rational $K^\ast$ coordinates & $5$ & Separate abstract design;
+proved floor $1/32$ and abstract lower constant; not a projector or
+physical implementation\\
+\bottomrule
+\end{tabular}
+\caption{The adaptive result is an implementation comparison, not an open
+substitute for the fixed theorem.}
+\label{tab:tomography-comparison}
+\end{table}
+
+\section{Limitations and related directions}\label{sec:boundaries}
+
+The reconstruction theorems concern exact finite-dimensional data;
+Proposition~\ref{prop:adaptive-stability} adds only the stated conditional
+perturbation bound.  The loops are prescribed
+mathematical paths in $\Pos$, and their return action is relational in the
+sense of~\eqref{eq:cotransported-readout}; no physical realization of an
+arbitrary loop is asserted.  Likewise, the five fixed coordinates
+are synthesized linear functionals, not five primitive experimental shots.
+The fixed-linear lower bound uses the published identity
+$m_{\RR}(4)=6$, and the adaptive minimality statement applies only to the
+column-first model of Definition~\ref{def:adaptive-protocol}.
+
+The conditioning estimates concern the declared exact coordinate maps.  They
+do not establish stochastic-noise robustness, sample complexity, device
+performance, or optimality among all four-planes.  In particular, the lower
+angle constant for $K^\ast$ applies to the abstract realization
+\eqref{eq:kstar-difference-realization}, not to an unspecified device.
+Robust synchronization under
+corruption is a natural comparison direction
+\cite{Singer2011,BandeiraSingerSpielman2013,LangeEtAl2015,ElKarouiWu2016},
+but incorporating noise into the Green-return reconstruction problem remains
+open.
+
+\section{Conclusion}\label{sec:conclusion}
+
+The Green pairing determines the affine-invariant geometry of positive
+Hermitian $2\times2$ instruments.  Its determinant-one shape leaf is
+hyperbolic with the exact normalization $K=-1/2$, and its exact transport
+turns closed instrument loops into relational $\SO(3)$ return actions.
+Three readings are locally sufficient, the natural fourth trace reading does
+not cross the half-turn wall, and five fixed synthesized functionals are
+globally injective.  Their proof is constructive:
+six exact rank-two projections, exact whitening, an exact
+quaternion--rotation dictionary, and a complete projective real-kernel
+exclusion.  Fixed-linear optimality remains explicitly dependent on the
+published value $m_{\RR}(4)=6$.  The adaptive five-reading scheme remains
+an elementary alternative within its narrower information model.
+
+The positive-projector map has
+$m(\widehat K_{\rm proj})\geq1/1024$, $\min F_{\rm proj}\geq L_0$, the
+two-sided estimate~\eqref{eq:projector-angle-bounds}, and
+$\kappa_{\rm proj}\leq560.6809131191\ldots$.  The separate rational plane
+$K^\ast$ has $m(K^\ast)\geq1/32$ and, for the constructed isometric
+coordinates, a lower angle constant exceeding $0.0562$.  The factor $32$ in
+the floor bounds and the factor $64.3081\ldots$ in the corresponding proved
+lower constants compare guarantees, not unknown true optima.  Determining the
+best four-plane, and understanding which well-conditioned abstract designs
+admit natural positive or physical realizations, are the principal open
+problems suggested by this analysis.
+
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\begingroup
+\small
+\bibliographystyle{plain}
+\bibliography{references}
+\endgroup
+
+\end{document}

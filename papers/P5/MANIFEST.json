@@ -1,0 +1,68 @@
+{
+  "members": [
+    {
+      "bytes": 254,
+      "path": "AI_DISCLOSURE.txt",
+      "sha256": "20d37ba3bc552aefcce75044d04e93d44bea3f40cfb6f4102d824f97d2c480fc"
+    },
+    {
+      "bytes": 409,
+      "path": "CITATION.cff",
+      "sha256": "f04614e6e2c74b45e0843edbfa75479061b84d1a85082b207f56a3ac58357abc"
+    },
+    {
+      "bytes": 706,
+      "path": "LICENSE.md",
+      "sha256": "7a6f04e52d2b0464a47053a4aca3f4907e6994432daebdf7dd2ae4f82e9c7f52"
+    },
+    {
+      "bytes": 1894,
+      "path": "README.md",
+      "sha256": "8087dc1954f12bc50a53f257726dde205b9e32a8d2ecd80c95379289a9163749"
+    },
+    {
+      "bytes": 514562,
+      "path": "coexact_spectral_hydrodynamics_l137.pdf",
+      "sha256": "144ee228e4941af501792b894ae15894445e7e37ccaf7e9bae3ddc4319406ff7"
+    },
+    {
+      "bytes": 1330,
+      "path": "metadata.json",
+      "sha256": "ce3e5a4cda29c33126c11b9fc55caf5510018108b3153a85dc3c0f0349defaa2"
+    },
+    {
+      "bytes": 41544,
+      "path": "paper/coexact_spectral_hydrodynamics_l137.tex",
+      "sha256": "d43e42a82c5628b9d75ff86e8f97aabb95050e2aac8936626894025014aebcbd"
+    },
+    {
+      "bytes": 8623,
+      "path": "paper/references.bib",
+      "sha256": "b3f7eb390b849492d2831e894310923983e5dbca55524b465be658289d1af0f1"
+    },
+    {
+      "bytes": 3188,
+      "path": "supplements/README.md",
+      "sha256": "31ebaa4380f800418ef824bb5ee9c6720bd1127d83b9f705cd4645a3c830525c"
+    },
+    {
+      "bytes": 3317,
+      "path": "supplements/check_data.py",
+      "sha256": "26d6e1be207e5e671533759f1f36acbfd05916788952e1f70000f7f0069071f3"
+    },
+    {
+      "bytes": 447803,
+      "path": "supplements/triad_data.json",
+      "sha256": "decfbb4ff08e4da4d2b86c85fe0b06e806104eaeeed102a54af8eb11dc1c549c"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "P5",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

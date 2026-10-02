@@ -1,0 +1,112 @@
+{
+ "K0": {
+  "library_pins": true,
+  "mismatches": [],
+  "pass": true,
+  "rows": 135
+ },
+ "V1": {
+  "mismatches": [],
+  "n_mismatches": 0,
+  "pass": true,
+  "rows": 4896
+ },
+ "V2": {
+  "failures": [],
+  "n_failures": 0,
+  "pass": true,
+  "rows": 48677
+ },
+ "V3": {
+  "n_odd": 0,
+  "odd": [],
+  "pass": true,
+  "rows": 31440
+ },
+ "V4": {
+  "B1": {
+   "U1_violation_rows": [],
+   "U1_violations": 0,
+   "mutation_violations": {
+    "MU1": 44776,
+    "MU2": 2436,
+    "MU3": 15284
+   },
+   "rows": 45072,
+   "violation_rows": [],
+   "violations": 0,
+   "zeros": 276
+  },
+  "B2": {
+   "U1_violation_rows": [],
+   "U1_violations": 0,
+   "mutation_violations": {
+    "MU1": 92,
+    "MU2": 52,
+    "MU3": 46
+   },
+   "rows": 156,
+   "violation_rows": [],
+   "violations": 0,
+   "zeros": 52
+  },
+  "B3": {
+   "U1_violation_rows": [],
+   "U1_violations": 0,
+   "mutation_violations": {
+    "MU1": 1736,
+    "MU2": 790,
+    "MU3": 977
+   },
+   "rows": 1856,
+   "violation_rows": [],
+   "violations": 0,
+   "zeros": 36
+  }
+ },
+ "V4_pass": true,
+ "V5_pass": true,
+ "V5_zeros": 364,
+ "mutations": {
+  "MU1": {
+   "block_violations": 46604,
+   "eta": "-2/9",
+   "fails_at_witness": true,
+   "pass": true,
+   "row": [
+    3,
+    1,
+    1
+   ],
+   "theorem_ok_here": true
+  },
+  "MU2": {
+   "block_violations": 3278,
+   "eta": "-10/9",
+   "fails_at_witness": true,
+   "pass": true,
+   "row": [
+    3,
+    1,
+    2
+   ],
+   "theorem_ok_here": true
+  },
+  "MU3": {
+   "block_violations": 16307,
+   "eta": "-2/9",
+   "fails_at_witness": true,
+   "pass": true,
+   "row": [
+    3,
+    1,
+    1
+   ],
+   "theorem_ok_here": true
+  }
+ },
+ "run": "RUN1",
+ "seconds": 175.0,
+ "source_sha256": "1068a5d41794edf1b030d92af12110e6b635aa436bc9853b0971e0af408a08ae",
+ "status": "PASS"
+}

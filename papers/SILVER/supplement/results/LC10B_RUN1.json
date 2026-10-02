@@ -1,0 +1,295 @@
+{
+ "mode": "RUN1",
+ "python": "3.11.15",
+ "source_sha": "e4505b1d17bbab2bc38c731303cb44eef10ddd60778ced379c73a8fb45c9fe52",
+ "lc9_sha": "842836d966caef484806f1e7d3d5da2769f137cc9c2c1f5c011262e537a81e97",
+ "K0": {
+  "lc9_pin": true,
+  "anchors": true
+ },
+ "V1": {
+  "words": 31040,
+  "failures": 0,
+  "phi_two_routes_checked": 31026,
+  "pass": true
+ },
+ "V2": {
+  "matrix": true,
+  "psi_zero": true,
+  "D": 221,
+  "D_is_221": true,
+  "units_y1": [
+   15
+  ],
+  "units_y2": [],
+  "y1_only_x15_norm_plus": true,
+  "y2_none": true,
+  "neg_pell_none_y_le_1e4": true,
+  "neg_pell_gauss_false": true,
+  "P": [
+   [
+    1,
+    -2
+   ],
+   [
+    1,
+    -1
+   ]
+  ],
+  "P_is_RLS": true,
+  "P_witness": true,
+  "word_inert": false,
+  "word_recip": true,
+  "gauss_inert": false,
+  "gauss_recip": true,
+  "pass": true
+ },
+ "V3": {
+  "matrix": true,
+  "psi_zero": true,
+  "D": 224,
+  "D_is_224": true,
+  "squares_mod7": [
+   0,
+   1,
+   2,
+   4
+  ],
+  "minus4_mod7": 3,
+  "mod7_obstruction": true,
+  "sigma_rho_word": "LLRLLRRR",
+  "sr_is_LLRLLRRR": true,
+  "sr_not_rotation": true,
+  "word_inert": false,
+  "word_recip": false,
+  "word_ambiguous": true,
+  "gauss_inert": false,
+  "gauss_recip": false,
+  "neg_pell_gauss": false,
+  "pass": true
+ },
+ "V4": {
+  "counts": {
+   "2": {
+    "inert": 1,
+    "recip": 0,
+    "accidental": 0
+   },
+   "3": {
+    "inert": 0,
+    "recip": 0,
+    "accidental": 0
+   },
+   "4": {
+    "inert": 1,
+    "recip": 0,
+    "accidental": 0
+   },
+   "5": {
+    "inert": 0,
+    "recip": 0,
+    "accidental": 0
+   },
+   "6": {
+    "inert": 1,
+    "recip": 2,
+    "accidental": 0
+   },
+   "7": {
+    "inert": 0,
+    "recip": 0,
+    "accidental": 0
+   },
+   "8": {
+    "inert": 2,
+    "recip": 4,
+    "accidental": 2
+   }
+  },
+  "accidental_8": [
+   "LLLRRLRR",
+   "LLRLLRRR"
+  ],
+  "pass": true
+ },
+ "V5": {
+  "pairs": 3600,
+  "blind_pairs": 3410,
+  "failures": 0,
+  "pass": true
+ },
+ "V6": {
+  "rows": 35840,
+  "blind_rows": 31040,
+  "zeros": 1232,
+  "accidental_zeros": 1008,
+  "failures": 0,
+  "mu5_disagreements": 112,
+  "pass": true
+ },
+ "V7": {
+  "n_range": [
+   3,
+   60
+  ],
+  "rows": 58,
+  "blind_rows": 51,
+  "failures": 0,
+  "pass": true
+ },
+ "V8": {
+  "table": {
+   "2": {
+    "B": 1,
+    "B_formula": 1,
+    "W": 1,
+    "inert": 1,
+    "accidental": 0,
+    "bound_2^(n+1)": 4,
+    "ratio_W_over_B": 1.0,
+    "ok": true
+   },
+   "4": {
+    "B": 1,
+    "B_formula": 1,
+    "W": 1,
+    "inert": 1,
+    "accidental": 0,
+    "bound_2^(n+1)": 8,
+    "ratio_W_over_B": 1.0,
+    "ok": true
+   },
+   "6": {
+    "B": 3,
+    "B_formula": 3,
+    "W": 3,
+    "inert": 1,
+    "accidental": 0,
+    "bound_2^(n+1)": 16,
+    "ratio_W_over_B": 1.0,
+    "ok": true
+   },
+   "8": {
+    "B": 8,
+    "B_formula": 8,
+    "W": 6,
+    "inert": 2,
+    "accidental": 2,
+    "bound_2^(n+1)": 32,
+    "ratio_W_over_B": 0.75,
+    "ok": true
+   },
+   "10": {
+    "B": 25,
+    "B_formula": 25,
+    "W": 15,
+    "inert": 3,
+    "accidental": 10,
+    "bound_2^(n+1)": 64,
+    "ratio_W_over_B": 0.6,
+    "ok": true
+   },
+   "12": {
+    "B": 75,
+    "B_formula": 75,
+    "W": 29,
+    "inert": 5,
+    "accidental": 46,
+    "bound_2^(n+1)": 128,
+    "ratio_W_over_B": 0.38666666666666666,
+    "ok": true
+   },
+   "14": {
+    "B": 245,
+    "B_formula": 245,
+    "W": 65,
+    "inert": 9,
+    "accidental": 180,
+    "bound_2^(n+1)": 256,
+    "ratio_W_over_B": 0.2653061224489796,
+    "ok": true
+   },
+   "16": {
+    "B": 800,
+    "B_formula": 800,
+    "W": 128,
+    "inert": 16,
+    "accidental": 672,
+    "bound_2^(n+1)": 512,
+    "ratio_W_over_B": 0.16,
+    "ok": true
+   },
+   "18": {
+    "B": 2700,
+    "B_formula": 2700,
+    "W": 266,
+    "inert": 28,
+    "accidental": 2434,
+    "bound_2^(n+1)": 1024,
+    "ratio_W_over_B": 0.09851851851851852,
+    "ok": true
+   },
+   "20": {
+    "B": 9225,
+    "B_formula": 9225,
+    "W": 531,
+    "inert": 51,
+    "accidental": 8694,
+    "bound_2^(n+1)": 2048,
+    "ratio_W_over_B": 0.0575609756097561,
+    "ok": true
+   },
+   "22": {
+    "B": 32065,
+    "B_formula": 32065,
+    "W": 1085,
+    "inert": 93,
+    "accidental": 30980,
+    "bound_2^(n+1)": 4096,
+    "ratio_W_over_B": 0.03383751754249181,
+    "gauss_crosscheck_disagreements": 0,
+    "ok": true
+   },
+   "24": {
+    "B": 112632,
+    "B_formula": 112632,
+    "W": 2150,
+    "inert": 170,
+    "accidental": 110482,
+    "bound_2^(n+1)": 8192,
+    "ratio_W_over_B": 0.019088713687051638,
+    "ok": true
+   }
+  },
+  "pass": true
+ },
+ "V9": {
+  "rows": 154,
+  "failures": 0,
+  "pass": true
+ },
+ "MU": {
+  "MU1_ambiguous_implies_zero": {
+   "witness": "LLR",
+   "caught": true,
+   "frozen_witness_RRL": true
+  },
+  "MU2_zero_implies_inert": {
+   "caught": true
+  },
+  "MU3_zero_implies_witness": {
+   "caught": true
+  },
+  "MU4_fmf_sign_plus": {
+   "caught": true
+  },
+  "MU5_four_block_pattern": {
+   "disagreements": 112,
+   "caught": true
+  }
+ },
+ "checks_ok": true,
+ "mutations_caught": true,
+ "decision": "NOT_NECESSARY",
+ "elapsed_s": 21.6
+}

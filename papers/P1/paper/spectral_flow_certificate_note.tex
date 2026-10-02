@@ -1,0 +1,111 @@
+\section{Exact lens-space spectral-flow certificates}
+\label{app:certificates}
+
+This supplement provides exact finite reference data for the rank-one
+spectral-flow control used in the main text and tabulates the integer-spin eta
+formula through rank eight.  Its purpose is reproducibility: it supplies no
+additional physical interpretation of the higher-rank invariants.
+
+\subsection{Rank-one certificate}
+
+Let $p$ be odd, let $\gcd(p,q)=1$, and give
+\[
+ L(p,q)=S^3/\bigl((z_1,z_2)\sim
+ (e^{2\pi i/p}z_1,e^{2\pi iq/p}z_2)\bigr)
+\]
+the complex quotient orientation.  Write
+$q^*\in\{1,\ldots,p-1\}$ for the least positive inverse of $q$ modulo $p$.
+For $1\leq n\leq(p-1)/2$, define
+\begin{equation}
+ R_m(p,q)=\frac1p\sum_{k=1}^{p-1}
+ \cos\!\left(\frac{2\pi mk}{p}\right)
+ \cot\!\left(\frac{\pi k}{p}\right)
+ \cot\!\left(\frac{\pi qk}{p}\right).
+ \label{eq:certificate-r}
+\end{equation}
+Jeffrey's Proposition~5.2 \cite{Jeffrey1992}, in these conventions, gives the
+integer spectral flow
+\begin{equation}
+ I_n=\frac{8q^*n^2}{p}-2+R_0(p,q)-R_{2n}(p,q).
+ \label{eq:certificate-flow}
+\end{equation}
+The same proposition supplies the independent counting congruence
+\begin{equation}
+ I_n\equiv
+ 1+2\#\{\,0<j<nq^*:jq\equiv\pm n\pmod p\,\}\pmod4.
+ \label{eq:certificate-parity}
+\end{equation}
+Equivalently, the residue is $1$ when
+$\langle q^*n\rangle_p<p/2$ and $3$ when
+$\langle q^*n\rangle_p>p/2$.
+
+The rank-one eta identity is
+\begin{equation}
+ R_0(p,q)=4s(q,p)=-\eta_1(L(p,q)).
+ \label{eq:certificate-rank-one}
+\end{equation}
+Thus \eqref{eq:certificate-flow} is an established rank-one control on the
+orientation and normalization used in the main theorem.  It is not a premise
+of that theorem.
+
+For exact generation, the cotangent expression is evaluated through the
+finite Fourier identity
+\begin{equation}
+ R_m(p,q)=4\sum_{r=0}^{p-1}
+ \left(\!\left(\frac rp\right)\!\right)
+ \left(\!\left(\frac{qr+m}{p}\right)\!\right),
+ \label{eq:certificate-rademacher}
+\end{equation}
+where the sawtooth is zero at integers and equals
+$x-\lfloor x\rfloor-\tfrac12$ otherwise.  Equation
+\eqref{eq:certificate-rademacher} uses rational arithmetic throughout and
+avoids numerical reconstruction of \eqref{eq:certificate-r}.
+
+\subsection{Dataset and verification hierarchy}
+
+The accompanying files contain every odd $3\leq p\leq61$, every unit
+$q\bmod p$, and every $1\leq n\leq(p-1)/2$, together with the $q=1$ blocks
+at $p=67,97,137$.  The resulting $16{,}177$ rows record the exact quantities
+\[
+ I_n,\quad I_n\bmod4,\quad q^*n^2/p\bmod1,\quad
+ R_0,\quad R_{2n},\quad s(q,p),
+\]
+while each $(p,q)$ block records $\eta_J(L(p,q))$ for $1\leq J\leq8$.
+
+The checks have three distinct strengths.
+
+\begin{enumerate}
+\item \textbf{Primary acceptance test: exact row equality.}
+A computed crossing count passes only if it equals the certified integer
+$I_n$.  A floating implementation instead compares directly with that
+integer using a declared tolerance.
+
+\item \textbf{Analytic-assembly diagnostic: integrality.}
+The right side of \eqref{eq:certificate-flow} must be integral.  This tests
+cancellation among independently evaluated rational terms, but it cannot
+detect an erroneous result that is already an integer.  In particular,
+integrality alone does not certify a crossing count against missed or
+double-counted crossings.
+
+\item \textbf{Convention diagnostic: parity.}
+Equation \eqref{eq:certificate-parity} is recomputed by direct enumeration,
+independently of the $R_m$ assembly.  A disagreement diagnoses a modulo-four
+sign or convention error.  Agreement is weaker than exact equality, since
+parity cannot see errors in $4\mathbb Z$.
+\end{enumerate}
+
+The release verifier checks the complete JSON schema and coverage, modular
+inverses, Dedekind and $R_m$ values, Chern--Simons residues, spectral flows,
+parities, all $J=1,\ldots,8$ theorem evaluations, duplicate freedom,
+CSV/JSON agreement, and every hash recorded in the manifest.
+
+\subsection{Scope boundary}
+
+Only the $J=1$ spectral-flow control in \eqref{eq:certificate-flow} is
+attributed to Jeffrey.  The $J\geq2$ entries are exact evaluations of the
+theorem proved in the main text; their inclusion makes that theorem directly
+reproducible but does not independently prove it.  They are compact-manifold
+spectral invariants, not established higher-spin Chern--Simons, one-loop, or
+partition-function phases.  No ghost, determinant, framing, counterterm,
+coupling, or physical-background analysis is supplied here.  Orientation must
+be fixed before any signed comparison.

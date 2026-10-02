@@ -1,0 +1,1658 @@
+{
+  "arithmetic": "exact rational polynomial highest-weight basis",
+  "character_identity_ranks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "checker_sha256": "22d586ab13d18a5c86af3fbe93747b46d3b001a680056e6969405ae6fc951cce",
+  "convention": "D=-2 S.L+2 S.R; global collar convention not fixed",
+  "paired_count": 90,
+  "paired_trace_zero_rows": [
+    [
+      1,
+      1,
+      1,
+      "3"
+    ],
+    [
+      1,
+      2,
+      2,
+      "8"
+    ],
+    [
+      1,
+      3,
+      3,
+      "15"
+    ],
+    [
+      1,
+      4,
+      4,
+      "24"
+    ],
+    [
+      1,
+      5,
+      5,
+      "35"
+    ],
+    [
+      1,
+      6,
+      6,
+      "48"
+    ],
+    [
+      1,
+      7,
+      7,
+      "63"
+    ],
+    [
+      1,
+      8,
+      8,
+      "80"
+    ],
+    [
+      2,
+      1,
+      3,
+      "6"
+    ],
+    [
+      2,
+      2,
+      2,
+      "5"
+    ],
+    [
+      2,
+      2,
+      4,
+      "13"
+    ],
+    [
+      2,
+      3,
+      1,
+      "6"
+    ],
+    [
+      2,
+      3,
+      3,
+      "12"
+    ],
+    [
+      2,
+      3,
+      5,
+      "22"
+    ],
+    [
+      2,
+      4,
+      2,
+      "13"
+    ],
+    [
+      2,
+      4,
+      4,
+      "21"
+    ],
+    [
+      2,
+      4,
+      6,
+      "33"
+    ],
+    [
+      2,
+      5,
+      3,
+      "22"
+    ],
+    [
+      2,
+      5,
+      5,
+      "32"
+    ],
+    [
+      2,
+      5,
+      7,
+      "46"
+    ],
+    [
+      2,
+      6,
+      4,
+      "33"
+    ],
+    [
+      2,
+      6,
+      6,
+      "45"
+    ],
+    [
+      2,
+      6,
+      8,
+      "61"
+    ],
+    [
+      2,
+      7,
+      5,
+      "46"
+    ],
+    [
+      2,
+      7,
+      7,
+      "60"
+    ],
+    [
+      2,
+      8,
+      6,
+      "61"
+    ],
+    [
+      2,
+      8,
+      8,
+      "77"
+    ],
+    [
+      3,
+      1,
+      5,
+      "11"
+    ],
+    [
+      3,
+      2,
+      4,
+      "8"
+    ],
+    [
+      3,
+      2,
+      6,
+      "20"
+    ],
+    [
+      3,
+      3,
+      3,
+      "7"
+    ],
+    [
+      3,
+      3,
+      5,
+      "17"
+    ],
+    [
+      3,
+      3,
+      7,
+      "31"
+    ],
+    [
+      3,
+      4,
+      2,
+      "8"
+    ],
+    [
+      3,
+      4,
+      4,
+      "16"
+    ],
+    [
+      3,
+      4,
+      6,
+      "28"
+    ],
+    [
+      3,
+      4,
+      8,
+      "44"
+    ],
+    [
+      3,
+      5,
+      1,
+      "11"
+    ],
+    [
+      3,
+      5,
+      3,
+      "17"
+    ],
+    [
+      3,
+      5,
+      5,
+      "27"
+    ],
+    [
+      3,
+      5,
+      7,
+      "41"
+    ],
+    [
+      3,
+      6,
+      2,
+      "20"
+    ],
+    [
+      3,
+      6,
+      4,
+      "28"
+    ],
+    [
+      3,
+      6,
+      6,
+      "40"
+    ],
+    [
+      3,
+      6,
+      8,
+      "56"
+    ],
+    [
+      3,
+      7,
+      3,
+      "31"
+    ],
+    [
+      3,
+      7,
+      5,
+      "41"
+    ],
+    [
+      3,
+      7,
+      7,
+      "55"
+    ],
+    [
+      3,
+      8,
+      4,
+      "44"
+    ],
+    [
+      3,
+      8,
+      6,
+      "56"
+    ],
+    [
+      3,
+      8,
+      8,
+      "72"
+    ],
+    [
+      4,
+      1,
+      7,
+      "18"
+    ],
+    [
+      4,
+      2,
+      6,
+      "13"
+    ],
+    [
+      4,
+      2,
+      8,
+      "29"
+    ],
+    [
+      4,
+      3,
+      5,
+      "10"
+    ],
+    [
+      4,
+      3,
+      7,
+      "24"
+    ],
+    [
+      4,
+      4,
+      4,
+      "9"
+    ],
+    [
+      4,
+      4,
+      6,
+      "21"
+    ],
+    [
+      4,
+      4,
+      8,
+      "37"
+    ],
+    [
+      4,
+      5,
+      3,
+      "10"
+    ],
+    [
+      4,
+      5,
+      5,
+      "20"
+    ],
+    [
+      4,
+      5,
+      7,
+      "34"
+    ],
+    [
+      4,
+      6,
+      2,
+      "13"
+    ],
+    [
+      4,
+      6,
+      4,
+      "21"
+    ],
+    [
+      4,
+      6,
+      6,
+      "33"
+    ],
+    [
+      4,
+      6,
+      8,
+      "49"
+    ],
+    [
+      4,
+      7,
+      1,
+      "18"
+    ],
+    [
+      4,
+      7,
+      3,
+      "24"
+    ],
+    [
+      4,
+      7,
+      5,
+      "34"
+    ],
+    [
+      4,
+      7,
+      7,
+      "48"
+    ],
+    [
+      4,
+      8,
+      2,
+      "29"
+    ],
+    [
+      4,
+      8,
+      4,
+      "37"
+    ],
+    [
+      4,
+      8,
+      6,
+      "49"
+    ],
+    [
+      4,
+      8,
+      8,
+      "65"
+    ],
+    [
+      5,
+      2,
+      8,
+      "20"
+    ],
+    [
+      5,
+      3,
+      7,
+      "15"
+    ],
+    [
+      5,
+      4,
+      6,
+      "12"
+    ],
+    [
+      5,
+      4,
+      8,
+      "28"
+    ],
+    [
+      5,
+      5,
+      5,
+      "11"
+    ],
+    [
+      5,
+      5,
+      7,
+      "25"
+    ],
+    [
+      5,
+      6,
+      4,
+      "12"
+    ],
+    [
+      5,
+      6,
+      6,
+      "24"
+    ],
+    [
+      5,
+      6,
+      8,
+      "40"
+    ],
+    [
+      5,
+      7,
+      3,
+      "15"
+    ],
+    [
+      5,
+      7,
+      5,
+      "25"
+    ],
+    [
+      5,
+      7,
+      7,
+      "39"
+    ],
+    [
+      5,
+      8,
+      2,
+      "20"
+    ],
+    [
+      5,
+      8,
+      4,
+      "28"
+    ],
+    [
+      5,
+      8,
+      6,
+      "40"
+    ],
+    [
+      5,
+      8,
+      8,
+      "56"
+    ]
+  ],
+  "result": "P7_SIGNED_BRANCHES_INDEPENDENT_PASS",
+  "scalar_count": 156,
+  "scalar_rows": [
+    {
+      "eigenvalue": "3/2",
+      "kind": "untwisted",
+      "p": 1,
+      "q": 0,
+      "w": 0
+    },
+    {
+      "eigenvalue": "-3/2",
+      "kind": "untwisted_mirror",
+      "p": 0,
+      "q": 1,
+      "w": 0
+    },
+    {
+      "eigenvalue": "5/2",
+      "kind": "untwisted",
+      "p": 2,
+      "q": 1,
+      "w": 0
+    },
+    {
+      "eigenvalue": "-5/2",
+      "kind": "untwisted_mirror",
+      "p": 1,
+      "q": 2,
+      "w": 0
+    },
+    {
+      "eigenvalue": "7/2",
+      "kind": "untwisted",
+      "p": 3,
+      "q": 2,
+      "w": 0
+    },
+    {
+      "eigenvalue": "-7/2",
+      "kind": "untwisted_mirror",
+      "p": 2,
+      "q": 3,
+      "w": 0
+    },
+    {
+      "eigenvalue": "9/2",
+      "kind": "untwisted",
+      "p": 4,
+      "q": 3,
+      "w": 0
+    },
+    {
+      "eigenvalue": "-9/2",
+      "kind": "untwisted_mirror",
+      "p": 3,
+      "q": 4,
+      "w": 0
+    },
+    {
+      "eigenvalue": "11/2",
+      "kind": "untwisted",
+      "p": 5,
+      "q": 4,
+      "w": 0
+    },
+    {
+      "eigenvalue": "-11/2",
+      "kind": "untwisted_mirror",
+      "p": 4,
+      "q": 5,
+      "w": 0
+    },
+    {
+      "eigenvalue": "13/2",
+      "kind": "untwisted",
+      "p": 6,
+      "q": 5,
+      "w": 0
+    },
+    {
+      "eigenvalue": "-13/2",
+      "kind": "untwisted_mirror",
+      "p": 5,
+      "q": 6,
+      "w": 0
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "TT",
+      "p": 2,
+      "q": 0,
+      "w": 1
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 2,
+      "w": 1
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "TT",
+      "p": 3,
+      "q": 1,
+      "w": 1
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 3,
+      "w": 1
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "TT",
+      "p": 4,
+      "q": 2,
+      "w": 1
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 4,
+      "w": 1
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "TT",
+      "p": 5,
+      "q": 3,
+      "w": 1
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 5,
+      "w": 1
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "TT",
+      "p": 6,
+      "q": 4,
+      "w": 1
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 6,
+      "w": 1
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 0,
+      "q": 0,
+      "w": 1
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "TT",
+      "p": 4,
+      "q": 0,
+      "w": 3
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 4,
+      "w": 3
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "TT",
+      "p": 5,
+      "q": 1,
+      "w": 3
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 5,
+      "w": 3
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "TT",
+      "p": 6,
+      "q": 2,
+      "w": 3
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 6,
+      "w": 3
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "TT",
+      "p": 7,
+      "q": 3,
+      "w": 3
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 7,
+      "w": 3
+    },
+    {
+      "eigenvalue": "7",
+      "kind": "TT",
+      "p": 8,
+      "q": 4,
+      "w": 3
+    },
+    {
+      "eigenvalue": "-7",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 8,
+      "w": 3
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 0,
+      "q": 2,
+      "w": 3
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 1,
+      "q": 1,
+      "w": 3
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 2,
+      "q": 0,
+      "w": 3
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "TT",
+      "p": 6,
+      "q": 0,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 6,
+      "w": 5
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "TT",
+      "p": 7,
+      "q": 1,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 7,
+      "w": 5
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "TT",
+      "p": 8,
+      "q": 2,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 8,
+      "w": 5
+    },
+    {
+      "eigenvalue": "7",
+      "kind": "TT",
+      "p": 9,
+      "q": 3,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-7",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 9,
+      "w": 5
+    },
+    {
+      "eigenvalue": "8",
+      "kind": "TT",
+      "p": 10,
+      "q": 4,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-8",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 10,
+      "w": 5
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "finite",
+      "p": 0,
+      "q": 4,
+      "w": 5
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 1,
+      "q": 3,
+      "w": 5
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 2,
+      "q": 2,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 3,
+      "q": 1,
+      "w": 5
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "finite",
+      "p": 4,
+      "q": 0,
+      "w": 5
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "TT",
+      "p": 8,
+      "q": 0,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 8,
+      "w": 7
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "TT",
+      "p": 9,
+      "q": 1,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 9,
+      "w": 7
+    },
+    {
+      "eigenvalue": "7",
+      "kind": "TT",
+      "p": 10,
+      "q": 2,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-7",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 10,
+      "w": 7
+    },
+    {
+      "eigenvalue": "8",
+      "kind": "TT",
+      "p": 11,
+      "q": 3,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-8",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 11,
+      "w": 7
+    },
+    {
+      "eigenvalue": "9",
+      "kind": "TT",
+      "p": 12,
+      "q": 4,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-9",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 12,
+      "w": 7
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "finite",
+      "p": 0,
+      "q": 6,
+      "w": 7
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "finite",
+      "p": 1,
+      "q": 5,
+      "w": 7
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 2,
+      "q": 4,
+      "w": 7
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 3,
+      "q": 3,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 4,
+      "q": 2,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "finite",
+      "p": 5,
+      "q": 1,
+      "w": 7
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "finite",
+      "p": 6,
+      "q": 0,
+      "w": 7
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "TT",
+      "p": 10,
+      "q": 0,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 10,
+      "w": 9
+    },
+    {
+      "eigenvalue": "7",
+      "kind": "TT",
+      "p": 11,
+      "q": 1,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-7",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 11,
+      "w": 9
+    },
+    {
+      "eigenvalue": "8",
+      "kind": "TT",
+      "p": 12,
+      "q": 2,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-8",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 12,
+      "w": 9
+    },
+    {
+      "eigenvalue": "9",
+      "kind": "TT",
+      "p": 13,
+      "q": 3,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-9",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 13,
+      "w": 9
+    },
+    {
+      "eigenvalue": "10",
+      "kind": "TT",
+      "p": 14,
+      "q": 4,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-10",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 14,
+      "w": 9
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "finite",
+      "p": 0,
+      "q": 8,
+      "w": 9
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "finite",
+      "p": 1,
+      "q": 7,
+      "w": 9
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "finite",
+      "p": 2,
+      "q": 6,
+      "w": 9
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 3,
+      "q": 5,
+      "w": 9
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 4,
+      "q": 4,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 5,
+      "q": 3,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "finite",
+      "p": 6,
+      "q": 2,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "finite",
+      "p": 7,
+      "q": 1,
+      "w": 9
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "finite",
+      "p": 8,
+      "q": 0,
+      "w": 9
+    },
+    {
+      "eigenvalue": "7",
+      "kind": "TT",
+      "p": 12,
+      "q": 0,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-7",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 12,
+      "w": 11
+    },
+    {
+      "eigenvalue": "8",
+      "kind": "TT",
+      "p": 13,
+      "q": 1,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-8",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 13,
+      "w": 11
+    },
+    {
+      "eigenvalue": "9",
+      "kind": "TT",
+      "p": 14,
+      "q": 2,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-9",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 14,
+      "w": 11
+    },
+    {
+      "eigenvalue": "10",
+      "kind": "TT",
+      "p": 15,
+      "q": 3,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-10",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 15,
+      "w": 11
+    },
+    {
+      "eigenvalue": "11",
+      "kind": "TT",
+      "p": 16,
+      "q": 4,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-11",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 16,
+      "w": 11
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "finite",
+      "p": 0,
+      "q": 10,
+      "w": 11
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "finite",
+      "p": 1,
+      "q": 9,
+      "w": 11
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "finite",
+      "p": 2,
+      "q": 8,
+      "w": 11
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "finite",
+      "p": 3,
+      "q": 7,
+      "w": 11
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 4,
+      "q": 6,
+      "w": 11
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 5,
+      "q": 5,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 6,
+      "q": 4,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "finite",
+      "p": 7,
+      "q": 3,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "finite",
+      "p": 8,
+      "q": 2,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "finite",
+      "p": 9,
+      "q": 1,
+      "w": 11
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "finite",
+      "p": 10,
+      "q": 0,
+      "w": 11
+    },
+    {
+      "eigenvalue": "8",
+      "kind": "TT",
+      "p": 14,
+      "q": 0,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-8",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 14,
+      "w": 13
+    },
+    {
+      "eigenvalue": "9",
+      "kind": "TT",
+      "p": 15,
+      "q": 1,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-9",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 15,
+      "w": 13
+    },
+    {
+      "eigenvalue": "10",
+      "kind": "TT",
+      "p": 16,
+      "q": 2,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-10",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 16,
+      "w": 13
+    },
+    {
+      "eigenvalue": "11",
+      "kind": "TT",
+      "p": 17,
+      "q": 3,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-11",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 17,
+      "w": 13
+    },
+    {
+      "eigenvalue": "12",
+      "kind": "TT",
+      "p": 18,
+      "q": 4,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-12",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 18,
+      "w": 13
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "finite",
+      "p": 0,
+      "q": 12,
+      "w": 13
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "finite",
+      "p": 1,
+      "q": 11,
+      "w": 13
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "finite",
+      "p": 2,
+      "q": 10,
+      "w": 13
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "finite",
+      "p": 3,
+      "q": 9,
+      "w": 13
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "finite",
+      "p": 4,
+      "q": 8,
+      "w": 13
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 5,
+      "q": 7,
+      "w": 13
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 6,
+      "q": 6,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 7,
+      "q": 5,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "finite",
+      "p": 8,
+      "q": 4,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "finite",
+      "p": 9,
+      "q": 3,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "finite",
+      "p": 10,
+      "q": 2,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "finite",
+      "p": 11,
+      "q": 1,
+      "w": 13
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "finite",
+      "p": 12,
+      "q": 0,
+      "w": 13
+    },
+    {
+      "eigenvalue": "9",
+      "kind": "TT",
+      "p": 16,
+      "q": 0,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-9",
+      "kind": "TT_mirror",
+      "p": 0,
+      "q": 16,
+      "w": 15
+    },
+    {
+      "eigenvalue": "10",
+      "kind": "TT",
+      "p": 17,
+      "q": 1,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-10",
+      "kind": "TT_mirror",
+      "p": 1,
+      "q": 17,
+      "w": 15
+    },
+    {
+      "eigenvalue": "11",
+      "kind": "TT",
+      "p": 18,
+      "q": 2,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-11",
+      "kind": "TT_mirror",
+      "p": 2,
+      "q": 18,
+      "w": 15
+    },
+    {
+      "eigenvalue": "12",
+      "kind": "TT",
+      "p": 19,
+      "q": 3,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-12",
+      "kind": "TT_mirror",
+      "p": 3,
+      "q": 19,
+      "w": 15
+    },
+    {
+      "eigenvalue": "13",
+      "kind": "TT",
+      "p": 20,
+      "q": 4,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-13",
+      "kind": "TT_mirror",
+      "p": 4,
+      "q": 20,
+      "w": 15
+    },
+    {
+      "eigenvalue": "7",
+      "kind": "finite",
+      "p": 0,
+      "q": 14,
+      "w": 15
+    },
+    {
+      "eigenvalue": "6",
+      "kind": "finite",
+      "p": 1,
+      "q": 13,
+      "w": 15
+    },
+    {
+      "eigenvalue": "5",
+      "kind": "finite",
+      "p": 2,
+      "q": 12,
+      "w": 15
+    },
+    {
+      "eigenvalue": "4",
+      "kind": "finite",
+      "p": 3,
+      "q": 11,
+      "w": 15
+    },
+    {
+      "eigenvalue": "3",
+      "kind": "finite",
+      "p": 4,
+      "q": 10,
+      "w": 15
+    },
+    {
+      "eigenvalue": "2",
+      "kind": "finite",
+      "p": 5,
+      "q": 9,
+      "w": 15
+    },
+    {
+      "eigenvalue": "1",
+      "kind": "finite",
+      "p": 6,
+      "q": 8,
+      "w": 15
+    },
+    {
+      "eigenvalue": "0",
+      "kind": "finite",
+      "p": 7,
+      "q": 7,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-1",
+      "kind": "finite",
+      "p": 8,
+      "q": 6,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-2",
+      "kind": "finite",
+      "p": 9,
+      "q": 5,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-3",
+      "kind": "finite",
+      "p": 10,
+      "q": 4,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-4",
+      "kind": "finite",
+      "p": 11,
+      "q": 3,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-5",
+      "kind": "finite",
+      "p": 12,
+      "q": 2,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-6",
+      "kind": "finite",
+      "p": 13,
+      "q": 1,
+      "w": 15
+    },
+    {
+      "eigenvalue": "-7",
+      "kind": "finite",
+      "p": 14,
+      "q": 0,
+      "w": 15
+    }
+  ]
+}

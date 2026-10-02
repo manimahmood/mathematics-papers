@@ -1,0 +1,255 @@
+\documentclass[11pt]{article}
+\usepackage{paperreview}
+\title{Blind Response Prediction in Reciprocal Resonator Networks\\
+A Methods Paper and Prospective RF Test}
+\author{Luqman Mahmood}
+\date{30 September 2026}
+\hypersetup{pdftitle={Blind Response Prediction in Reciprocal Resonator Networks: A Methods Paper and Prospective RF Test},pdfauthor={Luqman Mahmood}}
+\begin{document}
+\maketitle
+\draftstatus{SM4, v1.0.0}{Methods and prospective protocol; no physical RF result.}
+\begin{abstract}
+Reciprocity and an observable finite-rank modal response can determine a
+port response that has not been measured. We set out a prospective test
+using a seven-resonator RF network, two reference ports, and a previously
+unacquired cross-port pairing. The mathematical completion is established
+linear algebra; the experimental question is whether a loaded, imperfect
+board and its measurement chain satisfy the required rank and calibration
+conditions well enough to make an accurate forecast. Headline unopened
+transmission and acquired-but-withheld reflections are scored separately.
+A related, but different, synthetic reduced-array study gives sixteen successful
+numerical forecasts in the presence of a fixed dynamic instrument;
+ordinary rational interpolation agrees to numerical precision. That result
+supports a bounded estimator chain, not superiority over conventional
+circuit theory. This paper distinguishes ideal graph identities, numerical
+evidence, loaded-board assumptions and unperformed physical predictions.
+\end{abstract}
+
+\section{What would count as a result?}
+The target is a complex response forecast committed before its target
+port pairing is acquired, with a stated uncertainty budget and refusal
+conditions. A physical pass would validate a bounded predictive protocol
+on an RF network.
+
+The conventional comparator is the same reciprocal circuit or modal model
+under the same data access. A deliberately under-ranked predictor is useful
+as a sensitivity control, but cannot by itself establish an advantage over
+a competent conventional method. A fair tie remains a useful qualification
+result and must be reported as such. Reduced-port reconstruction of
+multiport scattering matrices is established metrology \cite{TippetSpeciale}.
+Low-rank skeleton completion and Nystr\"om extension are established
+mathematics \cite{Skeleton,Nystrom}; the latter is a related real-symmetric
+positive-kernel setting, not an identification with complex reciprocity.
+Rational fitting of frequency
+responses, including multiport data, is an established baseline
+\cite{VectorFit,MatrixVF}.
+
+\section{Completion at an admitted modal rank}
+Partition a complex-symmetric cluster response into reference ports $A$
+and target ports $B$:
+\[
+ K=\begin{pmatrix}K_{AA}&K_{AB}\\K_{BA}&K_{BB}\end{pmatrix},
+ \qquad K^T=K .
+\]
+Transpose, not Hermitian conjugation, expresses this reciprocity convention.
+
+\begin{proposition}[Observable-rank completion]\label{prop:completion}
+If $\rank K=\rank K_{AA}=r$, then
+\begin{equation}\label{eq:completion}
+ K_{BB}=K_{BA}K_{AA}^{+}K_{AB},
+\end{equation}
+where $+$ denotes the Moore--Penrose inverse. The rank condition includes
+the required row and column range conditions.
+\end{proposition}
+\begin{proof}
+Since $K_{AA}$ has the full rank of the block matrix, the columns of
+$K_{AB}$ lie in its range and the rows of $K_{BA}$ lie in its row space.
+Block elimination with $K_{AA}^{+}$ gives a Schur complement
+$K_{BB}-K_{BA}K_{AA}^{+}K_{AB}$. Any nonzero rank of that complement
+would increase the rank of $K$, contradicting the hypothesis.
+\end{proof}
+Noise generally destroys exact rank. The actual estimator must fix a
+rank-truncation rule and a conditioning cutoff before observing the target.
+A graph certificate alone does not prove the loaded response has that rank,
+or that the chosen ports see all modes.
+
+\subsection{Why unresolved clusters are the object}
+A nearly degenerate pair may span a well-determined subspace even when its
+individual residue vectors are not stably separated. We therefore target
+band-selected cluster residue matrices, with the band, background subtraction,
+normalization and pole/rank admission fixed in advance.
+Rank-one completion of a genuine rank-two cluster is a comparator, not an
+alternative definition of success. A fitted full-rank background must not
+be silently counted as a modal residue or discarded after the target is known.
+
+\subsection{A conditional error budget}
+For clarity, choose an invertible $r$-by-$r$ reference block $A$, and write
+the prediction as $CA^{-1}B$. If
+$\sigma_{\min}(A)\geq s>0$ and errors obey
+$\|\Delta A\|\leq\varepsilon_A<s$,
+$\|\Delta B\|\leq\varepsilon_B$ and
+$\|\Delta C\|\leq\varepsilon_C$, then
+\[
+ \|\widehat C\widehat A^{-1}\widehat B-CA^{-1}B\|
+ \leq
+ \frac{\varepsilon_C\|\widehat B\|}{s-\varepsilon_A}
+ +\frac{\|C\|\varepsilon_A\|\widehat B\|}{s(s-\varepsilon_A)}
+ +\frac{\|C\|\varepsilon_B}{s}.
+\]
+This follows by adding three differences and using the resolvent identity.
+The bound is only as credible as the externally justified error inputs.
+It is not a perturbation theorem for a pseudoinverse across a rank change.
+
+\section{Ideal seven-resonator design versus the loaded board}
+The ideal comparator is the affine-$E_6$ seven-node star: one center, three
+inner nodes and three outer nodes. Its adjacency spectrum is
+$-2,-1,0,1,2$ with multiplicities $1,2,1,2,1$.
+For equal inductances and compensated diagonal capacitance,
+\[
+ C=C_{\rm tot}I-C_cA,\qquad
+ f_\lambda=\frac{f_0}{\sqrt{1-r\lambda}},\qquad
+ r=C_c/C_{\rm tot},\quad
+ f_0=\frac1{2\pi\sqrt{LC_{\rm tot}}}.
+\]
+The design values $L=1\,\mu{\rm H}$, $C_c=68\,{\rm pF}$ and
+$C_{\rm tot}=272\,{\rm pF}$ give $r=1/4$ and ideal cluster frequencies
+approximately $7.879$, $8.631$, $9.650$, $11.143$ and $13.647$ MHz.
+These are design calculations, not measured resonance frequencies.
+
+The proposed board must be modeled with its loads. A probe capacitor in series with a
+termination contributes $sC_p/(1+sZ_0C_p)$, not simply $sC_p$.
+Loss, unequal inductances, parasitics and asymmetric four-port loading
+alter modes, splittings and frequencies. Node-wise tuning does not make
+all inductances equal or restore exact ideal symmetry.
+The physical protocol must admit the calibrated loaded response, not
+require a real board to equal the ideal graph.
+
+Two outer nodes are reference ports $P1,P2$; two inner nodes are
+target ports $P3,P4$. The ideal rank-two reference block has condition
+number three. That number is an exact ideal-design property, not a
+promise about the measured reference block.
+
+\section{Prospective acquisition and scoring protocol}
+The thresholds below are design targets; a run-specific protocol must fix
+them before acquisition. The supplied protocol annex lists the measurement
+conventions, numerical estimator and calibration decisions required before
+any new target capture.
+
+\begin{enumerate}
+\item Qualify the analyzer, complex direction convention, calibration plane,
+loads, component quality and board. Preserve refused admission attempts.
+The Touchstone test must include an asymmetric fixture: a reciprocal
+fixture alone cannot reveal a transposed off-diagonal writer.
+\item Acquire the five reference pairings $P1P2$, $P1P3$, $P1P4$, $P2P3$
+and $P2P4$. Fix the admitted bands, loaded fit, rank choices and
+uncertainties, and record the prediction file.
+\item Commit the prediction before acquiring $P3P4$.
+Only $S_{34}$ and $S_{43}$ in that last pairing are genuinely unopened.
+The earlier pairings already excite $P3,P4$ and acquire their reflections.
+\item Score $K_{34}$ across the five clusters as the primary unopened
+prediction. Score the acquired-but-withheld reflections and the aggregate
+as separate consistency outcomes.
+\item For center, inner and outer-node perturbations, record a new prediction
+before each corresponding target pairing, using the same specified regime
+and classification rules.
+\end{enumerate}
+
+\begin{center}
+\begin{tabular}{p{.57\linewidth}p{.28\linewidth}}
+\toprule
+Outcome & Design relative-$L^2$ bound\\
+\midrule
+Unopened $K_{34}$ (headline) & $\leq0.10$\\
+Withheld self entries & $\leq0.15$\\
+Withheld aggregate & $\leq0.12$\\
+\bottomrule
+\end{tabular}
+\end{center}
+A withheld failure does not erase headline success, but must remain visible:
+the report must state the separate outcome of each metric.
+The aggregate and self metrics must use vector norms fixed in the
+run-specific protocol, not post-hoc elementwise tolerances.
+
+The perturbation prediction uses the calibrated generalized capacitance
+pencil with a specified added $33\,{\rm pF}$ at a named node.
+Shifts/splittings must remain in the preselected adjacent-gap regime;
+outside it no orbit classification is assigned. The classification margin is
+a runner-up-to-best residual ratio of at least two.
+The attenuator-ratio check tests frequency-shape consistency only.
+An unchanged file or frequency-flat gain can pass it; it does not establish
+amplitude linearity.
+
+\subsection{Comparator addition required before a new strong claim}
+Alongside the rank-one control, the proposed conventional comparator is
+multiport vector fitting followed by reciprocal modal synthesis, using the
+same five reference pairings and no target-pair data. Pole/order selection,
+shared-pole constraints, residue-rank rule, background, calibration,
+regularization and scoring must be fixed before capture. A fit that cannot
+identify the unseen coupling from its admitted model must report that
+failure, not acquire extra target information.
+
+\section{Related numerical evidence, kept in its own domain}
+A separate fixed-instrument synthetic intervention study produced sixteen
+numerical forecasts inside their declared radii \cite{RF}. The reduced
+arrays are supplied in \texttt{supplement/data/}, and
+\texttt{supplement/replay\_ri7.py} reconstructs their prediction bounds.
+Here an \emph{instrument} is an additive, frequency-dependent matrix
+response held fixed between calibration and target. A \emph{refusal}
+means that the calculation withholds a forecast because its rank or
+fixed-instrument assumptions fail. Reported normalized
+prediction errors were $0.3682$--$1.6977$ parts per million; radii were
+$0.01400$--$0.08365$ percent of predicted norm. It also recorded eight
+rank refusals and two changing-instrument refusals.
+The fixed additive dynamic instrument had a matrix-norm contribution of
+$35.11$--$41.60$ percent in that construction; these are not energy fractions.
+
+Ordinary same-data rational interpolation agreed to about
+$5.252\times10^{-16}$. Thus the study corroborates a bounded numerical
+prediction/error chain under its specified instrument model.
+Its $10^{-7}$ complex-entry budget is a declared numerical error model.
+
+The synthetic study's controlled-intervention rank is not automatically the modal rank in
+\eqref{eq:completion}. The RF proposal does not reproduce that study merely by
+using two reference ports. The two studies motivate related questions
+about observability, but their assumptions and credits remain separate.
+
+\section{What a physical pass would and would not establish}
+A successful blinded loaded-board forecast would connect a preparation,
+a measured response class and a particular unseen response. Useful follow-ups
+include a fresh board, altered loading, controlled rank loss and a
+predeclared out-of-regime perturbation. Failures can locate a wrong signal
+class, incomplete modal observation, unstable extraction or calibration drift;
+these causes must be distinguished in reporting the outcome.
+
+A future results paper must include raw complex sweeps, reference-plane
+metadata, prediction provenance, every refused or failed attempt and uncertainty
+calibration. At present there is no physical result in this manuscript.
+
+\aistatement
+\begin{thebibliography}{9}
+\bibitem{TippetSpeciale} J. C. Tippet and R. A. Speciale,
+\emph{A Rigorous Technique for Measuring the Scattering Matrix of a
+Multiport Device with a 2-Port Network Analyzer},
+IEEE Trans. Microwave Theory Tech. \textbf{30}, 661--666 (1982).
+\url{https://doi.org/10.1109/TMTT.1982.1131118}.
+\bibitem{Nystrom} C. K. I. Williams and M. Seeger,
+\emph{Using the Nystr\"om Method to Speed Up Kernel Machines},
+Advances in Neural Information Processing Systems \textbf{13},
+682--688 (2001; conference 2000).
+\url{https://proceedings.neurips.cc/paper/2000/hash/19de10adbaa1b2ee13f77f679fa1483a-Abstract.html}.
+\bibitem{Skeleton} S. A. Goreinov, E. E. Tyrtyshnikov and N. L. Zamarashkin,
+\emph{A theory of pseudoskeleton approximations},
+Linear Algebra Appl. \textbf{261}, 1--21 (1997).
+\url{https://doi.org/10.1016/S0024-3795(96)00301-1}.
+\bibitem{VectorFit} B. Gustavsen and A. Semlyen,
+\emph{Rational approximation of frequency domain responses by vector fitting},
+IEEE Trans. Power Delivery \textbf{14}, 1052--1061 (1999).
+\url{https://doi.org/10.1109/61.772353}.
+\bibitem{MatrixVF} Z. Drma\v{c}, S. Gugercin and C. Beattie,
+\emph{Vector Fitting for Matrix-valued Rational Approximation},
+SIAM J. Sci. Comput. \textbf{37}, A2346--A2379 (2015).
+\url{https://doi.org/10.1137/15M1010774}.
+\bibitem{RF} L. Mahmood, Reproducibility and prospective-protocol
+supplement (2026). See \texttt{supplement/README.md}.
+\end{thebibliography}
+\end{document}

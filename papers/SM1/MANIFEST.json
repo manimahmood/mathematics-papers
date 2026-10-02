@@ -1,0 +1,138 @@
+{
+  "members": [
+    {
+      "bytes": 398,
+      "path": "CITATION.cff",
+      "sha256": "deb3057bbd1d526a1c328e6e1e6704c39dcc18f237afda74b62d3c96b9319899"
+    },
+    {
+      "bytes": 2510,
+      "path": "README.md",
+      "sha256": "9938cb0c6f54bfd7035bf90c8cfcfc4a60bf6922d9283e88501da571b00782ea"
+    },
+    {
+      "bytes": 529,
+      "path": "RIGHTS.md",
+      "sha256": "ace9dc56d57f2806c7a8854a30badf9c3aed805a3840461590b5e9fa787a8a63"
+    },
+    {
+      "bytes": 340843,
+      "path": "main.pdf",
+      "sha256": "212a7876867441c88c5825f1506e79e63e09440941cd0a7580aaeadffb7c28f1"
+    },
+    {
+      "bytes": 17636,
+      "path": "main.tex",
+      "sha256": "4014e1da63dfc501a25d04c5d9a5b3dc6be210d006b95dd65e7267babb98cd8d"
+    },
+    {
+      "bytes": 2177,
+      "path": "paperreview.sty",
+      "sha256": "8872dcf6eff1f5da14cee92e5916e54a6dd26111cdbfd1725373979ad15188e7"
+    },
+    {
+      "bytes": 11325,
+      "path": "supplement/PROOF.md",
+      "sha256": "e7f823061701542fc708e5dfd9db60420c8b9d76e6ff35f60414ea9606eaefa8"
+    },
+    {
+      "bytes": 2990,
+      "path": "supplement/README.md",
+      "sha256": "404d2a4b5f9734d9a8ea614b136ee4e94a6aaa0db6de2d7ddc0932845ccdb065"
+    },
+    {
+      "bytes": 2987,
+      "path": "supplement/check_bounds.py",
+      "sha256": "033bfa43b24e9f6241161a150d8414c95c0c68e8cc310ca3147605b351d6d58c"
+    },
+    {
+      "bytes": 1884,
+      "path": "supplement/check_joins.py",
+      "sha256": "3ba1755e58d924073bbd8e5979ee32c324b93b35506d7e718f97d5c099e15fa5"
+    },
+    {
+      "bytes": 4594,
+      "path": "supplement/check_prediction_floor.py",
+      "sha256": "7c2f971166e17d33335d385041a980203a41d487f79f41e5d46897616f7f7110"
+    },
+    {
+      "bytes": 3586,
+      "path": "supplement/evidence/PF94B_RUN4_20260916.json",
+      "sha256": "04a0db2229162035b6415f0fba973ebefe53bb09b58f86ebb16b49e40ddb08ad"
+    },
+    {
+      "bytes": 123350,
+      "path": "supplement/evidence/PF96B_RUN3_20260917.json",
+      "sha256": "f8ae06b55441d488e72a9a490171c32879350125d86576df7da7925cad100d18"
+    },
+    {
+      "bytes": 2360,
+      "path": "supplement/join_checks.py",
+      "sha256": "9f4c2273eff14a2c2a41abdfcb342a37457608d787e242d2660b194dc5c6b014"
+    },
+    {
+      "bytes": 5318,
+      "path": "supplement/replay.py",
+      "sha256": "14834ce4d27a7bf7a6a6fc7ed40a461342d864fc827df439f4bbf7284fa313d8"
+    },
+    {
+      "bytes": 123343,
+      "path": "supplement/retained_replay/PF96B_REPLAY.json",
+      "sha256": "a7f531263bcde11338a208bf66b7011ceb26bd1ba3803388deba30fa9d3ecaaf"
+    },
+    {
+      "bytes": 43005,
+      "path": "supplement/retained_replay/PF97B_REPLAY.json",
+      "sha256": "b4bda3cee4a697959bc344816b997a72da5f76651c44c0f1c33c4d05e96d58ad"
+    },
+    {
+      "bytes": 124521,
+      "path": "supplement/retained_replay/PF98B_REPLAY.json",
+      "sha256": "a930ef1d659b82bb19abcd56388fb339e4cfc76044f691d558cb6b6c2f4a57a0"
+    },
+    {
+      "bytes": 838481,
+      "path": "supplement/retained_replay/PF99B_REPLAY.json",
+      "sha256": "040ce4ab117d485d5b18777441307e5c1daca2ef1dadddf43afdc4a78dabaa0c"
+    },
+    {
+      "bytes": 1959,
+      "path": "supplement/retained_replay/REPLAY.json",
+      "sha256": "bbbabf266b42579a3eda1d64f657f6254e5cc0a8b1b291e168a084159fa4ca04"
+    },
+    {
+      "bytes": 11152,
+      "path": "supplement/src/pf96b_certified_late_sign.py",
+      "sha256": "8489c31623d29c31d818f8134e14658d6bc4069c52712879bab299941c450812"
+    },
+    {
+      "bytes": 6210,
+      "path": "supplement/src/pf97b_certified_unique_zero.py",
+      "sha256": "7fe63a911d4dcdee25076260a5ffade540f0daf42033393383d198b577c6c1e9"
+    },
+    {
+      "bytes": 9573,
+      "path": "supplement/src/pf98b_strong_geometry_certified.py",
+      "sha256": "cb73379bb56d7bae995f6c253087e9c2f97a7c2c9616495e2581a477b54c8480"
+    },
+    {
+      "bytes": 9879,
+      "path": "supplement/src/pf99b_initial_stretch_certified.py",
+      "sha256": "f9bf1ab668c9cd3ceb3bef315668b0f9193905c8ca0c5f75b1266d77023aa0cd"
+    },
+    {
+      "bytes": 10471,
+      "path": "supplement/src/ptw1_chain_interval.py",
+      "sha256": "990f4083fbf26c9c98a2d5fe2b628817dfab8f12e8a962d2c1f8604e930ca369"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "SM1",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

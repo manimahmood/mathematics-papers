@@ -1,0 +1,167 @@
+{
+ "B3_primes": [
+  100049,
+  100057,
+  100129,
+  100153,
+  100169,
+  100193,
+  100297,
+  100313,
+  100361,
+  100393,
+  100417,
+  100537,
+  100103,
+  100151,
+  100183,
+  100207,
+  100271,
+  100279,
+  100343,
+  100391,
+  100447,
+  100511,
+  100519,
+  100559
+ ],
+ "K0": {
+  "library_pins": true,
+  "pass": true,
+  "psi_anchor_ok": true,
+  "psi_anchors": {
+   "[[-3,-8],[-1,-3]]": "3",
+   "[[-3,4],[2,-3]]": "0",
+   "[[-3,8],[1,-3]]": "-3"
+  },
+  "psi_conjugation_failures": 0
+ },
+ "MU4_blind": {
+  "fail_rows": 11,
+  "proper_divisor_rows": 11
+ },
+ "V1_eta_link": {
+  "fail": 0,
+  "first_failure": null,
+  "rows": 29
+ },
+ "V4_family_b_replication": {
+  "fail": 0,
+  "rows": 15
+ },
+ "blocks": {
+  "B1": {
+   "fail": {
+    "16K=T-p": 0,
+    "2T=S_odd": 0,
+    "K_zero": 0,
+    "S_odd=D4p-4D2p": 0,
+    "cor_S": 0,
+    "dedekind_routes_agree": 0,
+    "lemma_D": 0,
+    "lemma_R": 0,
+    "psi0_content2": 0
+   },
+   "first_failure": null,
+   "mut_fail_rows": {
+    "MU1_fails": 62,
+    "MU2_fails": 62,
+    "MU3_fails": 62,
+    "MU5_fails": 62
+   },
+   "pass": true,
+   "rows": 62
+  },
+  "B3": {
+   "fail": {
+    "16K=T-p": 0,
+    "2T=S_odd": 0,
+    "K_zero": 0,
+    "S_odd=D4p-4D2p": 0,
+    "cor_S": 0,
+    "dedekind_routes_agree": 0,
+    "lemma_D": 0,
+    "lemma_R": 0,
+    "psi0_content2": 0
+   },
+   "first_failure": null,
+   "mut_fail_rows": {
+    "MU1_fails": 48,
+    "MU2_fails": 48,
+    "MU3_fails": 48,
+    "MU5_fails": 48
+   },
+   "pass": true,
+   "rows": 48
+  },
+  "R0": {
+   "fail": {
+    "16K=T-p": 0,
+    "2T=S_odd": 0,
+    "K_zero": 0,
+    "S_odd=D4p-4D2p": 0,
+    "cor_S": 0,
+    "dedekind_routes_agree": 0,
+    "lemma_D": 0,
+    "lemma_R": 0,
+    "psi0_content2": 0
+   },
+   "first_failure": null,
+   "mut_fail_rows": {
+    "MU1_fails": 73,
+    "MU2_fails": 73,
+    "MU3_fails": 73,
+    "MU5_fails": 73
+   },
+   "pass": true,
+   "rows": 73
+  }
+ },
+ "decision": "C3_PROVED",
+ "frozen": {},
+ "mutations_ok": true,
+ "mutations_on_blind_rows": {
+  "MU1_fails": 110,
+  "MU2_fails": 110,
+  "MU3_fails": 110,
+  "MU4_fails": 11,
+  "MU5_fails": 110
+ },
+ "python": "3.11.15",
+ "seconds": 223.9,
+ "source_sha256": "842836d966caef484806f1e7d3d5da2769f137cc9c2c1f5c011262e537a81e97",
+ "what": "LC9-B: verification of the C3 proof",
+ "witnesses": {
+  "MU1": {
+   "frozen": "-1/136",
+   "match": true,
+   "value": "-1/136"
+  },
+  "MU2": {
+   "frozen": 204,
+   "match": true,
+   "value": 204
+  },
+  "MU3": {
+   "frozen": 34,
+   "match": true,
+   "value": 34
+  },
+  "MU4": {
+   "frozen": "4",
+   "match": true,
+   "value": "4"
+  },
+  "MU5": {
+   "frozen": [
+    561,
+    "272"
+   ],
+   "match": true,
+   "value": [
+    561,
+    "272"
+   ]
+  }
+ }
+}

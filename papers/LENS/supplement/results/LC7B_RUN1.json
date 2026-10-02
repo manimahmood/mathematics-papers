@@ -1,0 +1,336 @@
+{
+ "K0": {
+  "library_pins": true,
+  "mismatches": [],
+  "pass": true,
+  "rows": 213
+ },
+ "V1": {
+  "result": {
+   "c1": "1/2",
+   "c2": "5/12",
+   "f1_b0_ok": true,
+   "f1_bm1_zero": true,
+   "f_b0_general": "(J*(q + qb)*(-(q*qb) + qb^2 + 6*J*(-1 + q*qb) - q^2*(-1 + qb^2) + 2*J^2*(-3 + 4*q*qb - qb^2 + q^2*(-1 + qb^2))))/(3*(-1 + q^2)*(-1 + qb^2))",
+   "f_b0_ok": true,
+   "f_bm1_zero": true,
+   "version": 14.3
+  },
+  "returncode": 0,
+  "seconds": 2.7,
+  "status": "PASS",
+  "stderr_tail": ""
+ },
+ "V1s": {
+  "c1": "1/2",
+  "c2": "5/12",
+  "f1_b0_ok": true,
+  "f1_bm1_zero": true,
+  "f_b0_ok": true,
+  "f_bm1_zero": true,
+  "status": "PASS"
+ },
+ "V2": {
+  "failures": [],
+  "rows": 1860,
+  "status": "PASS",
+  "trace_constant_failures": [],
+  "worst_abs_diff": "8.6824e-57",
+  "worst_imag": "1.3603e-57"
+ },
+ "V3": {
+  "integral_rows": 5678,
+  "mutation_violations": {
+   "MU1": 37294,
+   "MU2": 41750,
+   "MU3": 37232,
+   "MU4": 62
+  },
+  "n_violations": 0,
+  "per_prime": {
+   "601": {
+    "J_list": [
+     1,
+     2,
+     3,
+     111,
+     112,
+     601
+    ],
+    "integral": 1208,
+    "rows": 3600,
+    "violations": 0,
+    "zeros": 660
+   },
+   "607": {
+    "J_list": [
+     1,
+     2,
+     3,
+     97,
+     98,
+     607
+    ],
+    "integral": 1212,
+    "rows": 3636,
+    "violations": 0,
+    "zeros": 672
+   },
+   "613": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 6,
+    "rows": 1836,
+    "violations": 0,
+    "zeros": 6
+   },
+   "617": {
+    "J_list": [
+     1,
+     2,
+     3,
+     148,
+     149
+    ],
+    "integral": 624,
+    "rows": 3080,
+    "violations": 0,
+    "zeros": 82
+   },
+   "619": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 0,
+    "rows": 1854,
+    "violations": 0,
+    "zeros": 0
+   },
+   "631": {
+    "J_list": [
+     1,
+     2,
+     3,
+     47,
+     48
+    ],
+    "integral": 630,
+    "rows": 3150,
+    "violations": 0,
+    "zeros": 72
+   },
+   "641": {
+    "J_list": [
+     1,
+     2,
+     3,
+     287,
+     288
+    ],
+    "integral": 648,
+    "rows": 3200,
+    "violations": 0,
+    "zeros": 58
+   },
+   "643": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 0,
+    "rows": 1926,
+    "violations": 0,
+    "zeros": 0
+   },
+   "647": {
+    "J_list": [
+     1,
+     2,
+     3,
+     18,
+     19
+    ],
+    "integral": 646,
+    "rows": 3230,
+    "violations": 0,
+    "zeros": 120
+   },
+   "653": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 6,
+    "rows": 1956,
+    "violations": 0,
+    "zeros": 6
+   },
+   "659": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 0,
+    "rows": 1974,
+    "violations": 0,
+    "zeros": 0
+   },
+   "661": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 6,
+    "rows": 1980,
+    "violations": 0,
+    "zeros": 6
+   },
+   "673": {
+    "J_list": [
+     1,
+     2,
+     3,
+     195,
+     196
+    ],
+    "integral": 680,
+    "rows": 3360,
+    "violations": 0,
+    "zeros": 66
+   },
+   "677": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 6,
+    "rows": 2028,
+    "violations": 0,
+    "zeros": 6
+   },
+   "683": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 0,
+    "rows": 2046,
+    "violations": 0,
+    "zeros": 0
+   },
+   "691": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 0,
+    "rows": 2070,
+    "violations": 0,
+    "zeros": 0
+   },
+   "701": {
+    "J_list": [
+     1,
+     2,
+     3
+    ],
+    "integral": 6,
+    "rows": 2100,
+    "violations": 0,
+    "zeros": 6
+   }
+  },
+  "primes": [
+   601,
+   607,
+   613,
+   617,
+   619,
+   631,
+   641,
+   643,
+   647,
+   653,
+   659,
+   661,
+   673,
+   677,
+   683,
+   691,
+   701
+  ],
+  "rows": 43026,
+  "status": "PASS",
+  "violations": [],
+  "zeros": 1760
+ },
+ "V4": {
+  "master_mismatches": [],
+  "master_rows": 3912,
+  "n_master_mismatches": 0,
+  "q1_polynomial_failures": [],
+  "q1_polynomial_rows": 258,
+  "rademacher_failures": [],
+  "rademacher_rows": 4178,
+  "status": "PASS"
+ },
+ "mutation_witnesses": {
+  "MU1": {
+   "eta": "0",
+   "mutation_fails_here": true,
+   "row": [
+    5,
+    2,
+    1
+   ],
+   "theorem_ok_here": true
+  },
+  "MU2": {
+   "eta": "-4/5",
+   "mutation_fails_here": true,
+   "row": [
+    5,
+    1,
+    1
+   ],
+   "theorem_ok_here": true
+  },
+  "MU3": {
+   "eta": "-2/7",
+   "mutation_fails_here": true,
+   "row": [
+    7,
+    2,
+    1
+   ],
+   "theorem_ok_here": true
+  },
+  "MU4": {
+   "eta": "0",
+   "mutation_fails_here": true,
+   "row": [
+    5,
+    2,
+    1
+   ],
+   "theorem_ok_here": true
+  }
+ },
+ "mutations_pass": true,
+ "run": "RUN1",
+ "seconds": 1042.0,
+ "source_sha256": "34f4c060312782144366f2bd107fbc3ee88cd7a3a9a46c7418950af2c7fc81d2",
+ "status": "PASS"
+}

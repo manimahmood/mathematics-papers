@@ -1,0 +1,995 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem,microtype}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Span}{\operatorname{span}}
+
+\title{Coexact Spectral Hydrodynamics on $L(137,1)$:\\
+Exact Modes, Triad Couplings, and Decay}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{30 September 2026}
+\hypersetup{pdftitle={Coexact Spectral Hydrodynamics on L(137,1): Exact Modes, Triad Couplings, and Decay},pdfauthor={Luqman Mahmood}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study coexact spectral hydrodynamics on the round lens space $L(137,1)$.
+Character formulas for spherical space forms give the signed curl gap,
+deck projectors, and invariant multiplicities in a fixed orientation and
+normalization.  Specializing $SU(2)_L\times SU(2)_R$ recoupling to
+deck-invariant coexact modes then yields an exact
+$3j$--$3j$--$9j$ interaction coefficient and a fourth-root phase rule in a
+specified ladder-canonical basis.  We give explicit nonzero witnesses and a
+finite two-band census, and use the coexact gap in the Hodge--Stokes energy
+inequality to prove exponential decay and singleton phase and trajectory
+attractors.  These results concern one declared Hodge-viscous model; the
+phase is basis-dependent, and the analysis neither selects the order $137$
+physically nor proves global three-dimensional regularity.
+\end{abstract}
+
+\section{Introduction and scope}\label{sec:introduction}
+
+This paper joins three mathematical layers that are often studied separately:
+the curl spectrum of a spherical space form, the interaction algebra of
+coexact vector harmonics, and the long-time energy behavior of an unforced
+viscous evolution.  The geometry is the
+round quotient
+\[
+ M=L(137,1)=S^3/\ZZ_{137}, \qquad
+ \vol(M)=\frac{2\pi^2R_c^3}{137}.
+\]
+The integer $137$ is a mathematical specialization, not a physically selected
+parameter.
+
+The spectral ingredients are specializations of established spherical-space-form
+character and lens-space $p$-form formulas
+\cite{Bar2019,Lauret2018,IkedaYamamoto1979,Ikeda1980Lens,BenAchour2016,
+ChandrasekharKendall1957}.  Likewise, the $S^3$ harmonic and
+recoupling framework is classical and appears in explicit vector-harmonic
+calculations \cite{HamadaHorata2003,BaigueraEtAl2021}.  Helical and Beltrami
+decompositions and triad classifications are also classical
+\cite{ConstantinMajda1988,Waleffe1992,Waleffe1993}.  Against that background,
+the main contribution here is an exact evaluation of the deck-restricted
+coexact coupling tensor on $L(p,q_0)$.  The formula separates three
+normalization layers, identifies the complete selection algebra, and fixes a
+ladder-canonical phase.  Level $137$ is a fixed worked example, also used in
+the companion tensor-curl eta calculation; it is not selected by the model.
+For $L(137,1)$ we also exhibit exact witnesses and a
+finite tower census.  The spectral gap then gives geometry-specific decay and
+attractor corollaries through standard energy and evolutionary-system
+arguments \cite{CheskidovFoias2006}.
+
+There are inequivalent viscosity operators on a Riemannian manifold
+\cite{ChanCzubakDisconzi2017,SamavakiTuomela2020}; throughout we use the Hodge
+viscosity.  The nonlinear three-dimensional weak evolution is therefore
+treated as a collection of trajectories rather than a globally single-valued
+solution semigroup.  Section~\ref{sec:normalization} fixes geometry and
+normalizations, Sections~\ref{sec:triads}--\ref{sec:tower} derive the coupling
+and phase formulas and their $L(137,1)$ examples, and
+Sections~\ref{sec:decay}--\ref{sec:regularity} study decay, attractors, and the
+precise regularity limitation.
+
+\section{Geometry, operators, and normalizations}\label{sec:normalization}
+
+Write a unit quaternion as
+$q=x_0+x_1\ii+x_2\mathrm j+x_3\mathrm k$ and set
+$x=(x_0,x_1,x_2,x_3)$.  We use the ordered imaginary basis
+$(e_1,e_2,e_3)=(\ii,\mathrm j,\mathrm k)$, the induced boundary orientation
+of $S^3\subset\mathbb R^4$, and $\epsilon_{123}=+1$.  The round
+radius-$R_c$ metric on this unit-quaternion model is $g_{R_c}=R_c^2g_1$.
+The pointwise-unit left-invariant fields
+\[
+ v_a(q)=R_c^{-1}q e_a
+\]
+then satisfy
+\[
+ \curl v_a=-\frac{2}{R_c}v_a, \qquad a=1,2,3.
+\]
+Introduce complex coordinates
+$z_1=x_0+\ii x_1$ and $z_2=x_2+\ii x_3$.  For $p\ge2$ and a unit
+$q_0\in(\ZZ/p\ZZ)^\times$, put $\zeta=e^{2\pi\ii/p}$ and fix the free,
+orientation-preserving deck generator
+\begin{equation}\label{eq:deck-action}
+ \gamma_{p,q_0}(z_1,z_2)=(\zeta z_1,\zeta^{q_0}z_2).
+\end{equation}
+The quotient orientation is the one inherited from $S^3$.  The pointwise-unit
+right-invariant cover frame is $w_a(q)=R_c^{-1}e_aq$ and satisfies
+$\curl w_a=+2w_a/R_c$.  Our numerical space has $(p,q_0)=(137,1)$, for which
+exactly $w_1(q)=R_c^{-1}\ii q$ survives the deck action, with
+\[
+ \curl w_1=+\frac{2}{R_c}w_1.
+\]
+All four are coexact, and the Hodge Laplacian on this sector is
+$\Delta_H=\curl^2$.  Thus all four have eigenvalue $4/R_c^2$.
+
+\paragraph{Rank-one eta convention.}
+In the convention of \cite{MahmoodP1Collection2026},
+the projected rank-one curl/odd-signature operator is $A_1=*d$ on coclosed
+one-forms (hence on the coexact sector for these lens spaces).  With the
+complex quotient orientation in \eqref{eq:deck-action}, its ordinary eta
+invariant, not the reduced value $(\eta+h)/2$, is
+$\eta_1(L(p,q_0))=-4s(q_0,p)$.  The same convention takes
+$V_{n+2J}\otimes V_n$ as the positive branch and, on changing from unit
+radius to $R_c$, scales $A_J\mapsto R_c^{-1}A_J$ while leaving eta at zero
+unchanged \cite{APS1975,Bar2019}.  We use this citation only to align the sign,
+orientation, and radius conventions; all spectral, interaction, and
+hydrodynamic results below are derived within the present paper.
+
+For coefficient calculations we now set $R_c=1$.  Radius is restored only in
+operator eigenvalues and decay rates.  On complexified fields the $L^2$
+inner product is Hermitian,
+\[
+ \langle u,v\rangle_{L^2(X)}=\int_X g_{\mathbb C}(u,\overline v)\,dV.
+\]
+Define the lifted raw trilinear by
+\[
+ T_{\mathrm{lift,raw}}(u_1,u_2,u_3)
+ =\int_{S^3}\det[x,u_1,u_2,u_3]\,dS.
+\]
+Here the determinant is extended $\mathbb C$-multilinearly in its three field
+slots; no field slot is conjugated.  If invariant fields $u_i$ descend to
+$\bar u_i$ on $M=S^3/\ZZ_p$, define
+\[
+ T_{\mathrm{quot,raw}}(\bar u_1,\bar u_2,\bar u_3)
+ =p^{-1}T_{\mathrm{lift,raw}}(u_1,u_2,u_3).
+\]
+The cover- and quotient-normalized modes are distinct:
+\[
+ \widehat u^{S^3}=\frac{u}{\|u\|_{L^2(S^3)}},\qquad
+ \widehat{\bar u}^{M}=\frac{\bar u}{\|\bar u\|_{L^2(M)}};
+\]
+the lift of $\widehat{\bar u}^{M}$ is $\sqrt p\,\widehat u^{S^3}$.
+Accordingly,
+\begin{align*}
+ T_{\mathrm{lift},L^2}
+   &=T_{\mathrm{lift,raw}}(\widehat u_1^{S^3},
+      \widehat u_2^{S^3},\widehat u_3^{S^3}),\\
+ T_{\mathrm{quot},L^2}
+   &=T_{\mathrm{quot,raw}}(\widehat{\bar u}_1^M,
+      \widehat{\bar u}_2^M,\widehat{\bar u}_3^M)
+    =\sqrt p\,T_{\mathrm{lift},L^2}.
+\end{align*}
+These are the three normalization layers used below.
+
+\begin{proposition}[Gap-frame calibration]\label{prop:gap-tensor}
+For the pointwise-unit gap frame at $p=137$,
+\begin{align*}
+ T_{\mathrm{lift,raw}}(v_a,v_b,v_c)&=2\pi^2\epsilon_{abc},\\
+ T_{\mathrm{quot,raw}}(v_a,v_b,v_c)&=\frac{2\pi^2}{137}\epsilon_{abc},\\
+ T_{\mathrm{quot},L^2}(\widehat{\bar v}_a^M,
+   \widehat{\bar v}_b^M,\widehat{\bar v}_c^M)
+ &=\sqrt{\frac{137}{2\pi^2}}\epsilon_{abc}.
+\end{align*}
+Every entry containing $w_1$ is zero.  In particular, the gap tensor is
+totally alternating rather than a new interaction algebra.
+\end{proposition}
+\begin{proof}
+At $R_c=1$, the ordered ambient determinant satisfies
+$\det[x,v_1,v_2,v_3]=1$ pointwise.  Integration over the unit sphere gives
+$2\pi^2$, and determinant alternation gives the first displayed identity for
+all $a,b,c$.  For a mixed component, the function
+$d\mapsto\int_{S^3}\det[x,v_a,v_b,w_d]\,dS$ transforms as a vector under the
+adjoint action of left rotations.  Haar invariance makes this vector fixed by
+every such rotation; rotations about two independent axes force it to vanish.
+Alternation handles the other placements of $w_d$.  Finally, quotient
+integration divides the raw value by $137$, while the three quotient-normalized
+lifts contribute $137^{3/2}$, giving the stated $L^2$ layer.
+\end{proof}
+This calibration is consistent with the standard orthonormal $S^3$ frame and
+cyclic bracket conventions used in geometric hydrodynamics
+\cite{ModinPreston2025}.
+
+\section{Exact coexact spectrum and deck counting}\label{sec:spectrum}
+
+Let $E^{\mathbb R}_{s\ell/R_c}(X)$ denote the real coexact curl eigenspace
+\[
+ \{u\in C^\infty(TX):\delta u^\flat=0,
+       \ \curl u=(s\ell/R_c)u\},
+ \qquad \ell\ge2,\quad s\in\{-1,+1\}.
+\]
+Magnetic and ladder bases below live in its complexification
+$E_{s\ell/R_c}(X)=E^{\mathbb R}_{s\ell/R_c}(X)\otimes_{\mathbb R}\mathbb C$.
+The deck-fixed bases are stable under complex conjugation, so the complex
+dimension of this complexification equals the real multiplicity printed
+below.  A mode of type $(\ell,s)$ means a member of this complexified signed
+eigenspace.
+
+For $a\ge0$, define the deck-fixed weight count
+\[
+ F_{137}(a)=\#\{r\in\{-a,-a+2,\ldots,a\}:r\equiv0\pmod{137}\}.
+\]
+The cyclotomic deck average gives the closed form
+\begin{equation}\label{eq:F137}
+ F_{137}(a)=
+ \begin{cases}
+ 2\lfloor a/274\rfloor+1,&a\text{ even},\\
+ 2\lfloor(a+137)/274\rfloor,&a\text{ odd}.
+ \end{cases}
+\end{equation}
+
+Curl-eigenfield constructions in spherical settings and lens-space quotient
+spectral counting are classical
+\cite{ChandrasekharKendall1957,IkedaYamamoto1979,Ikeda1980Lens,Bar2019,
+Lauret2018}.
+On bounded Euclidean balls and concentric spherical shells, Cantarella,
+DeTurck, Gluck, and Teytel give a complete curl-eigenfield construction under
+the tangent-boundary condition
+\cite[Theorems~A--B and Sections~III--V]{CantarellaEtAl2000Curl}.  This is
+adjacent spherical-domain literature, not a source for the closed lens-space
+multiplicities in Theorem~\ref{thm:spectrum}.
+
+\begin{theorem}[Invariant coexact multiplicities]\label{thm:spectrum}
+For a coexact level $\ell\ge2$,
+\begin{align}
+ \dim E_{+\ell/R_c}&=F_{137}(\ell)(\ell-1),\label{eq:plusdim}\\
+ \dim E_{-\ell/R_c}&=F_{137}(\ell-2)(\ell+1),\label{eq:minusdim}
+\end{align}
+and both signed branches have Hodge--Stokes eigenvalue
+$\ell^2/R_c^2$.
+\end{theorem}
+
+\begin{proof}
+On the cover, the two signed coexact shells are the
+$SU(2)_L\times SU(2)_R$ modules
+\[
+ s=+1:\ (j_L,j_R)=\left(\frac\ell2,\frac{\ell-2}{2}\right),
+ \qquad
+ s=-1:\ (j_L,j_R)=\left(\frac{\ell-2}{2},\frac\ell2\right).
+\]
+For $L(137,1)$ the generator~\eqref{eq:deck-action} acts on the left magnetic
+factor.  The cyclic character average is therefore the number of doubled
+left weights $r=-2j_L,-2j_L+2,\ldots,2j_L$ divisible by $137$.  Counting the
+positive and negative multiples of $137$ in this parity lattice gives
+\eqref{eq:F137}: an even endpoint contains zero and
+$2\lfloor a/274\rfloor$ nonzero weights, whereas an odd endpoint contains
+the odd multiples counted by $2\lfloor(a+137)/274\rfloor$.
+Multiplication by the untouched right-factor dimensions $\ell-1$ and
+$\ell+1$ proves \eqref{eq:plusdim} and \eqref{eq:minusdim}.  Complex
+conjugation preserves the fixed subspace, which identifies these complexified
+counts with the real dimensions.  Finally, $\Delta_H=\curl^2$ on coexact
+fields, giving eigenvalue $\ell^2/R_c^2$.
+\end{proof}
+
+The sign labels in Theorem~\ref{thm:spectrum} follow our orientation; reversing
+orientation exchanges them.  At $\ell=2$ the split is $1+3$, so the first
+ Hodge--Stokes eigenvalue is $4/R_c^2$ with real multiplicity four.  This
+ multiplicity is specific to the exact round metric and is not asserted to
+ persist under metric perturbation.  For closed oriented three-manifolds,
+Kepplinger proves simplicity of the curl spectrum along generic
+one-parameter paths of metrics
+\cite[Theorem~1.1]{Kepplinger2024}.  Directly
+summing \eqref{eq:plusdim}--\eqref{eq:minusdim}, the cumulative real coexact
+ dimensions through the absolute-curl cutoffs
+ $|\curl|\le136/R_c,137/R_c,138/R_c$ are $9384,9656,9932$.  For even
+ $n\le136$ the cumulative count through $|\curl|\le n/R_c$ is
+ $n(n+2)/2$.
+
+The spectrum is infinite.  Its leading Weyl coefficient is $1/137$ of the
+cover coefficient because the quotient volume is $1/137$ of the cover volume;
+this is an asymptotic statement, not equality of every finite shell.  At every
+ signed cover shell the exact deck projector
+ \[
+ P_{p,q_0}^{(\ell,s)}
+ =\frac1p\sum_{k=0}^{p-1}
+   \rho_{\ell,s}(\gamma_{p,q_0})^k
+ \]
+has image equal to the deck-invariant subspace.  Here
+$\rho_{\ell,s}$ is the unitary pullback action of the generator
+\eqref{eq:deck-action} on $E_{s\ell/R_c}(S^3)$.  Coordinates within a
+ degenerate higher shell still require additional basis and phase choices.
+
+For $X\in\{S^3,L(137,1)\}$ with unit curvature radius $R_c=1$, let $C_X$
+denote the real-scalar, inhomogeneous single-constant Sobolev constant
+\[
+ C_X:=\sup_{0\ne f\in H^1(X;\mathbb R)}
+ \frac{\|f\|_{L^6(X)}}
+ {\bigl(\|\nabla f\|_{L^2(X)}^2+\|f\|_{L^2(X)}^2\bigr)^{1/2}}.
+\]
+All norms use the unnormalized Riemannian volume of the inherited round metric.
+Beckner's critical sphere inequality uses normalized surface measure
+$d\xi=dV/(2\pi^2)$
+\cite[p.~4816 and p.~4818, Eq.~(8)]{Beckner1992Sphere}.  Converting it to
+unnormalized volume gives
+\[
+ \|f\|_{L^6(S^3)}^2
+ \le (2\pi^2)^{-2/3}
+ \left(\|f\|_{L^2(S^3)}^2+\frac43\|\nabla f\|_{L^2(S^3)}^2\right).
+\]
+The constant-function test and $4/3>1$ therefore give the explicit bracket
+\begin{equation}\label{eq:s3-sobolev-bracket}
+ (2\pi^2)^{-1/3}
+ \le C_{S^3}
+ \le \frac2{\sqrt3}(2\pi^2)^{-1/3}.
+\end{equation}
+The isometric covering lift, together with the constant-function test on the
+quotient of volume $2\pi^2/137$, gives
+\begin{equation}\label{eq:l137-sobolev-bracket}
+ \left(\frac{137}{2\pi^2}\right)^{1/3}
+ \le C_{L(137,1)}
+ \le \frac2{\sqrt3}\left(\frac{137}{2\pi^2}\right)^{1/3},
+ \qquad
+ C_{L(137,1)}\le137^{1/3}C_{S^3}.
+\end{equation}
+The ratio of the displayed upper and lower endpoints is $2/\sqrt3$ in both
+brackets.  These are explicit two-sided bounds only: no endpoint is identified
+as the best constant, no equality case is asserted, and no sharpness claim is
+made inside either bracket.
+
+\section{Exact deck-restricted coexact triads}\label{sec:triads}
+
+For a type $(\ell,s)$, as defined in Section~\ref{sec:spectrum}, set
+\[
+ (j_L,j_R)=
+ \begin{cases}
+ ((\ell-2)/2,\ell/2),&s=-1,\\
+ (\ell/2,(\ell-2)/2),&s=+1.
+\end{cases}
+\]
+The coordinate torus acts by
+$(z_1,z_2)\mapsto(e^{\ii\alpha}z_1,e^{\ii\beta}z_2)$.
+A polynomial vector field has weight $(w_1,w_2)\in\ZZ^2$ when its
+pushforward by this torus action transforms by
+$e^{\ii(w_1\alpha+w_2\beta)}$.  Pullback weights have the opposite signs.
+In the Condon--Shortley magnetic basis,
+\[
+ w_1=m_L+m_R,\qquad w_2=m_L-m_R,
+ \qquad (2m_L,2m_R)=(w_1+w_2,w_1-w_2),
+\]
+where $m_L=-j_L,-j_L+1,\ldots,j_L$ and likewise for $m_R$.
+The weights are integers for the coexact modules above.  For $p\ge2$ and
+$q_0\in(\ZZ/p\ZZ)^\times$, the mode descends under
+\eqref{eq:deck-action} exactly when
+\begin{equation}\label{eq:deck}
+ w_1+q_0w_2\equiv0\pmod p.
+\end{equation}
+All numerical results below specialize this free action to $(p,q_0)=(137,1)$.
+
+Helical/Beltrami decompositions and Fourier-space triad classifications are
+classical \cite{ConstantinMajda1988,Waleffe1992,Waleffe1993}.  We specialize
+the corresponding recoupling machinery to deck-restricted coexact modes and
+derive the resulting exact selection algebra.
+
+Call a type triple \emph{representation-admissible} when the two Wigner rows
+and the three spin-one columns obey their triangle and integrality conditions;
+in particular $\ell_1+\ell_2+\ell_3$ is even.  We sort types
+lexicographically, with $-1<+1$.  Representation admissibility is only a
+support condition: the $9j$ or a magnetic $3j$ may still vanish exactly.
+
+\begin{theorem}[Convention-complete coefficient]\label{thm:triad}
+Let three ladder-canonical, cover-normalized modes
+$\widehat u_i^{S^3}$ form a representation-admissible triple and satisfy
+\eqref{eq:deck}.  Define
+\begin{equation}\label{eq:lambda}
+ \Lambda^2=
+ 3\prod_{i=1}^3(2j_{L,i}+1)(2j_{R,i}+1)
+ \begin{Bmatrix}
+ j_{L,1}&j_{L,2}&j_{L,3}\\
+ 1&1&1\\
+ j_{R,1}&j_{R,2}&j_{R,3}
+ \end{Bmatrix}^{\!2}.
+\end{equation}
+If the $9j\,3j\,3j$ product is zero, then
+$T_{\mathrm{lift},L^2}=0$ and no phase is assigned.  Otherwise, first sort the
+three modes and define $\phi$ by Theorem~\ref{thm:phase}; for that sorted
+order,
+\begin{align}
+ \pi T_{\mathrm{lift},L^2}
+   (\widehat u_1^{S^3},\widehat u_2^{S^3},\widehat u_3^{S^3})
+ ={}&\phi(\ell_i,s_i)\sqrt{\Lambda^2}
+ \begin{pmatrix}
+ j_{L,1}&j_{L,2}&j_{L,3}\\
+ m_{L,1}&m_{L,2}&m_{L,3}
+ \end{pmatrix}\notag\\[-1mm]
+ &\times
+ \begin{pmatrix}
+ j_{R,1}&j_{R,2}&j_{R,3}\\
+ m_{R,1}&m_{R,2}&m_{R,3}
+ \end{pmatrix}.\label{eq:fulltriad}
+\end{align}
+An arbitrary ordering is defined by sorting and multiplying by the sign of
+the sorting permutation.  Equivalently, the paired $3j$ symbols provide that
+odd-permutation sign while the reduced phase is permutation-invariant on the
+admissible domain.  Thus the full trilinear is alternating, and its exact
+nonvanishing criterion is the nonvanishing of the displayed Wigner product.
+\end{theorem}
+
+\begin{proof}
+Use Peter--Weyl matrix coefficients normalized in
+$L^2(S^3,dS)$ and the real Condon--Shortley spin-one column intertwiner whose
+highest nonzero Clebsch--Gordan coefficient is positive.  Contract the three
+column indices with the positively oriented alternating invariant fixed by
+$\epsilon_{123}=+1$.  The defining $9j$ recoupling identity then gives, in
+this real reference, the signed reduced coefficient
+\[
+ C_{\mathrm{ref}}=
+ \sqrt{3\prod_{i=1}^3(2j_{L,i}+1)(2j_{R,i}+1)}
+ \begin{Bmatrix}
+  j_{L,1}&j_{L,2}&j_{L,3}\\
+  1&1&1\\
+  j_{R,1}&j_{R,2}&j_{R,3}
+ \end{Bmatrix}.
+\]
+The magnetic contractions left after recoupling are precisely the two
+Condon--Shortley $3j$ symbols in~\eqref{eq:fulltriad}.  Converting normalized
+Haar matrix coefficients to the $dS$-normalized fields and evaluating the
+remaining scalar on the oriented gap frame of
+Proposition~\ref{prop:gap-tensor} fixes the global factor to $1/\pi$; this
+gives $\pi T=C_{\mathrm{ref}}(3j_L)(3j_R)$.  Squaring the real reduced
+magnitude yields~\eqref{eq:lambda}, while Theorem~\ref{thm:phase} restores
+the exact ray and $9j$ signs.  On the admissible domain
+$J_L+J_R=\sum_i\ell_i-3$ is odd.  Hence the two $3j$ symbols together change
+by the sign of an odd permutation, whereas $\phi$ does not, proving
+alternation.  Deck averaging acts on each mode separately and gives
+\eqref{eq:deck}.  This is the standard $S^3$ recoupling mechanism
+\cite{HamadaHorata2003,BaigueraEtAl2021} with every normalization and row
+order fixed.
+\end{proof}
+
+Deck validity, triangle conditions, parity, and magnetic-weight sums are only
+necessary filters.  For example,
+\[
+ \begin{pmatrix}2&3&3\\0&-2&2\end{pmatrix}=0
+\]
+despite coarse support.  Thus ``supported'' never means ``nonzero.''
+
+\section{The ladder-canonical phase}\label{sec:phase}
+
+\begin{lemma}[Adjacent-row $9j$ sign]\label{lem:9j-sign}
+Let the top row be $(a,b,c)$ and the bottom row be
+$(g,h,i)=(a+\sigma_1,b+\sigma_2,c+\sigma_3)$ with
+$\sigma_r\in\{-1,+1\}$.  In a mixed shift pattern place the unique unlike
+shift in the middle column before taking the Racah expansion below.
+If $k$ is the number of plus shifts, then every
+surviving term in the Racah expansion has sign $+1$ for $k=0,3$ and sign
+$-1$ for $k=1,2$.  Consequently the special $9j$ symbol has that sign when
+its Racah support is nonempty and is structurally zero when the support is
+empty.  The statement includes boundary rows, where one of the candidate
+summands may disappear.
+\end{lemma}
+
+\begin{proof}
+Column permutations have phase $+1$, since the total $9j$ spin sum is
+$2(a+b+c)+2k$.  Thus the unique shift of a mixed pattern may be placed in the
+middle column.  In the exact Racah expansion
+\[
+ \sum_x(-1)^{2x}(2x+1)
+ \begin{Bmatrix}a&b&c\\1&i&x\end{Bmatrix}
+ \begin{Bmatrix}1&1&1\\b&x&h\end{Bmatrix}
+ \begin{Bmatrix}g&h&i\\x&a&1\end{Bmatrix},
+\]
+the middle $6j$ restricts $x=b+d$.  Substitution in the Racah bounds gives
+the complete table below.  Here $S=a+b+c$, $G=g+h+i$, and
+$(z_1,z_2,z_3)$ are the three Racah upper summation integers:
+\[
+\begin{array}{c|c|c|c|c}
+ (\sigma_1,\sigma_2,\sigma_3)&k&d
+ &(z_1-S,z_2-2b,z_3-G)&\text{sign}\\ \hline
+ (-,-,-)&0&-1,0&(0,0,1),(0,1,2)&+,+\\
+ (+,+,+)&3&0,1&(1,2,0),(2,3,0)&+,+\\
+ (-,+,-)&1&0,1&(0,2,0),(0,3,1)&-,-\\
+ (+,-,+)&2&-1,0&(0,0,0),(1,1,0)&-,-
+\end{array}
+\]
+up to the harmless column permutations just described.  Every triangle
+prefactor, factorial denominator, and $2x+1$ is positive; the displayed signs
+are the parity of $2x+z_1+z_2+z_3$ in the three single-summand $6j$ factors.
+Hence all surviving terms have one sign and cannot cancel.  At a boundary an
+inadmissible value of $d$ simply drops out, leaving the same conclusion.
+\end{proof}
+
+\begin{theorem}[All-level phase rule]\label{thm:phase}
+For a sorted representation-admissible type triple whose Wigner product in
+Theorem~\ref{thm:triad} is nonzero, put
+\[
+ H=\frac{\ell_1+\ell_2+\ell_3}{2},\qquad
+ n_-=\#\{i:s_i=-1\}.
+\]
+In the specified ladder-canonical convention, every nonzero reduced triad has
+\begin{equation}\label{eq:phase}
+ \phi=\ii^{\,H+3(n_-\bmod2)}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+In ambient coordinates $x=(x_0,x_1,x_2,x_3)$, set
+$z=x_0-\ii x_1$ and $a_\pm=x_2\pm\ii x_3$.  The lexicographically normalized
+highest rays are
+\[
+ u_{\ell,+}=\ii^{\ell-2}z^{\ell-2}
+    (\ii a_-,a_-,-\ii z,-z),\qquad
+ u_{\ell,-}=\ii^{\ell-2}z^{\ell-2}
+    (-\ii a_+,-a_+,\ii z,-z).
+\]
+Here the component order is $x_0,x_1,x_2,x_3$, and monomials in each
+component are ordered by descending lexicographic order
+$x_3>x_2>x_1>x_0$.  The first nonzero coefficient is then $+1$.
+To fix the remaining ladder phases explicitly, write $w_a=e_aq$ and
+$v_a=qe_a$ for the ambient quaternion frames of Section~2, with
+$(e_1,e_2,e_3)=(\ii,\mathrm j,\mathrm k)$, and let
+$\mathcal L_Xu=[X,u]$.  Our lowering operators are
+\[
+ J_{L,-}=\tfrac12\mathcal L_{w_2+\ii w_3},\qquad
+ J_{R,-}=\tfrac{\ii}{2}\mathcal L_{v_2-\ii v_3}.
+\]
+Starting from the displayed highest rays, normalize each lowered vector by
+the positive coefficient $\sqrt{(j+m)(j-m+1)}$.  Thus
+``Condon--Shortley'' includes these explicit operator phases, not only the
+magnitudes of the ladder coefficients.
+
+For completeness, set $\zeta_8=e^{\ii\pi/4}$ and choose the coherent real
+Condon--Shortley reference
+\[
+ f_n=\zeta_8^n z^n,\qquad
+ E_+=-\ii(\ii a_-,a_-,-\ii z,-z),\qquad
+ E_-=-(-\ii a_+,-a_+,\ii z,-z).
+\]
+Maximal scalar products satisfy $f_nf_m=f_{n+m}$ and all lowering
+coefficients are positive.  Comparison with the explicit highest rays gives
+the per-mode phase
+\[
+ \eta_{\ell,s}=\zeta_8^{\ell+2\mathbf1_{\{s=-1\}}}.
+\]
+Thus, with $k=n_-$,
+\[
+ \prod_i\eta_{\ell_i,s_i}
+ =\zeta_8^{\sum_i\ell_i+2k}=\ii^{H+k}.
+\]
+For these adjacent rows a minus-helicity mode is a plus shift, so
+Lemma~\ref{lem:9j-sign} contributes $(-1)$ exactly for $k=1,2$.  Therefore
+\[
+ \phi=\ii^{H+k}(-1)^{\mathbf1_{\{k=1,2\}}}
+      =\ii^{H+3(k\bmod2)},
+\]
+which is~\eqref{eq:phase}.  If the Racah support or either magnetic $3j$
+vanishes, Theorem~\ref{thm:triad} assigns the coefficient zero rather than an
+undefined phase.  Finally, on the admissible domain
+$J_L+J_R=\sum_i\ell_i-3$ is odd: the reduced phase is invariant under column
+permutation, while the paired $3j$ symbols contribute the odd-permutation
+sign.  This is the exchange covariance required by the alternating geometric
+trilinear.
+\end{proof}
+
+Theorem~\ref{thm:phase} is not a physical or basis-free phase statement.
+Rephasing individual modes changes individual coefficient phases.  It says
+that this fully specified basis has an exact discrete phase law.
+
+\section{Exact \texorpdfstring{$L(137,1)$}{L(137,1)} witnesses and finite tower data}\label{sec:tower}
+
+This section provides exact regression examples for the coefficient formula
+and a finite comparison of its two specified frequency bands.  The data are
+not an asymptotic cascade model.  The actual deck restriction acts on magnetic
+weights, not on the level sum: the additional filter
+$\ell_1+\ell_2+\ell_3\equiv0\pmod{137}$ would discard valid triads even
+when every $\ell_i\ge137$.  The following explicit triad proves this.  At
+$R_c=1$, set $w_\pm=w_2\pm\ii w_3$.  The modes
+\[
+ u_1=z_1^{135}w_+,\qquad u_2=\overline{z}_1^{135}w_-
+\]
+have curl $+137$ and weights
+$(2m_L,2m_R)=(-137,-135)$ and $(137,135)$ in this pushforward convention.
+
+To fix the scale of the third mode, for the three prefixes used below define
+the zonal harmonic
+\[
+ Z_N[P]=P\sum_{k=0}^Nc_k|z_1|^{2k}|z_2|^{2(N-k)}
+\]
+as the unique harmonic polynomial of this form normalized by $c_N=1$.  Put
+\[
+ f_0=Z_{68}[1],\qquad f_+=Z_{67}[z_1z_2],\qquad
+ f_-=Z_{67}[\overline z_1\,\overline z_2]
+\]
+and choose the concrete weight-$(0,0)$ curl-$+138$ representative
+\begin{equation}\label{eq:counterexample-u3}
+ u_3=-f_+w_-+\frac{\ii}{34}f_0w_1+f_-w_+.
+\end{equation}
+Thus no free ray scale remains.  All three modes descend to $L(137,1)$, and
+exact integration gives
+\[
+ T_{\mathrm{lift,raw}}(u_1,u_2,u_3)
+ =\frac{187232862460210808175}
+ {1063298216584182804321625733272656899038}\pi^2\ne0.
+\]
+Since $137+137+138=412\equiv1\pmod{137}$, the congruence is not necessary.
+The exact criterion remains the Wigner product in
+Theorem~\ref{thm:triad}; this example makes no separate statement about
+sufficiency.
+
+For a direct signed tower anchor take
+\[
+ ((\ell,s)_1,(\ell,s)_2,(\ell,s)_3)
+ =((137,+),(139,-),(274,+)),
+\]
+with
+\[
+ 2m_L=(137,137,-274),\qquad 2m_R=(135,137,-272).
+\]
+The raw magnitude below is attached to concrete representatives, rather than to
+three freely rescalable rays.  Let
+\[
+ J_{R,-}=J_{R,1}-\ii J_{R,2},\qquad
+ J_{R,-}|j,m\rangle=\sqrt{(j+m)(j-m+1)}\,|j,m-1\rangle
+\]
+be the Condon--Shortley-normalized right lowering operator, and set
+\[
+ U_1=u_{137,+},\qquad U_2=J_{R,-}u_{139,-},\qquad
+ U_3=\overline{u_{274,+}}.
+\]
+These representatives have exactly the displayed magnetic weights.  If
+$\|U_i\|_{L^2(S^3)}^2=\pi^2N_i$, direct exact integration gives
+$N_1N_2N_3=556/320229$.  The lifted, cover-unnormalized representative
+integral has magnitude
+\[
+ \left|T_{\mathrm{lift,raw}}(U_1,U_2,U_3)\right|=\frac{180}{12467}\pi^2,
+\]
+independently of the phase chosen for the ambient right lowering operator.
+The cover-normalized lifted square is
+\[
+ \pi^2\left|T_{\mathrm{lift},L^2}
+ (\widehat U_1^{S^3},\widehat U_2^{S^3},\widehat U_3^{S^3})\right|^2
+ =\frac{28503900}{237409081}.
+\]
+They are related, not identical:
+\begin{equation}\label{eq:anchor-conversion}
+ \left(\frac{180}{12467}\right)^2
+ =\frac{28503900}{237409081}\frac{556}{320229}.
+\end{equation}
+
+The finite window
+\[
+ \{137,138,139,140\}\cup\{274,275,276,277\}
+\]
+contains both helicities.  A reduced key consists of a lexicographically
+sorted type triple together with a doubled-left-weight triple
+$c=(2m_{L,1},2m_{L,2},2m_{L,3})$.  Each $c_i$ lies in its spin lattice, is
+divisible by $137$, and satisfies $c_1+c_2+c_3=0$.  For repeated adjacent
+types we impose $c_1\ge c_2$ or $c_2\ge c_3$, respectively, to quotient only
+the corresponding exchange duplication.  Put
+\[
+ Q(e)=\Lambda(e)^2
+ \begin{pmatrix}j_{L,1}&j_{L,2}&j_{L,3}\\
+                 m_{L,1}&m_{L,2}&m_{L,3}\end{pmatrix}^{\!2}.
+\]
+The reduced amplitude is total on every stored key, but no phase is assigned
+to a structural zero:
+\[
+ A_{\mathrm{red}}(e)=
+ \begin{cases}
+  0,&Q(e)=0,\\
+  \displaystyle\phi(e)\sqrt{\Lambda(e)^2}
+  \begin{pmatrix}j_{L,1}&j_{L,2}&j_{L,3}\\
+                  m_{L,1}&m_{L,2}&m_{L,3}\end{pmatrix},&Q(e)>0,
+ \end{cases}
+ \qquad
+ R(e)=|A_{\mathrm{red}}(e)|^2.
+\]
+Thus $R(e)=\Lambda(e)^2(3j_L(e))^2$, while the right magnetic dependence
+remains factored:
+$\pi T_{\mathrm{lift},L^2}=A_{\mathrm{red}}(e)(3j_R)$.
+
+There are $816$ sorted type triples in the window.  Of these, $171$
+cross-band types and $58$ all-high-band types have a nonzero reduced key.
+Let $\mathcal B_X$ and $\mathcal B_{H2}$ be their respective nonzero reduced
+key sets; they contain $385$ and $160$ entries.  The inherited first-band
+block $\mathcal B_0$ stores $56$ reduced keys, $46$ with nonzero
+$A_{\mathrm{red}}$.  Expanding the right-weight $3j_R$ factor gives
+$806{,}408$ eligible indexed completion slots across all $56$ stored keys,
+including keys whose reduced factor vanishes.  It is therefore neither a
+right-resolved enumeration nor a count of nonzero pointwise coefficients.
+
+For $B\in\{0,X,H2\}$ define the coherent reduced sum
+\[
+ S_B=\sum_{e\in\mathcal B_B}A_{\mathrm{red}}(e)
+     =\sum_{(r,a,b)\in\mathcal L_B}(a+\ii b)\sqrt r.
+\]
+Equal positive rational radicands are aggregated, and zero aggregate
+coefficients are removed.  The exact-arithmetic supplement gives the complete
+canonical lists $\mathcal L_0$, $\mathcal L_X$, and $\mathcal L_{H2}$, with
+$28$, $149$, and $73$ rows, respectively, together with directed rational
+enclosures for every sum.  Numerically,
+\begin{align*}
+ S_0&\approx-0.215211944909057
+       +1.72881536303333\times10^{-7}\ii,\\
+ S_X&\approx40.3109087370940+0.444138023269106\ii,\\
+ S_{H2}&\approx15.4464538323349-0.0742113043164842\ii.
+\end{align*}
+
+Define
+\[
+ M_{H1}=\max_{e\in\mathcal B_0}R(e),\qquad
+ M_{H2}=\max_{e\in\mathcal B_{H2}}R(e).
+\]
+With the canonical key ordering, the first-band maximizer is
+\[
+ ((138,-),(140,-),(140,-)),\qquad 2m_L=(0,0,0).
+\]
+The two sign-related high-band maximizers have
+\[
+ ((276,-),(277,-),(277,-)),\qquad
+ 2m_L=(-274,137,137)\ \text{or}\ (274,-137,-137).
+\]
+The exact statistic $M_{H2}/M_{H1}=N/D$ is recorded in the supplement.  Its
+decimal begins $20.508403$, and the corresponding reduced-amplitude ratio is
+\[
+ \sqrt{M_{H2}/M_{H1}}\approx4.52862051343485.
+\]
+All tower counts, ratios, and cancellations in this section are finite-window,
+convention-dependent data.  They imply no asymptotic growth, monotonicity,
+cascade, turbulence, or typicality law.
+
+\section{Unforced Hodge--Stokes decay}\label{sec:decay}
+
+The Leray--Hopf weak framework and energy--Poincar\'e decay mechanism are
+classical \cite{Leray1934,Hopf1950,Temam1997,CheskidovFoias2006}.  Here we
+specialize them to the declared Hodge operator and its exact quotient gap.
+
+We now fix the viscous model.  Let
+\[
+ H=\overline{\{v\in C^\infty(TM):\operatorname{div}v=0\}}^{\,L^2},
+ \qquad \mathbb P:L^2(TM)\longrightarrow H
+\]
+be the real solenoidal phase space and Leray projector.  Musical
+identifications are understood.  With the positive-sign convention
+$\Delta_H=d\delta+\delta d$, define
+\[
+ A=\mathbb P\Delta_H,\qquad
+ D(A)=H^2(TM)\cap H,\qquad V=D(A^{1/2}).
+\]
+Since $H^1(M;\mathbb R)=0$, this is the positive Hodge--Stokes operator on
+the coexact sector.  We study only
+\begin{equation}\label{eq:hodge-ns}
+ \partial_tu+\mathbb P(\nabla_u u)+\nu Au=0,
+ \qquad u(0)=u_0\in H,\qquad \nu>0.
+\end{equation}
+No conclusion below is transferred to a rough-Laplacian or
+deformation-tensor viscosity.
+
+An admissible Leray--Hopf trajectory is a distributional solution
+\[
+ u\in C_{\mathrm w}([0,\infty);H)
+ \cap L^\infty_{\mathrm{loc}}([0,\infty);H)
+ \cap L^2_{\mathrm{loc}}([0,\infty);V)
+\]
+for which there is a full-measure set of admissible starting times
+$\mathcal G_u\subset[0,\infty)$, containing the prescribed initial time
+$0$, such that
+\begin{equation}\label{eq:energy-inequality}
+ \|u(t)\|_H^2+2\nu\int_s^t\|A^{1/2}u(r)\|_H^2\,dr
+ \le\|u(s)\|_H^2,
+ \qquad s\in\mathcal G_u,\quad t\ge s.
+\end{equation}
+For complete trajectories the same definition is used on $\mathbb R$, with
+$\mathcal G_u\subset\mathbb R$ of full measure.
+For each datum in $H$, such forward trajectories are obtained by the
+standard solenoidal Galerkin construction \cite{Leray1934,Hopf1950,Temam1997}:
+project onto the coexact eigenfields, use the cancellation
+$\langle\nabla_u u,u\rangle=0$, and pass to a subsequence using compact
+$H^1\hookrightarrow L^2$ on the closed quotient. The energy bound and weak
+continuity give the stated admissible-time inequality. This supplies
+existence, not uniqueness or global strong regularity.
+
+The coexact Poincar\'e inequality is
+\[
+ \|A^{1/2}v\|_H^2\ge\lambda_1\|v\|_H^2,
+ \qquad\lambda_1=4/R_c^2.
+\]
+Combining this inequality with~\eqref{eq:energy-inequality}, applying the
+integral Gronwall argument at admissible starting times, and using weak
+continuity and lower semicontinuity at terminal times gives, for every
+$s\in\mathcal G_u$ and $t\ge s$,
+\begin{equation}\label{eq:energy-decay}
+ \|u(t)\|_H^2\le
+ \|u(s)\|_H^2e^{-2\nu\lambda_1(t-s)}
+ =\|u(s)\|_H^2\exp\!\left[-\frac{8\nu(t-s)}{R_c^2}\right].
+\end{equation}
+Hence
+\begin{equation}\label{eq:norm-decay}
+ \|u(t)\|_H\le
+ \|u(s)\|_H\exp\!\left[-\frac{4\nu(t-s)}{R_c^2}\right].
+\end{equation}
+
+\section{Evolutionary and trajectory attractors}\label{sec:attractors}
+
+We use standard dissipative and evolutionary-system language
+\cite{Temam1997,CheskidovFoias2006}, while retaining set-valued dynamics
+because uniqueness is unavailable.
+
+Let $\mathcal E$ be the collection of all admissible Leray--Hopf
+trajectories.  For bounded $B\subset H$, define the states reachable at time
+$t$ by
+\[
+ \mathcal U(t)B=\{u(t):u\in\mathcal E,\ u(0)\in B\}.
+\]
+This notation is set-valued; no semigroup or composition law is asserted.
+For $X,Y\subset H$, let
+\[
+ \dist_H(X,Y)=\sup_{x\in X}\inf_{y\in Y}\|x-y\|_H
+\]
+be the one-sided Hausdorff semidistance.  If
+$R_B=\sup_{b\in B}\|b\|_H$, then
+\begin{equation}\label{eq:phase-attraction}
+ \dist_H(\mathcal U(t)B,\{0\})
+ \le R_Be^{-4\nu t/R_c^2}.
+\end{equation}
+
+Let $\mathcal K^+$ be the forward trajectories, endowed with the local weak
+topology inherited from $C_{\mathrm{loc}}([0,\infty);H_{\mathrm w})$.
+Define $(\tau_hu)(r)=u(r+h)$ for $h\ge0$.  Let
+$\mathcal K\subset C_{\mathrm{loc}}(\mathbb R;H_{\mathrm w})$ be the complete
+trajectories bounded in $H$, with the analogous translation action.
+
+\begin{theorem}[Zero phase and trajectory attractors]\label{thm:attractor}
+The strong $H=L^2$ phase attractor is $\{0\}$.  Moreover, $\mathcal K$
+consists only of the constant-zero complete trajectory, and its restriction
+to $[0,\infty)$ is the trajectory attractor in the local weak topology.
+\end{theorem}
+
+\begin{proof}
+Equation~\eqref{eq:phase-attraction} proves uniform strong attraction of every
+bounded phase set.  Zero initial energy forces the zero trajectory by
+\eqref{eq:energy-inequality}, so the singleton is invariant; every closed
+attracting set must contain it.
+
+If $u\in\mathcal K$ and
+$M=\sup_{r\in\mathbb R}\|u(r)\|_H$, then for fixed $t$ choose
+$s_n\in\mathcal G_u$ with $s_n<t$ and $s_n\to-\infty$.  Equation
+~\eqref{eq:energy-decay} gives
+\[
+ \|u(t)\|_H^2\le M^2e^{-8\nu(t-s_n)/R_c^2}\longrightarrow0.
+\]
+Thus $u(t)=0$.  Finally, for every $T>0$, trajectories whose initial values
+have $H$-radius at most $R$ satisfy
+\[
+ \sup_{0\le r\le T}\|(\tau_tu)(r)\|_H
+ \le Re^{-4\nu t/R_c^2}.
+\]
+The positive restriction of the zero complete trajectory therefore attracts
+in $C_{\mathrm{loc}}([0,\infty);H_{\mathrm w})$, in fact with the displayed
+strong bound.  Its dimension is zero because it is a singleton, not because
+of a spectral cutoff.
+\end{proof}
+
+\section{Regularity boundary and conditional continuation}\label{sec:regularity}
+
+The energy-class interpolation is the standard Ladyzhenskaya bound, while the
+regularity comparison is the classical Serrin criterion
+\cite{Ladyzhenskaya1969,Serrin1962}.  Use the Hodge graph norm
+\[
+ \|v\|_{H_A^1}^2=\|v\|_H^2+\|A^{1/2}v\|_H^2,
+ \qquad v\in V.
+\]
+At unit curvature radius, the positive-sign Weitzenb\"ock convention is
+$\Delta_H=\nabla^*\nabla+\mathrm{Ric}$ with $\mathrm{Ric}=2g$ on one-forms
+\cite[Section~2.2, Theorems~2.6--2.7]{Aino2021}.  Hence, for every smooth
+coexact one-form $v$,
+\[
+ \|A^{1/2}v\|_2^2=\|\nabla v\|_2^2+2\|v\|_2^2.
+\]
+The quadratic-form Kato inequality
+\cite[Corollary~2.5]{Guneysu2014Kato} then gives
+\[
+ \|\nabla|v|\|_2^2+\|v\|_2^2
+ \le \|\nabla v\|_2^2+\|v\|_2^2
+ \le \|v\|_{H_A^1}^2.
+\]
+For $v\in V$, choose smooth coexact $v_n\to v$ in the graph norm.  Applying
+the closed Weitzenb\"ock form identity to the graph-norm convergence gives
+$v_n\to v$ in $L^2$ and
+$\nabla v_n\to\nabla v$ in $L^2$.  Kato bounds $|v_n|$ in scalar $H^1$, while
+$\bigl||v_n|-|v|\bigr|\le|v_n-v|$ gives strong $L^2$ convergence to $|v|$.
+A subsequence converges weakly in $H^1$ to that same limit.  Weak lower
+semicontinuity, followed by
+$\|\nabla v_n\|_2\to\|\nabla v\|_2$, gives
+$\|\nabla|v|\|_2\le\|\nabla v\|_2$.  The scalar Sobolev inequality therefore
+passes to the graph-form domain, giving
+\begin{equation}\label{eq:graph-embedding}
+ C_V:=\frac2{\sqrt3}\left(\frac{137}{2\pi^2}\right)^{1/3},
+ \qquad
+ \|v\|_{L^6(L(137,1))}
+ \le C_{L(137,1)}\|v\|_{H_A^1}
+ \le C_V\|v\|_{H_A^1}
+ \qquad (R_c=1).
+\end{equation}
+This graph-form embedding is one-way: small $L^6$ norm does not imply small
+graph norm, so an independently supplied graph-norm threshold $\delta$ cannot
+be replaced by $\delta/C_V$ as an $L^6$ threshold.  The energy class and the Sobolev
+embedding $V\hookrightarrow L^6(M)$ give,
+for $0\le\theta\le1$,
+\begin{equation}\label{eq:energy-interpolation}
+ u\in L^p_{\mathrm{loc}}(L^q),\qquad
+ \frac1p=\frac\theta2,\qquad
+ \frac1q=\frac{1-\theta}{2}+\frac\theta6.
+\end{equation}
+Thus $2\le p\le\infty$ and $2\le q\le6$, with the exponents coupled by
+\[
+ \frac2p+\frac3q=\frac32,
+\]
+not the Serrin region $2/p+3/q\le1$ (with $q>3$ in its usual nonendpoint
+form).  In particular, $(p,q)=(\infty,6)$ is not supplied by
+\eqref{eq:energy-interpolation}: $p=\infty$ corresponds to $q=2$.  The exact
+spectrum is infinite, so finite cutoff counts do not imply cascade starvation.
+
+For the exact time-average statement this graph norm is equivalent to the
+usual $H^1$ norm on the solenoidal sector, but the
+constant below is asserted only for this declared graph norm.  Put
+$E(t)=\|u(t)\|_H^2$ and $E_0=E(0)$, with no factor $1/2$.  For every
+$t\in\mathcal G_u$ and $\Delta t>0$, the energy inequality gives an admissible
+$s\in\mathcal G_u\cap[t,t+\Delta t]$ such that
+\begin{equation}\label{eq:time-average}
+ \|u(s)\|_{H_A^1}^2
+ \le E(t)\left(1+\frac{1}{2\nu\Delta t}\right).
+\end{equation}
+
+The regularity consequence is explicitly conditional.  Assume an independent
+theorem supplies $\delta>0$ for equation~\eqref{eq:hodge-ns}, the given
+$(\nu,R_c)$, and this exact graph norm, such that every
+$v\in V$ with $\|v\|_{H_A^1}\le\delta$ generates a global strong
+continuation, and that weak--strong uniqueness identifies any Leray--Hopf
+trajectory having datum $v$ with that continuation.  Then the original
+trajectory is strong from the selected $s$ onward whenever the right-hand
+side of~\eqref{eq:time-average} is at most $\delta^2$.  Since
+$E(t)\le E_0e^{-2\nu\lambda_1t}$, this holds for every admissible $t$ satisfying
+\begin{equation}\label{eq:conditional-onset}
+ t\ge \frac{1}{2\nu\lambda_1}
+ \log\!\left[
+ \frac{E_0}{\delta^2}
+ \left(1+\frac{1}{2\nu\Delta t}\right)
+ \right],\qquad \lambda_1=\frac4{R_c^2}.
+\end{equation}
+The conditional onset is then no later than $t+\Delta t$.  Because
+$\mathcal G_u$ has full measure, admissible $t$ may be chosen arbitrarily
+close above the displayed threshold.  This is neither an unconditional
+$T^*$ formula nor a theorem of global three-dimensional regularity or
+uniqueness.
+
+\section{Conclusion}\label{sec:conclusion}
+
+We have combined the exact coexact spectrum of $L(137,1)$ with its
+deck-restricted interaction algebra.  The result includes a
+convention-complete Wigner formula, a discrete ladder-canonical phase, explicit
+nonzero witnesses, and finite two-band data.  The same spectral gap yields
+exponential energy decay and singleton phase and trajectory attractors for the
+declared Hodge--Stokes evolution, without assuming uniqueness of weak
+solutions.
+
+Several questions remain open.  The finite tower census does not determine an
+asymptotic cascade law, the canonical phase is not invariant under arbitrary
+rephasing, and the conditional continuation argument does not prove global
+three-dimensional regularity.  It would be particularly useful to understand
+how much of the interaction algebra survives beyond round quotients and
+whether the exact selection rules constrain long-range transfer across the
+full, infinite spectrum.
+
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\begingroup
+\footnotesize
+\bibliographystyle{plain}
+\bibliography{references}
+\endgroup
+
+\end{document}

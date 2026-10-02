@@ -1,0 +1,54 @@
+{
+ "S0 nu=1": {
+  "dedekind": "0",
+  "constant": "0",
+  "layer": "0",
+  "linear_residue": "0",
+  "total": "0"
+ },
+ "S1 nu=1 sig=1": {
+  "dedekind": "-a",
+  "constant": "2*a**2",
+  "layer": "a*(a - 1)**2",
+  "linear_residue": "-a**3",
+  "total": "0"
+ },
+ "S1 nu=1 sig=-1": {
+  "dedekind": "-a",
+  "constant": "2*a**2",
+  "layer": "a*(a - 1)**2",
+  "linear_residue": "-a**3",
+  "total": "0"
+ },
+ "S0 nu=-1": {
+  "dedekind": "-2*b/3",
+  "constant": "2*b**2",
+  "layer": "2*b*(b - 1)*(2*b - 1)/3",
+  "linear_residue": "-4*b**3/3",
+  "total": "0"
+ },
+ "S1 nu=-1 sig=1": {
+  "dedekind": "-a/3",
+  "constant": "0",
+  "layer": "-a*(a - 1)*(a + 1)/3",
+  "linear_residue": "a**3/3",
+  "total": "0"
+ },
+ "S1 nu=-1 sig=-1": {
+  "dedekind": "-a/3",
+  "constant": "0",
+  "layer": "-a*(a - 1)*(a + 1)/3",
+  "linear_residue": "a**3/3",
+  "total": "0"
+ },
+ "D3": {
+  "families": 24,
+  "class_triples": 6025,
+  "max_degrees": [
+   0,
+   1
+  ],
+  "pass": true
+ },
+ "D1_pass": true
+}

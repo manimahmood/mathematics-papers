@@ -1,0 +1,98 @@
+{
+  "members": [
+    {
+      "bytes": 399,
+      "path": "CITATION.cff",
+      "sha256": "692213cd449d716d467bd48c9560d0c2db4bc01e2d3c43bd0378b0641001940a"
+    },
+    {
+      "bytes": 3020,
+      "path": "README.md",
+      "sha256": "9d824e347be1bc733d256db7e68cad0e58c53a494e9364bdd286ed7b36b3031e"
+    },
+    {
+      "bytes": 529,
+      "path": "RIGHTS.md",
+      "sha256": "ace9dc56d57f2806c7a8854a30badf9c3aed805a3840461590b5e9fa787a8a63"
+    },
+    {
+      "bytes": 635,
+      "path": "disclosure.tex",
+      "sha256": "c61cfc0bd73c7eef13caf3cba0905adfd55003149c888b970f19707b06c2d8ba"
+    },
+    {
+      "bytes": 498943,
+      "path": "main.pdf",
+      "sha256": "88ca8d518affd9acc516211c34c8911311f7bacbfcb545378166881df7e4a9c3"
+    },
+    {
+      "bytes": 45404,
+      "path": "main.tex",
+      "sha256": "2dc888064d1c17baa3e688d1d9731bf5859edd14aed6964c577f266ba559a069"
+    },
+    {
+      "bytes": 3474,
+      "path": "supplement/HISTORY.md",
+      "sha256": "d7f2be8159a01e9dec0a596c5fc2d31ba65a77996ab522cb45d66ef630ac13dd"
+    },
+    {
+      "bytes": 3180,
+      "path": "supplement/README.md",
+      "sha256": "641331e350390291fd8bf8363d498edce7a539e22a2f08756922b78f950289a2"
+    },
+    {
+      "bytes": 3271,
+      "path": "supplement/check_information_loss.py",
+      "sha256": "5f721d94568b6755d60f2fa5e052bc848570a299827964a4b0b94bfca2d97679"
+    },
+    {
+      "bytes": 2963,
+      "path": "supplement/results/EP1B_ADDENDUM_1_CHECK.json",
+      "sha256": "c0bf61c6a70729a0f4c1ec09473042a88775afdb230fab6958c76aff3914a0cc"
+    },
+    {
+      "bytes": 2961,
+      "path": "supplement/results/EP1B_ADDENDUM_1_CHECK_R2.json",
+      "sha256": "012096f1bf8073ac62bf94ddfd50211cd3ddd0aaa67ea913a4f6ca7e97c8685a"
+    },
+    {
+      "bytes": 2858,
+      "path": "supplement/results/EP1B_ADDENDUM_1_WOLFRAM_stdout.txt",
+      "sha256": "209cf8625b44a6d325b2247e20f3be840d853d3cd36b089276f089c68870733a"
+    },
+    {
+      "bytes": 3027,
+      "path": "supplement/results/EP1B_RUN1.json",
+      "sha256": "570e6e11f53fa3074ce8c6a7fb187cb3830348e12e216342616aa64548035e22"
+    },
+    {
+      "bytes": 3481,
+      "path": "supplement/results/EP1B_RUN2.json",
+      "sha256": "d7be6de6bbb60de84ed40e4807c0f576d6b98d691da74ac1d6cea726e369d061"
+    },
+    {
+      "bytes": 3390,
+      "path": "supplement/src/b_ep1_fixed_arrow_20260928.wls",
+      "sha256": "940d1dba9403627ffeec69d37172698b906636ce2895f9b9ad3a8a635d9fe63c"
+    },
+    {
+      "bytes": 7046,
+      "path": "supplement/src/b_ep1_fixed_arrow_check_20260928.py",
+      "sha256": "226d61e24c9238edc1f21075f27b120b6fee9accd39b808a204ba382c7ba5251"
+    },
+    {
+      "bytes": 8779,
+      "path": "supplement/src/b_ep1_phase_erased_20260927.py",
+      "sha256": "21cbe9c2b19a2cd2ba41980ea5ae071900476e41bd5688502377e980cd31d674"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "EP",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

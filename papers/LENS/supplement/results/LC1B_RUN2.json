@@ -1,0 +1,203 @@
+{
+ "K0": {
+  "bernoulli_2": true,
+  "compiler_sha": true,
+  "hurwitz_0": true,
+  "hurwitz_m1": true,
+  "p1_full_dims": true
+ },
+ "K4a_lemma": {
+  "pass": true,
+  "violations": []
+ },
+ "K4b_rank1": {
+  "dedekind_violations": [],
+  "pass": true,
+  "violations": []
+ },
+ "K4c_consistency": {
+  "accidental": {
+   "J=2": [
+    [
+     7,
+     2
+    ],
+    [
+     7,
+     3
+    ],
+    [
+     7,
+     4
+    ],
+    [
+     7,
+     5
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     14,
+     11
+    ]
+   ],
+   "J=3": [
+    [
+     17,
+     5
+    ],
+    [
+     17,
+     7
+    ],
+    [
+     17,
+     10
+    ],
+    [
+     17,
+     12
+    ],
+    [
+     34,
+     5
+    ],
+    [
+     34,
+     7
+    ],
+    [
+     34,
+     27
+    ],
+    [
+     34,
+     29
+    ]
+   ]
+  },
+  "pass": true,
+  "rows": 1590,
+  "violations": []
+ },
+ "K4d_eta_zero_without_balance": {
+  "J=2": [
+   [
+    35,
+    8
+   ],
+   [
+    35,
+    13
+   ],
+   [
+    35,
+    22
+   ],
+   [
+    35,
+    27
+   ]
+  ],
+  "J=3": [
+   [
+    17,
+    3
+   ],
+   [
+    17,
+    6
+   ],
+   [
+    17,
+    11
+   ],
+   [
+    17,
+    14
+   ],
+   [
+    34,
+    9
+   ],
+   [
+    34,
+    15
+   ],
+   [
+    34,
+    19
+   ],
+   [
+    34,
+    25
+   ]
+  ]
+ },
+ "K4e_prediction_J4": {
+  "accidental": [
+   [
+    31,
+    7
+   ],
+   [
+    31,
+    9
+   ],
+   [
+    31,
+    22
+   ],
+   [
+    31,
+    24
+   ],
+   [
+    62,
+    7
+   ],
+   [
+    62,
+    9
+   ],
+   [
+    62,
+    53
+   ],
+   [
+    62,
+    55
+   ]
+  ],
+  "by_p": {
+   "31": [
+    7,
+    9,
+    22,
+    24
+   ],
+   "62": [
+    7,
+    9,
+    53,
+    55
+   ]
+  },
+  "predicted": "exactly p in {31, 62}, four q each",
+  "result": "HIT"
+ },
+ "library_sha256": "b56cef48158d160050dd40a9fab83d09695cbc29d3ab57b69e75f6737161008a",
+ "run": "RUN2 (amendment 1: K4')",
+ "source_sha256": "d80612ce9a60c4b18f1361003cda1b097feb8ae3361f0548ae34632d202b6dc0",
+ "status": "PASS"
+}

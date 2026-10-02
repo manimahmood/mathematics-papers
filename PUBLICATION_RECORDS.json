@@ -1,0 +1,367 @@
+{
+  "authenticated": false,
+  "records": [
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.21433675",
+      "doi_resolves_to": "https://zenodo.org/records/21433675",
+      "files": [
+        {
+          "bytes": 542088,
+          "filename": "integer_spin_eta_lens_spaces.pdf",
+          "sha256": "9b9ab0f3e98cea295a0d4ae5156882d03fa179529da838555f5df06a4a19361c",
+          "url": "https://zenodo.org/api/records/21433675/files/integer_spin_eta_lens_spaces.pdf/content"
+        },
+        {
+          "bytes": 1118718,
+          "filename": "P1_source_and_supplement.zip",
+          "sha256": "ae86b38b437650bd156cade68e6388edafbf678dbd1691401d19ff1af66daec7",
+          "url": "https://zenodo.org/api/records/21433675/files/P1_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "P1",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/21433675",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.21433679",
+      "doi_resolves_to": "https://zenodo.org/records/21433679",
+      "files": [
+        {
+          "bytes": 1922641,
+          "filename": "P2_source_and_supplement.zip",
+          "sha256": "d87b2f500a1815d4c8125c147363a07ad597d11e6121e5d27bd05d2aeabd43ac",
+          "url": "https://zenodo.org/api/records/21433679/files/P2_source_and_supplement.zip/content"
+        },
+        {
+          "bytes": 422922,
+          "filename": "main.pdf",
+          "sha256": "5a98c4d9d96032aa937c80a353288756b6303ed73f415509cc97f6b7a1383ece",
+          "url": "https://zenodo.org/api/records/21433679/files/main.pdf/content"
+        }
+      ],
+      "paper": "P2",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/21433679",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.21433687",
+      "doi_resolves_to": "https://zenodo.org/records/21433687",
+      "files": [
+        {
+          "bytes": 531557,
+          "filename": "affine_ade_twisted_tt_eta.pdf",
+          "sha256": "84f03a0bac66f773b951f976862414ca73dea04a76c35e80723ca98fc522c07d",
+          "url": "https://zenodo.org/api/records/21433687/files/affine_ade_twisted_tt_eta.pdf/content"
+        },
+        {
+          "bytes": 488845,
+          "filename": "P3_source_and_supplement.zip",
+          "sha256": "b552851ebad123a84736b9e97573034924a88b99761d29a0bd36bd423ae97d98",
+          "url": "https://zenodo.org/api/records/21433687/files/P3_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "P3",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/21433687",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.21433689",
+      "doi_resolves_to": "https://zenodo.org/records/21433689",
+      "files": [
+        {
+          "bytes": 546352,
+          "filename": "bivariate_mckay_spectral_functions.pdf",
+          "sha256": "ae4d22b12c0d6ed2b9b6098e9543dc4fa73c525e816b3a2199083b0b11301c51",
+          "url": "https://zenodo.org/api/records/21433689/files/bivariate_mckay_spectral_functions.pdf/content"
+        },
+        {
+          "bytes": 506621,
+          "filename": "P4_source_and_supplement.zip",
+          "sha256": "efded67a03047a8e282af32799d6289c551fe0a11bd947283846a4645b5e28d2",
+          "url": "https://zenodo.org/api/records/21433689/files/P4_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "P4",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/21433689",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.22917335",
+      "doi_resolves_to": "https://zenodo.org/records/22917335",
+      "files": [
+        {
+          "bytes": 514562,
+          "filename": "coexact_spectral_hydrodynamics_l137.pdf",
+          "sha256": "144ee228e4941af501792b894ae15894445e7e37ccaf7e9bae3ddc4319406ff7",
+          "url": "https://zenodo.org/api/records/22917335/files/coexact_spectral_hydrodynamics_l137.pdf/content"
+        },
+        {
+          "bytes": 549138,
+          "filename": "P5_source_and_supplement.zip",
+          "sha256": "3532e02859e6be8db3e339bf31a0f2ec95d03ec365305efdf6d454eff3986314",
+          "url": "https://zenodo.org/api/records/22917335/files/P5_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "P5",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/22917335",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.22917339",
+      "doi_resolves_to": "https://zenodo.org/records/22917339",
+      "files": [
+        {
+          "bytes": 526015,
+          "filename": "green_geometry_positive_hermitian.pdf",
+          "sha256": "091d3748cf80551e64f072c5fa53048f4e5f3e4ba66bb80bb908e2475838315b",
+          "url": "https://zenodo.org/api/records/22917339/files/green_geometry_positive_hermitian.pdf/content"
+        },
+        {
+          "bytes": 1214489,
+          "filename": "P6_source_and_supplement.zip",
+          "sha256": "4c1fc01f6263be00ac62bf7a5e01e3374195d30dd19642d9f847788c6a1ac375",
+          "url": "https://zenodo.org/api/records/22917339/files/P6_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "P6",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/22917339",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.22917346",
+      "doi_resolves_to": "https://zenodo.org/records/22917346",
+      "files": [
+        {
+          "bytes": 635732,
+          "filename": "P7_source_and_supplement.zip",
+          "sha256": "8b9bd77bc8c5d84b3f841ea26bb020fca50436bdf7461485c08b91816484495d",
+          "url": "https://zenodo.org/api/records/22917346/files/P7_source_and_supplement.zip/content"
+        },
+        {
+          "bytes": 519190,
+          "filename": "stein_weiss_aps_boundary.pdf",
+          "sha256": "9b08595a45ae41e32fc573301c9e65da8cbebb59d8ca10fbb21b71f64087a659",
+          "url": "https://zenodo.org/api/records/22917346/files/stein_weiss_aps_boundary.pdf/content"
+        }
+      ],
+      "paper": "P7",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/22917346",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.22917349",
+      "doi_resolves_to": "https://zenodo.org/records/22917349",
+      "files": [
+        {
+          "bytes": 378483,
+          "filename": "P8_source_and_supplement.zip",
+          "sha256": "a887000464ea3b44004c53587e7837a3069189295e2803aefb8e85594c0e4ad7",
+          "url": "https://zenodo.org/api/records/22917349/files/P8_source_and_supplement.zip/content"
+        },
+        {
+          "bytes": 395201,
+          "filename": "exact_quadratic_response_note.pdf",
+          "sha256": "3e17a2cc983e2bdebe5928eae62b8aaad7a622a7b72c907e3c12c71bd8cb4b13",
+          "url": "https://zenodo.org/api/records/22917349/files/exact_quadratic_response_note.pdf/content"
+        }
+      ],
+      "paper": "P8",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/22917349",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049605",
+      "doi_resolves_to": "https://zenodo.org/records/23049605",
+      "files": [
+        {
+          "bytes": 721752,
+          "filename": "SM1_source_and_supplement.zip",
+          "sha256": "595affe65f7843fabce0fe42b35597f3ec96c05e9e0ddba583e8705456882b26",
+          "url": "https://zenodo.org/api/records/23049605/files/SM1_source_and_supplement.zip/content"
+        },
+        {
+          "bytes": 340843,
+          "filename": "SM1_preprint.pdf",
+          "sha256": "212a7876867441c88c5825f1506e79e63e09440941cd0a7580aaeadffb7c28f1",
+          "url": "https://zenodo.org/api/records/23049605/files/SM1_preprint.pdf/content"
+        }
+      ],
+      "paper": "SM1",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049605",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049607",
+      "doi_resolves_to": "https://zenodo.org/records/23049607",
+      "files": [
+        {
+          "bytes": 362076,
+          "filename": "SM2_preprint.pdf",
+          "sha256": "d82212773333675cd4093b598db6404b4586f87de79addde30f34261d3e5f045",
+          "url": "https://zenodo.org/api/records/23049607/files/SM2_preprint.pdf/content"
+        },
+        {
+          "bytes": 380810,
+          "filename": "SM2_source_and_supplement.zip",
+          "sha256": "52a3b46176b32f042d44dc48246885481f2609837a5765ab6368b9bfd9ec1ffd",
+          "url": "https://zenodo.org/api/records/23049607/files/SM2_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "SM2",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049607",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049609",
+      "doi_resolves_to": "https://zenodo.org/records/23049609",
+      "files": [
+        {
+          "bytes": 320475,
+          "filename": "SM3_source_and_supplement.zip",
+          "sha256": "10ea4e58a7099a52ce5bc253619ec7814ac91e165d4bb2ac91228db0c44274ea",
+          "url": "https://zenodo.org/api/records/23049609/files/SM3_source_and_supplement.zip/content"
+        },
+        {
+          "bytes": 330454,
+          "filename": "SM3_preprint.pdf",
+          "sha256": "32b5ea670f972646a6a8d6214ff1c9128efdae0c9c9e66c623cd0fe4cddfdf62",
+          "url": "https://zenodo.org/api/records/23049609/files/SM3_preprint.pdf/content"
+        }
+      ],
+      "paper": "SM3",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049609",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049611",
+      "doi_resolves_to": "https://zenodo.org/records/23049611",
+      "files": [
+        {
+          "bytes": 287483,
+          "filename": "SM4_preprint.pdf",
+          "sha256": "08c7af8287791af712a403aa794929b8a2a587620373158aedeae87c87abdabe",
+          "url": "https://zenodo.org/api/records/23049611/files/SM4_preprint.pdf/content"
+        },
+        {
+          "bytes": 338883,
+          "filename": "SM4_source_and_supplement.zip",
+          "sha256": "e9f796977b9a00e9234928b399ab5da73cdb5cef87a785a0b35f9f17fd687bef",
+          "url": "https://zenodo.org/api/records/23049611/files/SM4_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "SM4",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049611",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049613",
+      "doi_resolves_to": "https://zenodo.org/records/23049613",
+      "files": [
+        {
+          "bytes": 652194,
+          "filename": "LENS_source_and_supplement.zip",
+          "sha256": "214604490e9f702f31b86f3331fac855c38d9012bf5f483923371b03fa0e4afc",
+          "url": "https://zenodo.org/api/records/23049613/files/LENS_source_and_supplement.zip/content"
+        },
+        {
+          "bytes": 686958,
+          "filename": "LENS_preprint.pdf",
+          "sha256": "f3b0ffd472108675267c1104a220fe2ce8db8dbde084b69b3dec51527567c574",
+          "url": "https://zenodo.org/api/records/23049613/files/LENS_preprint.pdf/content"
+        }
+      ],
+      "paper": "LENS",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049613",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049615",
+      "doi_resolves_to": "https://zenodo.org/records/23049615",
+      "files": [
+        {
+          "bytes": 652448,
+          "filename": "SILVER_preprint.pdf",
+          "sha256": "d6193717ee8b6d0e4e19621a34acdc72916d39e095dcdd7309cbec286379121e",
+          "url": "https://zenodo.org/api/records/23049615/files/SILVER_preprint.pdf/content"
+        },
+        {
+          "bytes": 682916,
+          "filename": "SILVER_source_and_supplement.zip",
+          "sha256": "68c5839579937d7bdd9591a8199582413f0576913694c4b1278ad0d27b8e3975",
+          "url": "https://zenodo.org/api/records/23049615/files/SILVER_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "SILVER",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049615",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Luqman Mahmood",
+      "doi": "10.5281/zenodo.23049617",
+      "doi_resolves_to": "https://zenodo.org/records/23049617",
+      "files": [
+        {
+          "bytes": 498943,
+          "filename": "EP_preprint.pdf",
+          "sha256": "88ca8d518affd9acc516211c34c8911311f7bacbfcb545378166881df7e4a9c3",
+          "url": "https://zenodo.org/api/records/23049617/files/EP_preprint.pdf/content"
+        },
+        {
+          "bytes": 492766,
+          "filename": "EP_source_and_supplement.zip",
+          "sha256": "8298de5e80b5b5513d3a81749c0974221d9c288f65d89b1e67f6de0e7ee2c114",
+          "url": "https://zenodo.org/api/records/23049617/files/EP_source_and_supplement.zip/content"
+        }
+      ],
+      "paper": "EP",
+      "publication_date": "2026-10-01",
+      "record_url": "https://zenodo.org/records/23049617",
+      "result": "PUBLIC_RECORD_DOI_AND_EXACT_FILES_VERIFIED_UNAUTHENTICATED",
+      "version": "1.0.0"
+    }
+  ],
+  "result": "ALL15_PUBLIC_ZENODO_DOIS_AND_BYTES_PASS",
+  "verified_utc": "2026-10-02T00:13:56.147241+00:00"
+}

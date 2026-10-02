@@ -1,0 +1,208 @@
+{
+  "mathematical_sources": [
+    {
+      "extracted": [
+        {
+          "function": "lift",
+          "function_sha256": "a6f58bf477e95163ace4c9273905f08e28d5c756250e7f6c8d1ce9cd4394cb1f"
+        },
+        {
+          "function": "coeffs",
+          "function_sha256": "befd0ef7a8e36438f8408794641f1f8063d38de2bd47bd82f4bf71e7af1cd7e0"
+        },
+        {
+          "function": "canonical_qs",
+          "function_sha256": "0d98e88af772360922565fabbede082f523a584de233f46a47267de9f7c921de"
+        },
+        {
+          "function": "n_route_a",
+          "function_sha256": "270bb2089a9c810fdc9c54a7d8fd87019912809cf71678c39798a9049609588b"
+        },
+        {
+          "function": "CharVectors",
+          "function_sha256": "7df883f9fef4d257eebc48f8c93afb200b8beb547ff3c6c309959f96ce75b791"
+        },
+        {
+          "function": "n_route_b",
+          "function_sha256": "dad0cf80c834a5e66d902f356d1b07456ec2b6033414dd0dc0598c203a80621b"
+        },
+        {
+          "function": "balanced",
+          "function_sha256": "01ae606e2f7c57cf9bcaa75a76e7ff815b62618cdd46f3ad41ecbec4404f0b5f"
+        },
+        {
+          "function": "branch_counts",
+          "function_sha256": "a630ce7f27a2ade918a6cc923302a8a2fe16c421daa3500643937d08459ea678"
+        }
+      ],
+      "original_mathematical_source": "b_lc1_lens_chirality_20260924.py",
+      "source_sha256": "b56cef48158d160050dd40a9fab83d09695cbc29d3ab57b69e75f6737161008a"
+    },
+    {
+      "extracted": [
+        {
+          "function": "eta_fast",
+          "function_sha256": "d15bd54c659f4f36bdb4cbb032c1ef6d06ae6ccb1a931e4311360c87cf59b661"
+        }
+      ],
+      "original_mathematical_source": "b_lc5_eta_zeros_20260925.py",
+      "source_sha256": "39dc57d1e48a5b3a38f131fb313745d33a57e3fa2b8dfa6c220955b880b30b2c"
+    },
+    {
+      "extracted": [
+        {
+          "function": "cond_i",
+          "function_sha256": "42c4d3a6fccfea45803a878971c34c200dc8a3cb5fd493cb756de7a653effdf9"
+        },
+        {
+          "function": "criterion",
+          "function_sha256": "c24d48cbec0298f33c7af482b8ca237701bd6f73dea7dda0ba52d22aa9b82468"
+        },
+        {
+          "function": "fam",
+          "function_sha256": "c5f7035127553f535b3da9f33eb69697f6e08214dbb067084a3b68bca1fb6454"
+        }
+      ],
+      "original_mathematical_source": "b_lc2_lens_balance_20260924.py",
+      "source_sha256": "fd973fd761e1171e4a75b62ce09ade7cbf0f615675383616a8d458b976d4eeae"
+    },
+    {
+      "extracted": [
+        {
+          "function": "T",
+          "function_sha256": "a93da6faff0515bdab20a933d1b1823ef09db1ee3c9d84bc2398876b7166a72b"
+        },
+        {
+          "function": "ded",
+          "function_sha256": "3aa32ba01bd280ae55e1cfb5a5a60a3f740d198f0b91fe56eec2fde823afc3ad"
+        },
+        {
+          "function": "rho",
+          "function_sha256": "11643eea316c4a0355bb8e9f8f9083573ccf4ddb3c404fce52abac8b5773c5c4"
+        },
+        {
+          "function": "par_count",
+          "function_sha256": "f2c8181185195490e338f1fd4e88c93279f46d0654f8c8722268d2ec9f4a7484"
+        },
+        {
+          "function": "m_count",
+          "function_sha256": "cbd144811d80174a524eb91c99bab1a1083aded865e04806c6b503d758438b49"
+        },
+        {
+          "function": "m_count_loop",
+          "function_sha256": "1bffbbb4f4059d8d52453591124e3c6fe04c575f0bcc0ea80382862bbdfbd64c"
+        },
+        {
+          "function": "terms",
+          "function_sha256": "ebdcbc0319197e5d7e308d9bc9960a506e361c3bd68108a1b508eadc32e1ca50"
+        },
+        {
+          "function": "eta",
+          "function_sha256": "b358de484a21c1b46bde20addee2ada3cafa06683eacd440bd23c10a8e661452"
+        }
+      ],
+      "original_mathematical_source": "b_lc13_pell_ladder_20260927.py",
+      "source_sha256": "7844d850215214e0ee1ac764412020f7f69c25f57ec45d80eb96413e6056f37d"
+    },
+    {
+      "extracted": [
+        {
+          "function": "eta_q",
+          "function_sha256": "8a28f7d6b84ca5abd3b329953a9b54b9764ffc0cc915f74049bc4d6f1954004d"
+        },
+        {
+          "function": "box_sum",
+          "function_sha256": "fc5bbdf5c753da768f1327e6b60ed383d0cf031963ab4f8a7b72399cad800fb5"
+        },
+        {
+          "function": "family",
+          "function_sha256": "d5971c23430c49d713aa37e66f1bf0a56c80fca3149254bbddd931d048a2faaf"
+        },
+        {
+          "function": "ceilF",
+          "function_sha256": "36f659e78a638f21c8720ac7709c008e5a55e5a381eca5d1593996ab04589857"
+        },
+        {
+          "function": "q_breakpoints",
+          "function_sha256": "1115230a2405d7793d0ca8839fbacfd410b57f87a882e3544429ccaa56eb40ba"
+        },
+        {
+          "function": "lin_form",
+          "function_sha256": "df0c3b20509d3bd6e247d113e7f84f6b55d94c7c1afa20c17346f3aefcb069cf"
+        },
+        {
+          "function": "cross",
+          "function_sha256": "3fdea4d6c3059d9fce5590bfc97eef4ca6581b5be230785239be1a03b4a45a3c"
+        },
+        {
+          "function": "threshold",
+          "function_sha256": "c662a88dcb62133abe035b0083f4ea7d718a4689d10fbaf985a53d81af772055"
+        },
+        {
+          "function": "quad",
+          "function_sha256": "44ae4fa37725058ae071e1e7c6ce56d2c9311ee360f8e721245e0f7763218381"
+        }
+      ],
+      "original_mathematical_source": "b_lc14_period_law_20260928.py",
+      "source_sha256": "a6084bf42b054d8294f453e832294b756587200265c7cf954960fcd47f71aada"
+    },
+    {
+      "extracted": [
+        {
+          "function": "int_roots",
+          "function_sha256": "d633298980fcba10da8c42d074292e38d571fb0d93eca191612210fcf8696a41"
+        },
+        {
+          "function": "self_test",
+          "function_sha256": "bbe3feb6bd00f4cf4e636cf9b7012d129b8b3eee8c33884cbe199fc2c3c5af97"
+        }
+      ],
+      "original_mathematical_source": "b_lc14_zero_sets_20260928.py",
+      "source_sha256": "b7f0fb3901c2c46e322dd3a168582a2ae136b9018eba11f1605bc9a3c7335e25"
+    }
+  ],
+  "module_sha256": "85961da95818a233ad3f2ced0079443ec93cfe28d2ef50736cde7015ae220a01",
+  "retained_records": [
+    {
+      "file": "results/LC10B_RUN1.json",
+      "sha256": "56eb67e75627a33bd194c441380fb956ae66a6c4909d4dbfcf6b2598ae635e7e"
+    },
+    {
+      "file": "results/LC11B_RUN3.json",
+      "sha256": "3d0ca0031d31cbbe174c562107e1f1aca2036972afea477521ce634ad70040f0"
+    },
+    {
+      "file": "results/LC11B_SUNIT_SEARCH_RERUN.json",
+      "sha256": "6f61ed3b40f2429b85dc2e85c3ea5de56b155e155a293eb47c43711e05d8689b"
+    },
+    {
+      "file": "results/LC12B_RUN1.json",
+      "sha256": "c8b4a5d9522cacb9809ef6a0ec6367ae95e26be4aaea97ebc2232703a6b20e3c"
+    },
+    {
+      "file": "results/LC13B_RUN1.json",
+      "sha256": "242800ca92e5ec8347cf1f2a7b4a2f781a2babd67522782d665f132e7005943b"
+    },
+    {
+      "file": "results/LC13B_WINDOW_WITNESSES.json",
+      "sha256": "c50b51c1389b6f3367f3f16eb6e406b8519c99df96a5fbf9b77fd7e176fef09f"
+    },
+    {
+      "file": "results/LC14B_ADDENDUM_2_SYMPY.json",
+      "sha256": "2a5568eb41f1f281a41a4dd84d357f2fe216ae9d633fe30afa347b2f5b61a59d"
+    },
+    {
+      "file": "results/LC14B_RUN1.json",
+      "sha256": "7c0c0a18e041d3accf2f59d3a87850cbfae68c8ba3998aeec08fce38717afc91"
+    },
+    {
+      "file": "results/LC14B_ZERO_SETS.json",
+      "sha256": "4e688857004020d443017d1355b347c4ca5ecd89771a779315e9bf6f00a93097"
+    },
+    {
+      "file": "results/LC9B_RUN1.json",
+      "sha256": "d425419e33e8fa5543b30a8cde79067d2eb9c6c1c86cef67aab6ece3f03d0516"
+    }
+  ],
+  "scope": "Mathematical function bodies unchanged. Retained mathematical values are exact projections of historical records; fields and rows not used by this paper are omitted."
+}

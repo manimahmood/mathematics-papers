@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite the preprint. CC BY 4.0 covers scholarly documents and mathematical data; executable software rights are reserved."
+type: article
+title: "Which Collision Laws Admit Finite-Moment Prediction? A Gaussian-Mixture Classification and a Clock-Free Inverse"
+authors:
+  - family-names: Mahmood
+    given-names: Luqman
+version: "1.0.0"
+doi: "10.5281/zenodo.23049609"
+license: CC-BY-4.0
+date-released: 2026-10-01

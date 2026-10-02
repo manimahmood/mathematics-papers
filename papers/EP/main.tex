@@ -1,0 +1,985 @@
+\ifdefined\pdfsuppressptexinfo
+  \pdfsuppressptexinfo=15
+\fi
+\documentclass[10pt]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\makeatletter\g@addto@macro{\UrlBreaks}{\do\_}\makeatother
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Phase-erased arrows of time and entropy production under periodic driving},
+  pdfauthor={Luqman Mahmood}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\KL}{KL}
+\DeclareMathOperator{\TV}{TV}
+\DeclareMathOperator{\Bern}{Bern}
+\newcommand{\per}{\mathcal T}
+\newcommand{\sbar}{\bar\sigma}
+\newcommand{\Bbar}{\bar B}
+\newcommand{\Pbar}{\bar P}
+\newcommand{\Rrec}{R'}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Rr}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Phase-erased arrows of time and entropy production\\
+under periodic driving:\\
+a bound under known time symmetry, a no-go without it,\\
+and the locality of the pairwise estimator}
+\author{Luqman Mahmood}
+\date{1 October 2026\\[3pt]\small Preprint\\
+DOI: \href{https://doi.org/10.5281/zenodo.23049617}{10.5281/zenodo.23049617}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We ask when forward records with the drive phase erased can bound entropy
+production in periodically driven finite-state Markov jump processes.
+Known time symmetry and a reversal-covariant observation give a
+finite-window relative-entropy bound with a mirror-state boundary
+allowance; the corresponding rate bound has no boundary term.
+The allowance vanishes exactly when all frozen generators share the
+periodic state's constant stationary law, a weaker condition than detailed
+balance. Without time symmetry, a two-state construction fixes the
+four-sample arrow at any prescribed value in an explicit interval while
+the window's expected entropy production tends to zero. This excludes a
+universal quantitative lower bound from that arrow alone, not qualitative
+or model-specific inference. Exact probability tables and numerical
+checks accompany the construction. The two-state witness's pairwise
+waiting-time estimator is identically zero at every period. A separate
+locality result covers graphs with hidden edges under explicit uniformity
+hypotheses; it does not prove Maier and collaborators' finite-period
+pairwise-estimator conjecture.
+The ingredients of the time-symmetric bound are classical; no priority
+claim is made.
+\end{abstract}
+
+\section{Introduction}
+
+When does an arrow visible after forgetting drive phase bound total entropy
+production? The distinction between finite-window boundary terms and long-time
+rates is essential, as is the distinction between reversal of a recorded
+trajectory and execution of the reversed drive protocol.
+The following conditions let a forward-only, phase-erased arrow
+bound total entropy production; the
+conditions are sufficient (Theorem~T1), not necessary for every
+forward-only inference:
+\begin{enumerate}[label=(\arabic*),nosep]
+\item the protocol is known to be time-symmetric up to a phase shift,
+  $Q(\theta)=Q(c-\theta)$;
+\item the observation map is reversal-covariant, $O\circ R=\Rrec\circ O$;
+\item finite windows are charged the boundary allowance $\Bbar$.
+\end{enumerate}
+Without known time symmetry no universal certificate
+$L\sbar\geq F(\KL^{\mathrm{obs}}_L)$ from this arrow alone exists
+(Theorem~T2).  A universal \emph{quantitative} lower bound from the
+arrow alone then needs information beyond the arrow; the routes available
+here are known time symmetry, reversed-protocol data, or phase-resolved
+occupations together with transition rates. Qualitative and model-specific
+forward-only inferences are not excluded: in the two-state class of T2 a
+positive arrow still implies $\sbar>0$
+(Remark~\ref{rem:qualitative}).
+
+\paragraph{Classical baseline.}
+The ingredients of Theorem~T1 are a forward/reversed-protocol
+likelihood identity and information contraction. Related classical
+results are Crooks's fluctuation theorem \cite{Crooks1999},
+the Hamiltonian phase-space dissipation identity of Kawai, Parrondo and
+Van den Broeck \cite{KPV2007}, and the coarse-graining bounds of
+Gomez-Marin, Parrondo and Van den Broeck \cite{GPV2008}.
+The finite-state path identity needed here is derived explicitly below.
+
+\paragraph{Verification material.}
+The supplement \cite{EP1Brecord} supplies exact probability tables,
+numerical checks, source code and a history note identifying invalid
+earlier runs. Section~\ref{sec:verification} separates these checks from
+the analytic arguments. An earlier version used the three-sample
+comparator in a weaker limiting argument; the theorem below uses the
+reversal-covariant four-sample arrow and an exact intermediate-value
+construction.
+
+\section{Setting}
+\label{sec:setting}
+
+\subsection{Periodically driven jump processes, phase erasure, observation maps}
+
+\begin{definition}[Driven process, window entropy production]
+\label{def:process}
+Let $S$ be a finite set of states, each even under time reversal, and let
+$Q(\theta)$, $\theta\in\Rr/\per\Z$, be a $\per$-periodic family of
+generators ($Q_{ij}(\theta)\geq0$ for $i\neq j$, rows summing to zero),
+with bounded, right-continuous, piecewise continuously differentiable rates
+and finitely many switching phases per period,
+irreducible, with $Q_{ij}(\theta)>0$ if and only if $Q_{ji}(\theta)>0$, and
+with a unique periodic state $p(\theta)$ solving the forward equation
+$\dot p=pQ$ almost everywhere with $p(\theta)>0$ componentwise.
+Derivatives at switches are interpreted one-sidedly; finite entropy
+comparisons assume integrability of the displayed rate-ratio terms. For a window
+$[\theta_0,\theta_0+L]$ let $P_{\theta_0}$ be the law of the path
+$(x_t)_{0\leq t\leq L}$ of the process started in $p(\theta_0)$ and driven
+by $Q(\theta_0+t)$.  Crooks's total entropy production of the window is
+\begin{equation}
+\label{eq:sigma-tot}
+\Sigma_{\mathrm{tot}}(L;\theta_0)
+=\ln p_{\theta_0}(x_0)-\ln p_{\theta_0+L}(x_L)
++\sum_{\text{jumps }x_-\to x_+\text{ at }t}
+\ln\frac{Q_{x_-x_+}(\theta_0+t)}{Q_{x_+x_-}(\theta_0+t)},
+\end{equation}
+the system term plus the medium term.  Writing $\sigma(\theta)=
+\sum_{i<j}\bigl(p_iQ_{ij}-p_jQ_{ji}\bigr)\ln\frac{p_iQ_{ij}}{p_jQ_{ji}}(\theta)
+\geq0$ for the total entropy production rate in the periodic state, one
+has $\E\,\Sigma_{\mathrm{tot}}(L;\theta_0)=\int_0^L\sigma(\theta_0+t)\,dt$,
+and the period-averaged rate is $\sbar=\per^{-1}\int_0^\per\sigma(\theta)\,d\theta$.
+Since the system entropy is periodic, $\sbar$ is also the period-averaged
+medium entropy production rate.
+\end{definition}
+
+\begin{definition}[Phase erasure, covariant observation, observed arrow]
+\label{def:erasure}
+The starting phase $\theta_0$ is uniform on $[0,\per)$ and independent of
+the noise; the phase-erased path law is
+$\Pbar_L=\per^{-1}\int_0^\per P_{\theta_0}\,d\theta_0$.  Let $R$ be path
+reversal on the window, $(Rx)_t=x_{L-t}$.  An observation map $O$ from
+paths to records is \emph{phase-free} if it does not use $\theta_0$ and
+\emph{reversal-covariant} if there is an involution $\Rrec$ of records with
+$O\circ R=\Rrec\circ O$.  Examples: the state path itself ($\Rrec$ = path
+reversal); the states sampled on a grid symmetric under $t\mapsto L-t$
+($\Rrec$ = order reversal); memoryless state-dependent emissions with
+time-even marks; transition records with a declared mark involution.
+Detector memory, first-event selection and dead time can break covariance;
+they require a separate check of the observation map. The observed arrow and the
+full arrow are
+\begin{equation}
+\label{eq:arrows}
+\KL^{\mathrm{obs}}_L:=D\bigl(\Pbar^{\mathrm{obs}}_L\,\big\|\,\Rrec_*\Pbar^{\mathrm{obs}}_L\bigr),
+\qquad
+\KL^{\mathrm{full}}_L:=D\bigl(\Pbar_L\,\big\|\,R_*\Pbar_L\bigr),
+\qquad \Pbar^{\mathrm{obs}}_L=O_*\Pbar_L ,
+\end{equation}
+where $D(P\|Q)=\int\ln\frac{dP}{dQ}\,dP$ is relative entropy.  Both are
+computed from the forward experiment alone: no reversed protocol is run.
+\end{definition}
+
+\begin{definition}[Time symmetry, boundary allowance]
+\label{def:symmetry}
+The protocol is \emph{time-symmetric} if there is a $c$ with
+$Q(\theta)=Q(c-\theta)$ almost everywhere. Equalities between protocols
+are understood in this sense; values at individual switching times do not
+change the path law. For such $c$ the boundary
+allowance is
+\begin{equation}
+\label{eq:Bbar}
+\Bbar:=\frac1\per\int_0^\per D\bigl(p(\psi)\,\big\|\,p(c-\psi)\bigr)\,d\psi\;\geq0,
+\end{equation}
+which is finite when $p>0$.  It measures how far the periodic state is
+from its mirror image.
+\end{definition}
+
+\subsection{The two-state model}
+\label{sec:two-state}
+
+\begin{definition}[Two-state family]
+\label{def:two-state}
+Take $S=\{0,1\}$, $Q_{01}(t)=u(t)$, $Q_{10}(t)=1-u(t)$, with $u$
+$\per$-periodic and $0<u<1$; the total rate is $1$.  Let $p(t)$ be the periodic probability of state~$1$;
+it solves $\dot p=u-p$, so $p(t)=\int_0^\infty e^{-r}u(t-r)\,dr$.  For the
+trigonometric drive
+\begin{equation}
+\label{eq:drive}
+u(t)=m+e_1\cos\omega t+e_2\cos(2\omega t+\varphi),\qquad \omega=2\pi/\per,
+\end{equation}
+the periodic state is in closed form,
+\begin{equation}
+\label{eq:pstate}
+p(t)=m+e_1A_1\cos(\omega t-\alpha_1)+e_2A_2\cos(2\omega t+\varphi-\alpha_2),
+\qquad A_k=\bigl(1+(k\omega)^2\bigr)^{-1/2},\quad \alpha_k=\arctan(k\omega).
+\end{equation}
+The entropy production rate is
+\begin{equation}
+\label{eq:ep-rate}
+\sigma(t)=\bigl(u(t)-p(t)\bigr)\ln\frac{u(t)\,(1-p(t))}{(1-u(t))\,p(t)}\;\geq0,
+\end{equation}
+and $\per\sbar=\int_0^\per\sigma(t)\,dt$ is the entropy production per
+period.  For $e_1e_2\neq0$ the drive \eqref{eq:drive} is time-symmetric if
+and only if $\varphi\equiv0\pmod\pi$, and then $c=0$.  With $c=0$ the
+allowance \eqref{eq:Bbar} reads
+$\Bbar=\per^{-1}\int_0^\per\bigl[p\ln\frac{p}{p^-}+(1-p)\ln\frac{1-p}{1-p^-}\bigr](t)\,dt$
+with $p^-(t)=p(-t)$.
+\end{definition}
+
+\begin{definition}[Phase-erased three-sample comparator]
+\label{def:kl3}
+The propagator of the two-state process is
+$\Pr(X_{t_1}=1\mid X_{t_0}=x_0)=p(t_1)+\bigl(x_0-p(t_0)\bigr)e^{-(t_1-t_0)}$.
+For lags $a,b>0$ let $\Pbar_{a,b}(x_0,x_1,x_2)$ be the phase-erased law of
+$\bigl(X_{\theta_0},X_{\theta_0+a},X_{\theta_0+a+b}\bigr)$, that is
+\begin{equation}
+\label{eq:triple}
+\Pbar_{a,b}(x_0,x_1,x_2)=\frac1\per\int_0^\per \pi_{x_0}(t)\,
+G(x_1\mid x_0;t,t+a)\,G(x_2\mid x_1;t+a,t+a+b)\,dt,
+\end{equation}
+with $\pi_1=p$, $\pi_0=1-p$ and $G$ the propagator.  The
+\emph{phase-erased three-sample comparator} is
+\begin{equation}
+\label{eq:kl3}
+\KL_3(a,b):=\sum_{x\in\{0,1\}^3}\Pbar_{a,b}(x_0,x_1,x_2)\,
+\ln\frac{\Pbar_{a,b}(x_0,x_1,x_2)}{\Pbar_{b,a}(x_2,x_1,x_0)} .
+\end{equation}
+Its quasi-static counterpart at phase lags $\alpha,\beta$ is
+\begin{equation}
+\label{eq:cstar}
+c_*(\alpha,\beta):=\sum_{x}P^{\mathrm{qs}}_{\alpha,\beta}(x_0,x_1,x_2)\,
+\ln\frac{P^{\mathrm{qs}}_{\alpha,\beta}(x_0,x_1,x_2)}{P^{\mathrm{qs}}_{\beta,\alpha}(x_2,x_1,x_0)},
+\qquad
+P^{\mathrm{qs}}_{\alpha,\beta}(x)=\frac1{2\pi}\int_0^{2\pi}
+\prod_{k=0}^{2}\Bern\bigl(u(\theta+\tau_k),x_k\bigr)\,d\theta,
+\end{equation}
+where $(\tau_0,\tau_1,\tau_2)=(0,\alpha,\alpha+\beta)$, $u(\theta)=m+e_1\cos\theta+e_2\cos(2\theta+\varphi)$
+in phase units, and $\Bern(q,1)=q$, $\Bern(q,0)=1-q$.  We also write
+$c_3^*:=c_*$.
+\end{definition}
+
+\begin{definition}[Covariant four-sample arrow]
+\label{def:kl4}
+For lags $a,b>0$ and $L=a+b$ let $O_4$ record the states on the
+reflection-symmetric grid $\{0,a,b,L\}$ (in increasing order), with
+$\Rrec$ the order reversal of records.  The \emph{covariant four-sample
+arrow} is its observed arrow in the sense of
+Definition~\ref{def:erasure},
+\[
+\KL_4(a,b):=\KL^{\mathrm{obs}}_L
+=D\bigl(O_{4*}\Pbar_L\,\big\|\,\Rrec_*O_{4*}\Pbar_L\bigr),
+\]
+and its quasi-static counterpart at phase lags $\alpha,\beta$,
+$c_4^*(\alpha,\beta)$, is defined as in \eqref{eq:cstar} with the four
+phases $(0,\alpha,\beta,\alpha+\beta)$ and the reversed record in the
+denominator.
+\end{definition}
+
+\begin{lemma}[$\KL_3$ is dominated by the covariant arrow]
+\label{lem:kl3-observed}
+Let $L=a+b$ and let $O_3$ sample the state at times $0$, $a$ and $a+b$.
+Then
+\[
+\KL_3(a,b)=D\bigl(O_{3*}\Pbar_L\,\|\,O_{3*}R_*\Pbar_L\bigr)\;\leq\;\KL_4(a,b)\;\leq\;\KL^{\mathrm{full}}_L .
+\]
+For $a\neq b$ the map $O_3$ is not reversal-covariant, so $\KL_3$ is a
+forward-only comparator (both of its laws are forward phase-erased laws,
+at lag orders $(a,b)$ and $(b,a)$), not an observed arrow in the sense of
+Definition~\ref{def:erasure}; it is the $(0,a,L)$-marginal comparison of
+the covariant arrow $\KL_4$.
+\end{lemma}
+
+\begin{proof}
+The reversed path sampled at $0$, $a$, $a+b$ is
+$(O_3\circ R)(x)=(x_L,x_{L-a},x_0)=(x_{a+b},x_b,x_0)$, which uses the
+unrecorded state $x_b$.  Its law under $\Pbar_L$, evaluated at
+$(x_0,x_1,x_2)$, is $\Pbar_{b,a}(x_2,x_1,x_0)$, the denominator in
+\eqref{eq:kl3}.  For the grid $\{0,a,b,a+b\}$, reversal maps
+$(x_0,x_a,x_b,x_L)$ to $(x_L,x_b,x_a,x_0)$, an order reversal since
+$L-a=b$; the marginal of $\Rrec_*O_{4*}\Pbar_L$ on the coordinates
+$(0,a,L)$ is again $\Pbar_{b,a}(x_2,x_1,x_0)$, and the marginal of
+$O_{4*}\Pbar_L$ is $\Pbar_{a,b}$.  Data processing for this marginal gives
+the first inequality, and for $O_4$ the second.
+\end{proof}
+
+\begin{remark}[Strict inequality at the witness]
+\label{rem:strict}
+At the witness of Section~\ref{sec:witness} the quasi-static
+four-sample law, $(m,e_1,e_2,\varphi)=(9/20,1/4,1/5,\pi/3)$ on the phases
+$(0,\pi/3,2\pi/3,\pi)$, has sixteen positive rational cells with
+denominator $640000$ (Appendix~\ref{app:add1}).  The records $0000$ and
+$0010$ both project to the triple $000$.  Record $0000$ has forward and
+reversed probabilities $50681/640000$ and $50681/640000$; record $0010$
+has $42799/640000$ and $45799/640000$.  So the likelihood ratio takes the
+two values $1$ and $42799/45799$ on one fibre.  By the equality case of data processing,
+$c_4^*>c_3^*$ strictly; in fact every one of the eight fibres is
+non-constant. Two computational routes reproduce this exact witness.  The values are
+\[
+c_3^*=0.000738887716627336479919968717667\ldots,\qquad
+c_4^*=0.00153441999418270944116752165504\ldots,
+\]
+agreeing to $45$ digits on the two routes. The independently evaluated
+30-digit quadrature result differs by relative error $1.5\cdot10^{-28}$.
+\end{remark}
+
+\begin{remark}[Moment structure of the quasi-static comparator]
+\label{rem:moments}
+The eight probabilities $P^{\mathrm{qs}}_{\alpha,\beta}(x)$ are determined by
+the moments $\E u_k$, $\E u_ku_l$, $\E u_0u_1u_2$ of $u_k=u(\theta+\tau_k)$
+under uniform $\theta$.  The single moments are all $m$; the pair moments
+are values of the autocorrelation
+$\E u(\theta)u(\theta+\tau)=m^2+\tfrac12e_1^2\cos\tau+\tfrac12e_2^2\cos2\tau$,
+even in $\tau$, at the same three lags $\alpha,\beta,\alpha+\beta$ for the
+forward and the reversed law.  The two laws can differ only through the
+triple moment, $\E\,u(\theta)u(\theta+\alpha)u(\theta+\alpha+\beta)$
+against $\E\,u(\theta)u(\theta+\beta)u(\theta+\alpha+\beta)$, and within
+it only through the (1,1,2)-harmonic term proportional to $e_1^2e_2$, the
+only one carrying the biphase $\varphi$.  At $\varphi\equiv0\pmod\pi$ the
+two agree (time symmetry); at the lags $(\alpha,\beta)=(\pi/2,\pi)$ they
+agree identically in $\varphi$. This (1,2)-harmonic cancellation gives
+$c_*=0$ at those lags even for $\varphi=\pi/3$, providing a zero control
+for the numerical checks.
+\end{remark}
+
+\section{Theorem T1: known time symmetry survives phase erasure}
+\label{sec:T1}
+
+\begin{theorem}[T1]
+\label{thm:T1}
+Let $Q$ be time-symmetric, $Q(\theta)=Q(c-\theta)$, with periodic state
+$p>0$, and let $O$ be phase-free and reversal-covariant.  Then for every
+window length $L>0$,
+\begin{equation}
+\label{eq:T1}
+\KL^{\mathrm{obs}}_L\;\leq\;L\,\sbar+\Bbar .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1 (the reversed experiment is a forward experiment).}  The
+reversed protocol of the window $[\theta_0,\theta_0+L]$ is
+$\tilde Q(t)=Q(\theta_0+L-t)$, $0\leq t\leq L$.  By symmetry,
+$Q(\theta_0+L-t)=Q(c-\theta_0-L+t)$, so the process under the reversed
+protocol, started in the periodic state at its initial phase, is the
+forward process started at phase $c-\theta_0-L$; its law is
+$P_{c-\theta_0-L}$.
+
+\emph{Step 2 (Radon--Nikodym derivative).}  Against the reversed paths of
+that process, the log-likelihood ratio of a forward path is
+$\ln p_{\theta_0}(x_0)-\ln p_{c-\theta_0-L}(x_L)$ plus the medium term of
+\eqref{eq:sigma-tot}, the rates $Q_{ij}(\theta)>0\Leftrightarrow Q_{ji}(\theta)>0$
+making it finite.  Adding and subtracting $\ln p_{\theta_0+L}(x_L)$ and
+taking the $P_{\theta_0}$-expectation,
+\begin{equation}
+\label{eq:step2}
+D\bigl(P_{\theta_0}\,\big\|\,R_*P_{c-\theta_0-L}\bigr)
+=\E\,\Sigma_{\mathrm{tot}}(L;\theta_0)
++D\bigl(p(\theta_0+L)\,\big\|\,p(c-\theta_0-L)\bigr),
+\end{equation}
+because $x_L$ has law $p(\theta_0+L)$ under $P_{\theta_0}$.
+
+\emph{Step 3 (phase average).}  Average \eqref{eq:step2} over uniform
+$\theta_0$.  On the right, $\E_{\theta_0}\E\,\Sigma_{\mathrm{tot}}(L;\theta_0)
+=\E_{\theta_0}\int_0^L\sigma(\theta_0+t)\,dt=L\sbar$ (the system term
+averages to zero by periodicity), and the substitution
+$\psi=\theta_0+L$ turns the second term into $\Bbar$.  On the left, the
+map $\theta_0\mapsto c-\theta_0-L$ preserves the uniform law on the
+circle, so $\per^{-1}\int R_*P_{c-\theta_0-L}\,d\theta_0=R_*\Pbar_L$, and
+joint convexity of relative entropy gives
+$\KL^{\mathrm{full}}_L=D(\Pbar_L\|R_*\Pbar_L)\leq L\sbar+\Bbar$.
+
+\emph{Step 4 (data processing).}  $D(O_*\Pbar_L\|O_*R_*\Pbar_L)\leq
+D(\Pbar_L\|R_*\Pbar_L)$, and by covariance $O_*R_*\Pbar_L=\Rrec_*O_*\Pbar_L
+=\Rrec_*\Pbar^{\mathrm{obs}}_L$.  Since $O$ is phase-free it commutes with
+the phase mixture, so the left side is $\KL^{\mathrm{obs}}_L$.
+\end{proof}
+
+\begin{corollary}[Phase loss and observation loss under known symmetry]
+\label{cor:information-loss}
+Under the hypotheses of Theorem~\ref{thm:T1}, assume the relative entropies
+below are finite.  On phase--path space define
+\[
+ \mathbb P(d\theta,dx)=\frac{d\theta}{\per}P_\theta(dx),\qquad
+ \mathbb Q(d\theta,dx)=\frac{d\theta}{\per}
+                 (R_*P_{c-\theta-L})(dx).
+\]
+Let $P_X,Q_X$ be their path marginals and $P_Y,Q_Y$ the marginals of
+$Y=O(X)$.  Then
+\begin{equation}\label{eq:information-loss}
+ L\sbar+\Bbar
+ =\KL^{\mathrm{obs}}_L+I_{\mathrm{phase}}+I_{\mathrm{obs}},
+\end{equation}
+where the two nonnegative terms are
+\begin{align*}
+ I_{\mathrm{phase}}
+ &=\int D\bigl(\mathbb P(d\theta\mid x)\,
+                  \big\|\,\mathbb Q(d\theta\mid x)\bigr)\,P_X(dx),\\
+ I_{\mathrm{obs}}
+ &=\int D\bigl(P_X(dx\mid y)\,\big\|\,Q_X(dx\mid y)\bigr)\,P_Y(dy).
+\end{align*}
+These quantify the losses from first erasing phase and then reducing the
+path to the recorded observable, in that order.
+\end{corollary}
+\begin{proof}
+The phase marginals of $\mathbb P$ and $\mathbb Q$ are the same uniform
+law.  Steps 2--3 of the proof of Theorem~\ref{thm:T1} therefore give
+$D(\mathbb P\|\mathbb Q)=L\sbar+\Bbar$.  The relative-entropy chain rule,
+first conditioned on $X$ and then on $Y=O(X)$, gives
+\[
+ D(\mathbb P\|\mathbb Q)=D(P_X\|Q_X)+I_{\mathrm{phase}}
+ =D(P_Y\|Q_Y)+I_{\mathrm{obs}}+I_{\mathrm{phase}}.
+\]
+The phase shift in $\mathbb Q$ preserves the uniform law, so
+$Q_X=R_*\Pbar_L$; reversal covariance identifies
+$D(P_Y\|Q_Y)=\KL^{\mathrm{obs}}_L$.
+\end{proof}
+This is a chain-rule consequence in the known-symmetry setting, not a new
+universal entropy identity.  In particular the reversed joint law uses
+$c-\theta-L$, not the unshifted phase.  The finite-window allowance
+$\Bbar$ remains part of the left side.  The two losses depend on this
+order of coarse-graining and do not assert two independent physical
+mechanisms.  The decomposition does not extend the bound to the
+unknown-symmetry counterexample.
+
+\begin{corollary}[rate form and score form]
+\label{cor:forms}
+Under the hypotheses of Theorem~\ref{thm:T1}:
+\begin{enumerate}[label=(\alph*),nosep]
+\item (rate form) $\displaystyle \sbar\;\geq\;\limsup_{L\to\infty}\frac{\KL^{\mathrm{obs}}_L}{L}$,
+  with no boundary term;
+\item (score form) for any record score $S$ with values in $[-1,1]$ that is
+  odd under $\Rrec$, $S\circ\Rrec=-S$, with phase-erased mean
+  $\mu_L=\E_{\Pbar^{\mathrm{obs}}_L}S$,
+  \begin{equation}
+  \label{eq:score}
+  L\,\sbar\;\geq\;2\mu_L^2-\Bbar .
+  \end{equation}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) Divide \eqref{eq:T1} by $L$; $\Bbar$ is finite and independent of $L$.
+(b) $\E_{\Pbar^{\mathrm{obs}}}S-\E_{\Rrec_*\Pbar^{\mathrm{obs}}}S
+=\mu_L-\E_{\Pbar^{\mathrm{obs}}}(S\circ\Rrec)=2\mu_L$, while
+$|\E_PS-\E_QS|\leq2\TV(P,Q)\sup|S|$; hence $\TV\geq|\mu_L|$ and Pinsker's
+inequality $D\geq2\TV^2$ gives $2\mu_L^2\leq\KL^{\mathrm{obs}}_L\leq L\sbar+\Bbar$.
+\end{proof}
+
+The rate form needs no model-dependent
+allowance.  Finite windows must be charged $\Bbar$, which is
+model-dependent and bounded by population ratios when $p\geq p_{\min}>0$;
+short windows can be dominated by it (Section~\ref{sec:verification}
+shows a window where it is comparable to $L\sbar$).
+
+\begin{proposition}[When the allowance vanishes]
+\label{prop:Bbar-zero}
+Let $Q(\psi)=Q(c-\psi)$ and $p>0$.  Then $\Bbar=0$ if and only if the
+periodic state is constant, $p(\psi)\equiv\pi$, with $\pi Q(\psi)=0$ for
+every $\psi$; that is, if and only if $p$ is a common stationary law of
+every frozen generator.
+\end{proposition}
+
+\begin{proof}
+$\Bbar=0$ forces $D(p(\psi)\|p(c-\psi))=0$ for almost every $\psi$, hence
+$p(\psi)=p(c-\psi)$ for all $\psi$ by continuity. Differentiating almost everywhere,
+$\dot p(\psi)=-\dot p(c-\psi)=-p(c-\psi)Q(c-\psi)=-p(\psi)Q(\psi)=-\dot p(\psi)$,
+so $p\equiv\pi$ with $\pi Q(\psi)=0$ almost everywhere, and hence
+everywhere by right continuity of $Q$.
+Conversely a constant $p$ equals its mirror image and $\Bbar=0$.
+\end{proof}
+
+\begin{remark}[stationarity is weaker than detailed balance]
+\label{rem:stationarity}
+Common \emph{detailed balance},
+$\pi_iQ_{ij}(\psi)=\pi_jQ_{ji}(\psi)$, and preparation in $\pi$
+guarantee same-experiment path reversal for a palindromic schedule:
+the reversed path weights agree by detailed balance and the equal integrated
+escape rates. This is strictly stronger than
+Proposition~\ref{prop:Bbar-zero}. For example, a three-state cycle with
+constant clockwise rate $k_+$ and
+counterclockwise rate $k_-$, $k_+\neq k_-$, is a (constant, hence
+time-symmetric) protocol whose uniform stationary law is common to every
+frozen generator, so $\Bbar=0$, while detailed balance fails and
+$\sbar>0$; Theorem~\ref{thm:T1} then reads $\KL^{\mathrm{obs}}_L\leq L\sbar$.
+\end{remark}
+
+\section{Theorem T2: no-go without time symmetry}
+\label{sec:T2}
+
+\begin{theorem}[T2]
+\label{thm:T2}
+Let $\delta=(2-\sqrt3)/8$ and let $\mathcal M_\delta$ be the class of
+two-state periodically driven models of Definition~\ref{def:two-state}
+whose rate $u=Q_{01}$ and periodic population $p$ lie in $[\delta,9/10]$
+(so every rate and population lies in $[\delta,1-\delta]$), observed
+through the covariant four-sample record of Definition~\ref{def:kl4} with
+lags $(\per/6,\per/3)$ and $L=\per/2$.  Let $F\colon(0,\infty)\to\Rr$ be
+any function, with no continuity or monotonicity assumed.  If $F(k_0)>0$
+for some $k_0\in(0,c_4^*)$, where $c_4^*=c_4^*(\pi/3,2\pi/3)$ at the
+witness drive, then some model in $\mathcal M_\delta$ without time
+symmetry has $\KL^{\mathrm{obs}}_L=k_0$ exactly and $L\sbar<F(k_0)$.
+Hence no certificate $L\,\sbar\geq F(\KL^{\mathrm{obs}}_L)$ holds on
+$\mathcal M_\delta$ without knowledge of time symmetry for any $F$ with
+$F(k)>0$ for all $k>0$.  A universal lower bound therefore needs
+information beyond this arrow; the routes available here are known time
+symmetry (Theorem~\ref{thm:T1}), reversed-protocol data
+\cite{HFB2024}, or phase-resolved occupations and transition rates
+\cite[Eq.~19]{Maier2024}. The
+same holds for the three-sample comparator $\KL_3$ with $c_3^*=c_*$ in
+place of $c_4^*$.
+\end{theorem}
+
+\begin{remark}[Why an exact fixed-arrow construction is needed]
+\label{rem:F}
+A sequence with positive limiting arrow and vanishing dissipation excludes
+lower-bound functions bounded away from zero near that limiting arrow.
+It does not exclude an arbitrary positive function with no such regularity.
+The construction below keeps the arrow exactly fixed, eliminating that
+restriction. For $F(k)=k$, the finite-period example in
+Table~\ref{tab:BA} already violates the proposed bound.
+\end{remark}
+
+\subsection{Exact fixed-arrow construction}
+\label{sec:T2fixed}
+
+\begin{proof}[Proof of Theorem~\ref{thm:T2}]
+Consider the drives
+\[
+u_\varphi(\theta)=\tfrac14(1+\cos\theta)+\tfrac15\bigl(1+\cos(2\theta+\varphi)\bigr),
+\qquad 0\leq\varphi\leq\pi/3,
+\]
+that is $(m,e_1,e_2)=(9/20,1/4,1/5)$: the witness at
+$\varphi=\pi/3$, time-symmetric at $\varphi=0$.  Let $K_\per(\varphi)$ be
+the covariant four-sample arrow $\KL_4(\per/6,\per/3)$ of this drive.
+
+\begin{enumerate}[label=\textbf{Step \arabic*.},leftmargin=*,nosep]
+\item \emph{Rates.}  $u_\varphi\leq\frac12+\frac25=\frac9{10}$.  If the
+  circular distance from $\theta$ to $\pi$ is at least $\pi/6$, then
+  $\cos\theta\geq-\cos(\pi/6)$ and the first term is at least
+  $\delta=(2-\sqrt3)/8$.  Otherwise $\theta=\pi+\varepsilon$ with
+  $|\varepsilon|<\pi/6$, so $2\theta+\varphi\equiv2\varepsilon+\varphi\in
+  (-\pi/3,2\pi/3)$, $\cos(2\theta+\varphi)>-\frac12$ and the second term
+  exceeds $\frac1{10}>\delta$.  Hence $\delta\leq u_\varphi\leq\frac9{10}$
+  for all $\theta$ and all $\varphi\in[0,\pi/3]$.
+\item \emph{Populations.}  $p(t)=\int_0^\infty e^{-r}u(t-r)\,dr$ is an
+  average of values of $u$, so $\delta\leq p\leq\frac9{10}$.
+\item \emph{Lag.}  $|u-p|\leq\int_0^\infty e^{-r}|u(t)-u(t-r)|\,dr\leq
+  \sup|\dot u|\int_0^\infty re^{-r}\,dr\leq(\frac14+\frac25)\omega
+  =\frac{13}{20}\,\omega$.
+\item \emph{Dissipation.}  By \eqref{eq:ep-rate},
+  $\sigma=(u-p)(\operatorname{logit}u-\operatorname{logit}p)$, and on
+  $[\delta,\frac9{10}]$ the derivative of $\operatorname{logit}$ is
+  $1/(x(1-x))\leq10/\delta$.  Hence $\sigma\leq(10/\delta)(\frac{13}{20})^2\omega^2$
+  and, with $L=\per/2$ and $\omega=2\pi/\per$,
+  \begin{equation}
+  \label{eq:uniform-ep}
+  L\,\sbar\;\leq\;\frac{169\,\pi^2}{20\,\delta\,\per}
+  \qquad\text{uniformly in }\varphi\in[0,\pi/3].
+  \end{equation}
+\item \emph{Continuity.}  For fixed $\per$ the sixteen record
+  probabilities are phase averages of products of the periodic population
+  and transition probabilities of an irreducible two-state chain with
+  rates $\geq\delta$; they are positive and continuous in $\varphi$, so
+  $K_\per$ is continuous on $[0,\pi/3]$.
+\item \emph{Limits.}  As $\per\to\infty$ at fixed $\varphi$,
+  $e^{-\per/6}\to0$ and $p\to u$ uniformly (Step~3), so the record law
+  converges to the positive quasi-static law and $K_\per(\varphi)$
+  converges to the relative entropy between that law and its reversal.
+  At $\varphi=0$ the drive is even and the grid is
+  reflection-symmetric, so the quasi-static law is reversal-invariant and
+  $K_\per(0)\to0$; at $\varphi=\pi/3$, $K_\per(\pi/3)\to c_4^*>0$.
+\item \emph{Intermediate values.}  Fix $k_0\in(0,c_4^*)$.  For all large
+  $\per$, $K_\per(0)<k_0<K_\per(\pi/3)$, and the intermediate value
+  theorem gives $\varphi_\per\in(0,\pi/3)$ with $K_\per(\varphi_\per)=k_0$
+  exactly.  That model is not time-symmetric ($\varphi_\per\notin\pi\Z$,
+  $e_1e_2\neq0$), and by \eqref{eq:uniform-ep} its $L\sbar\to0$, so
+  $L\sbar<F(k_0)$ once $\per$ is large.  This proves
+  Theorem~\ref{thm:T2}; the comparator case runs identically on the
+  $(0,\pi/3,\pi)$ marginals, whose quasi-static comparison is $c_*$ at
+  $\varphi=\pi/3$ and $0$ at $\varphi=0$.
+\end{enumerate}
+\end{proof}
+
+\noindent The argument is an existence proof: it gives no explicit
+$\varphi_\per$ and no calibration prescription, it covers the declared
+two-state class only, and prescribed arrows $k_0\geq c_4^*$ are not
+covered by this family.  The constant in \eqref{eq:uniform-ep} is loose
+(at $\per=40960$ it is $0.0608$ against the computed $L\sbar=0.000264$),
+but it tends to zero, which is all the argument needs.  As an
+illustration only (one route, not part of the proof), at $\per=40960$ the
+exact finite-period law gives $K_\per(0)=1.06\cdot10^{-25}$ and
+$K_\per(\pi/3)=0.0015344197795$, so the bracket
+$K_\per(0)<c_*/2<K_\per(\pi/3)$ already holds there.
+
+\begin{remark}[Scope of T1]
+\label{rem:T1scope}
+The hypotheses of Theorem~\ref{thm:T1} (known time symmetry, a phase-free
+reversal-covariant observation) are sufficient for the bound.  Their
+failure does not forbid every model-specific forward-only inference; T2
+concerns a universal lower bound from this arrow alone.
+\end{remark}
+
+\begin{remark}[qualitative implications survive T2]
+\label{rem:qualitative}
+Theorem~\ref{thm:T2} excludes universal \emph{quantitative}
+lower bounds positive somewhere in $(0,c_4^*)$; it does not remove qualitative or model-specific
+implications.  In $\mathcal M_\delta$ itself, $\sbar=0$ forces
+$\sigma\equiv0$, because the integrand \eqref{eq:ep-rate} is $\geq0$;
+then $u\equiv p$, since $\operatorname{logit}$ is strictly increasing;
+then $\dot p=u-p=0$, so the drive is constant.  The process is then a
+stationary time-homogeneous two-state chain, which is reversible, so
+$\KL^{\mathrm{obs}}_L=0$.  Hence in $\mathcal M_\delta$ a positive observed
+arrow does imply $\sbar>0$. What fails is a universal function with
+$F(k_0)>0$ at a prescribed $k_0\in(0,c_4^*)$ bounding $L\sbar$ from below. Whether a qualitative
+implication of this kind holds beyond the two-state class is not
+addressed here.
+\end{remark}
+
+\subsection{A finite-period witness}
+\label{sec:witness}
+
+The witness is the drive
+\begin{equation}
+\label{eq:witness}
+u(t)=0.45+0.25\cos\omega t+0.2\cos(2\omega t+\pi/3),
+\end{equation}
+that is $(m,e_1,e_2,\varphi)=(0.45,0.25,0.2,\pi/3)$, with lags
+$(a,b)=(\per/6,\per/3)$, so $L=\per/2$ and $(\alpha,\beta)=(\pi/3,2\pi/3)$,
+and $\per\in\{40,160,640,2560,10240,40960\}$.
+A phase grid estimates the rate extrema as approximately \(0.0997\)
+and \(0.8742\); the analytic positive lower bound used in the theorem
+is \(\delta\), not the grid estimate.
+Table~\ref{tab:BA} shows the \(1/\per\) decay of entropy production
+per period and convergence of the comparator to its positive
+quasi-static value. Full-precision outputs are supplied in
+\path{supplement/results/EP1B_RUN2.json}.
+
+\begin{table}[ht]
+\centering
+\caption{The asymmetric two-state witness. The observation window has
+length \(L=\per/2\). Values are rounded from the supplied numerical record.}
+\label{tab:BA}
+\begin{tabular}{@{}rllll@{}}
+\toprule
+$\per$ & EP per period & $\per\cdot$EP & $\KL_3$, the comparator & $L\sbar$ over the window\\
+\midrule
+40 & 0.498 & 19.93 & $6.43\cdot10^{-4}$ & 0.249\\
+160 & 0.134 & 21.47 & $7.32\cdot10^{-4}$ & 0.0671\\
+640 & 0.0337 & 21.60 & $7.385\cdot10^{-4}$ & 0.0169\\
+2560 & 0.00844 & 21.608 & $7.3886\cdot10^{-4}$ & 0.00422\\
+10240 & 0.00211 & 21.610 & $7.38886\cdot10^{-4}$ & 0.00106\\
+40960 & 0.000528 & 21.6105 & $7.38888\cdot10^{-4}$ & \textbf{0.000264}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At \(\per=40960\), the comparator is approximately
+\(0.000738887612\), whereas \(L\bar\sigma\) is approximately
+\(0.000263800024\). Thus \(\KL_4\geq\KL_3>L\bar\sigma\).
+The positive limiting arrow describes the drive's time asymmetry,
+even as dissipation per period tends to zero. Every frozen generator
+of this two-state model satisfies detailed balance; the period-scale
+arrow does not establish broken detailed balance at a frozen phase.
+
+\section{Local waiting-time statistics in the slow-driving limit}
+\label{sec:T3}
+
+Maier, Deg\"unther, van der Meer and Seifert \cite{Maier2024} distinguish
+three estimators. Their reversed-protocol waiting-time bound is proved
+(journal Eq.~16); their forward-only phase-averaged estimator is
+conjectured to be a bound (Eqs.~17--18); and their occupation-and-rate
+bound is proved without reversing the protocol (Eq.~19).
+These are Eqs.~13--16, respectively, in arXiv:2406.12657v1.
+The forward-only waiting-time expression is
+\[
+\mathcal E_{\per}=\sum_{I,J} n_I^\per
+\int_0^\infty \Psi^\per_{I\to J}(t)
+\log\frac{\Psi^\per_{I\to J}(t)}
+{\Psi^\per_{\widetilde J\to\widetilde I}(t)}\,dt,
+\]
+where \(n_I^\per\) is the phase-averaged frequency of transition \(I\).
+Here \(\Psi^\per_{I\to J}\) is the conditional density of the next
+observed event and its waiting time, averaged over the starting phase
+with event weights \(p_i(\theta)Q_{ij}(\theta)/(\per n_I^\per)\),
+not with uniform phase weights.
+The next proposition concerns this expression's limit, not the
+conjectured finite-period inequality.
+
+\begin{proposition}[Locality under uniform slow driving]
+\label{prop:T3}
+Let \(Q_\per(t)=q(t/\per)\), where \(q\) is a continuously differentiable,
+period-one generator on a finite fixed connected undirected graph.
+Assume both directional rates on every edge lie in a fixed interval
+\([a,b]\), \(0<a\leq b<\infty\), and every \(q(s)\) is reversible
+with stationary law \(\pi(s)\). Observe a fixed nonempty set of directed
+edges closed under reversal, with no detector memory or missed events on
+those edges. Then, as \(\per\to\infty\),
+\[
+\mathcal E_{\per}\longrightarrow0,
+\qquad
+\bar\sigma_\per\longrightarrow0.
+\]
+For each fixed waiting time \(t>0\), the intensity-weighted pair densities
+\(h^\per_{IJ}(t)=n_I^\per\Psi^\per_{I\to J}(t)\) converge to densities
+\(h^\infty_{IJ}(t)=h^\infty_{\widetilde J\,\widetilde I}(t)\).
+\end{proposition}
+
+\begin{proof}
+The fixed graph and uniform rate bounds give a time-uniform minorization
+over an interval of fixed length: prescribe a path of at most
+\(|S|-1\) edges between any two states, place its jumps in successive
+subintervals, and use the lower rate and upper escape-rate bounds.
+Consequently the transition operators contract zero-mass signed measures
+exponentially, with constants independent of \(\per\).
+The stationary law \(\pi(s)\) is continuously differentiable and has
+a positive uniform lower bound. Variation of constants for
+\(p_\per(t)-\pi(t/\per)\), whose forcing
+\(-\pi'(t/\per)/\per\) has zero total mass because \(\sum_i\pi_i(s)=1\), gives
+\[
+\sup_t\|p_\per(t)-\pi(t/\per)\|=O(\per^{-1}).
+\]
+Thus the flux differences and their log-ratios in the entropy-production
+formula are both \(O(\per^{-1})\), uniformly, and
+\(\bar\sigma_\per=O(\per^{-2})\).
+
+Let \(K_s\) have the diagonal of \(q(s)\), its hidden off-diagonal
+transitions, and zero off-diagonal entries for observed transitions.
+Its semigroup describes evolution killed at the next observed event.
+Writing \(U_\per(\theta,\theta+t)\) for the corresponding time-dependent
+killed propagator, the exact finite-period density for
+\(I=(i,j)\), \(J=(k,l)\) is
+\[
+h^\per_{IJ}(t)=\frac1\per\int_0^\per
+p_i(\theta)Q_{ij}(\theta)
+(U_\per(\theta,\theta+t))_{jk}Q_{kl}(\theta+t)\,d\theta.
+\]
+Continuity of finite-dimensional propagators on every fixed time interval,
+uniformly in \(s=\theta/\per\), gives
+\[
+h^\infty_{IJ}(t)=\int_0^1
+ \pi_i(s)q_{ij}(s)(e^{tK_s})_{jk}q_{kl}(s)\,ds .
+\]
+Detailed balance, including
+\(\pi_j(s)(e^{tK_s})_{jk}=\pi_k(s)(e^{tK_s})_{kj}\),
+proves the reversal identity for this limit.
+
+It remains to justify integration over arbitrarily long waiting times.
+From every state there is a uniformly positive probability of an observed
+event during an interval of fixed length, by the same path argument.
+The killed propagators therefore have a uniform exponential tail, giving
+\(h^\per_{IJ}(t)\leq C e^{-\kappa t}\).
+If a pair is reachable through hidden edges, let \(m\) be the shortest
+hidden-path length between \(j\) and \(k\). Prescribing just that path
+gives \(h^\per_{IJ}(t)\geq c t^m e^{-\Lambda t}\);
+the reversed pair has the same support and path length.
+These bounds hold for all sufficiently large \(\per\), with constants
+depending only on the fixed model. Unsupported pairs are identically
+zero in both directions. On supported pairs they imply
+\[
+\left|h^\per_{IJ}(t)
+ \log\frac{h^\per_{IJ}(t)}
+ {h^\per_{\widetilde J\,\widetilde I}(t)}\right|
+ \leq C' e^{-\kappa t}(1+t+|\log t|),
+\]
+an integrable bound. Dominated convergence sends the sum of these
+intensity-pair relative entropies to zero.
+
+Finally, consecutive-event counts have equal incoming and outgoing
+marginals:
+\(\sum_J\int_0^\infty h^\per_{IJ}(t)\,dt=n_I^\per\) and
+\(\sum_I\int_0^\infty h^\per_{IJ}(t)\,dt=n_J^\per\).
+For the incoming identity, every observed event has an almost-surely
+unique observed predecessor by the waiting-time tail bound. Decompose
+\(p_k(\theta')\) according to the last observed event before \(\theta'\),
+multiply by \(Q_{kl}(\theta')\), and average \(\theta'\) over a period.
+The estimator is exactly
+\[
+\mathcal E_\per
+=\sum_{I,J}\int_0^\infty h^\per_{IJ}
+ \log\frac{h^\per_{IJ}}{h^\per_{\widetilde J\,\widetilde I}}\,dt
+-\sum_I n_I^\per\log\frac{n_I^\per}{n_{\widetilde I}^\per}.
+\]
+Here \(n_I^\per\to\int_0^1\pi_i(s)q_{ij}(s)\,ds\), and these limits
+agree for \(I\) and \(\widetilde I\). The second sum also tends to zero.
+\end{proof}
+
+The uniform hypotheses make the fixed-waiting-time limit and its
+integration explicit. They do not cover rates that vanish, a graph that
+changes with the period, or observation windows that grow proportionally
+to the period. The last case is precisely the mechanism of
+Theorem~\ref{thm:T2}; it does not refute Maier et al.'s distinct
+finite-period conjecture.
+For the two-state witness itself, the only supported consecutive pairs are
+\((0\!\to\!1,1\!\to\!0)\) and \((1\!\to\!0,0\!\to\!1)\).
+Both are self-reverse under \((I,J)\mapsto(\widetilde J,\widetilde I)\),
+so \(\mathcal E_\per=0\) at every period. The proposition also covers
+graphs with hidden edges, where observed pairs need not be self-reverse.
+
+\section{Summary of information requirements}
+\label{sec:T4}
+
+\begin{center}
+\begin{tabular}{@{}L{4.2cm}L{5.4cm}L{5.4cm}@{}}
+\toprule
+conclusion & forward-only, phase erased & additional information\\
+\midrule
+a lower bound on $\sbar$ & yes, from the limiting arrow rate if the protocol is time-symmetric and
+$O$ is covariant (T1) & otherwise, for a universal quantitative bound
+from this arrow alone (T2); qualitative, model-specific implications
+survive (Remark~\ref{rem:qualitative})\\
+a finite-window bound & yes, minus the allowance $\Bbar$
+(model-dependent; bounded if $p\geq p_{\min}>0$) & --\\
+a general periodic protocol & no universal quantitative bound from this
+arrow alone (T2) & Harunari--Fiore--Barato's
+$\sigma\geq\hat\sigma-X$ uses reversed-protocol data; Maier et al.'s Eq.~19 uses phase-resolved occupations and rates\\
+a forward-only pairwise estimator & Maier et al.'s Eq.~18, conjectured;
+consistent with Proposition~\ref{prop:T3} & --\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+An observation with memory, event selection or dead time requires its own
+reversal-covariance check. The time-symmetric bound does not automatically
+apply to an arbitrary detector model.
+
+\section{Computational checks and limitations}
+\label{sec:verification}
+
+The supplied numerical route uses Python 3.11 and mpmath 1.3.0 at
+30 digits with deterministic quadrature. For the piecewise-constant drive
+\(u=1/4,3/4,1/4\) on three successive intervals of length \(h=\log2\),
+it reproduces the periodic switching-time populations
+\((11/28,9/28,15/28)\), the mean \(3/14\) of \(X(2h)-X(h)\), and
+the entropy production \(3\log3/7\) per cycle. The six-period asymmetric
+study is in Table~\ref{tab:BA}. A symmetric control with
+\((m,e_1,e_2,\varphi)=(0.45,0.25,0.15,\pi)\) checks
+\(\KL_3\leq L\bar\sigma+\bar B\) at periods \(10,40,160,640\).
+It checks a consequence of the full-path bound, not the four-sample
+arrow directly. At period \(10\), its comparator is approximately
+\(9.0\cdot10^{-7}\), against \(L\bar\sigma=0.418\) and
+\(\bar B=0.083\).
+
+An earlier symmetric control used \(e_2=0.2\), making its rate zero at
+phase \(\pi\), outside the declared positive-rate domain. Numerical
+evaluation returned infinity and its acceptance test did not reject
+a non-finite value. That block is invalid;
+its original result is retained and identified in the supplement's
+history. The replacement control requires finite outputs and a positive
+rate range. The asymmetric values are unchanged.
+The numerical infinity is not a divergence theorem: the old drive obeys
+\(u(\pi+z)=21z^2/40+O(z^4)\), so for finite period its entropy integrand
+has only an integrable logarithmic singularity there. This does not put
+the old run inside the positive-rate hypothesis.
+
+\paragraph{Exact probability checks.}
+\label{sec:add1check}
+The four-sample table in Appendix~\ref{app:add1} is reconstructed by
+a Wolfram Engine 14.3 route and a separately coded rational
+Laurent-polynomial route over \(\mathbb Q(\sqrt{-3})\), with logarithms
+evaluated at 50 digits on the latter. Positivity, normalization, both
+marginal identities and the strict relative-entropy inequality are checked.
+The two routes agree on \(c_3^*\) and \(c_4^*\) to 45 digits.
+A first corroborating grid check used binary floating-point coefficients
+and failed at the exact upper endpoint \(9/10\); its failed record and
+the exact-coefficient replacement are both supplied.
+These high-precision numbers are not interval enclosures. The
+continuous bounds and the fixed-arrow existence statement follow from
+the written proofs, not from a sampled grid.
+
+The supplement \cite{EP1Brecord} identifies commands, dependencies,
+result files and the interpretation of earlier failures. The locality
+proposition is analytic, not an output of these numerical checks.
+All conclusions concern the stated Markov and observation models; no
+physical measurement, detector calibration or priority claim is made.
+
+\input{disclosure}
+\begin{thebibliography}{99}
+
+\bibitem{Crooks1999}
+G. E. Crooks, Entropy production fluctuation theorem and the
+nonequilibrium work relation for free energy differences, \emph{Phys.
+Rev. E} \textbf{60} (1999), 2721--2726.
+\url{https://doi.org/10.1103/PhysRevE.60.2721}.
+
+\bibitem{KPV2007}
+R. Kawai, J. M. R. Parrondo and C. Van den Broeck, Dissipation: The
+phase-space perspective, \emph{Phys. Rev. Lett.} \textbf{98} (2007),
+080602. \url{https://doi.org/10.1103/PhysRevLett.98.080602}.
+
+\bibitem{GPV2008}
+A. Gomez-Marin, J. M. R. Parrondo and C. Van den Broeck, Lower bounds on
+dissipation upon coarse graining, \emph{Phys. Rev. E} \textbf{78} (2008),
+011107. \url{https://doi.org/10.1103/PhysRevE.78.011107}.
+
+\bibitem{Maier2024}
+A. M. Maier, J. Deg\"unther, J. van der Meer and U. Seifert, Inferring
+kinetics and entropy production from observable transitions in partially
+accessible, periodically driven Markov networks, \emph{J. Stat. Phys.}
+\textbf{191} (2024), 104.
+\url{https://doi.org/10.1007/s10955-024-03315-7};
+preprint \url{https://arxiv.org/abs/2406.12657}.
+
+\bibitem{HFB2024}
+P. E. Harunari, C. E. Fiore and A. C. Barato, Inference of entropy
+production for periodically driven systems, \emph{Phys. Rev. E}
+\textbf{110} (2024), 064126.
+\url{https://doi.org/10.1103/PhysRevE.110.064126};
+preprint \url{https://arxiv.org/abs/2406.12792}.
+
+\bibitem{EP1Brecord}
+L. Mahmood, \emph{Phase-erased entropy production: computational supplement},
+2026, distributed with this paper; see \path{supplement/README.md} and
+\path{supplement/HISTORY.md}. Source and result paths cited above are relative
+to that supplement. DOI:
+\url{https://doi.org/10.5281/zenodo.23049617}.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Exact quasi-static laws at the witness}
+\label{app:add1}
+
+Copied from \texttt{results/EP1B\_ADDENDUM\_1\_CHECK\_R2.json}; the
+Wolfram route prints the same rationals.  Drive
+$(m,e_1,e_2,\varphi)=(9/20,1/4,1/5,\pi/3)$, phases $(0,\pi/3,2\pi/3,\pi)$.
+For each record $x$ the table gives the forward cell $P_4(x)$ and the
+reversed cell $R_4(x)=P_4(\text{reverse of }x)$.
+
+\medskip
+{\scriptsize\ttfamily
+\begin{tabular}{@{}llllll@{}}
+\toprule
+x & P4(x) & R4(x) & x & P4(x) & R4(x)\\
+\midrule
+0000 & 50681/640000 & 50681/640000 & 0001 & 51739/640000 & 51739/640000\\
+0010 & 42799/640000 & 45799/640000 & 0011 & 51981/640000 & 48981/640000\\
+0100 & 45799/640000 & 42799/640000 & 0101 & 28981/640000 & 31981/640000\\
+0110 & 47121/640000 & 47121/640000 & 0111 & 32899/640000 & 32899/640000\\
+1000 & 51739/640000 & 51739/640000 & 1001 & 43041/640000 & 43041/640000\\
+1010 & 31981/640000 & 28981/640000 & 1011 & 28039/640000 & 31039/640000\\
+1100 & 48981/640000 & 51981/640000 & 1101 & 31039/640000 & 28039/640000\\
+1110 & 32899/640000 & 32899/640000 & 1111 & 20281/640000 & 20281/640000\\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\noindent Triple comparator, coordinates $(0,\pi/3,\pi)$: P3 =
+(2337, 2593, 2323, 1547, 2093, 1777, 2047, 1283)/16000 and\\
+R3 = (2412, 2518, 2248, 1622, 2018, 1852, 2122, 1208)/16000 on
+000, 001, \dots, 111.\\
+c3 = 0.000738887716627336479919968717667278764901883127\\
+c4 = 0.00153441999418270944116752165504214461953899412\\
+c4 - c3 = 0.000795532277555372961247552937375}
+
+\end{document}

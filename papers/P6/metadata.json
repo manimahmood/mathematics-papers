@@ -1,0 +1,21 @@
+{
+ "access_right": "open",
+ "creators": [
+  {
+   "name": "Mahmood, Luqman"
+  }
+ ],
+ "description": "<p>Green geometry on positive Hermitian 2-by-2 instruments, hyperbolic transport, relational holonomy, and fixed five-functional reconstruction of SO(3). Exact projector and elimination data, complete rational kernel-floor covers and their replay engine accompany the construction. Fixed-linear optimality uses the cited published phase-retrieval theorem. Five synthesized functionals are not five primitive experimental shots.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+ "keywords": [
+  "positive Hermitian matrices",
+  "holonomy",
+  "rotation tomography"
+ ],
+ "language": "eng",
+ "license": "cc-by-4.0",
+ "publication_date": "2026-10-01",
+ "publication_type": "preprint",
+ "title": "Green Geometry of Positive Hermitian Instruments: Hyperbolic Transport, Relational Holonomy, and Fixed Five-Functional Tomography",
+ "upload_type": "publication",
+ "version": "1.0.0"
+}

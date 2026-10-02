@@ -1,0 +1,359 @@
+\documentclass[11pt]{article}
+\usepackage{paperreview}
+\title{Which Collision Laws Admit Finite-Moment Prediction?\\
+A Gaussian-Mixture Classification and a Clock-Free Inverse}
+\author{Luqman Mahmood}
+\date{1 October 2026}
+\hypersetup{pdftitle={Which Collision Laws Admit Finite-Moment Prediction? A Gaussian-Mixture Classification and a Clock-Free Inverse},pdfauthor={Luqman Mahmood}}
+\begin{document}
+\maketitle
+\draftstatus{SM3, v1.0.0}{Conditional classification with exact controls; no physical-gas validation.}
+\begin{abstract}
+For homogeneous isotropic elastic collisions with uniform outgoing relative
+direction, the initial fourth velocity-moment response of a centered
+Gaussian mixture is a quadratic functional of its temperature law.
+We characterize when that functional is exactly determined by any finite
+list of temperature moments, allowing an arbitrary determining function.
+For moments through order $m\geq2$, this occurs precisely when the thermal
+collision response is a polynomial of degree at most $m-2$. Under stated
+integrability assumptions, this is equivalent to a radial collision kernel
+polynomial in squared relative speed. The statement concerns one initial
+response, not autonomous closure of a full moment hierarchy.
+On a known compact temperature interval, polynomial approximation also
+bounds initial-response prediction error and the ambiguity between
+preparations sharing the retained moments.
+In a separately postulated Maxwell-type moment model, a two-time logarithmic ratio cancels an
+unknown changing collision clock. It identifies a constant angular
+coordinate, but only its exposure-weighted mean when the law varies.
+An exact counterexample shows why finitely many endpoints cannot determine
+the intervening law. No laboratory validation is involved.
+\end{abstract}
+
+\section{Scope and established baseline}
+Closed Maxwell-molecule moment hierarchies are classical, with exact
+solutions and modern finite-factor formulations \cite{Santos,Karlin}.
+The historical comparators are the Maxwell-molecule moment calculations
+of Ikenberry and Truesdell, Grad's moment method, and the exact
+Boltzmann solution of Krook and Wu \cite{IkenberryTruesdell,Grad,KrookWu}.
+They are baselines, not consequences of the present classification.
+Polynomial moment preservation also has a broad independent literature
+\cite{CKT}. Neither the existence of Maxwell closure nor the inadequacy
+of an arbitrary truncation is offered as a new result here.
+Entropy-based moment-closure hierarchies \cite{Levermore} concern a
+different task from exact constancy of one response over all measures
+with prescribed moments; this theorem does not rule out those closures
+as useful approximations.
+The truncated moment problem asks which measures represent prescribed
+moments \cite{CurtoFialkow}; here the question is constancy of a particular
+quadratic functional across all such measures. Laplace-transform uniqueness
+is also established machinery \cite{SSV}, not a claimed new inverse theorem.
+
+Our first question is more restricted and has a converse: which collision
+responses can be predicted exactly from finitely many instantaneous
+moments throughout the entire class of positive-temperature Gaussian
+mixtures? Our second question concerns a different observation resource:
+what does a two-time ratio identify if the collision rate or angular law
+changes? Combining these questions makes explicit the distinction between
+a state summary, a dynamical law and an observation history.
+
+\section{Preparations and the initial response}
+Let $\mu$ be a compactly supported probability measure on $(0,\infty)$ and
+\[
+ f_\mu(v)=\int (2\pi\theta)^{-3/2}
+       \exp(-|v|^2/(2\theta))\,\mu(\dd\theta),\qquad
+ M_j=\int\theta^j\,\mu(\dd\theta).
+\]
+Then $\int|v|^{2j}f_\mu(v)\dd v=(2j+1)!!M_j$.
+Temperature moments through order $m$ correspond to radial velocity moments
+through degree $2m$.
+
+Fix the collision normalization explicitly. For a test function $\psi$,
+\[
+ \frac{\dd}{\dd t}\langle\psi\rangle
+ =\frac12\iint f(v)f(w)K(|v-w|)
+   \int_{S^2}[\psi(v')+\psi(w')-\psi(v)-\psi(w)]
+              \frac{\dd\sigma}{4\pi}\,\dd v\,\dd w ,
+\]
+where $V=(v+w)/2$, $g=v-w$ and $v',w'=V\pm|g|\sigma/2$.
+Thus $D$ below is the derivative of the raw moment
+$\langle|v|^4\rangle$, not of that moment divided by $15$.
+For this model the initial fourth velocity-moment derivative is
+\begin{equation}\label{eq:D}
+ D(\mu)=-\iint (\theta-\eta)^2\Phi(\theta+\eta)
+                        \,\mu(\dd\theta)\mu(\dd\eta).
+\end{equation}
+For a radial speed factor $K$, the thermal response is
+\begin{equation}\label{eq:transform}
+ \Phi(s)=\frac{s^{-7/2}}{6\sqrt{2\pi}}
+ \int_0^\infty x^{5/2}K(\sqrt{x})\e^{-x/(2s)}\dd x .
+\end{equation}
+These formulas assume elastic collisions and a uniform outgoing relative
+direction. A nonuniform angle law is not silently absorbed into a claim
+about the bare radial kernel.
+For completeness, conditional on temperatures $\theta,\eta$, write
+$s=\theta+\eta$. Then $g$ is Gaussian with covariance $sI$, and
+$V\mid g=(\theta-\eta)g/(2s)+\zeta$, with independent centered
+$\zeta$ of covariance $\theta\eta I/s$.
+The angularly averaged weak increment for the fourth moment is
+$K(|g|)\{ |g|^2|V|^2/3-(V\cdot g)^2\}$.
+Conditioning on $g$ gives
+$-(\theta-\eta)^2 K(|g|)|g|^4/(6s^2)$.
+The Maxwell radial density and the substitution $x=|g|^2$ give
+\eqref{eq:transform}, including its normalization.
+
+\begin{definition}
+The response is \emph{determined through order $m$} if any two admitted
+probability measures sharing $M_0,\ldots,M_m$ have the same $D$.
+No continuity, polynomial form or linearity of the determining map is assumed.
+\end{definition}
+
+\section{An exact finite-moment classification}
+\begin{theorem}\label{thm:classification}
+Let $\Phi\in C^\infty((0,\infty))$ and $m\geq2$.
+On all compactly supported probability measures on $(0,\infty)$,
+the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $D$ is determined through order $m$.
+\item $\Phi$ is a polynomial of degree at most $m-2$.
+\end{enumerate}
+For a nonzero polynomial of degree $J$, the least cutoff is $J+2$.
+For a nonpolynomial smooth $\Phi$, no finite cutoff works on this class.
+\end{theorem}
+\begin{proof}
+Write $h(x,t)=(x-t)^2\Phi(x+t)$ and
+$B(\rho,\nu)=\iint h(x,t)\rho(\dd x)\nu(\dd t)$.
+
+Suppose (i) holds. Let $\nu$ be any finite signed atomic measure with
+vanishing moments through order $m$. Choose a probability measure $\rho$
+giving positive mass to every support point of $\nu$. For small
+$\varepsilon>0$, both $\rho+\varepsilon\nu$ and
+$\rho-\varepsilon\nu$ are probability measures with the same moments.
+The difference of their quadratic functionals is
+$-4\varepsilon B(\rho,\nu)$, so $B(\rho,\nu)=0$.
+
+For any $t>0$ and $0<a<1$, the measure
+$\rho_a=(1-a)\rho+a\delta_t$ still permits both signed perturbations.
+Thus $B(\rho_a,\nu)=0$ and consequently $B(\delta_t,\nu)=0$.
+By symmetry of $h$, this says that $h(\,\cdot\,,t)$ annihilates every such
+signed measure. In particular, the $(m+1)$st forward difference in $x$
+vanishes, since its binomial signed measure annihilates all monomials
+through order $m$. Taking its mesh to zero yields
+$\partial_x^{m+1}h(x,t)=0$ for every $x,t>0$.
+At $x=t$ the Leibniz rule leaves only
+\[
+ 0=m(m+1)\Phi^{(m-1)}(2t).
+\]
+Connectedness of the positive half-line proves (ii).
+This argument never differentiates the unknown determining map.
+
+Conversely, for $\Phi(s)=\sum_{j=0}^J c_js^j$ direct expansion gives
+\begin{equation}\label{eq:moment}
+ D=-\sum_{j=0}^Jc_j\sum_{\ell=0}^j\binom j\ell
+ \left[M_{\ell+2}M_{j-\ell}
+       -2M_{\ell+1}M_{j-\ell+1}
+       +M_\ell M_{j-\ell+2}\right].
+\end{equation}
+Only moments through $J+2$ occur. Necessity excludes any smaller cutoff
+of at least two. A cutoff of one cannot suffice for any nonzero $\Phi$:
+$\delta_a$ and $(\delta_{a-h}+\delta_{a+h})/2$ have the same mean but
+responses $0$ and $-2h^2\Phi(2a)$, respectively. Choose $a$ with
+$\Phi(2a)\ne0$ and $0<h<a$.
+\end{proof}
+
+The supplement \cite{Internal} checks the moment formula and separating
+examples exactly; these finite checks do not replace the proof of the
+universally quantified statement.
+
+\begin{corollary}[Approximate initial-response prediction]\label{cor:approximation}
+Let $0<a<b$, $m\geq2$, $\Phi\in C([2a,2b])$, and let $\mu$ be a probability measure on $[a,b]$
+with temperature variance $v=M_2-M_1^2$. For a polynomial $P$ of degree
+at most $m-2$, put
+\[
+ \varepsilon(P)=\norm{\Phi-P}_{\infty,[2a,2b]},\qquad
+ D^P(\mu)=-\iint(\theta-\eta)^2P(\theta+\eta)
+                         \,\mu(\dd\theta)\mu(\dd\eta).
+\]
+The polynomial predictor $D^P(\mu)$ is determined by $M_0,\ldots,M_m$
+through \eqref{eq:moment}, and
+\[
+ |D(\mu)-D^P(\mu)|\leq2v\varepsilon(P).
+\]
+If $\nu$ is another probability measure on the same interval with those
+moments, then, writing
+$\varepsilon_m=\inf_{\deg P\leq m-2}\varepsilon(P)$,
+\[
+ |D(\mu)-D(\nu)|\leq4v\varepsilon_m
+                   \leq(b-a)^2\varepsilon_m.
+\]
+\end{corollary}
+\begin{proof}
+The polynomial moment formula gives $D^P(\mu)=D^P(\nu)$, while
+\[
+ \iint(\theta-\eta)^2\,\mu(\dd\theta)\mu(\dd\eta)=2v.
+\]
+Bounding the integrand error gives the single-predictor inequality.
+The triangle inequality and the common variance give the two-preparation
+bound after taking the infimum over $P$. Finally
+$\int(\theta-a)(b-\theta)\,\mu(\dd\theta)\geq0$ implies
+$v\leq(M_1-a)(b-M_1)\leq(b-a)^2/4$.
+\end{proof}
+Thus $2v\varepsilon(P)$ controls a specified predictor, whereas
+$4v\varepsilon_m$ bounds the diameter of responses compatible with the
+retained moments. This elementary approximation consequence does not
+claim that the diameter bound is sharp. A numerical guarantee requires
+an actual polynomial and a certified uniform error bound on the stated
+support interval, not only the definition of $\varepsilon_m$.
+
+\subsection{What this theorem does not close}
+Even when \eqref{eq:moment} holds, the higher moments appearing in its
+right-hand side need not themselves have autonomous equations at that cutoff.
+The theorem addresses the initial derivative on a preparation class, not the
+invariance of that class under every subsequent collision evolution.
+It does not exclude approximate closure, restricted-family closure,
+extra measured observables or history-dependent inference.
+Corollary~\ref{cor:approximation} concerns only the initial response;
+uncertain support, noisy moments and propagation to later times require
+separate error estimates.
+
+\section{Classification in the raw speed variable}
+\begin{corollary}\label{cor:kernel}
+Assume $K\geq0$ is measurable and
+$\int_0^\infty r^6K(r)\e^{-\lambda r^2}\dd r<\infty$ for every
+$\lambda>0$. Then the thermal response in \eqref{eq:transform} is a
+polynomial $\sum_{j=0}^Jc_js^j$ if and only if, almost everywhere on $r>0$,
+\[
+ K(r)=\sum_{j=0}^J\frac{6c_j}{(2j+5)!!}r^{2j}.
+\]
+The resulting polynomial must be nonnegative on the positive half-line;
+its individual coefficients need not be nonnegative.
+\end{corollary}
+\begin{proof}
+The Gamma integral maps $K(r)=r^{2j}$ to
+$\Phi(s)=(2j+5)!!s^j/6$. Subtract this finite polynomial from $K$
+when $\Phi$ is polynomial. The Laplace transform of
+$x^{5/2}$ times the difference at $\sqrt{x}$ vanishes for every
+positive transform parameter. The stated exponential integrability allows
+Laplace uniqueness, so the difference vanishes almost everywhere.
+\end{proof}
+The value at $r=0$ is not identified. This is not a classification of
+anisotropic scattering or of all intermolecular force laws.
+
+\section{A clock-canceling inverse in a Maxwell model}
+Consider a separate admitted angular family with normalized moments
+$q_j=\langle|v|^{2j}\rangle/[(2j+1)!!\,T^j]$, where
+$T=\langle|v|^2\rangle/3$ is conserved, and equations
+\begin{align}
+ q_2'&=-\nu(t)(q_2-1)/2,\nonumber\\
+ q_3'&=-3\nu(t)(q_3-q_2)/4,\label{eq:maxwell}\\
+ q_4'&=\nu(t)\left[-(6+G)q_4/8+Gq_3/2
+                              +3(2-G)q_2^2/8\right].\nonumber
+\end{align}
+Here $\nu\geq0$ and $\nu G$ are integrable on each observation interval,
+and $G(t)$ is an admitted angular coordinate.
+These equations, rather than an unqualified identification of $G$ with
+a molecular parameter, define the inverse problem.
+
+Set $y=q_2-1$ and $R=q_4-4q_3+3q_2^2$.
+Substitution gives
+\[
+ y'=-\nu y/2,\qquad R'=-\nu(6+G)R/8.
+\]
+\begin{theorem}\label{thm:clock}
+If $y,R>0$ and $A=\int_{t_1}^{t_2}\nu(t)\dd t>0$, then
+\begin{equation}\label{eq:inverse}
+ \widehat G:=
+ 4\frac{\log(R(t_2)/R(t_1))}{\log(y(t_2)/y(t_1))}-6
+ =\frac{\int_{t_1}^{t_2}\nu(t)G(t)\dd t}{A}.
+\end{equation}
+A constant $G$ is recovered despite an unknown changing common clock.
+For varying $G$, only the collision-exposure-weighted mean is identified.
+\end{theorem}
+\begin{proof}
+Integrate the two scalar logarithmic derivatives and eliminate $A$.
+\end{proof}
+The denominator and sign conditions are admission requirements.
+For zero exposure or a vanishing invariant the displayed inverse is
+undefined. If uncertainty intervals permit either case or an invalid
+logarithm, a central estimate alone cannot justify applying the inverse.
+
+\subsection{Exact endpoint ambiguity}
+Use the same initial $q_2,q_3,q_4$ and total exposure in two experiments.
+In the first take $G=7/5$ throughout. In the second take $G=6/5$ for the
+first half of exposure and $G=8/5$ for the second.
+Both histories have the same exposure-weighted mean. The first two moment
+equations are independent of $G$; the equation for $R$ depends only on
+its integrated value. Therefore every displayed endpoint moment is identical.
+An intermediate observation can distinguish these particular histories,
+but the same construction can be placed inside each interval of any
+finite schedule. This defeats unrestricted history identification, not
+constant-law inference.
+
+Exact continuous data instead supply the exposure coordinate
+$s=-2\log(y/y(t_1))$, along which
+\[
+ \frac{\dd\log R}{\dd s}=-(6+G(s))/8.
+\]
+Recovering this derivative from noisy finite data is a separate stability
+problem, not solved by \eqref{eq:inverse}.
+
+\section{Predictive interpretation and a finite next test}
+A useful future experiment would first prepare two independently verified
+velocity distributions with the same admitted low moments. A specified
+ordinary collision law would predict their unequal initial fourth-moment
+responses before either slope was observed. A separate rate calibration,
+or the admitted two-time inverse, would constrain the changing clock.
+
+The classification says when equality of finitely many summaries can
+guarantee equality of the initial response. It does not say how large a
+detectable separation is for every preparation or noise budget.
+
+\section{Reproducibility and remaining review}
+The supplement supplies an exact-rational counterexample with matching
+$M_0,M_1,M_2$, polynomial-response controls, the transform constants,
+and a symbolic check of the clock-canceling invariant and endpoint
+ambiguity. No private data or machine-specific path is required.
+Its finite checks complement the proofs; they do not establish the
+converse by enumeration. The cited works establish the relevant baselines;
+a systematic novelty comparison for this particular classification has
+not been made, and no priority is claimed.
+
+\aistatement
+\begin{thebibliography}{99}
+\bibitem{IkenberryTruesdell} E. Ikenberry and C. Truesdell,
+\emph{On the pressures and the flux of energy in a gas according to
+Maxwell's kinetic theory, I}, J. Rational Mech. Anal. \textbf{5}, 1--54 (1956).
+\url{https://doi.org/10.1512/iumj.1956.5.55001}.
+\bibitem{Grad} H. Grad,
+\emph{On the kinetic theory of rarefied gases},
+Comm. Pure Appl. Math. \textbf{2}, 331--407 (1949).
+\url{https://doi.org/10.1002/cpa.3160020403}.
+\bibitem{KrookWu} M. Krook and T. T. Wu,
+\emph{Formation of Maxwellian Tails},
+Phys. Rev. Lett. \textbf{36}, 1107--1109 (1976).
+\url{https://doi.org/10.1103/PhysRevLett.36.1107}.
+\bibitem{Santos} A. Santos,
+\emph{Solutions of the moment hierarchy in the kinetic theory of Maxwell models},
+Continuum Mech. Thermodyn. \textbf{21}, 361--387 (2009).
+\url{https://arxiv.org/abs/0903.1054}.
+\bibitem{Karlin} I. Karlin,
+\emph{Fock-Space Formulation of the Boltzmann Collision Operator for Maxwell
+Molecules} (2026). \url{https://arxiv.org/abs/2609.00040}.
+\bibitem{CKT} C. Cuchiero, M. Keller-Ressel and J. Teichmann,
+\emph{Polynomial processes and their applications to mathematical finance},
+Finance Stoch. \textbf{16}, 711--740 (2012).
+\url{https://doi.org/10.1007/s00780-012-0188-x}.
+\bibitem{CurtoFialkow} R. E. Curto and L. A. Fialkow,
+\emph{Truncated K-moment problems in several variables},
+J. Operator Theory \textbf{54}, 189--226 (2005).
+\url{https://arxiv.org/abs/math/0507067}.
+\bibitem{SSV} R. L. Schilling, R. Song and Z. Vondra\v{c}ek,
+\emph{Bernstein Functions: Theory and Applications}, second ed.,
+De Gruyter (2012). \url{https://doi.org/10.1515/9783110269338}.
+\bibitem{Levermore} C. D. Levermore,
+\emph{Moment closure hierarchies for kinetic theories},
+J. Stat. Phys. \textbf{83}, 1021--1065 (1996).
+\url{https://doi.org/10.1007/BF02179552}.
+\bibitem{Internal} L. Mahmood, Reproducibility supplement to this paper (2026),
+\texttt{supplement/README.md} and \texttt{check.py}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,38 @@
+{
+ "access_right": "open",
+ "creators": [
+  {
+   "name": "Mahmood, Luqman"
+  }
+ ],
+ "description": "<p>Exact eta invariants for the projected transverse-traceless tensor-curl family on oriented three-dimensional lens spaces, with all-rank formulas, rank symmetries, zero families and an exact spectral-flow data supplement. The orientation, projection and auxiliary-boundary distinctions are explicit. No physical interpretation or preferred lens-space order is inferred.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+ "keywords": [
+  "eta invariants",
+  "lens spaces",
+  "tensor curl"
+ ],
+ "language": "eng",
+ "license": "cc-by-4.0",
+ "publication_date": "2026-10-01",
+ "publication_type": "preprint",
+ "related_identifiers": [
+  {
+   "identifier": "10.5281/zenodo.21433687",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.5281/zenodo.21433689",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.5281/zenodo.22917346",
+   "relation": "references",
+   "scheme": "doi"
+  }
+ ],
+ "title": "Eta invariants of transverse-traceless tensor curl on three-dimensional lens spaces",
+ "upload_type": "publication",
+ "version": "1.0.0"
+}

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite the preprint. CC BY 4.0 covers scholarly documents and mathematical data; executable software rights are reserved."
+type: article
+title: "Square Elliptic Completions and APS Boundary Information on Round Spherical Quotients"
+authors:
+  - family-names: Mahmood
+    given-names: Luqman
+version: "1.0.0"
+doi: "10.5281/zenodo.22917346"
+license: CC-BY-4.0
+date-released: 2026-10-01

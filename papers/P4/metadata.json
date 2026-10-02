@@ -1,0 +1,33 @@
+{
+ "access_right": "open",
+ "creators": [
+  {
+   "name": "Mahmood, Luqman"
+  }
+ ],
+ "description": "<p>Commuting bivariate McKay recurrences organize representation multiplicities and round tensor-curl spectral functions. The paper derives finite Hurwitz-zeta continuation, pole and heat-coefficient structure, moving-offset boundary terms and relative zeta-determinant recurrences. Scope is mathematical and confined to the stated operators and quotients.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+ "keywords": [
+  "McKay correspondence",
+  "spectral zeta functions",
+  "tensor curl"
+ ],
+ "language": "eng",
+ "license": "cc-by-4.0",
+ "publication_date": "2026-10-01",
+ "publication_type": "preprint",
+ "related_identifiers": [
+  {
+   "identifier": "10.5281/zenodo.21433687",
+   "relation": "references",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "10.5281/zenodo.22917346",
+   "relation": "references",
+   "scheme": "doi"
+  }
+ ],
+ "title": "Bivariate McKay Recurrences and Meromorphic Tensor-Curl Spectral Functions on Spherical Space Forms",
+ "upload_type": "publication",
+ "version": "1.0.0"
+}

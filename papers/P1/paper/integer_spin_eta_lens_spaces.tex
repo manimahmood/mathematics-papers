@@ -1,0 +1,1600 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{placeins}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Eta invariants of transverse-traceless tensor curl on three-dimensional lens spaces},
+  pdfauthor={Luqman Mahmood}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\TT}{\mathrm{TT}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\e}{\mathrm e}
+\newcommand{\dd}{\mathrm d}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Eta invariants of transverse-traceless tensor curl\\
+on three-dimensional lens spaces}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{30 September 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $L(p,q)$ be a round lens space with $p\geq2$ and let $A_J$ be the
+tensor-curl operator obtained by compressing Homma's normalized
+three-dimensional self-gradient to divergence-free trace-free symmetric
+tensors of rank $J\geq1$.  We show that $A_J$ is a self-adjoint projected
+elliptic pseudodifferential operator with compact resolvent, and we evaluate
+its eta invariant for every unit $q$ modulo $p$.  The result is an exact
+finite expression combining a classical Dedekind sum, elementary signed
+residue sums, finite Fourier-aliasing corrections, and an explicit low-mode
+count.  For homogeneous quotients it reduces to
+\[
+ \eta_J(L(p,1))
+ =-\frac{J\bigl(p^2-3Jp+4J^2-2\bigr)}{3p},
+ \qquad p\geq\max(2,2J-1).
+\]
+The threshold is sharp.  We further establish rank periodicity and the
+reflection $\eta_{p-J}=-\eta_J$ when $1\pm q$ are units modulo $p$, and we
+exhibit four parameterized eta-zero families at $p=2J^2-1$ (with possible
+coincidences at the smallest ranks).  At $J=1$ the formula recovers the
+classical odd-signature value $-4s(q,p)$ and matches the normalization in
+Jeffrey's Chern--Simons spectral-flow formula; in rank two it evaluates the
+spectral-asymmetry (eta) contribution to the determinant phase set aside by
+Castro, Lashkari, and Maloney, not a complete one-loop phase.  The operator,
+its sphere spectrum, and the equivariant character method are classical; the
+contribution is the explicit signed evaluation, uniform in the rank and in
+prime and composite levels.  The sphere $S^3$ (the $p=1$ case) has symmetric
+TT spectrum and eta invariant zero.
+\end{abstract}
+
+\section{Introduction}
+
+Spectral determinants on spherical quotients often retain the magnitude of a
+first-order spectrum while discarding its sign.  For transverse-traceless
+(TT) tensors this loses precisely the spectral asymmetry measured by an eta
+invariant.  The arbitrary-rank TT representations and quotient character
+machinery are classical in the heat-kernel literature
+\cite{DavidGaberdielGopakumar2010}.  In rank two,
+Castro--Lashkari--Maloney write down the same tensor-curl operator and its lens
+space degeneracies, but explicitly set aside the sign or determinant phase
+because only the norm is used \cite[eqs.~(3.3), (3.13)--(3.18) and footnote~5]
+{CastroLashkariMaloney2011}.  This paper evaluates that signed difference and
+its integer-rank extension.
+
+The local starting point is Homma's three-dimensional higher-spin
+self-gradient \cite{Homma2001,HommaTomihisa2021}.  It is not elliptic on the
+unrestricted trace-free symmetric-tensor bundle.  Its compression to the
+solenoidal range, however, has principal symbol $\pm|\xi|$.  We formulate
+this compression as a projected, or Toeplitz, elliptic operator.  On a round
+lens quotient its two chiral branches are
+\[
+ V_{n+2J}\otimes V_n,
+ \qquad
+ V_n\otimes V_{n+2J},
+ \qquad n\geq0,
+\]
+with signed eigenvalues $\pm(n+J+1)$ on the unit three-sphere.  Here $V_a$
+denotes the irreducible $SU(2)$ representation of highest weight $a$ and
+dimension $a+1$.
+
+Our main result is a closed formula for the eta invariant after cyclic
+projection.  It applies at every level $p\geq2$ and explicitly
+retains both removable denominator-singular character limits and the modular
+aliasing terms that are easy to lose in a generic trigonometric calculation.
+At even order the half-turn is the sole additional denominator-singular
+class; its two chiral TT character products agree termwise, so its signed
+contribution is zero before analytic continuation.
+Three consequences are particularly compact:
+
+\begin{enumerate}[label=(\roman*)]
+\item the homogeneous polynomial in $p$ and $J$ displayed in the abstract;
+\item rank periodicity and antisymmetry on nonsingular lens rows; and
+\item four infinite arithmetic zero families at $p=2J^2-1$.
+\end{enumerate}
+
+At $J=1$ the result is the established curl or odd-signature eta invariant
+\cite{APS1975,Bar2019}.  This fixes the normalization.  A second consistency
+check comes from the appearance of the same
+$J=1$ term in Jeffrey's $SU(2)$ Chern--Simons spectral-flow formula
+\cite{Jeffrey1992}; Appendix~\ref{app:jeffrey} records the comparison.
+
+The operator, sphere spectrum, quotient projection, and equivariant eta
+methods are antecedent machinery.  To the best of our knowledge, the explicit
+signed all-rank lens formula and its uniform treatment of composite levels
+have not appeared before.  The result is a spectral statement for round lens
+spaces; completing a gravitational or higher-spin determinant would require
+additional sectors and choices not considered here.
+
+Section~\ref{sec:conventions} fixes the quotient and orientation conventions.
+Sections~3 and 4 construct the projected operator and continue its eta
+series.  Sections~5--7 prove the closed formula and its rank-symmetry and
+zero-family consequences.  The final sections record computational checks,
+place the result among its antecedents, and discuss open problems.
+
+\section{Lens-space and orientation conventions}
+\label{sec:conventions}
+
+Write the unit three-sphere as
+\[
+ S^3=\{(z_1,z_2)\in\C^2:|z_1|^2+|z_2|^2=1\}.
+\]
+For $p\geq2$ and $q\in(\Z/p\Z)^\times$, the generator of $\Z_p$ acts by
+\[
+ (z_1,z_2)\longmapsto
+ \bigl(\e^{2\pi i/p}z_1,\e^{2\pi iq/p}z_2\bigr),
+\]
+and $L(p,q)$ denotes the quotient with its complex quotient orientation.  We
+choose the branch $V_{n+2J}\otimes V_n$ to have positive eigenvalue.  Changing
+either global convention reverses every eta value simultaneously.
+Throughout, $\eta$ means the ordinary eta invariant of $A_J$, not the reduced eta
+$(\eta+h)/2$; the zero-mode convention is therefore kept separate.
+The round-boundary completion in \cite{Mahmood2026SteinWeissAPSBoundary}
+uses this same positive-left-heavy TT convention; its auxiliary finite
+character is subtracted when forming the full boundary eta invariant.
+The case $p=1$ is the sphere $S^3$, whose two TT branches have equal
+multiplicity at every level and hence eta invariant zero; it is not included
+in the nontrivial lens-space theorem below.
+
+Let $q^*\in\{1,\ldots,p-1\}$ be the least positive inverse of $q$ modulo
+$p$.  For an integer $k$, let $\langle k\rangle_p\in\{0,\ldots,p-1\}$ be its
+least nonnegative residue and define
+\begin{equation}
+\rho_p(k)=
+\begin{cases}
+0,&p\mid k,\\
+p-2\langle k\rangle_p,&p\nmid k,
+\end{cases}
+\qquad
+\delta_p(k)=\ind_{p\mid k}.
+\label{eq:rho-delta}
+\end{equation}
+The sawtooth function and Dedekind sum are
+\[
+ \left(\!\left(x\right)\!\right)=
+ \begin{cases}
+ x-\lfloor x\rfloor-\tfrac12,&x\notin\Z,\\
+ 0,&x\in\Z,
+ \end{cases}
+ \qquad
+ s(q,p)=\sum_{a=0}^{p-1}
+ \left(\!\left(\frac ap\right)\!\right)
+ \left(\!\left(\frac{qa}{p}\right)\!\right).
+\]
+
+For $d\geq0$, set $W_d=\{-d,-d+2,\ldots,d\}$.  For $a,b\geq1$ with
+$a\equiv b\pmod2$, the cyclic invariant count in
+$V_{a-1}\otimes V_{b-1}$ is
+\begin{equation}
+ I_{a,b}(p,q)=\#\left\{(r,t)\in W_{a-1}\times W_{b-1}:
+ (1+q)r+(1-q)t\equiv0\pmod{2p}\right\}.
+ \label{eq:Iab}
+\end{equation}
+Finally, define the finite low-mode correction
+\begin{equation}
+ L_J(p,q)=\sum_{m=1}^{J-1}
+ \left[I_{J-m,J+m}(p,q)-I_{J+m,J-m}(p,q)\right].
+ \label{eq:low-mode}
+\end{equation}
+The sum is empty at $J=1$.
+
+\begin{center}
+\begin{tabular}{c|l}
+\hline
+symbol & meaning\\
+\hline
+$A_J$ & normalized rank-$J$ self-gradient compressed to TT tensors\\
+$\rho_p(k)$ & signed least-residue function in \eqref{eq:rho-delta}\\
+$\delta_p(k)$ & divisibility indicator $\mathbf 1_{p\mid k}$\\
+$I_{a,b}(p,q)$ & cyclic invariant count in
+  $V_{a-1}\otimes V_{b-1}$\\
+$L_J(p,q)$ & finite subtraction of formal modes below the TT threshold\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{remark}[Radius scaling]
+\label{rem:radius-scaling}
+If the round metric is rescaled from unit radius to radius $R$, then
+$A_J$ and every nonzero eigenvalue scale by $R^{-1}$.  Consequently
+$\eta_{A_J,R}(s)=R^s\eta_{A_J,1}(s)$, and the value
+$\eta_{A_J,R}(0)$ in the theorem below is independent of $R$.
+\end{remark}
+
+The quotient classification symmetries give, in these conventions,
+\begin{equation}
+ \eta_J(L(p,q^*))=\eta_J(L(p,q)),
+ \qquad
+\eta_J(L(p,-q))=-\eta_J(L(p,q)).
+\label{eq:lens-symmetries}
+\end{equation}
+Indeed, swapping the two complex coordinates and then replacing the cyclic
+generator by its $q^*$th power gives the orientation-preserving
+$q\mapsto q^*$ identification.  Conjugating the second complex coordinate
+gives the orientation-reversing $q\mapsto-q$ identification; orientation
+reversal negates tensor curl and hence its eta invariant.
+
+\section{The projected TT tensor-curl operator}
+\label{sec:operator}
+
+Let $(M,g)$ be a closed oriented constant-curvature three-manifold.  We work
+on the complexification of the real tensor bundle and put
+\[
+ E_J=\Sym^J_0T^*M.
+\]
+Let $D^0_{2J}$ be Homma's self-gradient on the even-spin bundle identified
+with $E_J$, let
+\[
+ U_J=\frac{D^0_{2J}}{2J},
+\]
+and let $\delta_J:E_J\to E_{J-1}$ be trace-free symmetric divergence.  If
+$P_J$ is the exact $L^2$-orthogonal projection onto $\ker\delta_J$, define
+\begin{equation}
+ A_J=P_JU_JP_J:
+ P_JH^1(E_J)\subset P_JL^2(E_J)\longrightarrow P_JL^2(E_J).
+ \label{eq:AJ}
+\end{equation}
+
+\begin{theorem}[Projected TT operator]
+\label{thm:tt-operator}
+The operator $A_J$ is self-adjoint and has compact resolvent.  Its compressed
+principal symbol on $\operatorname{ran}\sigma(P_J)(\xi)$ has eigenvalues
+$+|\xi|$ and $-|\xi|$ for every $\xi\neq0$.  Hence $A_J$ is elliptic in the
+projected pseudodifferential calculus.  On the unit round sphere its TT
+spectrum is
+\begin{align}
+ V_{n+2J}\otimes V_n &: +(n+J+1),\nonumber\\
+ V_n\otimes V_{n+2J} &: -(n+J+1),
+ \qquad n\geq0.
+ \label{eq:sphere-spectrum}
+\end{align}
+The spectrum on a round spherical quotient is obtained by taking invariant
+vectors in each representation.  In particular, there are no zero modes.
+\end{theorem}
+
+\begin{proof}
+Write
+\[
+ d(\xi)=\sigma_1(\delta_J)(x,\xi),
+ \qquad
+ u(\xi)=\sigma_1(U_J)(x,\xi).
+\]
+The even spin module $V_{2J}$ factors through $SO(3)$ and identifies with
+the fiber of $\Sym^J_0T^*M$.  After rotating a nonzero covector $\xi$ to a
+fixed axis, its stabilizer decomposes that fiber into one-dimensional weight
+spaces
+\[
+ E_{J,x}=\bigoplus_{m=-J}^{J}\C e_m .
+\]
+Homma's explicit symbol formulae, in the Hermitian Fourier convention and
+with $U_J=D^0_{2J}/(2J)$, give
+\begin{equation}
+ u(\xi)e_m=\frac mJ|\xi|e_m,
+ \qquad
+ \|d(\xi)e_m\|^2
+ =|\xi|^2\frac{J^2-m^2}{J(2J-1)}.
+ \label{eq:operator-fiber-symbols}
+\end{equation}
+The target $E_{J-1,x}$ has precisely the weights
+$-(J-1),\ldots,J-1$.  Thus $d(\xi)$ is nonzero on every source line that
+maps to a target weight, vanishes exactly on the two extreme lines, and is
+surjective.  Consequently
+\[
+ \ker d(\xi)=\operatorname{span}\{e_{-J},e_J\},
+ \qquad
+ u(\xi)|_{\ker d(\xi)}
+ =\operatorname{diag}(-|\xi|,+|\xi|),
+\]
+up to the single global sign fixed in Section~\ref{sec:conventions}.
+
+We next construct the exact global projection.  Put
+\[
+ \Delta_{\delta,J}=\delta_J\delta_J^*,
+ \qquad
+ K_{J-1}=\ker\delta_J^* .
+\]
+Surjectivity of $d(\xi)$ implies that $\Delta_{\delta,J}$ is elliptic of
+order two.  It is nonnegative and
+$\ker\Delta_{\delta,J}=K_{J-1}$.  Hence $K_{J-1}$ is finite dimensional and
+smooth, and its orthogonal projector $\Pi_{K_{J-1}}$ is smoothing.  The
+positive operator $\Delta_{\delta,J}+\Pi_{K_{J-1}}$ is invertible, with
+\[
+ G_J=(\Delta_{\delta,J}+\Pi_{K_{J-1}})^{-1}\in\Psi^{-2},
+ \qquad
+ \Delta_{\delta,J}G_J
+ =G_J\Delta_{\delta,J}=I-\Pi_{K_{J-1}}.
+\]
+Since $\operatorname{ran}\delta_J\perp K_{J-1}$,
+$\Pi_{K_{J-1}}\delta_J=0$.  Therefore
+\[
+ P_J=I-\delta_J^*G_J\delta_J
+\]
+satisfies
+\[
+ \delta_JP_J
+ =\delta_J-\Delta_{\delta,J}G_J\delta_J
+ =\delta_J-(I-\Pi_{K_{J-1}})\delta_J=0.
+\]
+It is self-adjoint and acts as the identity on $\ker\delta_J$.  It is
+therefore exactly the $L^2$-orthogonal projection onto that kernel.  Its
+principal symbol is
+\begin{equation}
+ p(\xi)=I-d(\xi)^*
+ \bigl(d(\xi)d(\xi)^*\bigr)^{-1}d(\xi),
+ \label{eq:solenoidal-symbol}
+\end{equation}
+the orthogonal projection onto $\ker d(\xi)$.  In particular
+$P_J\in\Psi^0$ and is bounded on every Sobolev space; compare the standard
+solenoidal construction in \cite{GouezelLefeuvre2021}.
+
+The compressed principal symbol of $A_J=P_JU_JP_J$ is
+\[
+ p(\xi)u(\xi)p(\xi):
+ \operatorname{ran}p(\xi)\longrightarrow\operatorname{ran}p(\xi).
+\]
+By \eqref{eq:operator-fiber-symbols}, its eigenvalues are
+$\pm|\xi|$, so it is invertible for $\xi\neq0$.  This proves projected
+ellipticity \cite{SavinSternin1999,Seiler2012}.
+
+It remains to identify the closed domain.  Let $Q_J=I-P_J$ and
+\[
+ \Lambda=(1+\nabla^*\nabla)^{1/2},\qquad
+ \mathcal B_J=P_JU_JP_J+Q_J\Lambda Q_J.
+\]
+The complex-power calculus gives $\Lambda\in\Psi^1$ with scalar principal
+symbol $|\xi|$.  Because $U_J$ is formally self-adjoint and $P_J,Q_J$ are
+orthogonal projections, $\mathcal B_J$ is formally self-adjoint.  Relative
+to
+\[
+ E_{J,x}=\operatorname{ran}p(\xi)\oplus
+ \operatorname{ran}(I-p(\xi)),
+\]
+its order-one symbol is block diagonal:
+\[
+ \sigma_1(\mathcal B_J)(\xi)=
+ \begin{pmatrix}
+ p(\xi)u(\xi)p(\xi)|_{\operatorname{ran}p(\xi)}&0\\
+ 0&|\xi|I
+ \end{pmatrix}.
+\]
+Both blocks are invertible, hence $\mathcal B_J$ is an elliptic classical
+operator of order one.
+
+Let $\mathcal B_{\min}$ be its graph closure from smooth sections and
+$\mathcal B_{\max}$ its distributional maximal realization.  If
+$v\in L^2$ and $\mathcal B_Jv\in L^2$, an order-$-1$ parametrix $C$ with
+$C\mathcal B_J=I-R$, $R$ smoothing, gives
+\[
+ v=C\mathcal B_Jv+Rv\in H^1.
+\]
+Conversely, an order-one operator maps $H^1$ continuously to $L^2$, so
+$\mathcal D(\mathcal B_{\max})=H^1(E_J)$.  The elliptic estimate
+\[
+ \|v\|_{H^1}\leq C_0
+ \bigl(\|\mathcal B_Jv\|_{L^2}+\|v\|_{L^2}\bigr)
+\]
+and density of smooth sections in $H^1$ show that
+$\mathcal D(\mathcal B_{\min})=H^1(E_J)$ as well.  Formal symmetry now yields
+\[
+ \mathcal B_{\min}^*=\mathcal B_{\max}=\mathcal B_{\min};
+\]
+thus $\mathcal B_J$ is self-adjoint on $H^1(E_J)$.  For nonreal $z$,
+elliptic regularity makes $(\mathcal B_J-z)^{-1}:L^2\to H^1$ bounded.
+Composing with the compact Rellich inclusion proves that its resolvent is
+compact.
+
+Algebraically,
+\[
+ P_J\mathcal B_J=\mathcal B_JP_J=P_JU_JP_J.
+\]
+Thus $\operatorname{ran}P_J$ is reducing.  The corresponding restriction is
+$A_J$, with domain
+\[
+ H^1(E_J)\cap\operatorname{ran}P_J=P_JH^1(E_J).
+\]
+It is self-adjoint, and its resolvent is the compact compression of the
+resolvent of $\mathcal B_J$.
+
+Finally, Homma's lowering operator $D^-_{2J}$ is a nonzero constant multiple
+of $\delta_J$ under the even-spin/STF identification.  On constant
+curvature, Homma's intertwining identity reads
+\[
+ D^0_{2J-2}D^-_{2J}=D^-_{2J}D^0_{2J}.
+\]
+Therefore $U_J$ preserves $\ker\delta_J$, and the compression agrees there
+with the local self-gradient.  On $S^3$ the solenoidal trace-free sector is
+\[
+ \bigoplus_{n\geq0}
+ \left[
+ V_{n+2J}\otimes V_n
+ \oplus
+ V_n\otimes V_{n+2J}
+ \right].
+\]
+Homma's signed spectrum for $D^0_{2J}$ is
+$+2J(n+J+1)$ on the first summand and $-2J(n+J+1)$ on the second
+\cite{Homma2001,HommaTomihisa2021}.  Dividing by $2J$ proves
+\eqref{eq:sphere-spectrum}.  If a finite group acts freely by
+orientation-preserving isometries, pullback identifies quotient sections
+with invariant sections upstairs and intertwines both $\delta_J$ and $U_J$.
+The quotient eigenspaces are therefore exactly the invariant vectors in the
+displayed modules.  Their eigenvalue magnitudes are $n+J+1>0$, so no zero
+mode occurs.
+\end{proof}
+
+\begin{remark}
+The theorem does not make $U_J$ elliptic on all of $E_J$, and the range of
+$P_J$ is not the section space of a local rank-two vector bundle.  The
+transverse projection is nonlocal.  The intrinsic projected operator alone
+is not asserted to be a local boundary operator on an arbitrary
+three-manifold.  The separate round boundary interpretation is described in
+the next subsection and is not an assumption of the eta calculation.
+\end{remark}
+
+\begin{lemma}[Rank-one normalization]
+\label{lem:rank-one-normalization}
+Under the metric identification $E_1=T^*M\otimes\mathbb C$, the normalized
+self-gradient is
+\[
+ U_1=\frac{D^0_2}{2}=*d .
+\]
+Moreover $\delta_1$ is the codifferential up to the convention fixed above,
+so $A_1$ is the classical curl operator on coclosed one-forms.  On a lens
+space this is the coexact sector, and in the orientation of
+Section~\ref{sec:conventions},
+\[
+ \eta(A_1;L(p,q))=-4s(q,p).
+\]
+\end{lemma}
+
+\begin{proof}
+In an oriented orthonormal frame the unique $SO(3)$-equivariant
+self-gradient on one-forms has components
+$(U_1\alpha)_i=\varepsilon_i{}^{jk}\nabla_j\alpha_k$, which is $*d\alpha$.
+This fixes the operator normalization rather than only its spectrum.  The
+lowering operator is contraction with $\nabla$, hence a
+convention-fixed nonzero multiple of the codifferential; its kernel is the
+coclosed subspace.  Because $H^1(L(p,q);\mathbb R)=0$, coclosed one-forms
+have no harmonic summand and are coexact.  The classical
+odd-signature/curl formula in the chosen quotient orientation is
+$-4s(q,p)$ \cite{APS1975,Bar2019}.
+\end{proof}
+
+\subsection{Relation to the round boundary operator}
+\label{sec:round-boundary-interface}
+
+For comparison with the companion boundary problem, on a round quotient the
+rank-$J$ TT sector is a reducing block on which the companion boundary operator
+restricts to $A_J$ in the convention of Section~\ref{sec:conventions}.  The
+square completion, twisted-Dirac identification, and assembly of the full
+Atiyah--Patodi--Singer boundary correction---which involves auxiliary eta and
+kernel terms beyond $\eta(A_J)$---are carried out in
+\cite{Mahmood2026SteinWeissAPSBoundary} and are not needed here.  The
+rankwise Dirac-to-tensor-curl transfer and the generic McKay--Chebyshev
+algebra appear separately in
+\cite{Mahmood2026DiracToTensorCurlEtaTransfer,
+Mahmood2026BivariateMcKay}.
+
+\section{Cyclic projection and eta continuation}
+\label{sec:continuation}
+
+From \eqref{eq:Iab} and \eqref{eq:sphere-spectrum}, put
+\begin{equation}
+ d^+_{J,n}=I_{n+2J+1,n+1}(p,q),\qquad
+ d^-_{J,n}=I_{n+1,n+2J+1}(p,q),
+ \label{eq:branch-multiplicities}
+\end{equation}
+and $D_J(n;p,q)=d^+_{J,n}-d^-_{J,n}$.  For $\Re s$ large, the eta function is
+\begin{equation}
+ \eta_{A_J}(s)=\sum_{n\geq0}
+ \frac{D_J(n;p,q)}{(n+J+1)^s}.
+ \label{eq:eta-series}
+\end{equation}
+
+\begin{proposition}[Affine residue continuation]
+\label{prop:eta-continuation}
+For each residue $0\leq r<2p$ there are integers
+$A_r=A_r(J,p,q)$ and $B_r=B_r(J,p,q)$ such that
+\begin{equation}
+ D_J(r+2pk;p,q)=A_rk+B_r\qquad(k\geq0).
+ \label{eq:affine-residue}
+\end{equation}
+With $a_r=(r+J+1)/(2p)$,
+\begin{equation}
+ \eta_{A_J}(s)=(2p)^{-s}\sum_{r=0}^{2p-1}
+ \left[A_r\zeta(s-1,a_r)+(B_r-A_ra_r)\zeta(s,a_r)\right].
+ \label{eq:hurwitz-continuation}
+\end{equation}
+In particular, the eta function is regular at $s=0$ and
+\begin{equation}
+ \eta_{A_J}(0)=\sum_{r=0}^{2p-1}
+ \left[A_r\left(\frac{a_r^2}{2}-\frac1{12}\right)
+ +B_r\left(\frac12-a_r\right)\right].
+ \label{eq:eta-zero-hurwitz}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a highest weight $h\geq0$ and $a\in\Z/(2p)\Z$, let
+\[
+ c_h(a)=\#\{w\in W_h:w\equiv a\pmod{2p}\}.
+\]
+The interval of weights grows by one full residue period at each end when
+$h$ is replaced by $h+2p$.  Consequently
+\begin{equation}
+ c_{h+2p}(a)=c_h(a)+
+ 2\ind_{a\equiv h\;(\mathrm{mod}\;2)}.
+ \label{eq:residue-count-recurrence}
+\end{equation}
+Introduce the bilinear invariant-counting form
+\[
+ \mathcal I_{p,q}(c,d)=
+ \sum_{\substack{a,b\;(\mathrm{mod}\;2p)\\
+ (1+q)a+(1-q)b\equiv0\;(\mathrm{mod}\;2p)}}
+ c(a)d(b).
+\]
+Fix $0\leq r<2p$, put $c=c_{r+2J}$ and $d=c_r$, and let
+$u(a)=2\ind_{a\equiv r\;(\mathrm{mod}\;2)}$.  The two highest weights have
+the same parity.  Iterating \eqref{eq:residue-count-recurrence} therefore
+gives
+\[
+ c_{r+2J+2pk}=c+ku,\qquad c_{r+2pk}=d+ku.
+\]
+Hence
+\begin{align*}
+ D_J(r+2pk;p,q)
+={}&\mathcal I_{p,q}(c+ku,d+ku)
+   -\mathcal I_{p,q}(d+ku,c+ku)\\
+={}&\mathcal I_{p,q}(c,d)-\mathcal I_{p,q}(d,c)\\
+&+k\bigl[
+ \mathcal I_{p,q}(u,d)+\mathcal I_{p,q}(c,u)
+ -\mathcal I_{p,q}(u,c)-\mathcal I_{p,q}(d,u)
+ \bigr].
+\end{align*}
+The two quadratic terms are identical and cancel.  This is
+\eqref{eq:affine-residue}, with the constant and linear coefficients in the
+last display equal to $B_r$ and $A_r$.
+
+Splitting \eqref{eq:eta-series} into these residue classes, and writing
+$a_r=(r+J+1)/(2p)$, gives for $\Re s$ large
+\begin{align*}
+ \eta_{A_J}(s)
+ &=(2p)^{-s}\sum_{r=0}^{2p-1}
+   \sum_{k\geq0}(A_rk+B_r)(k+a_r)^{-s}\\
+ &=(2p)^{-s}\sum_{r=0}^{2p-1}
+ \left[A_r\zeta(s-1,a_r)+(B_r-A_ra_r)\zeta(s,a_r)\right].
+\end{align*}
+The right side is the meromorphic continuation
+\eqref{eq:hurwitz-continuation} and is regular at zero.  Finally,
+\[
+ \zeta(0,a)=\frac12-a,\qquad
+ \zeta(-1,a)=-\frac12\left(a^2-a+\frac16\right),
+\]
+and substitution gives \eqref{eq:eta-zero-hurwitz}.
+\end{proof}
+
+The explicit Hurwitz formula proves regularity for the reducing TT spectrum
+directly.  It is consistent with the general residue criteria for eta
+functions of elliptic pseudodifferential operators
+\cite{Ponge2003,SeilerStrohmaier2010}.
+
+\section{The all-rank lens-space formula}
+\label{sec:master}
+
+\begin{theorem}[All-rank eta formula]
+\label{thm:eta-master}
+For every integer $J\geq1$, every $p\geq2$, and every
+$q\in(\Z/p\Z)^\times$, the standard eta invariant of \eqref{eq:AJ} is
+\begin{align}
+\eta_J(L(p,q))={}&-4J\,s(q,p)\nonumber\\
+&+\frac{2}{p}\sum_{a=1}^{J-1}(J-a)
+  \left[\rho_p(aq)+\rho_p(aq^*)\right]\nonumber\\
+&-2\!\!\sum_{\substack{a,b\geq1\\a+b\leq J-1}}
+  (J-a-b)\left[\delta_p(aq-b)-\delta_p(aq+b)\right]\nonumber\\
+&-L_J(p,q),
+\label{eq:master-formula}
+\end{align}
+where \eqref{eq:rho-delta} and \eqref{eq:low-mode} define every term.
+\end{theorem}
+
+The formula is valid without a parity or primality assumption.  The third
+line records finite Fourier-aliasing congruences, including composite-level
+coincidences, and the fourth line removes the formal modes below the physical
+threshold $n+J+1=J+1$.
+
+\subsection{Character reduction}
+
+For a nonidentity group element indexed by $1\leq\ell<p$, set
+\[
+ \alpha_\ell=\frac{\pi\ell q}{p},\qquad
+ \beta_\ell=\frac{\pi\ell}{p}.
+\]
+Also put
+\[
+ u_\ell=\alpha_\ell+\beta_\ell,\qquad
+ v_\ell=\beta_\ell-\alpha_\ell,
+\]
+and write
+\[
+ \chi_h(\theta)=\frac{\sin((h+1)\theta)}{\sin\theta}
+ =\sum_{w\in W_h}e^{iw\theta}.
+\]
+Extend the Weyl formula to integer indices by
+\[
+ \chi_{-1}=0,\qquad \chi_{-h-2}=-\chi_h\quad(h\geq0).
+\]
+\begin{lemma}[Central descent]
+\label{lem:central-descent}
+The cyclic action on each TT branch and on every invariant count
+$I_{a,b}(p,q)$ in \eqref{eq:Iab} is independent of the lift from $SO(4)$ to
+$Spin(4)=SU(2)_L\times SU(2)_R$, for both odd and even $p$.
+\end{lemma}
+
+\begin{proof}
+The two lifts differ by the diagonal central element $(-1,-1)$.  On
+$V_{n+2J}\otimes V_n$ it acts by
+\[
+ (-1)^{(n+2J)+n}=(-1)^{2(n+J)}=1,
+\]
+and the exchanged TT branch has the same exponent.  Likewise,
+$V_{a-1}\otimes V_{b-1}$ in \eqref{eq:Iab} has central exponent $a+b-2$,
+which is even because $a\equiv b\pmod2$.  Thus all representations entering
+the signed projector descend to $SO(4)$ and the order-$p$ cyclic average is
+well-defined without a parity assumption on $p$.
+\end{proof}
+
+For $a\equiv b\pmod2$, character averaging gives
+\begin{equation}
+ I_{a,b}(p,q)=\frac1p\sum_{\ell=0}^{p-1}
+ \chi_{a-1}(u_\ell)\chi_{b-1}(v_\ell).
+ \label{eq:character-projector}
+\end{equation}
+Indeed, expansion produces the phase
+$\exp\{\pi i\ell[(1+q)r+(1-q)t]/p\}$, and its cyclic average is exactly the
+congruence in \eqref{eq:Iab}.
+
+For $m\geq1$, define
+\begin{align*}
+ D_J^{\mathrm{form}}(m;\ell)
+={}&\chi_{m+J-1}(u_\ell)\chi_{m-J-1}(v_\ell)\\
+&-\chi_{m-J-1}(u_\ell)\chi_{m+J-1}(v_\ell).
+\end{align*}
+
+\begin{lemma}[The even half-turn]
+\label{lem:even-half-turn}
+If $p$ is even, then the unique half-turn $\ell=p/2$ has
+\[
+ D_J^{\mathrm{form}}(m;p/2)=0
+ \qquad(m\in\Z).
+\]
+Thus it contributes no signed eta term, before analytic continuation.
+\end{lemma}
+
+\begin{proof}
+Because $q$ is a unit modulo even $p$, it is odd.  Hence at $\ell=p/2$,
+\[
+ u_\ell=\frac{\pi(1+q)}2,
+ \qquad
+ v_\ell=\frac{\pi(1-q)}2
+\]
+are both integral multiples of $\pi$.  For $\varepsilon=\pm1$ the central
+character value is $\chi_h(\varepsilon)=(h+1)\varepsilon^h$.  Put
+$A=m+J-1$, $B=m-J-1$, and let $\varepsilon_u,\varepsilon_v$ be the two
+central signs.  Since $A-B=2J$,
+\[
+ \frac{\varepsilon_u^A\varepsilon_v^B}
+      {\varepsilon_u^B\varepsilon_v^A}
+ =\left(\frac{\varepsilon_u}{\varepsilon_v}\right)^{2J}=1.
+\]
+The common amplitude is $(A+1)(B+1)$, so exchanging the two indices leaves
+the character product unchanged, including the extended-character cases.
+Their signed difference is zero.
+\end{proof}
+
+The identity element contributes zero.  Product-to-sum gives
+\begin{equation}
+ D_J^{\mathrm{form}}(m;\ell)=
+ \frac{
+ \sin(2m\beta_\ell)\sin(2J\alpha_\ell)
+ -\sin(2m\alpha_\ell)\sin(2J\beta_\ell)}
+ {\sin(\alpha_\ell+\beta_\ell)\sin(\beta_\ell-\alpha_\ell)}.
+\label{eq:formal-character}
+\end{equation}
+At a vanishing denominator this expression means the removable character
+limit in the preceding definition.
+
+For $\Re s$ sufficiently large, define the formal Dirichlet series
+\[
+ \eta_J^{\mathrm{form}}(s)
+ =\frac1p\sum_{\ell=1}^{p-1}\sum_{m\geq1}
+  D_J^{\mathrm{form}}(m;\ell)m^{-s}.
+\]
+
+\begin{lemma}[Abel and eta continuation]
+\label{lem:abel-eta}
+Write $\eta_J^{\mathrm{form}}:=\eta_J^{\mathrm{form}}(0)$ for the value at
+zero of the analytically continued formal eta series.  This value equals its
+Abel value:
+\begin{equation}
+ \eta_J^{\mathrm{form}}
+ =\frac1{2p}\sum_{\ell=1}^{p-1}
+ \frac{
+ \sin(2J\alpha_\ell)\cot\beta_\ell
+ -\sin(2J\beta_\ell)\cot\alpha_\ell}
+ {\sin(\alpha_\ell+\beta_\ell)
+  \sin(\beta_\ell-\alpha_\ell)}.
+ \label{eq:formal-abel-eta}
+\end{equation}
+For even $p$, the summand at $\ell=p/2$ is understood through the character
+definition and is zero by Lemma~\ref{lem:even-half-turn}.
+\end{lemma}
+
+\begin{proof}
+For $\theta\notin\pi\Z$,
+\[
+ \lim_{t\uparrow1}\sum_{m\geq1}t^m\sin(2m\theta)
+ =\lim_{t\uparrow1}
+ \frac{t\sin(2\theta)}{1-2t\cos(2\theta)+t^2}
+ =\frac12\cot\theta.
+\]
+This proves the formula when both character denominators are nonzero.  For
+fixed $\ell$, a removable character limit is a finite linear combination of
+$m^\nu\omega^m$, with $\nu\leq1$ and $\omega$ a nontrivial $2p$th root of
+unity.  Here is the denominator classification explicitly.  One has
+\[
+ \sin u_\ell=0\Longleftrightarrow
+ p\mid(q+1)\ell,\qquad
+ \sin v_\ell=0\Longleftrightarrow
+ p\mid(q-1)\ell.
+\]
+If both vanish, adding and subtracting the congruences gives
+$p\mid2\ell$.  Since $1\leq\ell<p$, this is possible exactly when $p$ is
+even and $\ell=p/2$; the resulting signed character is identically zero by
+Lemma~\ref{lem:even-half-turn}.  If exactly one denominator vanishes, taking
+the character limit differentiates only a finite exponential sum and hence
+adds at most one factor of $m$.  Its $m$-dependent roots are among
+$e^{\pm2i\alpha_\ell}$ and $e^{\pm2i\beta_\ell}$.  The latter are nontrivial
+because $0<\ell<p$, and the former are nontrivial because $q$ is a unit
+modulo $p$.  Thus $\omega\neq1$ in every remaining removable case, and
+\[
+ \sum_{m\geq1}^{\mathrm{Abel}}\omega^m=\operatorname{Li}_0(\omega),
+ \qquad
+ \sum_{m\geq1}^{\mathrm{Abel}}m\omega^m
+ =\operatorname{Li}_{-1}(\omega).
+\]
+These are also the values at $s=0$ of the corresponding continued Dirichlet
+series, so Abel and eta continuation agree in every removable case.
+\end{proof}
+
+If
+\[
+ x=\cos(2\alpha_\ell),\quad y=\cos(2\beta_\ell),\quad
+ f_J(x)=(1-x)U_{J-1}(x),
+\]
+then
+\[
+ \sin(2J\alpha_\ell)=\cot\alpha_\ell\,f_J(x),\qquad
+ \sin(\alpha_\ell+\beta_\ell)
+ \sin(\beta_\ell-\alpha_\ell)=\frac{x-y}{2}.
+\]
+Consequently
+\begin{equation}
+ \eta_J^{\mathrm{form}}
+ =\frac1p\sum_{\ell=1}^{p-1}
+ \cot\alpha_\ell\cot\beta_\ell\,P_J(x,y),
+ \qquad
+ P_J(x,y)=\frac{f_J(x)-f_J(y)}{x-y}.
+ \label{eq:formal-polynomial-kernel}
+\end{equation}
+At $x=y$ we set $P_J(x,x)=f_J'(x)$.  This polynomial continuation includes
+$q=\pm1$ and composite singular group elements without division by zero.
+
+\begin{lemma}[All-rank generating function]
+\label{lem:chebyshev}
+The divided differences satisfy
+\begin{equation}
+ \sum_{J\geq1}P_J(x,y)z^J
+ =-\frac{z(1-z)^2}
+ {(1-2xz+z^2)(1-2yz+z^2)}.
+ \label{eq:cheb-generating}
+\end{equation}
+Equivalently,
+\[
+ \frac{U_n(x)-U_n(y)}{x-y}
+ =2\sum_{a=0}^{n-1}U_a(x)U_{n-1-a}(y).
+\]
+\end{lemma}
+
+\begin{proof}
+Insert the standard generating function
+$\sum_{n\geq0}U_n(x)z^n=(1-2xz+z^2)^{-1}$ and simplify the divided
+difference.  The coefficient identity follows by comparing powers of $z$.
+\end{proof}
+
+\begin{lemma}[Exact trigonometric decomposition]
+\label{lem:compact-trig}
+For angles at which the cotangents are defined,
+\begin{align}
+&\cot A\cot B\,P_J(\cos2A,\cos2B)\nonumber\\
+={}&-J\cot A\cot B\nonumber\\
+&+2\sum_{r=1}^{J-1}(J-r)
+\left[\sin(2rA)\cot B+\sin(2rB)\cot A\right]\nonumber\\
+&-4\!\!\sum_{\substack{r,s\geq1\\r+s\leq J-1}}
+(J-r-s)\sin(2rA)\sin(2sB).
+\label{eq:compact-trig-decomposition}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Assume first that both cotangents are nonzero.  Let
+\[
+ D_A=1-2z\cos2A+z^2,\qquad
+ D_B=1-2z\cos2B+z^2.
+\]
+The generating function of the right side is
+\begin{align*}
+ &-\frac{z}{(1-z)^2}\cot A\cot B\\
+ &+\frac{2z^2}{(1-z)^2}
+ \left[\frac{\sin2A\cot B}{D_A}
+      +\frac{\sin2B\cot A}{D_B}\right]
+ -\frac{4z^3\sin2A\sin2B}{(1-z)^2D_AD_B}.
+\end{align*}
+Put the terms over a common denominator and use
+$\sin2A/\cot A=2\sin^2A$ together with
+$D_A=(1-z)^2+4z\sin^2A$, and similarly for $B$.  The numerator becomes
+$-z(1-z)^4\cot A\cot B$.  After cancelling $(1-z)^2$, the result is
+\[
+ -\frac{z(1-z)^2\cot A\cot B}{D_AD_B},
+\]
+which is $\cot A\cot B$ times
+\eqref{eq:cheb-generating}.  Equality of coefficients proves the lemma.
+Both sides of \eqref{eq:compact-trig-decomposition} are continuous at angles
+where a cotangent vanishes, so the identity extends to those cases by
+continuity.
+\end{proof}
+
+\begin{lemma}[Finite Fourier identities]
+\label{lem:finite-fourier}
+For all integers $k,u,v$,
+\begin{align}
+ \frac1p\sum_{\ell=1}^{p-1}
+ \cot\alpha_\ell\cot\beta_\ell&=4s(q,p),
+ \label{eq:cot-dedekind}\\
+ \sum_{\ell=1}^{p-1}
+ \sin\left(\frac{2\pi k\ell}{p}\right)
+ \cot\left(\frac{\pi\ell}{p}\right)&=\rho_p(k),
+ \label{eq:sine-cot-rho}\\
+ \frac1p\sum_{\ell=1}^{p-1}
+ \sin\left(\frac{2\pi u\ell}{p}\right)
+ \sin\left(\frac{2\pi v\ell}{p}\right)
+ &=\frac12\left[\delta_p(u-v)-\delta_p(u+v)\right].
+ \label{eq:sine-orthogonality}
+\end{align}
+The missing factor $1/p$ in \eqref{eq:sine-cot-rho} is intentional:
+$\rho_p(k)$ is the unnormalized finite sine--cotangent sum.
+\end{lemma}
+
+\begin{proof}
+Equation \eqref{eq:cot-dedekind} is the classical cotangent expression for
+the Dedekind sum, after permuting nonzero residues by $q$.  If
+$1\leq k<p$, then
+\[
+ \sin(2kx)\cot x
+ =1+\cos(2kx)+2\sum_{a=1}^{k-1}\cos(2ax).
+\]
+Summing at $x=\pi\ell/p$ gives $p-2k$; reducing an arbitrary $k$ modulo
+$p$ proves \eqref{eq:sine-cot-rho}.  Product-to-sum and finite exponential
+orthogonality give \eqref{eq:sine-orthogonality}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:eta-master}]
+Apply Lemma~\ref{lem:compact-trig} to
+\eqref{eq:formal-polynomial-kernel} and average over $\ell$.  The first term
+is $-4J s(q,p)$ by \eqref{eq:cot-dedekind}.  The first sine--cotangent term
+gives $\rho_p(rq)$ by \eqref{eq:sine-cot-rho}.  In the second, the change of
+variables $h\equiv q\ell\pmod p$ gives
+\[
+ \sum_{\ell=1}^{p-1}\sin(2r\beta_\ell)\cot\alpha_\ell
+ =\rho_p(rq^*).
+\]
+The sine--sine terms give, by \eqref{eq:sine-orthogonality},
+\[
+ -2\!\!\sum_{\substack{r,s\geq1\\r+s\leq J-1}}
+ (J-r-s)
+ \left[\delta_p(rq-s)-\delta_p(rq+s)\right].
+\]
+Thus the first three lines of \eqref{eq:master-formula} equal the formal eta
+value.  The modular indicators arise from finite sine orthogonality, not
+only from degenerate character denominators.
+
+These finite Fourier identities hold for every modulus $p\geq2$ and use no
+inverse of $2$ modulo $p$.  When $p$ is even, the half-turn has
+$\alpha_{p/2}=\pi q/2$ and $\beta_{p/2}=\pi/2$.  Hence its cotangents and all
+the sine factors appearing in Lemma~\ref{lem:compact-trig} vanish; this is
+the zero character contribution already identified in
+Lemma~\ref{lem:even-half-turn}.  Reinstating that zero term therefore gives
+the same Dedekind, residue, and modular-indicator expressions with no extra
+even-level correction.
+
+For $m\geq J+1$, \eqref{eq:character-projector} identifies the averaged
+formal character with the physical signed multiplicity at $n=m-J-1$.  At
+$m=J$ it vanishes because $\chi_{-1}=0$.  If $1\leq m<J$, then
+\[
+ \chi_{m-J-1}=-\chi_{J-m-1},
+\]
+so the averaged formal multiplicity is
+\[
+ I_{J-m,J+m}(p,q)-I_{J+m,J-m}(p,q).
+\]
+The physical spectrum begins at $m=J+1$.  Its eta value is therefore the
+formal value minus the sum of these sub-threshold terms, namely
+$L_J(p,q)$.  This gives the final line of
+\eqref{eq:master-formula} with the asserted sign.
+\end{proof}
+
+The logical distinction between the formal character device and the
+geometric spectrum can be summarized as
+\begin{equation}
+\boxed{
+\begin{gathered}
+\text{extended-character series}
+\ \longrightarrow\
+\text{Abel/Hurwitz continuation}
+\ \longrightarrow\
+\text{finite Fourier evaluation}\\
+\longrightarrow\
+\text{subtract }L_J
+\ =\
+\text{physical TT eta}
+\end{gathered}}
+\label{eq:formal-to-physical}
+\end{equation}
+The first three objects include formal sub-threshold indices; only the final
+subtraction imposes the lower boundary $n=0$ of
+\eqref{eq:sphere-spectrum}.
+
+\begin{corollary}[Rank-one control]
+\label{cor:rank-one}
+At $J=1$ all correction sums vanish and
+\begin{equation}
+ \eta_1(L(p,q))=-4s(q,p).
+ \label{eq:rank-one}
+\end{equation}
+This is the classical odd-signature or curl eta value in the orientation of
+Section~\ref{sec:conventions}.
+\end{corollary}
+
+\begin{corollary}[Even-order anchor]
+\label{cor:rp3}
+For every integer $J\geq1$,
+\[
+ \eta_J(L(2,1))=\eta_J(\mathbb{RP}^3)=0.
+\]
+\end{corollary}
+
+\begin{proof}
+Modulo $2$ one has $-1\equiv1$.  The orientation identity
+\eqref{eq:lens-symmetries} therefore gives
+$\eta_J(L(2,1))=-\eta_J(L(2,1))$.
+\end{proof}
+
+\begin{corollary}[Rank-two specialization]
+\label{cor:rank-two}
+At $J=2$,
+\begin{equation}
+ \eta_2(L(p,q))=-8s(q,p)
+ +\frac2p\bigl[\rho_p(q)+\rho_p(q^*)\bigr]-L_2(p,q).
+ \label{eq:rank-two}
+\end{equation}
+In particular,
+\[
+ \eta_2(L(p,1))=-\frac{2(p^2-6p+14)}{3p}
+ \qquad(p\geq3).
+\]
+The remaining case $p=2$ is the zero value of
+Corollary~\ref{cor:rp3}.
+\end{corollary}
+
+\begin{example}[$J=2$ on $L(5,2)$]
+\label{ex:J2-L52}
+Here $q^*=3\equiv-2\pmod5$.  Inversion and oddness of the Dedekind sum give
+$s(2,5)=s(3,5)=-s(2,5)=0$.  Moreover
+\[
+ \rho_5(2)=1,\qquad \rho_5(3)=-1.
+\]
+The sole low-mode term is
+\[
+ L_2(5,2)=I_{1,3}(5,2)-I_{3,1}(5,2)=1-1=0:
+\]
+in each count only the zero weight satisfies the congruence.  Thus every
+piece of \eqref{eq:rank-two} is visible and
+\[
+ \eta_2(L(5,2))=0.
+\]
+This example also illustrates why the low-mode term must be evaluated even
+when it happens to cancel.
+\end{example}
+
+\section{Homogeneous and rank-symmetry corollaries}
+\label{sec:corollaries}
+
+\begin{theorem}[Homogeneous lens spaces]
+\label{cor:eta-homogeneous}
+For every integer $J\geq1$ and
+$p\geq\max(2,2J-1)$,
+\begin{equation}
+ \eta_J(L(p,1))
+ =-\frac{J\left(p^2-3Jp+4J^2-2\right)}{3p}.
+ \label{eq:homogeneous}
+\end{equation}
+For $J\geq2$ the threshold is sharp.  At the first even level below it,
+$p=2J-2$, the exact value exceeds the stable expression by $2$; for $J\geq3$,
+at the first odd level below it, $p=2J-3$, the excess is $4$.
+\end{theorem}
+
+\begin{proof}
+Specialize \eqref{eq:master-formula} at $q=q^*=1$.  Direct summation of the
+sawtooth definition gives
+\[
+ s(1,p)=\frac{(p-1)(p-2)}{12p},
+\]
+so the Dedekind term is $-J(p^2-3p+2)/(3p)$.  Since
+$1\leq a\leq J-1<p$, one has $\rho_p(a)=p-2a$, and therefore
+\begin{equation}
+ \frac2p\sum_{a=1}^{J-1}(J-a)\,2\rho_p(a)
+ =2J(J-1)-\frac{4J(J^2-1)}{3p}.
+ \label{eq:homogeneous-rho}
+\end{equation}
+
+In the triangular correction, $|a-b|<p$ and $0<a+b<p$.  Thus
+$\delta_p(a-b)=\ind_{a=b}$ and $\delta_p(a+b)=0$, and its value is
+\begin{equation}
+ -2\sum_{a=1}^{\lfloor(J-1)/2\rfloor}(J-2a)
+ =\begin{cases}
+   -J(J-2)/2,&J\text{ even},\\
+   -(J-1)^2/2,&J\text{ odd}.
+  \end{cases}
+ \label{eq:homogeneous-delta}
+\end{equation}
+
+It remains to evaluate the low-mode term rather than assume it is stable.
+For $q=1$, the congruence in \eqref{eq:Iab} is $r\equiv0\pmod p$.
+Every weight occurring there has absolute value at most $2J-2<p$, so only
+$r=0$ is possible.  It occurs precisely when the first index is odd, whence
+\[
+ I_{a,b}(p,1)=b\ind_{a\text{ odd}},
+ \qquad
+ L_J(p,1)=\sum_{\substack{1\leq m<J\\J-m\text{ odd}}}2m
+ =\left\lfloor\frac{J^2}{2}\right\rfloor.
+\]
+Combining this with \eqref{eq:homogeneous-delta}, the last two lines of the
+master formula contribute $-J(J-1)$ for either parity of $J$.  Adding this
+to the Dedekind term and \eqref{eq:homogeneous-rho} yields
+\[
+ \eta_J(L(p,1))
+ =-\frac{J(p^2-3p+2)}{3p}+J(J-1)
+   -\frac{4J(J^2-1)}{3p},
+\]
+which is \eqref{eq:homogeneous}.
+
+For the first even level below the stable range, let $J\geq2$ and
+$p=2J-2$.  The only new low-mode event occurs at $m=J-1$.  The first factor
+in $I_{2J-1,1}(p,1)$ now admits the three weights $r=-p,0,p$ rather than only
+$r=0$, while $I_{1,2J-1}(p,1)$ is unchanged.  Consequently the exact
+$L_J$ is smaller than its stable value by $2$, and the exact eta invariant
+exceeds \eqref{eq:homogeneous} by $2$.
+
+Finally let $J\geq3$ and $p=2J-3$.  The preceding Dedekind, residue, and
+triangular calculations remain valid.  In the low-mode count, however, the
+weights $r=\pm p$ first enter, and only for $m=J-2$.  More explicitly,
+\[
+ I_{2,2J-2}(p,1)=0,
+ \qquad
+ I_{2J-2,2}(p,1)=4.
+\]
+Thus the exact $L_J$ is smaller than its stable value by $4$, so the exact
+eta invariant exceeds the polynomial in \eqref{eq:homogeneous} by $4$.
+This proves the asserted sharpness.  Notice that no primality assumption was
+used.
+\end{proof}
+
+As a fixed worked example, we use the same level $137$ as the companion
+coexact-mode calculation \cite{Mahmood2026CoexactHydrodynamics}.  The first
+five ranks at $L(137,1)$ are
+\begin{equation}
+ \bigl(\eta_1,\ldots,\eta_5\bigr)
+ =-\frac1{137}(6120,11974,17570,22916,28020).
+ \label{eq:level137-table}
+\end{equation}
+Equation~\eqref{eq:homogeneous} holds at every level in its stated stable
+range.
+
+\begin{theorem}[Nonsingular rank symmetries]
+\label{cor:rank-symmetry}
+Suppose
+\[
+ \gcd(1+q,p)=\gcd(1-q,p)=1.
+\]
+Then
+\begin{equation}
+ \eta_{J+p}(L(p,q))=\eta_J(L(p,q)).
+ \label{eq:rank-periodicity}
+\end{equation}
+For $1\leq J\leq p-1$,
+\begin{equation}
+ \eta_{p-J}(L(p,q))=-\eta_J(L(p,q)),
+ \qquad
+ \eta_p(L(p,q))=0.
+ \label{eq:rank-reflection}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Under the stated hypothesis the denominators in
+\eqref{eq:formal-character} are nonzero.  Let $F_J$ denote the formal Abel
+value in \eqref{eq:formal-abel-eta}, and set
+\begin{equation}
+ K_J(m)=\frac1p\sum_{\ell=1}^{p-1}
+ \frac{
+  \sin(2m\beta_\ell)\sin(2J\alpha_\ell)
+  -\sin(2m\alpha_\ell)\sin(2J\beta_\ell)}
+ {\sin(\alpha_\ell+\beta_\ell)
+  \sin(\beta_\ell-\alpha_\ell)}.
+ \label{eq:rank-correction-kernel}
+\end{equation}
+The proof of Theorem~\ref{thm:eta-master} shows that
+\begin{equation}
+ \eta_J=F_J-c_J,
+ \qquad c_J=\sum_{m=1}^{J}K_J(m),
+ \label{eq:rank-formal-minus-correction}
+\end{equation}
+where including $m=J$ is harmless because $K_J(J)=0$.
+
+The elementary sine identities in the rank variable give
+\[
+ F_{J+p}=F_J,\qquad F_{p-J}=-F_J,\qquad F_p=0.
+\]
+The same identities applied to \eqref{eq:rank-correction-kernel} give
+\begin{align*}
+ K_{J+p}(m)&=K_J(m),&K_{p-J}(m)&=-K_J(m),&K_p(m)&=0,\\
+ K_J(m+p)&=K_J(m),&K_J(p-m)&=-K_J(m),&
+ K_J(0)&=K_J(J)=0.
+\end{align*}
+Consequently a complete period in $m$ sums to zero, and hence
+\[
+ c_{J+p}=c_J,\qquad c_p=0.
+\]
+For reflection, use the vanishing of a full period and
+$K_J(p-m)=-K_J(m)$:
+\[
+ \sum_{m=1}^{p-J}K_J(m)
+ =-\sum_{m=p-J+1}^{p}K_J(m)
+ =\sum_{n=0}^{J-1}K_J(n)
+ =\sum_{n=1}^{J-1}K_J(n)=c_J.
+\]
+Therefore $c_{p-J}=-c_J$ for every $1\leq J\leq p-1$, including the
+upper half of the fundamental rank range.
+Substitution in \eqref{eq:rank-formal-minus-correction} proves
+\eqref{eq:rank-periodicity} and \eqref{eq:rank-reflection}.
+\end{proof}
+
+\begin{remark}
+The nonsingularity hypothesis has nonempty scope exactly when
+$\gcd(p,6)=1$.  If $2\mid p$, every unit $q$ is odd, so both $1+q$ and
+$1-q$ share the factor $2$ with $p$.  If $3\mid p$, every unit is congruent
+to $\pm1\pmod 3$, so one of $1+q$ and $1-q$ shares the factor $3$ with $p$.
+Conversely, if $\gcd(p,6)=1$, then $q=2$ is a unit modulo $p$ and satisfies
+both gcd conditions.  Thus this theorem has nonempty scope precisely at
+levels coprime to $6$, even though Theorem~\ref{thm:eta-master} holds for all
+$p\geq2$.  These are arithmetic symmetries of the rank-indexed eta sequence,
+not a claim of periodic physical spin.
+\end{remark}
+
+\section{Four infinite eta-zero families}
+\label{sec:zeros}
+
+\begin{theorem}[Arithmetic zero families]
+\label{thm:zero-families}
+Let $J\geq2$ and $p_J=2J^2-1$.  Then
+\begin{align}
+ \eta_J(L(p_J,J))&=0, &
+ \eta_J(L(p_J,J+1))&=0,\nonumber\\
+ \eta_J(L(p_J,2J-1))&=0, &
+ \eta_J(L(p_J,J(J-1)))&=0.
+ \label{eq:four-zero-families}
+\end{align}
+Their images under $q\mapsto q^{-1}$ and $q\mapsto-q$ are also zeros.
+Every level $p_J$ in these families is odd.
+The four displayed formulae need not represent four distinct lens orbits at
+small $J$.
+\end{theorem}
+
+\begin{proof}
+Write $p=p_J$.  The identities
+\begin{align*}
+ J(2J)&=p+1,\\
+ (J+1)(p-2J+2)&\equiv1\pmod p,\\
+ (2J-1)(2J+1)&=2p+1,\\
+ (4J+2)J(J-1)&=(2J-1)p-1
+\end{align*}
+show that all four displayed residues are units and give the inverses used
+below.  Define the residue contribution
+\[
+ R_J(q)=\frac2p\sum_{a=1}^{J-1}(J-a)
+  [\rho_p(aq)+\rho_p(aq^*)].
+\]
+
+For $q=J,J+1,2J-1$, repeated Dedekind reciprocity gives, respectively,
+\begin{align}
+ s(J,p)&=\frac{(J-1)(J^2-J-1)}{2p},
+ \label{eq:zero-dedekind-one}\\
+ s(J+1,p)&=\frac{(J-3)(J-1)(J+1)}{6p},
+ \label{eq:zero-dedekind-two}\\
+ s(2J-1,p)&=\frac{(J-1)(2J^2-4J-3)}{6p}.
+ \label{eq:zero-dedekind-three}
+\end{align}
+Their inverse residues are $2J$, $p-2J+2$, and $2J+1$.  No residue wraps
+except the explicitly reduced second member of the middle pair, so for
+$1\leq a<J$,
+\begin{align*}
+ \rho_p(aJ)+\rho_p(2aJ)&=2p-6Ja,\\
+ \rho_p(a(J+1))+\rho_p(a(p-2J+2))&=2a(J-3),\\
+ \rho_p(a(2J-1))+\rho_p(a(2J+1))&=2p-8Ja.
+\end{align*}
+Using
+$\sum_{a=1}^{J-1}(J-a)=J(J-1)/2$ and
+$\sum_{a=1}^{J-1}a(J-a)=J(J-1)(J+1)/6$ now gives
+\begin{equation}
+ R_J(q)=4J\,s(q,p)
+ \qquad(q=J,J+1,2J-1).
+ \label{eq:first-three-residue-cancellation}
+\end{equation}
+
+The remaining two master-formula terms vanish for these three choices.
+Indeed, whenever $a,b\geq1$ and $a+b\leq J-1$, one has
+\[
+ 0<aq-b<aq+b<p,
+\]
+so the triangular $\delta_p$ sum is zero.  For the low-mode term put
+$u=(r-t)/2$ and $v=(r+t)/2$.  The two weights have the same parity, so
+$u,v\in\Z$, $|u|,|v|\leq J-1$, and the congruence in \eqref{eq:Iab} becomes
+\[
+ v+qu\equiv0\pmod p.
+\]
+For each of the three $q$ values, $|v+qu|<p$ and $q>J-1$; hence
+$u=v=0$.  This zero-weight solution occurs symmetrically in the exchanged
+counts, so $L_J(p,q)=0$.  Equations
+\eqref{eq:zero-dedekind-one}--\eqref{eq:first-three-residue-cancellation}
+therefore prove the first three zeros.
+
+For the fourth family use $q_0=4J+2$.  Its least positive inverse is
+\[
+ q_0^*=p-J(J-1)=J^2+J-1,
+\]
+and $J(J-1)\equiv-q_0^*\pmod p$.  Set
+$h=\lfloor(J-1)/2\rfloor$.  For $1\leq a<J$, direct reduction gives
+\begin{align*}
+ \langle aq_0\rangle_p
+ &=\begin{cases}aq_0,&a\leq h,\\aq_0-p,&a>h,
+   \end{cases}\\
+ \langle aq_0^*\rangle_p
+ &=\begin{cases}
+   a(2J-1)/2,&a\text{ even},\\
+   [p+a(2J-1)]/2,&a\text{ odd}.
+   \end{cases}
+\end{align*}
+Substitution into the finite weighted sum defining $R_J$ and evaluation of
+the resulting arithmetic sums yields the following expression.  Explicitly,
+\[
+ \rho_p(aq_0)+\rho_p(aq_0^*)
+ =2p-a(10J+3)+2p\ind_{a>h}-p\ind_{a\text{ odd}},
+\]
+and the evaluation uses
+\begin{align*}
+ \sum_{a=1}^{J-1}(J-a)&=\frac{J(J-1)}2,&
+ \sum_{a=1}^{J-1}a(J-a)&=\frac{J(J-1)(J+1)}6,\\
+ \sum_{h<a<J}(J-a)&=\frac{H(H+1)}2,\qquad H=\left\lfloor\frac J2\right\rfloor,&
+ \sum_{\substack{1\leq a<J\\a\text{ odd}}}(J-a)
+ &=\begin{cases}H^2,&J=2H,\\H(H+1),&J=2H+1.\end{cases}
+\end{align*}
+Consequently
+\begin{equation}
+ R_J(q_0)=
+ \begin{cases}
+ \displaystyle\frac{J(2J^3-9J^2+4J+6)}{3p},&J\text{ even},\\[5pt]
+ \displaystyle\frac{J(J-1)(2J^2-13J-9)}{3p},&J\text{ odd}.
+ \end{cases}
+ \label{eq:fourth-residue-sum}
+\end{equation}
+The Euclidean remainder chains
+\[
+ \begin{array}{ll}
+ p\equiv J\pmod{q_0},\quad q_0\equiv2\pmod J,
+   &J\text{ odd},\\
+ p\equiv-(J+1)\pmod{q_0},\quad q_0\equiv-2\pmod{J+1},
+   &J\text{ even},
+ \end{array}
+\]
+together with Dedekind reciprocity and $s(-a,b)=-s(a,b)$ give
+\begin{equation}
+ s(q_0,p)=
+ \begin{cases}
+ \displaystyle\frac{2J^3-9J^2+4J+6}{12p},&J\text{ even},\\[5pt]
+ \displaystyle\frac{(J-1)(2J^2-13J-9)}{12p},&J\text{ odd}.
+ \end{cases}
+ \label{eq:fourth-dedekind-sum}
+\end{equation}
+Thus \eqref{eq:fourth-residue-sum} is exactly $4J$ times
+\eqref{eq:fourth-dedekind-sum}.
+
+It remains only to exclude corrections.  The least absolute residue of $p$
+modulo $q_0$ is $J$ for odd $J$ and $J+1$ for even $J$.  In the triangular
+range, $0<aq_0\pm b<2p$ and $|b|\leq J-2$; divisibility by $p$ would force
+$b\equiv\pm p\pmod{q_0}$, contradicting that least-residue bound.  Hence the
+$\delta_p$ term is zero.  In the low-mode range the same variables $u,v$
+satisfy $|u|,|v|\leq J-1$ and $|v+q_0u|<2p$.  The values $\pm p$ are again
+excluded by the least-residue bound, while $v+q_0u=0$ forces $u=v=0$.
+The surviving zero weight is symmetric, so $L_J(p,q_0)=0$.  Therefore
+$\eta_J(L(p,q_0))=0$, and \eqref{eq:lens-symmetries} transfers this zero to
+$q=J(J-1)$ and to every stated orbit image.
+\end{proof}
+
+A complete classification of zero orbits beyond the four constructions
+above and the orientation-forced condition $q^2\equiv-1\pmod p$ remains
+an open arithmetic problem.
+
+\section{Computational verification}
+\label{sec:computational-verification}
+
+Exact computations were used to test the projector, Hurwitz-zeta,
+Dedekind--Rademacher, and compact-residue forms of the answer across prime,
+composite, denominator-singular, and sharp-boundary cases.  Exact symbolic
+fiber matrices were compared through rank $J=10$, and independent
+weight-space calculations tested the resulting formulas through rank $J=64$.
+Separate checks covered the even half-turn, the $\mathbb{RP}^3$ anchor, and
+the four zero families.  A companion data set contains $16{,}177$ exact
+rank-one spectral-flow rows and higher-rank regression values.  All
+comparisons use rational or integer arithmetic; they test the formulas and
+conventions but are not substitutes for the proofs.
+
+\FloatBarrier
+
+\section{Relation to antecedents and scope}
+\label{sec:scope}
+
+Homma supplies the higher-spin self-gradient, its signed sphere branches, and
+the constant-curvature TT preservation identity
+\cite{Homma2001,HommaTomihisa2021}.  David--Gaberdiel--Gopakumar supply the
+arbitrary-rank TT representations and quotient character machinery
+\cite{DavidGaberdielGopakumar2010}.  B\"ar and APS provide the rank-one curl or
+odd-signature control \cite{Bar2019,APS1975}.  In rank two,
+Castro--Lashkari--Maloney give the direct operator and explicit unresolved
+phase gap \cite{CastroLashkariMaloney2011}.  Basu gives unsigned spin-three
+and spin-four lens-space determinant expressions and conjectures the pattern
+above spin four \cite{Basu2015}.  Degeratu's Molien formula evaluates twisted Dirac eta
+invariants, not the projected TT tensor-curl family \cite{Degeratu2009}.
+Donnelly's equivariant calculation for the APS boundary signature operator,
+as restated by Szczepański as Propositions~1--2 (explicitly attributed there
+to Donnelly's Propositions~4.6--4.7)
+\cite[Sec.~2, Props.~1--2]{Szczepanski2012}, gives a cotangent fixed-point
+formula for a special class of affine torus actions \cite{Donnelly1978}.
+This is a method antecedent for the
+equivariant trigonometric route.  Those propositions neither evaluate nor
+exclude the projected TT tensor-curl family considered here.
+Capoferri--Vassiliev give a recent microlocal construction of curl spectral
+asymmetry through regularized pseudodifferential projections
+\cite{CapoferriVassiliev2025}.  This is a close analytic antecedent at
+$J=1$; it does not contain the arbitrary-rank lens-space evaluation here.
+The companion boundary analysis, Dirac-to-tensor-curl transfer, and bivariate
+McKay--Chebyshev algebra are developed in
+\cite{Mahmood2026SteinWeissAPSBoundary,
+Mahmood2026DiracToTensorCurlEtaTransfer,Mahmood2026BivariateMcKay}.
+
+Thus no novelty is attached to the operator, its sphere spectrum, cyclic
+projection, or the general equivariant method.  The explicit signed evaluation
+\eqref{eq:master-formula}, its composite singular resolution, and the
+corollaries of Sections~6 and 7 are, to the best of our knowledge, not present
+in the antecedent literature.  This is a bounded historical statement rather
+than a claim of an exhaustive search.
+
+The present result is a spectral theorem for all nontrivial round lens spaces.
+It does not assemble the auxiliary eta and kernel terms of a full APS
+correction, establish an off-round reducing split, or determine a complete
+one-loop phase with its longitudinal, trace, ghost, framing, and counterterm
+data.  Nor does the formula select a lens level or classify every eta-zero
+triple $(p,J,q)$.
+
+\section{Discussion}
+
+The formula exhibits a useful separation of structure.  The Dedekind term is
+the classical rank-one spectral asymmetry multiplied by $J$.  The residue
+term records finite helicity weights, the $\delta_p$ term records modular
+congruence or Fourier-aliasing coincidences, and $L_J$ repairs the finite
+low-energy boundary of the physical TT spectrum.  Removable
+denominator-singular character limits are handled separately by the
+polynomial continuation in \eqref{eq:formal-polynomial-kernel}.  Prime and
+composite levels are thereby handled by a single expression.
+
+The most immediate mathematical continuation is a chamber decomposition of
+the congruence and low-mode corrections, followed by a classification of the
+remaining zero orbits.  The reflection $\eta_{p-J}=-\eta_J$ suggests that the
+rank sequence should be understood as a finite sine expansion, with the
+generalized Dedekind data playing the role of Fourier coefficients.  The
+generating kernel \eqref{eq:cheb-generating} similarly packages the rank
+dependence into a rational function, pointing toward a coefficient-extraction
+approach to the zero-orbit problem.
+
+Metric variation is also open: the projected operator is analytically
+well-defined more generally, but the exact lens formula uses round quotient
+representation theory.  Other natural directions include chamber formulas
+for the congruence corrections and a higher-rank analogue of the rank-one
+Chern--Simons normalization in Appendix~\ref{app:jeffrey}.
+
+\appendix
+
+\section{An equivalent Rademacher-sum form}
+\label{app:rademacher}
+
+Define
+\[
+ R_{p,q}(c)=\sum_{r=0}^{p-1}
+ \left(\!\left(\frac rp\right)\!\right)
+ \left(\!\left(\frac{qr+c}{p}\right)\!\right)
+\]
+and, with $S_N=0$ for $N<0$,
+\[
+ S_N=\sum_{a=0}^N\sum_{w\in W_a}\sum_{t\in W_{N-a}}
+ R_{p,q}(wq+t).
+\]
+
+\begin{proposition}\label{prop:rademacher-form}
+The eta invariant also has the form
+\begin{equation}
+ \eta_J=4(2S_{J-2}-S_{J-1}-S_{J-3})-L_J.
+ \label{eq:rademacher-form}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let $\zeta=e^{2\pi\mathrm{i}/p}$.  The finite Fourier transform of the sawtooth
+function is
+\[
+ \sum_{r=0}^{p-1}\left(\!\left(\frac rp\right)\!\right)
+ \zeta^{-\ell r}=\frac{\mathrm{i}}{2}\cot\frac{\pi\ell}{p},
+ \qquad 1\leq\ell<p.
+\]
+Fourier inversion and the substitution $r\mapsto qr$ therefore give
+\begin{equation}\label{eq:shifted-rademacher-fourier}
+ 4pR_{p,q}(c)=\sum_{\ell=1}^{p-1}
+ \cot\alpha_\ell\cot\beta_\ell\,\zeta^{\ell c}.
+\end{equation}
+Since
+$\sum_{w\in W_a}\zeta^{q\ell w}=U_a(\cos2\alpha_\ell)$ and
+$\sum_{t\in W_b}\zeta^{\ell t}=U_b(\cos2\beta_\ell)$, put
+\[
+ C_N(x,y)=\sum_{a=0}^N U_a(x)U_{N-a}(y),\qquad C_N=0\quad(N<0).
+\]
+The generating function of the Chebyshev polynomials gives
+\[
+ C_N(x,y)=\frac{U_{N+1}(x)-U_{N+1}(y)}{2(x-y)}.
+\]
+Using $U_{n+1}=2xU_n-U_{n-1}$ in this quotient yields
+\begin{equation}\label{eq:rademacher-chebyshev-bridge}
+ 2C_{J-2}-C_{J-1}-C_{J-3}
+ =\frac{(1-x)U_{J-1}(x)-(1-y)U_{J-1}(y)}{x-y}
+ =P_J(x,y).
+\end{equation}
+Summing~\eqref{eq:shifted-rademacher-fourier} over the weights in $S_N$
+and applying~\eqref{eq:rademacher-chebyshev-bridge} gives
+$4(2S_{J-2}-S_{J-1}-S_{J-3})=\eta_J^{\mathrm{form}}$ by
+\eqref{eq:formal-polynomial-kernel}.  Finally, the physical spectrum begins
+at $m=J+1$, so the sub-threshold term $L_J$ is subtracted exactly as in the
+proof of Theorem~\ref{thm:eta-master}.
+\end{proof}
+
+\section{Rank-one Chern--Simons normalization}
+\label{app:jeffrey}
+
+This appendix compares \eqref{eq:rank-one} with Jeffrey's spectral-flow
+normalization; it is not a premise of Theorem~\ref{thm:eta-master}.
+Define
+\begin{equation}
+ R_m(p,q)=\frac1p\sum_{k=1}^{p-1}
+ \cos\left(\frac{2\pi mk}{p}\right)
+ \cot\left(\frac{\pi k}{p}\right)
+ \cot\left(\frac{\pi qk}{p}\right).
+ \label{eq:Rm-jeffrey}
+\end{equation}
+Jeffrey's cotangent formula gives
+\[
+ R_0(p,q)=4s(q,p)=-\eta_1(L(p,q)).
+\]
+
+\begin{proposition}[Jeffrey spectral-flow control]
+\label{prop:j1-cs-control}
+Assume $p\geq3$ is odd and $1\leq n\leq(p-1)/2$.  Let $I_n$ be the spectral
+flow between the trivial connection and the $n$th nontrivial flat $SU(2)$
+connection in Jeffrey's convention.  Then
+\begin{equation}
+ I_n=\frac{8q^*n^2}{p}-2+R_0(p,q)-R_{2n}(p,q)
+ =\frac{8q^*n^2}{p}-2-\eta_1(L(p,q))-R_{2n}(p,q).
+ \label{eq:jeffrey-flow}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Proposition 5.2 of \cite{Jeffrey1992} states
+\[
+ I_n+2=\frac{8q^*n^2}{p}
+ +\frac2p\sum_{k=1}^{p-1}
+ \cot\left(\frac{\pi k}{p}\right)
+ \cot\left(\frac{\pi qk}{p}\right)
+ \sin^2\left(\frac{2\pi nk}{p}\right).
+\]
+Use $2\sin^2x=1-\cos2x$ and \eqref{eq:Rm-jeffrey}.  The inverse $q^*$ is
+essential.
+\end{proof}
+
+The finite Fourier identity
+\[
+ R_m(p,q)=4\sum_{r=0}^{p-1}
+ \left(\!\left(\frac rp\right)\!\right)
+ \left(\!\left(\frac{qr+m}{p}\right)\!\right),
+\]
+gives an exact rational evaluation of $R_m$.  Together with
+$R_0=4s$ and $\eta_1=-4s$, it fixes the sign and normalization in
+\eqref{eq:jeffrey-flow}.
+
+At Chern--Simons level $\kappa$, Jeffrey's canonical two-framing invariant
+also contains
+\[
+ \exp\left(\frac{2\pi i}{4\kappa}\,12s(q,p)\right)
+ =\exp\left(\frac{2\pi i}{4\kappa}\,(-3\eta_1(L(p,q)))\right).
+\]
+Her comparison of the stationary-phase expression with the exact invariant is
+asymptotic rather than exact at finite $\kappa$.  Accordingly, this comparison
+fixes the rank-one convention but does not supply a $J\geq2$
+Chern--Simons phase.
+
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\bibliographystyle{alpha}
+\bibliography{references}
+
+\end{document}

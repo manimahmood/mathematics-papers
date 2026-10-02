@@ -1,0 +1,179 @@
+\subsection{Transform assumptions and Fourier--Dedekind reduction}
+Throughout this section, $p\geq2$, $q$ is a unit modulo $p$, the lift
+$\widetilde q$ is odd, $u=q^{-1}\pmod p$, $N=J(J+1)$, and $J\geq1$.
+We take \eqref{eq:xi-transform} on nonidentity classes and
+$\widehat\xi_J(0)=N(2J+1)/12$ as the defining data.  No filling or
+unresolved geometric sign choice enters the following proofs.
+Set $\alpha=(1+\widetilde q)/2$, $\beta=(1-\widetilde q)/2$ and
+\[
+ G(x)=x^\alpha\chi_J(x^\alpha)\chi_{J-1}(x^\beta)
+     =\sum_e g_e x^e .
+\]
+The factorization $P_k=x^{-\alpha}(1-x)(1-x^q)$ at $x=\exp(2\pi ik/p)$
+gives the exact Fourier inversion
+\begin{equation}\label{eq:fd-inversion}
+ \xi_{J,a}=\frac{N(2J+1)}{12p}+\sum_e g_e S_{e+a},\qquad
+ S_m=\frac1p\sum_{\substack{\lambda^p=1\\\lambda\ne1}}
+       \frac{\lambda^m}{(1-\lambda)(1-\lambda^q)}.
+\end{equation}
+Fourier--Dedekind sums are classical; see \cite{BeckRobins2004}.
+Define the ordinary Dedekind sum by
+$s(q,p)=\sum_{j=1}^{p-1}(j/p-1/2)((qj\bmod p)/p-1/2)$,
+where remainders are least nonnegative integers.  Direct finite summation gives
+\begin{align}
+ S_m&=\frac1{p^2}\sum_{j=0}^{p-1}j\,((-m-qj)\bmod p)
+                    -\frac{(p-1)^2}{4p},\\
+ S_0&=-s(q,p)+\frac{p-1}{4p},\qquad
+ S_{m+1}-S_m=\frac{(-mu\bmod p)}p-\frac{p-1}{2p}.
+\end{align}
+For example, the first identity follows from
+$(\lambda-1)\sum_{j=0}^{p-1}j\lambda^j=p$ at nonidentity roots and
+orthogonality of the $p$th roots.  Summing the difference, also backwards
+for negative $m$, yields
+\begin{equation}\label{eq:fd-quadratic}
+ S_m-S_0\equiv Q(m):=-\frac{u m(m-1)+(p-1)m}{2p}\pmod{\Z}.
+\end{equation}
+
+\subsection{The phase law and rank-one generation}
+\begin{theorem}[All-rank phase formula]\label{thm:phase-formula}
+For the stated transform, every rank and flat label satisfy
+\begin{align}
+ \xi_{J,a}-\xi_{J,0}&\equiv-\frac{Nu a^2}{2p}\pmod{\Z},
+                                      \label{eq:phase-law}\\
+ \xi_{J,a}&\equiv-Ns(q,p)-\frac{Nu a^2}{2p}
+ -\frac{N(N-2)(\widetilde q+u)}{12p}-\frac N4\pmod{\Z}.
+                                      \label{eq:phase-closed}
+\end{align}
+Both spin lifts give the same phases.
+\end{theorem}
+\begin{proof}
+The first three moments of $G$ are
+\begin{align*}
+ G_0&:=\sum_e g_e=N,\qquad G_1:=\sum_e eg_e=\alpha N,\\
+ G_2&:=\sum_e e^2g_e=\alpha^2N
+ +\frac{\alpha^2J^2(J+1)(J+2)+\beta^2J(J+1)^2(J-1)}3.
+\end{align*}
+The character's first logarithmic derivative at one vanishes; its second
+is $\gamma^2r(r+1)(r+2)/3$ for $\chi_r(x^\gamma)$.
+Equations~\eqref{eq:fd-inversion}--\eqref{eq:fd-quadratic} give the relative
+phase as $-Nu a^2/(2p)$ plus
+$-aN(u\widetilde q-1+p)/(2p)$, which is integral.
+For the absolute phase, the same equations give
+\[
+ \xi_{J,0}\equiv\frac{N(2J+1)}{12p}+NS_0
+ -\frac{u(G_2-G_1)+(p-1)G_1}{2p}\pmod{\Z}.
+\]
+Put $t=\widetilde q$ and $ut=1+pk$. Substitution reduces the difference
+between this expression and the right side of \eqref{eq:phase-closed}
+at $a=0$ to integers: the nontrivial term is
+$Nk[t(N+1)+2J+1]/12$.
+Indeed $12\mid N[t(N+1)+2J+1]$: modulo three either $3\mid N$ or
+$J\equiv1$ and the bracket is zero; modulo four either $4\mid N$ or
+$N\equiv2$ and the bracket is even.  Also $N(t-1)/4$ is integral.
+Finally $24\mid N(N-2)=(J-1)J(J+1)(J+2)$, so changes of lift or of the
+representative of $u$ change the formula by integers.
+\end{proof}
+
+The classical congruence
+$12p\,s(q,p)\equiv q+u\pmod p$, including the integrality of $12p\,s$,
+is an arithmetic property of Dedekind sums \cite[Ch.~3]{RademacherGrosswald1972}.
+It simplifies \eqref{eq:phase-closed} to
+\begin{equation}\label{eq:phase-simple}
+ \xi_{J,a}\equiv-N(N-1)s(q,p)-\frac{Nu a^2}{2p}-\frac N4\pmod{\Z}.
+\end{equation}
+\begin{corollary}[Rank one generates all phases]\label{cor:rank-one}
+With $c_J=J(J+1)/2$ and $\tau_{J,a}=\exp(2\pi i\xi_{J,a})$,
+\begin{align}
+ \xi_{J,a}&\equiv c_J\xi_{1,a}+2c_J(c_J-1)\xi_{1,0}\pmod{\Z},\\
+ \tau_{J,a}&=\tau_{1,a}^{c_J}\tau_{1,0}^{\,2c_J(c_J-1)}.
+\end{align}
+Thus the complete exponentiated rank ladder carries no more information
+than the labelled rank-one phases, under the same coherent relabeling.
+\end{corollary}
+\begin{proof}
+Insert $\xi_{1,a}\equiv-2s-u a^2/p-1/2$ in \eqref{eq:phase-simple}.
+The remaining constant difference is $N(N-2)/4\in\Z$.
+\end{proof}
+This does not identify the full real-valued corrections, nor eliminate the
+information in their integer lifts.
+
+\subsection{A complete phase-collapse criterion}
+\begin{theorem}[Coherent-label collapse]\label{thm:phase-collapse}
+For the same modulus $p$, units $q,q',n$, and any allowed lifts,
+$\xi_{J,a}(p,q)\equiv\xi_{J,na}(p,q')\pmod\Z$ for every $J,a$ if and only if
+\[
+ q'\equiv n^2q\pmod p,\qquad
+ 2s(q,p)\equiv2s(q',p)\pmod{\Z}.
+\]
+\end{theorem}
+\begin{proof}
+At rank one, label zero imposes the Dedekind condition. Subtracting that
+case from label one imposes $u\equiv n^2u'\pmod p$, equivalent to the
+first condition. Conversely these conditions give equality at every label
+of rank one; Corollary~\ref{cor:rank-one} gives every rank.
+\end{proof}
+The first condition is the usual oriented homotopy relation, weaker than
+oriented homeomorphism.  The second is additional arithmetic information.
+Equality questions modulo integers for Dedekind sums have an established
+literature \cite{Tsukerman2014}; the theorem is an application to the
+specified transform, not a new theory of Dedekind sums.
+
+\begin{corollary}[The $p=16$ example]
+The pair $L(16,1)$, $L(16,9)$ is not orientation-preservingly homeomorphic,
+but has identical phase ladders under $a\mapsto5a$ (also $3a,11a,13a$).
+\end{corollary}
+\begin{proof}
+The oriented homeomorphism criterion fails since $9\ne1^{\pm1}$ modulo 16.
+But $5^2\equiv9$ and $12\cdot16\,s(1,16)=210$,
+$12\cdot16\,s(9,16)=18$; their difference is $192$, divisible by $6p$.
+Apply Theorem~\ref{thm:phase-collapse}.
+\end{proof}
+The separate quadratic-in-rank calculation
+and its 1,536 integer coefficients remain in the supplement as an independent
+finite certificate of this example, not the proof of the general theorem.
+
+\subsection{Infinite blind adjacent-rank families}
+The following statements concern the exact $\xi$ values, not just phases.
+\begin{theorem}[Blind families, including composite moduli]\label{thm:blind}
+Let $m\geq5$ be odd and $\gcd(q,m)=\gcd(q^2-1,m)=1$.
+For $p=m$ and $r\in\{m-1,m\}$,
+\[
+ \xi_{r,a}=\frac{r(r+1)(2r+1)}{12p}\qquad\hbox{for all }a.
+\]
+For $p=2m$, take $q$ odd with the same conditions modulo $m$. Then
+\[
+ \xi_{r,a}=\frac1p\left\{\frac{r(r+1)(2r+1)}{12}
+       +(-1)^{r-1+a}\frac{r(r+1)}4\right\},\quad r=m-1,m.
+\]
+In either family the two rank vectors are independent of the allowed $q$.
+\end{theorem}
+\begin{proof}
+Writing $z=\zeta^{e_L}$ and $w=\zeta^{e_R}$, centrality means
+$p\mid k(1+\widetilde q)$ or $p\mid k(1-\widetilde q)$.
+The gcd hypotheses leave only $k=0$ for $p=m$, and $k=0,m$ for $p=2m$.
+Since $p\mid2m$, $\chi_{m-1}(z)=0$ whenever $z\ne\pm1$,
+and likewise for $w$. Thus the reduced transforms at both ranks vanish
+on all noncentral classes. For $p=m$ only the identity term remains.
+For $p=2m$, at $k=m$ one has $w=-z$; substitution in the character
+polynomials gives $\widehat\xi_r(m)=(-1)^{r-1}r(r+1)/4$.
+Fourier inversion multiplies this by $(-1)^a/p$, as asserted.
+\end{proof}
+For odd $m\geq5$, an admissible $q$ exists exactly when $3\nmid m$.
+If $3\mid m$, every unit has $q^2\equiv1\pmod3$, contradicting the
+hypothesis. Conversely, $q=2$ works when $3\nmid m$; for the $p=2m$
+family, its odd lift $q=m+2$ works. Primality is not necessary: the
+hypotheses hold at $m=25,35,49$ with $q=2$, and with $q=3$ at $m=25,35$.
+The prime subfamily includes infinitely many nonhomeomorphic collisions:
+for primes $p\geq11$, the $p-3$ allowed residues cannot all lie in one
+unoriented homeomorphism orbit, whose size is at most four.
+The partial-blindness cases $p=3(J+1)$ lie outside these fully blind
+families; their classification and a general positive exact-value
+reconstruction criterion are not settled by this theorem.
+
+\paragraph{Finite controls, not additional theorem hypotheses.}
+The phase formula and rank-one identity each reproduce all 23,688 supplied
+table values. The quotient-ring route also checks 3,644 selected prime and
+twice-prime entries and 1,690 composite-family entries. These are
+reproduced controls, not prospective predictions. Representative-pair
+censuses distinguish orientation-preserving from unoriented equivalence;
+they must not be read as counts after quotienting every homeomorphism orbit.

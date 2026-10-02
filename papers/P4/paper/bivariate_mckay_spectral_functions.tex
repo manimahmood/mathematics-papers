@@ -1,0 +1,1195 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Bivariate McKay Recurrences and Meromorphic Tensor-Curl Spectral Functions on Spherical Space Forms},
+  pdfauthor={Luqman Mahmood}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Res}{Res}
+\newcommand{\TT}{\mathrm{TT}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\e}{\mathrm e}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\zH}{\zeta_{\mathrm H}}
+\newcommand{\bplus}{b^{+}}
+\newcommand{\bminus}{b^{-}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Bivariate McKay Recurrences and Meromorphic\\
+Tensor-Curl Spectral Functions on Spherical Space Forms}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{1 October 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $\Gamma$ be a finite subgroup of
+$\operatorname{Spin}(4)=SU(2)_L\times SU(2)_R$, let
+$V_n=\Sym^n\C^2$, and let $\boldsymbol m_{p,q}$ record the irreducible
+$\Gamma$-multiplicities in $V_p\boxtimes V_q$.  If $A_L$ and $A_R$
+denote tensor multiplication by the restricted left and right defining
+representations, we prove
+\[
+ \boldsymbol m_{p,q}
+ =U_p(A_L/2)U_q(A_R/2)\boldsymbol e_0,
+ \qquad [A_L,A_R]=0.
+\]
+Thus every finite $\Gamma$ carries a bivariate representation-ring
+recurrence, without a product assumption.  Restriction to the two
+transverse-traceless helicity diagonals gives distinct rank operators
+$A_L^2-2I$ and $A_R^2-2I$ and a diagonal rank--level identity.  For a
+free action on $S^3$, these vectors are the twisted multiplicities of the
+normalized rank-$J$ tensor-curl operator.
+
+Classwise multiplicities are quasipolynomial in the level, so each branch
+spectral function is a finite Hurwitz-zeta combination, meromorphic on
+$\C$ with possible poles only at $1,2,3$.  The rank recurrence propagates
+for all complex $s$ at fixed spectral offset; at the geometric offset
+$c_J=J+1$, unilateral reindexing contributes an explicit lowest-mode
+boundary term.  The signed branch difference is entire for every finite
+subgroup.  For a free effective action, the remaining poles are central
+and satisfy $\Res_2=0$ and $\Res_1=-J^2\Res_3$, yielding a convergent
+small-time heat expansion and exact relative log-determinant formulas.
+The cumulative identity
+$\sum_{r=1}^{J}U_{2r-1}=U_{J-1}U_J$ supplies the corresponding finite
+polynomial compression used in companion eta-transfer and boundary
+constructions.  The results are confined to round spherical quotients;
+the nonround problem remains open.
+\end{abstract}
+
+\section{Introduction}
+
+The spectrum of a round spherical quotient is controlled by two finite
+pieces of information: the $SU(2)_L\times SU(2)_R$ harmonic content of
+$S^3$ and the restriction of those representations to the deck group.
+The classical spectral literature turns this observation into character
+formulas and one-variable generating functions
+\cite{Ikeda1980I,Ikeda1980II,Ikeda1980Lens,Bar1996,
+LauretMiatelloRossetti2021}.  The classical McKay correspondence organizes
+restriction along one $SU(2)$ factor by an affine-ADE adjacency matrix
+\cite{McKay1980,Kostant1985,Rossmann2003,Suter2007,
+Benkart2016,JingWangZhang2020,JingWangZhang2021}.
+For finite subgroups of $SO(4)$, Xiong introduced the corresponding
+left/right pair as an edge-coloured McKay graph \cite{Xiong2020}.
+
+This paper identifies the spectral recurrence carried by that pair.  The
+basic object is not initially an eta value but the full bivariate
+multiplicity grid
+\[
+ (p,q)\longmapsto
+ \boldsymbol m_{p,q}
+ =
+ \left(
+ \dim\Hom_\Gamma(\rho_i,V_p\boxtimes V_q)
+ \right)_{\rho_i\in\Irr(\Gamma)} .
+\]
+The two Clebsch--Gordan rules act independently on this grid.  Their
+commutativity produces a two-variable Chebyshev reconstruction from a
+single source at $(0,0)$.  The tensor-curl spectrum is then obtained by
+restricting to the two diagonals $q-p=\pm2J$.
+Explicitly,
+\[
+ \boldsymbol m_{p,q}
+ =U_p(A_L/2)U_q(A_R/2)\boldsymbol e_0 .
+\]
+This formula places the one-sided affine-ADE recurrences and genuinely
+two-sided spherical space forms in the same finite algebraic system.
+
+Three distinctions are essential.
+
+\begin{enumerate}[label=(\roman*)]
+\item The universal theorem is a representation-ring theorem for a finite
+subgroup of $\operatorname{Spin}(4)$.  Literal affine-ADE graph language
+applies to one-sided factors and product reductions, not to an arbitrary
+two-sided subgroup.
+\item The positive and negative helicity lines generally propagate with
+different matrices.  Their signed and unsigned assemblies therefore obey
+a coupled two-matrix identity.  The branch laws do not furnish a common
+single-matrix recurrence, although special invariant-subspace
+coincidences are not excluded.
+\item A recurrence of multiplicities does not automatically become the
+same recurrence for the geometric spectral functions at successive ranks.
+The geometric eigenvalue is $n+J+1$, so its origin moves with $J$.  The
+resulting correction is a unilateral boundary term, not a
+group-cohomological construction.
+\end{enumerate}
+
+The main statements are as follows.  Theorem~\ref{thm:bivariate} gives the
+two-variable representation-ring recurrence, commutation, Chebyshev
+solution, and rational generating function.  Corollary~\ref{cor:cumulative-odd-chebyshev}
+records the generic finite cumulative odd-Chebyshev identity, while
+Remark~\ref{rem:p3-cumulative-interface} explains its use in the companion
+eta-transfer and boundary constructions
+\cite{Mahmood2026DiracToTensorCurlEtaTransfer,
+Mahmood2026SteinWeissAPSBoundary}.
+Theorem~\ref{thm:tt-lines}
+restricts it to the tensor-curl helicity lines and proves the diagonal
+rank--level identity.  Proposition~\ref{prop:finite-hurwitz} gives the
+finite-Hurwitz continuation of every branch.  Theorem~\ref{thm:all-s}
+proves all-$s$ propagation at fixed offset, while
+Theorem~\ref{thm:physical-offset} gives the exact geometric-offset boundary
+correction.  Corollary~\ref{cor:relative-det} records the relative zeta and
+log-determinant consequences.  Theorem~\ref{thm:eta-entire} proves
+eta-entirety and identifies all possible pole-producing conjugacy
+classes, while Proposition~\ref{prop:heat-expansion} converts those
+residues into a convergent heat expansion.  Finally,
+Propositions~\ref{prop:relative-pole-free} and
+\ref{prop:closed-logdet} give pole-free relative rows and their exact
+Hurwitz-derivative form.
+
+\paragraph{Scope.}
+The finite-group representation theory, Clebsch--Gordan identity,
+one-sided McKay correspondence, character projection, Hurwitz
+continuation, and round tensor spectra are antecedent machinery.  The
+contribution here is their combination into a bivariate recurrence and its
+round spectral consequences, rather than a new regularization method.  The
+cumulative Chebyshev identity is purely algebraic.  The Dirac-to-tensor-curl
+eta transfer and its combination with the auxiliary eta, kernel, and
+Atiyah--Patodi--Singer boundary formulas are established in the companion
+papers cited above.  Extending the present spectral propagation to nonround
+metrics remains open.
+
+\section{Representation and spectral conventions}
+
+\subsection{The bivariate restriction grid}
+
+Let
+\[
+ \Gamma< SU(2)_L\times SU(2)_R
+\]
+be finite.  Write
+\[
+ \Irr(\Gamma)=\{\rho_0,\rho_1,\ldots,\rho_r\},
+ \qquad \rho_0=\one,
+ \qquad d_i=\dim\rho_i,
+\]
+and let $\boldsymbol e_0$ be the coordinate vector of the trivial
+representation.  For $n\geq0$, put $V_n=\Sym^n\C^2$; thus
+$\dim V_n=n+1$ and $V_n$ is self-dual.  Set
+\[
+ W_L=(V_1\boxtimes V_0)|_\Gamma,
+ \qquad
+ W_R=(V_0\boxtimes V_1)|_\Gamma .
+\]
+Our McKay-matrix convention is
+\begin{equation}
+ (A_L)_{ij}
+ =\dim\Hom_\Gamma(\rho_i,W_L\otimes\rho_j),
+ \qquad
+ (A_R)_{ij}
+ =\dim\Hom_\Gamma(\rho_i,W_R\otimes\rho_j).
+ \label{eq:McKay-matrices}
+\end{equation}
+Because $W_L$ and $W_R$ are self-dual, both matrices are symmetric
+nonnegative integer matrices.  Define
+\begin{equation}
+ m_{p,q}^i
+ =\dim\Hom_\Gamma(\rho_i,(V_p\boxtimes V_q)|_\Gamma),
+ \qquad
+ \boldsymbol m_{p,q}=(m_{p,q}^i)_{i=0}^r ,
+ \label{eq:multiplicity-grid}
+\end{equation}
+and use the zero-extension convention
+$\boldsymbol m_{p,q}=0$ if $p<0$ or $q<0$.
+
+\subsection{The round tensor-curl branches}
+
+For the unit round $S^3$, the normalized projected
+transverse-traceless tensor-curl operator of integer rank $J\geq1$ has
+the two $SU(2)_L\times SU(2)_R$ branches
+\begin{equation}
+ \mathcal H_{J,n}^{+}=V_{n+2J}\boxtimes V_n,
+ \qquad
+ \mathcal H_{J,n}^{-}=V_n\boxtimes V_{n+2J},
+ \qquad n\geq0,
+ \label{eq:TT-branches}
+\end{equation}
+with eigenvalues $+(n+J+1)$ and $-(n+J+1)$ in the orientation used
+here.  Reversing the orientation exchanges the branches and reverses
+the signed eta function.  The local self-gradient construction and its
+TT compression are standard higher-spin data; we use only the
+representation-theoretic spectral realization
+\cite{Homma2001,HommaTomihisa2021}.
+
+We write $A_J$ for the unit-radius self-adjoint realization determined
+by this orthogonal spectral decomposition on the $L^2$ space of TT
+rank-$J$ tensors.  Its domain consists of the expansions for which the
+sum of eigenvalue squared times coefficient norm squared is finite.
+The displayed spectrum makes its resolvent compact.  On a free quotient
+and in a twist sector, $A_J$ means the corresponding reducing
+isotypic restriction.  In the absolute zeta function below, the
+negative branch contributes the magnitudes $n+J+1$; no spectral-cut
+phase is included.
+
+If the induced action
+\[
+ (g_L,g_R)\cdot x=g_Lxg_R^{-1},\qquad x\in SU(2)\cong S^3,
+\]
+is effective and free, the quotient is a round spherical space form.
+For each $\rho_i$, the copy-multiplicity convention for the associated
+flat bundle gives
+\begin{equation}
+ \boldsymbol b_J^+(n)=\boldsymbol m_{n+2J,n},
+ \qquad
+ \boldsymbol b_J^-(n)=\boldsymbol m_{n,n+2J}.
+ \label{eq:branch-multiplicities}
+\end{equation}
+The algebraic results below hold for every finite $\Gamma$.  Freeness is
+needed only for this manifold interpretation.  An element
+$(g_L,g_R)\notin\{(1,1),(-1,-1)\}$ has a fixed point precisely when
+$g_L$ and $g_R$ are conjugate in $SU(2)$, equivalently when their
+defining traces agree.
+
+\begin{remark}[Central kernel and descent]
+\label{rem:central-descent}
+If $(-1,-1)\in\Gamma$, the action on $S^3$ is ineffective.  A central
+element $z=(\varepsilon_L,\varepsilon_R)$ acts on
+$V_p\boxtimes V_q$ by
+$\varepsilon_L^p\varepsilon_R^q$.  Schur's lemma therefore forces
+$m_{p,q}^i=0$ unless
+\[
+ \rho_i(z)=\varepsilon_L^p\varepsilon_R^q I_{\rho_i}.
+\]
+Every TT line has even total parity $p+q=2n+2J$ and hence descends as
+an ordinary representation of the effective quotient by
+$\langle(-1,-1)\rangle$.  Odd-parity spinorial lines instead retain
+the chosen spin-lift data.  No spinorial transfer is used below.
+\end{remark}
+
+\section{The bivariate representation-ring theorem}
+
+\begin{theorem}[Bivariate McKay recurrence]
+\label{thm:bivariate}
+For all $p,q\geq0$,
+\begin{align}
+ \boldsymbol m_{p+1,q}+\boldsymbol m_{p-1,q}
+ &=A_L\boldsymbol m_{p,q},
+ \label{eq:left-rec}\\
+ \boldsymbol m_{p,q+1}+\boldsymbol m_{p,q-1}
+ &=A_R\boldsymbol m_{p,q}.
+ \label{eq:right-rec}
+\end{align}
+Moreover,
+\begin{equation}
+ [A_L,A_R]=0
+ \label{eq:commuting}
+\end{equation}
+and the unique quadrant solution with source
+$\boldsymbol m_{0,0}=\boldsymbol e_0$ is
+\begin{equation}
+ \boxed{\;
+ \boldsymbol m_{p,q}
+ =U_p(A_L/2)U_q(A_R/2)\boldsymbol e_0 ,
+ \;}
+ \label{eq:Chebyshev-solution}
+\end{equation}
+where $U_n$ is the Chebyshev polynomial of the second kind.  Equivalently,
+\begin{equation}
+ \sum_{p,q\geq0}\boldsymbol m_{p,q}t^pu^q
+ =
+ (I-tA_L+t^2I)^{-1}
+ (I-uA_R+u^2I)^{-1}\boldsymbol e_0 .
+ \label{eq:bivariate-GF}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The Clebsch--Gordan identity
+\[
+ V_1\otimes V_p\cong V_{p+1}\oplus V_{p-1},
+ \qquad V_{-1}=0,
+\]
+holds also at $p=0$.  Restricting to $\Gamma$, tensoring
+$(V_p\boxtimes V_q)|_\Gamma$ by $W_L$, and projecting onto $\rho_i$
+gives \eqref{eq:left-rec} by the definition
+\eqref{eq:McKay-matrices}.  The right identity is identical with the
+two factors exchanged.
+
+The matrices are multiplication by $[W_L]$ and $[W_R]$ in the
+commutative complex representation ring $R(\Gamma)$, proving
+\eqref{eq:commuting}.  Since
+\[
+ U_{n+1}(x)=2xU_n(x)-U_{n-1}(x),
+ \qquad U_{-1}=0,\quad U_0=1,
+\]
+the right-hand side of \eqref{eq:Chebyshev-solution} satisfies both
+recurrences and the quadrant boundary condition.  The two three-term
+recurrences determine the grid uniquely from $\boldsymbol e_0$, which
+proves \eqref{eq:Chebyshev-solution}.  Summing each recurrence, or using
+the standard generating series for $U_n$, gives
+\eqref{eq:bivariate-GF}.
+\end{proof}
+
+\begin{corollary}[Cumulative odd-Chebyshev identity]
+\label{cor:cumulative-odd-chebyshev}
+For every integer $J\geq1$,
+\begin{equation}
+ \sum_{r=1}^{J}U_{2r-1}(x)=U_{J-1}(x)U_J(x)
+ \label{eq:cumulative-odd-chebyshev}
+\end{equation}
+as an identity of polynomials in $x$.  Consequently, the left and right
+representation-ring generators satisfy, separately,
+\begin{align}
+ \sum_{r=1}^{J}U_{2r-1}(A_L/2)
+ &=U_{J-1}(A_L/2)U_J(A_L/2),
+ \label{eq:cumulative-odd-chebyshev-left}\\
+ \sum_{r=1}^{J}U_{2r-1}(A_R/2)
+ &=U_{J-1}(A_R/2)U_J(A_R/2).
+ \label{eq:cumulative-odd-chebyshev-right}
+\end{align}
+\end{corollary}
+
+\begin{proof}
+For $x=\cos\theta$ with $\sin\theta\ne0$, the formula
+$U_n(\cos\theta)=\sin((n+1)\theta)/\sin\theta$ gives
+\[
+ U_JU_{J+1}-U_{J-1}U_J
+ =\frac{\sin((J+1)\theta)
+ [\sin((J+2)\theta)-\sin(J\theta)]}{\sin^2\theta}
+ =U_{2J+1}.
+\]
+Both sides are polynomials, so this identity holds for every $x$.  The
+case $J=1$ of \eqref{eq:cumulative-odd-chebyshev} is $U_1=U_0U_1$.
+If it holds at $J$, the displayed product identity gives
+\[
+ \sum_{r=1}^{J+1}U_{2r-1}
+ =U_{J-1}U_J+U_{2J+1}=U_JU_{J+1},
+\]
+which proves \eqref{eq:cumulative-odd-chebyshev} by induction.  Evaluating
+this polynomial identity at $A_L/2$ and at $A_R/2$ proves the two matrix
+specializations.
+\end{proof}
+
+\begin{remark}[Application to cumulative boundary eta]
+\label{rem:p3-cumulative-interface}
+The transfer theorem of
+\cite{Mahmood2026DiracToTensorCurlEtaTransfer} denotes the symmetric-power
+multiplication matrices by $A_m^X$ for $X=L,R$.  Under the compatible
+representation-ring conventions, its Clebsch--Gordan recurrence gives
+$A_m^X=U_m(A_X/2)$, so Corollary~\ref{cor:cumulative-odd-chebyshev}
+simplifies the finite odd-rank sums in the cumulative assembly of
+\cite{Mahmood2026SteinWeissAPSBoundary}.  Combining the rankwise
+transfer with that paper's auxiliary eta, kernel, and
+Atiyah--Patodi--Singer assembly yields the cumulative boundary
+eta and reduced correction in the latter paper.  The present corollary
+supplies the polynomial identity; the transfer and boundary theorems retain
+their respective geometric hypotheses.
+\end{remark}
+
+\begin{remark}[Relation to coloured McKay graphs]
+The pair $(A_L,A_R)$ itself is not new: in coloured-graph form it is
+the finite-$SO(4)$ construction studied by Xiong \cite{Xiong2020}.
+Theorem~\ref{thm:bivariate} adds the copy-multiplicity grid, the two
+commuting recurrences, their Chebyshev reconstruction, and the spectral
+restriction below.  For arbitrary $\Gamma$, the safest name is a
+two-sided representation-ring McKay recurrence.  An arbitrary
+two-coloured graph here need not itself be a single affine-ADE diagram.
+\end{remark}
+
+\section{Tensor-curl helicity lines}
+
+Put
+\begin{equation}
+ M_+=A_L^2-2I,
+ \qquad
+ M_-=A_R^2-2I.
+ \label{eq:rank-matrices}
+\end{equation}
+For algebraic boundary formulas, we also allow the formal seed $J=0$ in
+\eqref{eq:branch-multiplicities}; the geometric tensor-curl family
+begins at $J=1$.
+
+\begin{theorem}[Rank and diagonal rank--level laws]
+\label{thm:tt-lines}
+For every $J\geq1$ and $n\geq0$,
+\begin{align}
+ \boldsymbol b_{J+1}^{+}(n)+\boldsymbol b_{J-1}^{+}(n)
+ &=M_+\boldsymbol b_J^{+}(n),
+ \label{eq:plus-rank}\\
+ \boldsymbol b_{J+1}^{-}(n)+\boldsymbol b_{J-1}^{-}(n)
+ &=M_-\boldsymbol b_J^{-}(n).
+ \label{eq:minus-rank}
+\end{align}
+With $\boldsymbol b_J^\pm(-1)=0$, the positive branch also satisfies
+\begin{align}
+ A_LA_R\boldsymbol b_J^+(n)
+ ={}&\boldsymbol b_J^+(n+1)+\boldsymbol b_J^+(n-1)
+ \nonumber\\
+ &+\boldsymbol b_{J-1}^+(n+1)
+ +\boldsymbol b_{J+1}^+(n-1),
+ \label{eq:diagonal-plus}
+\end{align}
+and the negative branch satisfies the mirror identity obtained by
+interchanging $L$ and $R$.
+\end{theorem}
+
+\begin{proof}
+Apply \eqref{eq:left-rec} twice at
+$(p,q)=(n+2J,n)$:
+\[
+ A_L^2\boldsymbol m_{n+2J,n}
+ =
+ \boldsymbol m_{n+2J+2,n}
+ +2\boldsymbol m_{n+2J,n}
+ +\boldsymbol m_{n+2J-2,n}.
+\]
+This is \eqref{eq:plus-rank}; the right-factor calculation gives
+\eqref{eq:minus-rank}.
+
+Applying $A_LA_R$ to $\boldsymbol m_{n+2J,n}$ produces the four
+corners
+\[
+ \boldsymbol m_{n+2J\pm1,n\pm1}.
+\]
+Reading those corners on the diagonal lines yields
+\eqref{eq:diagonal-plus}.  Commutation makes the order of the two
+steps immaterial, and the mirror calculation proves the negative
+identity.
+\end{proof}
+
+\begin{remark}[Coupled total identities]
+\label{rem:no-common}
+Put $\boldsymbol u_J=\boldsymbol b_J^++\boldsymbol b_J^-$ and
+$\boldsymbol v_J=\boldsymbol b_J^+-\boldsymbol b_J^-$.  The branch
+laws give the exact coupled system
+\begin{align*}
+ \boldsymbol u_{J+1}+\boldsymbol u_{J-1}
+ &=
+ \tfrac12(M_++M_-)\boldsymbol u_J
+ +\tfrac12(M_+-M_-)\boldsymbol v_J,\\
+ \boldsymbol v_{J+1}+\boldsymbol v_{J-1}
+ &=
+ \tfrac12(M_+-M_-)\boldsymbol u_J
+ +\tfrac12(M_++M_-)\boldsymbol v_J.
+\end{align*}
+Thus the theorem supplies two branch matrices rather than one matrix
+closing on either total alone.  When $M_+\ne M_-$ and both
+$\boldsymbol u_J$ and $\boldsymbol v_J$ have nonzero components, the
+coupling terms are visible in the displayed system, so the
+representation-ring identities alone do not yield a universal
+common-matrix recurrence.  A special solution may nevertheless lie in a
+common invariant subspace.  Spectral propagation below is therefore stated
+branchwise.
+\end{remark}
+
+\section{Quasipolynomials and finite-Hurwitz continuation}
+
+\begin{lemma}[Classwise quasipolynomiality]
+\label{lem:quasipolynomial}
+For fixed $J$, sign $\varepsilon\in\{+,-\}$, and irrep $\rho_i$, the
+sequence $n\mapsto b_{J,i}^{\varepsilon}(n)$ is a quasipolynomial of
+degree at most two.  A valid period is the least common multiple of
+$2$ and the orders of the noncentral eigenphases occurring in the two
+defining slots of the conjugacy classes of $\Gamma$.
+\end{lemma}
+
+\begin{proof}
+Character projection gives
+\begin{equation}
+ m_{p,q}^i
+ =\frac1{|\Gamma|}
+ \sum_{g=(g_L,g_R)\in\Gamma}
+ \overline{\chi_i(g)}\,
+ \chi_p(g_L)\chi_q(g_R).
+ \label{eq:character-projection}
+\end{equation}
+If $g_L$ has eigenvalues $\e^{\pm i\theta}$ with
+$\theta\notin\{0,\pi\}$, then
+\[
+ \chi_p(g_L)=\frac{\sin((p+1)\theta)}{\sin\theta}
+\]
+is periodic in $p$ because $g_L$ has finite order.  At $g_L=\pm I$,
+\[
+ \chi_p(\pm I)=(\pm1)^p(p+1),
+\]
+a period-two sign times a linear polynomial.  The same alternatives
+hold in the right slot.  On $p=n$, $q=n+2J$, or with the slots
+exchanged, the product is polynomial of degree at most two on every
+common residue class.  The finite sum
+\eqref{eq:character-projection} preserves the claim.
+\end{proof}
+
+\begin{definition}[Branch spectral function]
+\label{def:branch-F}
+For $c>0$ and $\Re s>3$, define the vector-valued Dirichlet series
+\begin{equation}
+ \boldsymbol F_J^\pm(s;c)
+ =\sum_{n=0}^{\infty}
+ \boldsymbol b_J^\pm(n)(n+c)^{-s}.
+ \label{eq:branch-F}
+\end{equation}
+The geometric offset is $c_J=J+1$.  Componentwise, the signed eta and
+unsigned absolute spectral zeta functions are
+\begin{align}
+ \eta_{J,i}(s)
+ &=F_{J,i}^+(s;c_J)-F_{J,i}^-(s;c_J),
+ \label{eq:eta-from-branches}\\
+ \zeta_{|A_J|,i}(s)
+ &=F_{J,i}^+(s;c_J)+F_{J,i}^-(s;c_J).
+ \label{eq:zeta-from-branches}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Finite-Hurwitz formula]
+\label{prop:finite-hurwitz}
+Every component of \eqref{eq:branch-F} extends meromorphically to
+$\C$ as a finite linear combination of Hurwitz zeta functions.  Its
+only possible poles are simple poles at $s=1,2,3$.
+\end{proposition}
+
+\begin{proof}
+Let $a(n)$ be one component and choose a quasipolynomial period $P$.
+For $0\leq r<P$, write on that residue class
+\[
+ a(P\ell+r)
+ =\sum_{h=0}^{2}q_{r,h}(P\ell+r+c)^h .
+\]
+This is merely a change of polynomial basis and may have vanishing
+top coefficients.  Then
+\begin{equation}
+ \sum_{n\geq0}a(n)(n+c)^{-s}
+ =
+ \sum_{r=0}^{P-1}\sum_{h=0}^{2}
+ q_{r,h}P^{h-s}
+ \zH\!\left(s-h,\frac{r+c}{P}\right).
+ \label{eq:finite-Hurwitz}
+\end{equation}
+The Hurwitz zeta function is meromorphic with its only pole at first
+argument $1$, proving the assertion.
+\end{proof}
+
+\begin{remark}[Terminology]
+Some lens-space literature uses ``bivariate representations'' for
+one-group highest weights of the form
+$k\varepsilon_1+\ell\varepsilon_2$
+\cite{LauretRossiBertone2018,LauretMiatelloRossetti2021}.
+Here \emph{bivariate} instead
+refers to the two independent symmetric-power indices $(p,q)$ of
+$SU(2)_L\times SU(2)_R$.
+\end{remark}
+
+\section{Pole localization, eta entirety, and heat coefficients}
+
+For a conjugacy-class representative $g=(g_L,g_R)$, choose folded
+eigenangles $\theta_L,\theta_R\in[0,\pi]$ so that the defining
+eigenvalues are $\e^{\pm i\theta_L}$ and
+$\e^{\pm i\theta_R}$.  A class is \emph{central--central} when both
+angles lie in $\{0,\pi\}$.  Write the corresponding signs as
+$\varepsilon_L,\varepsilon_R\in\{\pm1\}$ and put
+$\sigma=\varepsilon_L\varepsilon_R$.
+
+\begin{theorem}[Eta entirety and central pole localization]
+\label{thm:eta-entire}
+Let $\Gamma< SU(2)_L\times SU(2)_R$ be finite, let $J\geq1$, and let
+$c>0$.  For every irreducible coordinate $i$, the signed function
+\begin{equation}
+ E_{J,i}(s;c)=F^+_{J,i}(s;c)-F^-_{J,i}(s;c)
+ \label{eq:eta-entire-function}
+\end{equation}
+is entire.
+
+If the induced action on $S^3$ is free, all poles of either branch
+come from central--central classes with $\sigma=+1$; for a free effective
+action the identity is the only such class.  At the geometric
+offset $c=J+1$, each branch has
+\begin{align}
+ \Res_{s=3}F^{\pm}_{J,i}(s;J+1)
+ &=\frac1{|\Gamma|}
+   \sum_{\substack{C\ \mathrm{central--central}\\\sigma(C)=+1}}
+   |C|\,\overline{\chi_i(C)},
+ \label{eq:residue-three}\\
+ \Res_{s=2}F^{\pm}_{J,i}(s;J+1)&=0,
+ \label{eq:residue-two}\\
+ \Res_{s=1}F^{\pm}_{J,i}(s;J+1)
+ &=-J^2\Res_{s=3}F^{\pm}_{J,i}(s;J+1).
+ \label{eq:residue-one}
+\end{align}
+If the action is not free, a noncentral resonant class with
+$\theta_L=\theta_R=\theta$ contributes additionally
+\begin{equation}
+ \frac{|C|\,\overline{\chi_i(C)}}{|\Gamma|}
+ \frac{\cos(2J\theta)}{2\sin^2\theta}
+ \label{eq:resonant-residue}
+\end{equation}
+to the residue at $s=1$ of \emph{both} branches.  Thus such resonances
+do not obstruct the entirety of \eqref{eq:eta-entire-function}.
+\end{theorem}
+
+\begin{proof}
+Character projection reduces the statement to one conjugacy class at
+a time.  On a central--central class, the two branch factors are
+identical:
+\[
+ \varepsilon_L^{n+2J}\varepsilon_R^n(n+2J+1)(n+1)
+ =
+ \varepsilon_L^n\varepsilon_R^{n+2J}(n+1)(n+2J+1),
+\]
+because the exponent $2J$ is even.  If $\sigma=-1$, this is an
+alternating polynomial and every residue-class coefficient mean
+vanishes.  If $\sigma=+1$, then at $c=J+1$ its polynomial part is
+\[
+ (n+1)(n+2J+1)=(n+c)^2-J^2,
+\]
+which gives \eqref{eq:residue-three}--\eqref{eq:residue-one}.
+
+If exactly one slot is central, the remaining sine quotient is a
+mean-zero periodic sequence; multiplication by the at-most-linear
+central factor therefore produces no residue.  If neither slot is
+central, the class sequence is bounded, so only a pole at $s=1$ is
+possible.  Product-to-sum gives, for the plus branch, a difference of
+cosines with frequencies $\theta_L-\theta_R$ and
+$\theta_L+\theta_R$.  Folded noncentral angles make the second
+frequency nonresonant.  The first has nonzero mean precisely when
+$\theta_L=\theta_R$, and its mean is the quantity in
+\eqref{eq:resonant-residue}.  Swapping the slots gives the same mean
+on that locus.  A noncentral equality of folded angles is exactly the
+fixed-vector obstruction to freeness.  Hence the branch residue maps
+are equal for every finite group, proving that their difference is
+entire, while freeness leaves only the stated central terms.
+\end{proof}
+
+The theorem is stronger than regularity of eta merely at the origin:
+the entire meromorphic pole part cancels between the two helicities.
+The unsigned function retains local-density information in its
+central residues.
+
+\begin{proposition}[Convergent heat expansion]
+\label{prop:heat-expansion}
+Let $F(s)=\sum_{n\geq0}a(n)(n+c)^{-s}$ be any component of a branch
+function, let $P$ be a quasipolynomial period, and write
+$r_j=\Res_{s=j}F(s)$ for $j=1,2,3$.  Then the first-order heat trace
+\[
+ \Theta_F(\tau)=\sum_{n\geq0}a(n)\e^{-(n+c)\tau}
+\]
+has the convergent Laurent expansion
+\begin{equation}
+ \Theta_F(\tau)
+ =\sum_{j=1}^{3}\Gamma(j)r_j\tau^{-j}
+  +\sum_{k=0}^{\infty}\frac{(-1)^k}{k!}F(-k)\tau^k,
+ \qquad |\tau|<\frac{2\pi}{P}.
+ \label{eq:heat-expansion}
+\end{equation}
+All coefficients are finite exact combinations of rational numbers
+and Bernoulli-polynomial values.
+\end{proposition}
+
+\begin{proof}
+Split the quasipolynomial into its $P$ residue classes.  Each class is
+a degree-at-most-two polynomial times a geometric series in
+$\e^{-P\tau}$, hence a rational function whose nearest nonzero
+singularities occur at $P\tau=\pm2\pi i$.  Its Laurent coefficients
+are obtained from
+$\zH(-m,x)=-B_{m+1}(x)/(m+1)$.  Summing the finitely many classes
+gives \eqref{eq:heat-expansion}; equivalently, the negative powers are
+the residues of $\Gamma(s)F(s)\tau^{-s}$ and the nonnegative powers
+are its residues at the nonpositive integers.
+\end{proof}
+
+\section{Meromorphic rank propagation}
+
+\begin{theorem}[Fixed-offset all-$s$ identity]
+\label{thm:all-s}
+Fix $c>0$.  For every $J\geq1$, the following identities hold as
+identities of vector-valued meromorphic functions on $\C$:
+\begin{align}
+ \boldsymbol F_{J+1}^{+}(s;c)
+ +\boldsymbol F_{J-1}^{+}(s;c)
+ &=M_+\boldsymbol F_J^{+}(s;c),
+ \label{eq:fixed-plus}\\
+ \boldsymbol F_{J+1}^{-}(s;c)
+ +\boldsymbol F_{J-1}^{-}(s;c)
+ &=M_-\boldsymbol F_J^{-}(s;c).
+ \label{eq:fixed-minus}
+\end{align}
+\end{theorem}
+
+\begin{convention}[Formal rank-zero seed]
+The $J=1$ instance uses
+$\boldsymbol b_0^+=\boldsymbol b_0^-=\boldsymbol m_{n,n}$ as an algebraic
+seed.  A relation among three geometric tensor-curl ranks begins at
+$J\geq2$.
+\end{convention}
+
+\begin{proof}
+For $\Re s>3$, the series converge absolutely and
+\eqref{eq:fixed-plus}--\eqref{eq:fixed-minus} follow term by term from
+\eqref{eq:plus-rank}--\eqref{eq:minus-rank}.  Each side has the
+meromorphic continuation of Proposition~\ref{prop:finite-hurwitz}.
+Uniqueness of meromorphic continuation proves the identities on
+$\C$.
+\end{proof}
+
+\subsection{The moving geometric origin}
+
+Let $S$ and $L$ denote the unilateral right and left sequence shifts:
+\begin{equation}
+ (Sa)(0)=0,\qquad (Sa)(n)=a(n-1)\ (n\geq1),
+ \qquad
+ (La)(n)=a(n+1).
+ \label{eq:unilateral-shifts}
+\end{equation}
+The symbol $L$ is notation for the left shift; it is not a two-sided
+inverse to $S$ because the sequences begin at $n=0$.
+
+\begin{lemma}[Offset reindexing]
+\label{lem:offset}
+For every quasipolynomial sequence $a$ and $c>1$,
+\begin{align}
+ F_a(s;c+1)&=F_{Sa}(s;c),
+ \label{eq:shift-up}\\
+ F_a(s;c-1)&=F_{La}(s;c)+a(0)(c-1)^{-s},
+ \label{eq:shift-down}
+\end{align}
+first in the half-plane of absolute convergence and hence
+meromorphically on $\C$.
+\end{lemma}
+
+\begin{proof}
+Equation~\eqref{eq:shift-up} follows by replacing $n$ with $n+1$.
+For \eqref{eq:shift-down}, separate the $n=0$ term and replace
+$n\geq1$ by $n-1$.  Proposition~\ref{prop:finite-hurwitz} completes
+the continuation.
+\end{proof}
+
+\begin{theorem}[Geometric-offset boundary correction]
+\label{thm:physical-offset}
+Let $J\geq1$, let $c_J=J+1$, and let $M_\pm$ be as in
+\eqref{eq:rank-matrices}.  For each branch, define
+\[
+ \boldsymbol{\mathcal B}_J^\pm(s)
+ =
+ \boldsymbol F_{(S-I)\boldsymbol b_{J+1}^\pm}(s;J+1)
+ +\boldsymbol F_{(L-I)\boldsymbol b_{J-1}^\pm}(s;J+1)
+ +\boldsymbol b_{J-1}^\pm(0)J^{-s}.
+\]
+Then, as vector-valued meromorphic functions on $\C$,
+\begin{equation}
+ \boxed{\;
+ \boldsymbol F_{J+1}^\pm(s;c_{J+1})
+ +\boldsymbol F_{J-1}^\pm(s;c_{J-1})
+ -M_\pm\boldsymbol F_J^\pm(s;c_J)
+ =
+ \boldsymbol{\mathcal B}_J^\pm(s).
+ \;}
+\label{eq:physical-correction}
+\end{equation}
+At $J=1$, the $J-1$ term is the formal algebraic seed; all three
+terms correspond to geometric tensor-curl ranks when $J\geq2$.  In this
+boundary case the lowest-mode factor is $1^{-s}=1$, as intended.
+\end{theorem}
+
+\begin{proof}
+Apply Theorem~\ref{thm:all-s} at the common offset $c=J+1$.
+Lemma~\ref{lem:offset} turns the $J+1$ geometric offset into
+$S\boldsymbol b_{J+1}^\pm$ and the $J-1$ geometric offset into
+$L\boldsymbol b_{J-1}^\pm$ plus the displayed lowest-mode term.
+Subtracting the common-offset identity gives
+\eqref{eq:physical-correction}.
+\end{proof}
+
+\begin{remark}[What the correction means]
+\label{rem:cocycle-language}
+The right-hand side of \eqref{eq:physical-correction} is an exact
+inhomogeneous telescoping correction, or geometric-offset boundary
+cocycle.  It measures the cost of changing rank and spectral origin
+simultaneously.  The term
+$\boldsymbol b_{J-1}^\pm(0)J^{-s}$ is the mode encountered at the
+unilateral boundary.  The word ``cocycle'' is descriptive here;
+\eqref{eq:physical-correction} does not assert a group-cohomology class.
+\end{remark}
+
+\begin{corollary}[Signed and unsigned assembly]
+\label{cor:signed-unsigned}
+The full eta and absolute-zeta vectors are obtained from
+\eqref{eq:physical-correction} by taking the branch difference and
+sum, respectively.  The displayed result is the coupled two-matrix
+identity; a reduction to one matrix would require additional
+invariant-subspace structure not asserted here.
+\end{corollary}
+
+\section{Relative zeta functions and log-determinants}
+
+Let $\boldsymbol d=(d_0,\ldots,d_r)^T$ be the dimension vector and let
+$\boldsymbol e_0^T\boldsymbol z=z_0$.  Define
+\begin{equation}
+ R=I-\boldsymbol d\,\boldsymbol e_0^T,
+ \qquad
+ (R\boldsymbol z)_i=z_i-d_i z_0.
+ \label{eq:relative-projection}
+\end{equation}
+Thus $R^2=R$ and $R\boldsymbol d=0$.  For each column $j$ of either
+McKay matrix, taking dimensions in
+$W_{L/R}\otimes\rho_j$ gives
+$\sum_i d_i(A_{L/R})_{ij}=2d_j$.  The matrices are symmetric, hence
+$A_L\boldsymbol d=A_R\boldsymbol d=2\boldsymbol d$, and both rank
+matrices satisfy $M_\pm\boldsymbol d=2\boldsymbol d$.
+
+\begin{proposition}[Induced relative recurrence]
+\label{prop:relative}
+On $\operatorname{im}R$, define
+\[
+ \widehat M_\pm
+ =RM_\pm R|_{\operatorname{im}R}.
+\]
+For fixed $c>0$, the relative branch vector
+\[
+ \widehat{\boldsymbol F}_J^\pm(s;c)
+ =R\boldsymbol F_J^\pm(s;c)
+\]
+satisfies
+\begin{equation}
+ \widehat{\boldsymbol F}_{J+1}^\pm(s;c)
+ +\widehat{\boldsymbol F}_{J-1}^\pm(s;c)
+ =
+ \widehat M_\pm
+ \widehat{\boldsymbol F}_J^\pm(s;c)
+ \label{eq:relative-recurrence}
+\end{equation}
+meromorphically on $\C$.
+\end{proposition}
+
+\begin{proof}
+Apply $R$ to Theorem~\ref{thm:all-s}.  Every vector decomposes as
+$\boldsymbol z=R\boldsymbol z+\boldsymbol d z_0$.  Since
+$RM_\pm\boldsymbol d=0$,
+\[
+ RM_\pm\boldsymbol z
+ =RM_\pm R\boldsymbol z,
+\]
+which proves \eqref{eq:relative-recurrence}.
+\end{proof}
+
+\begin{proposition}[Pole-free relative rows]
+\label{prop:relative-pole-free}
+Suppose $\Gamma$ acts freely and effectively on $S^3$.  Then every
+component of $R\boldsymbol F_J^\pm(s;J+1)$ is entire.  Consequently
+the relative branch log-determinant requires no pole subtraction at any
+stage of its continuation.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:eta-entire}, the only pole-producing class of an
+effective free action is the identity.  Its character-projection
+weight in coordinate $i$ is $d_i$ times its weight in the trivial
+coordinate.  The projection $R$ subtracts exactly that contribution.
+All residues therefore vanish, and Proposition~\ref{prop:finite-hurwitz}
+leaves no other singularities.
+\end{proof}
+
+\begin{corollary}[Relative branch log-determinant]
+\label{cor:relative-det}
+The functions in \eqref{eq:relative-recurrence} are regular at
+$s=0$.  Define the componentwise relative branch log-determinant by
+\begin{equation}
+ \boldsymbol{\mathcal L}_J^\pm(c)
+ =-\partial_s
+ \widehat{\boldsymbol F}_J^\pm(s;c)\big|_{s=0}.
+ \label{eq:relative-det}
+\end{equation}
+Then
+\begin{equation}
+ \boldsymbol{\mathcal L}_{J+1}^\pm(c)
+ +\boldsymbol{\mathcal L}_{J-1}^\pm(c)
+ =
+ \widehat M_\pm\boldsymbol{\mathcal L}_J^\pm(c).
+ \label{eq:relative-det-rec}
+\end{equation}
+At the geometric offsets, differentiating
+$R\eqref{eq:physical-correction}$ at $s=0$ gives the corresponding
+inhomogeneous relative log-determinant identity.
+\end{corollary}
+
+\begin{proof}
+The possible poles in Proposition~\ref{prop:finite-hurwitz} are
+$1,2,3$, so differentiation at zero is legitimate.  Differentiate
+\eqref{eq:relative-recurrence}; the geometric-offset statement follows
+in the same way from Theorem~\ref{thm:physical-offset}.
+\end{proof}
+
+\begin{proposition}[Exact derivative form]
+\label{prop:closed-logdet}
+Let a component of a relative branch functional be written in the
+finite-Hurwitz form
+\begin{equation}
+ \widehat F(s)=
+ \sum_{r=0}^{P-1}\sum_{h=0}^{2}
+ \widehat q_{r,h}P^{h-s}
+ \zH\!\left(s-h,x_r\right)
+ +\sum_w c_w w^{-s},
+ \qquad x_r=\frac{r+c}{P},
+ \label{eq:relative-atom-form}
+\end{equation}
+where the finite point terms record any reindexing used to place the
+Hurwitz arguments in a chosen fundamental interval.  Then
+\begin{equation}
+ -\widehat F'(0)
+ =\widehat F_z(0)\log P
+  -\sum_{r,h}\widehat q_{r,h}P^h
+       \zH'(-h,x_r)
+  +\sum_w c_w\log w,
+ \label{eq:closed-logdet}
+\end{equation}
+where $\widehat F_z(0)$ denotes the Hurwitz-zeta part of
+$\widehat F(0)$.  Thus every relative determinant row has a finite
+exact symbolic decomposition into rational coefficients,
+Hurwitz-zeta derivatives at rational arguments, and logarithms.
+\end{proposition}
+
+\begin{proof}
+Differentiate each finite atom of
+\eqref{eq:relative-atom-form} at zero.  The derivative of
+$P^{h-s}$ supplies the $\log P$ term, while
+$-\partial_s(c_ww^{-s})|_{s=0}=c_w\log w$.
+\end{proof}
+
+For a concrete example, take $\Gamma=Q_8\times\Z_3$, with $Q_8$ in the
+left slot and $\Z_3$ in the right slot.  Let $E$ denote the
+two-dimensional irreducible representation of $Q_8$, and let
+$c_0,c_1,c_2$ denote the characters of $\Z_3$.  On the plus branch at
+$J=1$, the quasipolynomial period is $P=12$.  Two representative relative
+rows are
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+twist & $[\log P](-\widehat F_i'(0))$ & $\eta_{1,i}(0)$ & $-\widehat F_i'(0)$ \\
+\midrule
+$E\boxtimes c_0$ & $-3/4$ & $-4/9$ & $-0.89893954730931921\ldots$ \\
+$E\boxtimes c_1$ & $-5/12$ & $2/9$ & $-0.96202650840501164\ldots$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The eta column is the ordinary signed eta invariant, not the relative
+invariant.  The determinant columns are relative.  The decimal column is a display of the exact decomposition
+\eqref{eq:closed-logdet}, not its definition.
+
+\begin{remark}[Log-determinant scope]
+For each component, the exponential of
+\eqref{eq:relative-det} is the zeta-regularized determinant ratio of
+that branch to $d_i$ copies of the trivial branch.  The additive
+recurrence \eqref{eq:relative-det-rec} is a log-determinant identity.
+For arbitrary fixed $c$, it describes auxiliary shifted spectral
+products; it is the geometric branch product at rank $J$ only when
+$c=c_J=J+1$.  The moving geometric family is governed instead by the
+inhomogeneous identity above.  Negative-branch products use absolute
+eigenvalue magnitudes and contain no spectral-cut phase.  These formulas
+concern the round branch operators; no nonround operator determinant is
+asserted.
+\end{remark}
+
+\section{Affine-ADE reductions and two-sided examples}
+
+\subsection{One-sided reduction}
+
+Suppose $\Gamma=G\times\{1\}$ with $G< SU(2)$.  If $N$ is the
+ordinary McKay adjacency of $G$, then
+\[
+ A_L=N,\qquad A_R=2I,\qquad
+ \boldsymbol m_{p,q}=(q+1)\boldsymbol m_{p,0}.
+\]
+Consequently,
+\[
+ M_+=N^2-2I,\qquad M_-=2I.
+\]
+Thus one TT branch obeys the familiar affine-ADE rank recurrence
+while the other has vanishing second difference.  Both are shadows
+of the same two-sided theorem.  This also explains why the
+one-sided recurrence technology of
+\cite{Kostant1985,Steinberg1985,Springer1987,Stekolshchik2008,
+Suter2007,Benkart2016,JingWangZhang2020,JingWangZhang2021}
+is a direct antecedent but not the full bivariate statement.
+
+\subsection{Product reduction}
+
+For $\Gamma=G_L\times G_R$,
+\[
+ A_L=N_L\otimes I,
+ \qquad
+ A_R=I\otimes N_R,
+\]
+and, after arranging the multiplicities as a matrix,
+\begin{align*}
+ \mathsf M_{p+1,q}+\mathsf M_{p-1,q}
+ &=N_L\mathsf M_{p,q},\\
+ \mathsf M_{p,q+1}+\mathsf M_{p,q-1}
+ &=\mathsf M_{p,q}N_R^T.
+\end{align*}
+If $G_L$ and $G_R$ are binary polyhedral, the factors are affine-ADE
+adjacencies.  A general nonproduct subgroup has no such outer-product
+matrix arrangement; the vector laws of
+Theorem~\ref{thm:bivariate} remain the correct formulation.
+
+\subsection{Computational verification}
+
+We checked the formulas independently in exact character and
+Hurwitz-atom arithmetic for the mixed products
+$Q_8\times\Z_3$, $2T\times\Z_5$, and $Q_8\times\Z_5$, together with
+nonproduct cyclic lifts.  The computations recovered the two branch
+recurrences, Chebyshev reconstruction, dimension identity
+\[
+ \sum_i d_i m_{p,q}^i=(p+1)(q+1),
+\]
+orientation exchange, conjugate-twist symmetry, and the finite-Hurwitz
+decompositions.  A deliberately nonfree diagonal $\Z_3$ action exhibited
+the resonant residue \eqref{eq:resonant-residue} while its signed branch
+difference remained entire.  Direct traces agreed with the heat expansion
+inside its convergence disk, and the relative determinant examples showed
+exact pole cancellation and the differentiated geometric-offset identity.
+These computations test conventions and exceptional cases; the proofs do
+not depend on their numerical range.
+
+\section{Relation to prior work}
+
+The representation-theoretic ingredients have several close
+antecedents.  McKay's observation and the work of Kostant organize the
+one-sided symmetric-power restrictions by affine-ADE data
+\cite{McKay1980,Kostant1985,Steinberg1985,Springer1987,
+Stekolshchik2008}.  Poincar\'e-series, walk, Cartan, and
+Chebyshev formulations were developed further in
+\cite{Rossmann2003,Suter2007,Benkart2016,JingWangZhang2020,
+JingWangZhang2021}.  Xiong's edge-coloured construction is the nearest
+antecedent to the two-operator pair \cite{Xiong2020}; it does not state
+the bivariate copy-multiplicity recurrence, Chebyshev grid, TT-line
+system, or a spectral application.
+
+For spherical space forms, Ikeda and successors developed
+character-theoretic spectral multiplicities and generating functions
+\cite{Ikeda1980I,Ikeda1980II,Ikeda1980Lens,
+IkedaYamamoto1979,Bar1996,LauretMiatelloRossetti2021}.  Twisted eta
+formulas, complete finite-$SU(2)$ Dirac tables, and Molien encodings are
+classical \cite{APS1975,Donnelly1978,Gilkey1984,
+CisnerosMolina2001,Degeratu2001,Degeratu2009}.  Determinants of
+spherical space forms from Dirichlet-series data are also established
+\cite{BauerFurutani2008}.  To the best of our knowledge, these sources do
+not state the bivariate copy-multiplicity recurrence with its tensor-curl
+line system, or the branchwise all-$s$ identity with a moving geometric
+offset.  The monographs of du Val and Conway--Smith
+\cite{duVal1964,ConwaySmith2003} concern the classification of finite
+rotation groups rather than this multiplicity machinery.
+
+\section{Discussion}
+
+The results separate three layers that are easily conflated.
+
+\begin{enumerate}
+\item The representation ring determines how sphere harmonics decompose
+across topology and flat twist.  The finite matrices $A_L,A_R$ are a
+finite exact encoding of this multiplicity layer.
+\item The tensor-curl dispersion relation selects the two lines
+$q-p=\pm2J$ and assigns the rank-dependent eigenvalue $n+J+1$.
+\item Hurwitz continuation converts the quasipolynomial line data into
+meromorphic spectral functions and relative branch log-determinants.
+\end{enumerate}
+
+The pole theorem adds a fourth structural distinction.  The unsigned
+branch sum retains the central polynomial density, hence the local
+heat singularities, whereas the signed branch difference discards the
+entire pole part and retains only regular spectral asymmetry.  This is
+not just regularity at $s=0$: eta-entirety holds throughout the complex
+plane, including in nonfree representation-ring examples where
+additional resonant poles appear in each branch separately.  For free
+effective quotients, the relative projection removes the remaining
+identity density and turns every branch row into an entire function.
+Thus local heat data, global spectral asymmetry, and relative
+determinants are three different finite images of the same bivariate
+grid.
+
+At a common offset, the second and third layers preserve the
+representation-ring recurrence exactly.  At the geometric offset, the
+lowest-mode boundary records the fact that the spectral coordinate
+changes with rank.  This is why the same finite algebra can propagate
+full spectral functions without erasing their geometric rank dependence.
+
+Several extensions are natural.  The bivariate generating function can
+be used to compare inverse-spectral information carried by the
+left/right operator pair.  In particular, one may ask whether a finite
+rectangle of $\boldsymbol m_{p,q}$, or finitely many TT diagonals,
+determines the embedded representation ring up to orientation exchange;
+the present reconstruction reduces that question to finite matrix data
+but does not solve the resulting equivalence problem.  The relative
+log-determinant recurrence gives an exact route to further
+round-space-form tables and constrains coincidences across rank: any
+putative equality must propagate through both branch matrices and the
+explicit boundary term.  A separate
+nonround problem is to replace the round representation decomposition
+by a mixed-order projected pseudodifferential analysis on Berger
+backgrounds.  None of those extensions is needed for the present
+theorems, and the last is not implied by them.
+
+\section{Conclusion}
+
+The restrictions of $V_p\boxtimes V_q$ to a finite subgroup of
+$\operatorname{Spin}(4)$ form a two-dimensional recurrence governed by
+two commuting representation-ring operators.  Its restriction to the
+round tensor-curl helicity lines yields two branchwise rank laws and a
+diagonal rank--level identity.  Finite-group character theory makes
+each line quasipolynomial, so the complete branch spectral function is
+a finite Hurwitz-zeta object.  The rank recurrence then holds
+meromorphically for all $s$ at fixed offset, while the geometric
+rank-dependent origin contributes an explicit unilateral boundary
+correction.  Relative zeta functions and determinant ratios inherit the
+same structure at the log-determinant level.
+
+In addition, the signed eta function is entire for every finite
+two-sided subgroup, while freeness localizes all unsigned poles to the
+central polynomial density.  At the geometric offset this density has
+the universal form $(n+J+1)^2-J^2$, forcing
+$\Res_2=0$ and $\Res_1=-J^2\Res_3$.  These residues generate a
+convergent heat expansion, and their cancellation under the relative
+projection gives finite exact formulas for pole-free determinant
+ratios.  The recurrence therefore propagates not only multiplicities
+but also pole data, heat coefficients, eta functions, and
+log-determinants, with the same lowest-mode correction whenever the
+geometric origin moves.
+
+The affine-ADE theory is therefore not replaced but embedded: it is the
+one-sided or product-factor face of a broader two-sided
+$\operatorname{Spin}(4)$ representation-ring system.  This viewpoint
+turns inverse questions about round tensor-curl spectra into finite problems
+for a commuting operator pair and its distinguished diagonals.  Whether a
+finite portion of that data determines the embedded representation ring,
+and how the recurrence deforms away from the round metric, remain open.
+
+\enlargethispage{\baselineskip}
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\bibliographystyle{alpha}
+\bibliography{references}
+
+\end{document}

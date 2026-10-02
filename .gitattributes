@@ -1,0 +1,5 @@
+# Preserve the exact sealed bytes; never apply checkout line-ending conversion.
+* -text
+*.pdf binary
+*.zip binary
+*.gz binary

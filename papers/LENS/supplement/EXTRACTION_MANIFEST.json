@@ -1,0 +1,196 @@
+{
+  "mathematical_sources": [
+    {
+      "extracted": [
+        {
+          "function": "lift",
+          "function_sha256": "a6f58bf477e95163ace4c9273905f08e28d5c756250e7f6c8d1ce9cd4394cb1f"
+        },
+        {
+          "function": "coeffs",
+          "function_sha256": "befd0ef7a8e36438f8408794641f1f8063d38de2bd47bd82f4bf71e7af1cd7e0"
+        },
+        {
+          "function": "canonical_qs",
+          "function_sha256": "0d98e88af772360922565fabbede082f523a584de233f46a47267de9f7c921de"
+        },
+        {
+          "function": "n_route_a",
+          "function_sha256": "270bb2089a9c810fdc9c54a7d8fd87019912809cf71678c39798a9049609588b"
+        },
+        {
+          "function": "CharVectors",
+          "function_sha256": "7df883f9fef4d257eebc48f8c93afb200b8beb547ff3c6c309959f96ce75b791"
+        },
+        {
+          "function": "n_route_b",
+          "function_sha256": "dad0cf80c834a5e66d902f356d1b07456ec2b6033414dd0dc0598c203a80621b"
+        },
+        {
+          "function": "balanced",
+          "function_sha256": "01ae606e2f7c57cf9bcaa75a76e7ff815b62618cdd46f3ad41ecbec4404f0b5f"
+        },
+        {
+          "function": "branch_counts",
+          "function_sha256": "a630ce7f27a2ade918a6cc923302a8a2fe16c421daa3500643937d08459ea678"
+        }
+      ],
+      "original_mathematical_source": "b_lc1_lens_chirality_20260924.py",
+      "source_sha256": "b56cef48158d160050dd40a9fab83d09695cbc29d3ab57b69e75f6737161008a"
+    },
+    {
+      "extracted": [
+        {
+          "function": "eta_fast",
+          "function_sha256": "d15bd54c659f4f36bdb4cbb032c1ef6d06ae6ccb1a931e4311360c87cf59b661"
+        }
+      ],
+      "original_mathematical_source": "b_lc5_eta_zeros_20260925.py",
+      "source_sha256": "39dc57d1e48a5b3a38f131fb313745d33a57e3fa2b8dfa6c220955b880b30b2c"
+    },
+    {
+      "extracted": [
+        {
+          "function": "cond_i",
+          "function_sha256": "42c4d3a6fccfea45803a878971c34c200dc8a3cb5fd493cb756de7a653effdf9"
+        },
+        {
+          "function": "criterion",
+          "function_sha256": "c24d48cbec0298f33c7af482b8ca237701bd6f73dea7dda0ba52d22aa9b82468"
+        },
+        {
+          "function": "fam",
+          "function_sha256": "c5f7035127553f535b3da9f33eb69697f6e08214dbb067084a3b68bca1fb6454"
+        }
+      ],
+      "original_mathematical_source": "b_lc2_lens_balance_20260924.py",
+      "source_sha256": "fd973fd761e1171e4a75b62ce09ade7cbf0f615675383616a8d458b976d4eeae"
+    },
+    {
+      "extracted": [
+        {
+          "function": "T",
+          "function_sha256": "a93da6faff0515bdab20a933d1b1823ef09db1ee3c9d84bc2398876b7166a72b"
+        },
+        {
+          "function": "ded",
+          "function_sha256": "3aa32ba01bd280ae55e1cfb5a5a60a3f740d198f0b91fe56eec2fde823afc3ad"
+        },
+        {
+          "function": "rho",
+          "function_sha256": "11643eea316c4a0355bb8e9f8f9083573ccf4ddb3c404fce52abac8b5773c5c4"
+        },
+        {
+          "function": "par_count",
+          "function_sha256": "f2c8181185195490e338f1fd4e88c93279f46d0654f8c8722268d2ec9f4a7484"
+        },
+        {
+          "function": "m_count",
+          "function_sha256": "cbd144811d80174a524eb91c99bab1a1083aded865e04806c6b503d758438b49"
+        },
+        {
+          "function": "m_count_loop",
+          "function_sha256": "1bffbbb4f4059d8d52453591124e3c6fe04c575f0bcc0ea80382862bbdfbd64c"
+        },
+        {
+          "function": "terms",
+          "function_sha256": "ebdcbc0319197e5d7e308d9bc9960a506e361c3bd68108a1b508eadc32e1ca50"
+        },
+        {
+          "function": "eta",
+          "function_sha256": "b358de484a21c1b46bde20addee2ada3cafa06683eacd440bd23c10a8e661452"
+        }
+      ],
+      "original_mathematical_source": "b_lc13_pell_ladder_20260927.py",
+      "source_sha256": "7844d850215214e0ee1ac764412020f7f69c25f57ec45d80eb96413e6056f37d"
+    }
+  ],
+  "module_sha256": "1106421c62ca523abe395de875b059ebf95d318e376804ae0962d668e5012b92",
+  "retained_records": [
+    {
+      "file": "results/LC10B_RUN1.json",
+      "sha256": "56eb67e75627a33bd194c441380fb956ae66a6c4909d4dbfcf6b2598ae635e7e"
+    },
+    {
+      "file": "results/LC1B_RUN1.json",
+      "sha256": "3153736564d571e13713ab2ef85eab962fd1434687bf641e375ccd8110fd6990"
+    },
+    {
+      "file": "results/LC1B_RUN2.json",
+      "sha256": "6d494eec90e19106cb4b6263895c2651c548a75b98aad856d4a82e1530daf541"
+    },
+    {
+      "file": "results/LC2B_A_REVIEW_CHECKS_20260925.json",
+      "sha256": "b765db0bb222d815b0aa8fc22120a3b31ceedbac719b02a50d82e9e1a7685b9a"
+    },
+    {
+      "file": "results/LC2B_RUN1.json",
+      "sha256": "d926ad520deacdd1be57cd1d6a2f81e263d09e1451010f3537f9c599a7afee9b"
+    },
+    {
+      "file": "results/LC4B_RUN1.json",
+      "sha256": "5992db7d04bd1bcd1fc5e2c05bc111ffdbda2f76a7947a87d1eb034614dddf83"
+    },
+    {
+      "file": "results/LC4B_RUN2.json",
+      "sha256": "0aae739cf92cc0acdeb55665ba4ce4568585d9c0706eb696ed1834f7e1b087c2"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_MU1.json",
+      "sha256": "87ac6f658c6ff0322389bd3e9245ea91afe80be7a9a0fcc8045f1cd42b9b3eb2"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_MU2.json",
+      "sha256": "04b2a149d503ab528c0d7ee058b427b39a24df2cab11befedde5c649e2e7eab1"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_MU3.json",
+      "sha256": "aa564678f53f2a151ca40a355cd369a6c176016213d89d94d90b1e3d2570c640"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_RUN1.json",
+      "sha256": "cb72eb4b24e5fa7f80993451169e8d70ec3708df7b8bc4d1769913c657630abb"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_RUN2_CERT.json",
+      "sha256": "cb72eb4b24e5fa7f80993451169e8d70ec3708df7b8bc4d1769913c657630abb"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_RUN2_MU1.json",
+      "sha256": "87ac6f658c6ff0322389bd3e9245ea91afe80be7a9a0fcc8045f1cd42b9b3eb2"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_RUN2_MU2.json",
+      "sha256": "04b2a149d503ab528c0d7ee058b427b39a24df2cab11befedde5c649e2e7eab1"
+    },
+    {
+      "file": "results/LC4B_WL_INPUT_RUN2_MU3.json",
+      "sha256": "aa564678f53f2a151ca40a355cd369a6c176016213d89d94d90b1e3d2570c640"
+    },
+    {
+      "file": "results/LC5B_RUN1.json",
+      "sha256": "7d08b1c93b82a84d4fe787314bb0a8991cc56bff85c30662dc5b44c20fbdb36b"
+    },
+    {
+      "file": "results/LC5B_RUN2.json",
+      "sha256": "56aa298024aa54fd3acb6d9f1451971f75088510520e3c437598ff77f57619bb"
+    },
+    {
+      "file": "results/LC6B_RUN1.json",
+      "sha256": "bae38c5ef57eb41f673e7b8c801b322d0290b694e959fc30f9e733ed2f72587b"
+    },
+    {
+      "file": "results/LC7B_RUN1.json",
+      "sha256": "af1deb753b1278b51fe0638fa5847493616f9689765bd75846a5948745b0661f"
+    },
+    {
+      "file": "results/LC8B_RUN1.json",
+      "sha256": "7314ec67c3648cd455a6f118e90df055f1cfb60a409a14c832db706ae3ce114b"
+    },
+    {
+      "file": "results/LC9B_RUN1.json",
+      "sha256": "d425419e33e8fa5543b30a8cde79067d2eb9c6c1c86cef67aab6ece3f03d0516"
+    }
+  ],
+  "scope": "Mathematical function bodies unchanged. Retained mathematical values are exact projections of historical records; fields and rows not used by this paper are omitted."
+}

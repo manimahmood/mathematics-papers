@@ -1,0 +1,2475 @@
+\ifdefined\pdfsuppressptexinfo
+  \pdfsuppressptexinfo=15
+\fi
+\documentclass[11pt]{article}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Spectral chirality of lens spaces: level-wise helicity balance, eta congruences, and silver zeros for transverse-traceless tensor curl},
+  pdfauthor={Luqman Mahmood}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\content}{content}
+\newcommand{\TT}{\mathrm{TT}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\e}{\mathrm e}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\sawtooth}[1]{\left(\!\left(#1\right)\!\right)}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Spectral chirality of lens spaces:\\
+level-wise helicity balance, eta congruences, and silver zeros\\
+for transverse-traceless tensor curl}
+\author{Luqman Mahmood}
+\date{1 October 2026\\[3pt]\small Preprint\\
+DOI: \href{https://doi.org/10.5281/zenodo.23049613}{10.5281/zenodo.23049613}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $A_J$ be the rank-$J$ projected transverse-traceless tensor-curl
+operator on a round lens space $L(p,q)$, in the normalization of
+\cite{MahmoodP1Collection2026}, with helicity branches
+$V_{n+2J}\otimes V_n$ and $V_n\otimes V_{n+2J}$ and eta invariant
+$\eta_J(L(p,q))$.  We study the finer question of whether the two
+branches have equal multiplicity at every level, and the arithmetic of
+$\eta_J$ that the answer leaves behind.  We write the level-wise helicity
+imbalance as an explicit sum over group elements with a closed-form
+trigonometric kernel, prove that balance at every level is equivalent to a
+finite identity in the group ring $\Z[\Z/p]$ together with the absence of
+noncentral Clifford-translation elements, and classify all balanced
+triples $(p,q,J)$ with $p\geq3$: they are the mirror-symmetric spaces
+$q^2\equiv-1\pmod p$, the ``silver'' family $p\mid4J^2-2$ with
+$q\equiv\pm(2J\pm1)$, and the blind ranks $p\mid2J$ under the
+Clifford condition.  At rank one this recovers, by composition of
+classical results, the statement that the coexact curl spectrum of
+$L(p,q)$ is symmetric level by level exactly when $L(p,q)$ is
+amphicheiral.  We then prove a divisor decomposition of $p\,\eta_J$ into
+primitive parts, the congruence $\eta_J-J(2J^2-1)\eta_1\in2\Z$ at every
+modulus, the sharper prime-modulus congruence
+$p\,\eta_J\equiv-J(2J^2-1)(q+q^{-1})/3\pmod p$ with $p\,\eta_J\in2\Z$
+for primes $p\geq5$, and the resulting exact denominators.  These settle
+the zero set of $\eta_J$ at prime moduli $p\geq5$ away from the silver
+ranks $2J^2\equiv1\pmod p$: for $p\nmid J$ the zeros are exactly the
+mirror spaces.  At silver ranks $\eta_J$ is an even integer, and we prove
+that $\eta_J(L(p,J))=0$ for every divisor $p>1$ of $2J^2-1$, extending a
+family of \cite{MahmoodP1Collection2026} from $p=2J^2-1$ to all its
+divisors; the mechanism is the conjugacy invariance of Rademacher's
+symbol $\Psi$ on a trace $-6$ matrix commuting with an integral matrix of
+determinant $-1$.  Finally we record what a
+vanishing Rademacher symbol does and does not detect: inert and
+reciprocal hyperbolic classes force $\Psi=0$, neither is necessary, and
+the matrices behind the silver zero lie in the inert class $R^2L^2$.
+The zero set at the level $p=2J^2-1$ itself (silver $S$-units, a fifth
+family, a Pell ladder and a period law) is the subject of a companion
+paper \cite{SilverRankZeros2026}, whose main statements we summarize.
+The complete zero set at silver ranks remains open.
+\end{abstract}
+
+\section{Introduction}
+
+The paper \cite{MahmoodP1Collection2026} evaluates the eta invariant
+$\eta_J(L(p,q))$ of the rank-$J$ projected transverse-traceless (TT)
+tensor-curl operator on every round lens space, uniformly in the rank and
+in prime and composite levels, and exhibits four infinite families of
+zeros at $p=2J^2-1$.  It leaves open the classification of all zero
+orbits ``beyond the four constructions above and the orientation-forced
+condition $q^2\equiv-1\pmod p$''.  The eta invariant is a regularized sum
+of the level-wise imbalance $D_J(n)=N^+_J(n)-N^-_J(n)$ between the two
+helicity branches; a vanishing eta invariant may or may not come from a
+vanishing imbalance at every level.  The present paper is a companion to
+\cite{MahmoodP1Collection2026}.  It uses the same operator, the same
+normalization and the same lens-space conventions, and it addresses three
+questions in turn.
+
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Level-wise balance.}  For which $(p,q,J)$ is $D_J(n)=0$ for
+every level $n\geq0$?  Sections~\ref{sec:balance} and
+\ref{sec:classification} answer this completely for $p\geq3$
+(Theorems~\ref{thm:kernel}, \ref{thm:criterion} and
+\ref{thm:classification}).  At rank one the answer is classical by
+composition of three published results
+\cite{Bar2019,Katase1987,RademacherGrosswald1972,PrzytyckiYasuhara2003,
+Boldt2017}; for $J\geq2$ we found neither the criterion nor the families
+in the literature we searched.
+\item \emph{Congruences.}  Sections~\ref{sec:decomposition} and
+\ref{sec:congruences} prove a decomposition of $p\,\eta_J$ over the
+divisors of $p$, the congruence
+$\eta_J-J(2J^2-1)\eta_1\in2\Z$ at every modulus (Theorem~\ref{thm:U}),
+and at primes $p\geq5$ the finer statement
+$p\,\eta_J\in2\Z$, $p\,\eta_J\equiv-J(2J^2-1)(q+q^{-1})/3\pmod p$
+(Theorem~\ref{thm:E}).  These determine the exact denominator of
+$\eta_J$ and settle the zero problem of \cite{MahmoodP1Collection2026}
+at prime moduli $p\geq5$ away from the silver ranks $2J^2\equiv1\pmod p$.
+\item \emph{Silver zeros.}  At a silver rank $\eta_J$ is an even integer
+and the zero set is richer.  Section~\ref{sec:silver} proves
+$\eta_J(L(p,J))=0$ for every divisor $p>1$ of $2J^2-1$
+(Theorem~\ref{thm:C3}), the first family of
+\cite{MahmoodP1Collection2026} extended from $p=2J^2-1$ to all its
+divisors.  Section~\ref{sec:rademacher} explains the mechanism in the
+language of Rademacher's symbol on hyperbolic conjugacy classes and
+records, with citations and without novelty claims, what a vanishing
+symbol detects and what it forgets.  Section~\ref{sec:silver-zero-set}
+summarizes what the companion paper \cite{SilverRankZeros2026} proves
+about the zero set at $p=2J^2-1$: the silver $S$-unit coordinate, a
+fifth zero family, the Pell ladder, the period law for every orbit of
+norm $\pm1$ or $\pm2$, and the unbounded ambiguity of a vanishing
+$\eta_J$.
+\end{enumerate}
+
+Relation to the companion paper \cite{MahmoodP3Collection2026}: that
+paper transfers twisted spin-Dirac eta vectors to all-rank TT eta vectors
+on every free round spherical space form, and organizes the one-sided
+quotients along affine-ADE diagrams.  It contains no level-wise
+statements, no congruences and no zero classification, and it is not used
+here; conversely nothing below concerns non-cyclic quotients.  The
+boundary realization of the operator in \cite{MahmoodP7Collection2026}
+is likewise not used.
+
+Helicity-resolved tensor mode counts on lens spaces are also of
+independent interest in cosmic topology, where the effect of topology on
+spin-two eigenmodes was recently described as unstudied
+\cite{COMPACTIIIa2024}; no physical claim is made in this paper.
+
+Exact computations are recorded in Appendix~\ref{app:verification}.
+They test the identities and conventions; they do not replace the
+proofs of universal statements.
+
+\section{Conventions}
+\label{sec:conventions}
+
+We keep the conventions of \cite[Sec.~2]{MahmoodP1Collection2026}
+verbatim.  Write
+$S^3=\{(z_1,z_2)\in\C^2:|z_1|^2+|z_2|^2=1\}$.  For $p\geq2$ and
+$q\in(\Z/p\Z)^\times$ the generator of $\Z_p$ acts by
+\[
+ (z_1,z_2)\longmapsto\bigl(\e^{2\pi i/p}z_1,\e^{2\pi iq/p}z_2\bigr),
+\]
+and $L(p,q)$ is the quotient with its complex quotient orientation.  We
+write $q^*$ for the inverse of $q$ modulo $p$, and $\tilde q$ for the odd
+lift of $q$ ($\tilde q=q$ if $q$ is odd, $\tilde q=q+p$ if $q$ is even
+and $p$ odd; if $p$ is even every unit is odd).  Put
+\begin{equation}
+ A=\frac{1+\tilde q}{2},\qquad B=\frac{1-\tilde q}{2},\qquad A+B=1.
+ \label{eq:AB}
+\end{equation}
+Let $V_a$ be the irreducible $SU(2)$ representation of highest weight $a$
+and dimension $a+1$, with weights $W_a=\{-a,-a+2,\ldots,a\}$.  The lifted
+generator acts on the weight vector $(w_L,w_R)$ of $V_a\otimes V_b$ by
+$\exp\bigl(2\pi i(Aw_L+Bw_R)/p\bigr)$; by
+\cite[Lem.~5.2]{MahmoodP1Collection2026} (central descent) the invariant
+counts below do not depend on the lift.  For $a\equiv b\pmod2$ this is the
+cyclic invariant count $I_{a+1,b+1}(p,q)$ of
+\cite[Sec.~2]{MahmoodP1Collection2026},
+\begin{equation}
+ N(a,b)=\#\{(w_L,w_R)\in W_a\times W_b:\ Aw_L+Bw_R\equiv0\pmod p\}
+ =I_{a+1,b+1}(p,q).
+ \label{eq:Nab}
+\end{equation}
+
+The rank-$J$ projected TT tensor-curl operator $A_J$ of
+\cite[Thm.~3.1]{MahmoodP1Collection2026} has, on the unit sphere, the
+signed spectrum
+\[
+ V_{n+2J}\otimes V_n:\ +(n+J+1),\qquad
+ V_n\otimes V_{n+2J}:\ -(n+J+1),\qquad n\geq0,
+\]
+and on $L(p,q)$ the eigenspaces are the invariant vectors.  For a
+\emph{level} $n\geq0$ put
+\begin{equation}
+ N^+_J(n)=N(n+2J,n),\qquad N^-_J(n)=N(n,n+2J),\qquad
+ D_J(n)=D_J(n;p,q)=N^+_J(n)-N^-_J(n),
+ \label{eq:branch-counts}
+\end{equation}
+and write $\nu=n+J+1$ for the eigenvalue magnitude.  The eta invariant is
+\begin{equation}
+ \eta_J(L(p,q))=\eta_{A_J}(0),\qquad
+ \eta_{A_J}(s)=\sum_{n\geq0}\frac{D_J(n)}{(n+J+1)^s},
+ \label{eq:eta-def}
+\end{equation}
+continued to $s=0$ as in \cite[Prop.~4.1]{MahmoodP1Collection2026}; the
+continuation is regular at $s=0$ and its value equals the Abel value of
+the corresponding root-of-unity exponential-polynomial series
+\cite[Lem.~5.4]{MahmoodP1Collection2026}.  We use the lens symmetries
+\begin{equation}
+ \eta_J(L(p,q^*))=\eta_J(L(p,q)),\qquad
+ \eta_J(L(p,-q))=-\eta_J(L(p,q)),
+ \label{eq:lens-symmetries}
+\end{equation}
+the rank-one value $\eta_1(L(p,q))=-4s(q,p)$
+\cite[Cor.~5.8]{MahmoodP1Collection2026}, where
+\[
+ \sawtooth{x}=
+ \begin{cases}x-\lfloor x\rfloor-\tfrac12,&x\notin\Z,\\0,&x\in\Z,\end{cases}
+ \qquad
+ s(q,p)=\sum_{a=0}^{p-1}\sawtooth{\frac ap}\sawtooth{\frac{qa}p},
+\]
+and the all-rank master formula of \cite[Thm.~5.1]{MahmoodP1Collection2026},
+\begin{align}
+ \eta_J(L(p,q))={}&-4J\,s(q,p)
+ +\frac2p\sum_{a=1}^{J-1}(J-a)\bigl[\rho_p(aq)+\rho_p(aq^*)\bigr]\nonumber\\
+ &-2\!\!\sum_{\substack{a,b\geq1\\a+b\leq J-1}}\!\!(J-a-b)
+ \bigl[\delta_p(aq-b)-\delta_p(aq+b)\bigr]
+ -L_J(p,q),
+ \label{eq:master}
+\end{align}
+with $\rho_p(k)=0$ if $p\mid k$ and $p-2\langle k\rangle_p$ otherwise,
+$\delta_p(k)=\ind_{p\mid k}$, and the low-mode term
+$L_J(p,q)=\sum_{m=1}^{J-1}[I_{J-m,J+m}(p,q)-I_{J+m,J-m}(p,q)]$.
+Equation~\eqref{eq:master} holds for every $p\geq2$, every unit $q$ and
+every $J\geq1$.  Its last two terms combine into a single signed sum
+over lattice points, the box form of
+\cite[Lem.~8.1]{SilverRankZeros2026}; that is a rewriting of these two
+terms, not a new invariant, and nothing in this paper uses it.
+
+\begin{definition}
+\label{def:terms}
+Let $p\geq1$, $q$ a unit modulo $p$ and $J\geq1$.
+\begin{enumerate}[label=(\alph*)]
+\item $L(p,q)$ is \emph{rank-$J$ balanced} (balanced at every level)
+if $D_J(n;p,q)=0$ for all $n\geq0$.
+\item $L(p,q)$ is \emph{mirror} (amphicheiral) if $q^2\equiv-1\pmod p$;
+otherwise it is \emph{chiral}.  The condition is the classical criterion
+for an orientation-reversing self-homeomorphism, indeed an
+orientation-reversing isometry
+\cite{PrzytyckiYasuhara2003,Boldt2017}: if $q^2\equiv-1$ then
+$T(z_1,z_2)=(\bar z_2,z_1)$ normalizes the deck group and reverses
+orientation.
+\item The rank $J$ is a \emph{silver rank} for $p$ if $2J^2\equiv1\pmod p$
+(equivalently $p\mid2J^2-1$, so $p$ is odd and coprime to $6$).
+\item The rank $J$ is a \emph{blind rank} for $p$ if $p\mid2J$.
+\item The \emph{Clifford condition} is
+\begin{equation}
+ \gcd(q-1,p)\leq2\quad\text{and}\quad\gcd(q+1,p)\leq2.
+ \tag{C}
+ \label{eq:clifford}
+\end{equation}
+For odd $p$ it says $\gcd(q^2-1,p)=1$; for even $p$ it says that both
+gcds equal $2$.  It has nonempty scope only when $\gcd(p,12)\in\{1,2\}$
+(Proposition~\ref{prop:existence}).
+\end{enumerate}
+\end{definition}
+
+The mirror condition and the two lens symmetries
+\eqref{eq:lens-symmetries} give the two ``forced'' facts that anchor
+everything below: a mirror space has $D_J(n)=0$ at every level and every
+rank, because the orientation-reversing isometry exchanges the two
+branches; and $\eta_J(L(p,q))=0$ whenever $q^*\equiv-q$, by
+\eqref{eq:lens-symmetries}.
+
+\paragraph{Notation for group elements.}
+For $0\leq k<p$ put $\theta_k=2\pi k/p$.  Let
+\begin{equation}
+ D^+=\{k:\ p\mid k(q-1)\},\qquad D^-=\{k:\ p\mid k(q+1)\},\qquad
+ Z=\{k:\ 2k\equiv0\pmod p\},
+ \label{eq:degenerate-sets}
+\end{equation}
+so that $Z=\{0\}$ or $\{0,p/2\}$, and put $D^{\pm*}=D^\pm\setminus Z$ and
+$\mathcal N=\Z/p\setminus(D^+\cup D^-)$.  The element $g^k$ with
+$k\in D^{+*}$ (resp.\ $D^{-*}$) acts on $S^3$ as a pure left (resp.\ right)
+Clifford translation; we call these the \emph{Clifford-translation
+elements}.  Condition~\eqref{eq:clifford} says exactly that
+$D^{+*}=D^{-*}=\emptyset$, since $D^+$ is the subgroup of order
+$\gcd(q-1,p)$ and $D^-$ the subgroup of order $\gcd(q+1,p)$.  Finally
+$\chi_a(t)=\sin((a+1)t)/\sin t$ is the $SU(2)$ character
+(with its removable limits $\chi_a(0)=a+1$, $\chi_a(\pi)=(-1)^a(a+1)$),
+\begin{equation}
+ c_J(\nu,t)=\frac{2\bigl[\nu\cos(\nu t)\sin(Jt)-J\sin(\nu t)\cos(Jt)\bigr]}
+ {\sin t},
+ \qquad
+ \cK_J(t)=\frac{\sin(Jqt)}{\cos(qt)-\cos t}+\frac{\sin(Jq^*t)}{\cos(q^*t)-\cos t},
+ \label{eq:cJ-KJ}
+\end{equation}
+and for $a\in\Z/p$ we write $[a]=\delta_a-\delta_{-a}\in\Z[\Z/p]$, so
+that $[a]=0$ iff $2a\equiv0$.
+
+\section{Level-wise helicity balance}
+\label{sec:balance}
+
+\subsection{The imbalance as a sum over group elements}
+
+The per-element signed character of \cite[Sec.~5.1]{MahmoodP1Collection2026}
+is, for a nonidentity element $g^k$ and $\nu=n+J+1$,
+\begin{equation}
+ E_k(n)=\chi_{n+2J}(x_k)\chi_n(y_k)-\chi_n(x_k)\chi_{n+2J}(y_k),
+ \qquad
+ x_k=\frac{2\pi kA}{p},\quad y_k=\frac{2\pi kB}{p},
+ \label{eq:Ek}
+\end{equation}
+with $u_k:=x_k-y_k=2\pi k\tilde q/p\equiv q\theta_k$ and
+$v_k:=x_k+y_k=\theta_k$ modulo $2\pi$.  Character averaging gives
+$pD_J(n)=\sum_{k=0}^{p-1}E_k(n)$.  The following theorem reorganizes this
+sum.  Its content is the closed-form kernel $\cK_J$ and the explicit
+separation of the Clifford-translation elements; the per-element
+character itself is from \cite{MahmoodP1Collection2026}, and at $J=1$ the
+generating-function form of the same sum is in
+\cite[Thm.~5.5, Cor.~5.8, Ex.~5.9]{Bar2019}.
+
+\begin{theorem}[Kernel form of the level-wise imbalance]
+\label{thm:kernel}
+For $p\geq1$, every unit $q$, $J\geq1$ and $n\geq0$, with $\nu=n+J+1$,
+\begin{equation}
+ p\,D_J(n;p,q)=\sum_{k\in D^{+*}}c_J(\nu,\theta_k)
+ -\sum_{k\in D^{-*}}c_J(\nu,\theta_k)
+ +2\sum_{k\in\mathcal N}\sin(\nu\theta_k)\,\cK_J(\theta_k).
+ \label{eq:kernel-form}
+\end{equation}
+The third sum is the generic part of $\sum_kE_k$ after the reindexing
+$k\mapsto q^*k$ of the second half of each character difference; its
+$k$-th summand is not in general the single-element contribution
+$E_k(n)$.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1.}  For $k\in Z$, $E_k=0$: at $k=0$ the two dimensions
+agree, and at $k=p/2$ (even $p$) both $x_k$ and $y_k$ lie in $\pi\Z$, so
+the character values are $(-1)^{\text{weight}}\times$ dimension and the
+two products agree (\cite[Lem.~5.3]{MahmoodP1Collection2026}).
+
+\emph{Step 2 (generic elements).}  Since
+$\sin x\sin y=\tfrac12(\cos u-\cos v)$ with $u=x-y$, $v=x+y$, the
+denominator of $E_k$ vanishes iff $u_k\equiv\pm v_k\pmod{2\pi}$ iff
+$k\in D^+\cup D^-$.  For $k\in\mathcal N$, expanding the numerator by
+product-to-sum with $a=\nu+J$, $b=\nu-J$ gives
+\[
+ \sin(ax)\sin(by)-\sin(bx)\sin(ay)
+ =\sin(\nu v)\sin(Ju)-\sin(\nu u)\sin(Jv),
+\]
+hence
+\begin{equation}
+ E_k(n)=\frac{2\bigl[\sin(\nu v_k)\sin(Ju_k)-\sin(\nu u_k)\sin(Jv_k)\bigr]}
+ {\cos u_k-\cos v_k}
+ =\frac{2\sin(\nu\theta_k)\sin(Jq\theta_k)}{\cos(q\theta_k)-\cos\theta_k}
+ -\frac{2\sin(\nu q\theta_k)\sin(J\theta_k)}{\cos(q\theta_k)-\cos\theta_k}.
+ \label{eq:Ek-generic}
+\end{equation}
+
+\emph{Step 3 (reindexing).}  Multiplication by the unit $q$ preserves
+$D^+$, $D^-$ and $\mathcal N$.  Substituting $k=q^*k'$ in the second term
+of \eqref{eq:Ek-generic} and summing over $k\in\mathcal N$ gives
+$\sum_{k'\in\mathcal N}2\sin(\nu\theta_{k'})\sin(Jq^*\theta_{k'})/
+(\cos(q^*\theta_{k'})-\cos\theta_{k'})$.  Adding the first term yields
+$2\sum_{\mathcal N}\sin(\nu\theta_k)\cK_J(\theta_k)$.
+
+\emph{Step 4 (Clifford translations).}  For $k\in D^{+*}$ one has
+$y_k\in\pi\Z$, say $y_k=\pi j$, and $\sin\theta_k\neq0$.  With
+$\sigma=(-1)^j$, $\chi_a(y_k)=\sigma^a(a+1)$ and
+$\chi_a(x_k)=\chi_a(\theta_k-\pi j)=\sigma^a\chi_a(\theta_k)$, so
+\begin{align*}
+ E_k(n)&=(n+1)\chi_{n+2J}(\theta_k)-(n+2J+1)\chi_n(\theta_k)\\
+ &=\frac{(\nu-J)\sin((\nu+J)\theta_k)-(\nu+J)\sin((\nu-J)\theta_k)}{\sin\theta_k}
+ =c_J(\nu,\theta_k).
+\end{align*}
+For $k\in D^{-*}$, $x_k\in\pi\Z$ and symmetrically $E_k(n)=-c_J(\nu,\theta_k)$.
+Since $D^+\cap D^-\subseteq Z$, the three sums in \eqref{eq:kernel-form}
+run over disjoint sets.
+\end{proof}
+
+\begin{corollary}[Affine behaviour on residue classes; finite window]
+\label{cor:affine}
+Write $p\,D_J(n)=\nu F(\nu)+G(\nu)$ with
+\begin{equation}
+ F(\nu)=\sum_{k}\varphi(k)\cos(\nu\theta_k),\qquad
+ G(\nu)=\sum_{k}\psi(k)\sin(\nu\theta_k),
+ \label{eq:FG}
+\end{equation}
+where $\varphi=\dfrac{2\sin(J\theta)}{\sin\theta}(\ind_{D^{+*}}-\ind_{D^{-*}})$
+is even and
+$\psi=-\dfrac{2J\cos(J\theta)}{\sin\theta}(\ind_{D^{+*}}-\ind_{D^{-*}})+2\cK_J\ind_{\mathcal N}$
+is odd in $k$.  Both $F$ and $G$ are $p$-periodic in $\nu$.  Consequently
+for each $0\leq r<p$ there are integers $u_r,v_r$ with
+\begin{equation}
+ D_J(r+pk;p,q)=u_rk+v_r\qquad(k\geq0),
+ \label{eq:affine-mod-p}
+\end{equation}
+and $L(p,q)$ is rank-$J$ balanced iff $D_J(n)=0$ for $0\leq n<2p$.
+\end{corollary}
+
+\begin{proof}
+Read off from \eqref{eq:kernel-form} and \eqref{eq:cJ-KJ}.  Two values of
+$k$ determine an affine function.
+\end{proof}
+
+The affine statement on classes modulo $2p$, which already gives the
+window $n<4p$, is \cite[Prop.~4.1]{MahmoodP1Collection2026}; the sharper
+modulus $p$ can also be obtained directly by an elementary character
+argument (the increment $c_{h+p}-c_h$ of the residue-class weight counts
+depends only on $h$ modulo $2$).
+
+\subsection{The criterion}
+
+\begin{theorem}[Complete criterion for level-wise balance]
+\label{thm:criterion}
+Let $p\geq3$, $q$ a unit modulo $p$ and $J\geq1$.  Then $L(p,q)$ is
+rank-$J$ balanced if and only if both
+\begin{enumerate}[label=(\roman*)]
+\item the Clifford condition \eqref{eq:clifford} holds, i.e.\
+$\gcd(q-1,p)\leq2$ and $\gcd(q+1,p)\leq2$; and
+\item in $\Z[\Z/p]$, with $X=Jq$ and $Y=Jq^*$,
+\begin{equation}
+ [X+q^*]+[X-q^*]+[Y+q]+[Y-q]=[X+1]+[X-1]+[Y+1]+[Y-1].
+ \label{eq:odd-measure}
+\end{equation}
+\end{enumerate}
+For $p\in\{1,2\}$ every $L(p,q)$ is balanced at every rank.
+\end{theorem}
+
+\begin{proof}
+\emph{Necessity.}  Suppose $D_J(n)=0$ for all $n\geq0$.  Each residue
+class of $\nu$ modulo $p$ contains infinitely many $\nu\geq J+1$, and
+$\nu F(\nu)+G(\nu)$ is affine on the class, so $F=G=0$ on $\Z/p$.  Since
+$\varphi$ is even and $\psi$ is odd, $F$ is the full Fourier transform of
+$\varphi$ and $G$ that of $\psi$ (up to the factor $i$), so Fourier
+inversion gives $\varphi=\psi=0$.
+\begin{itemize}
+\item $\varphi=0$ gives $\sin(J\theta_k)=0$ on $D^{+*}\cup D^{-*}$
+(the two sets are disjoint, as $k$ in both forces $p\mid2k$), hence
+$|\cos(J\theta_k)|=1$ there.
+\item Then $\psi=\mp2J\cos(J\theta_k)/\sin\theta_k\neq0$ on $D^{\pm*}$,
+contradicting $\psi=0$ unless $D^{+*}=D^{-*}=\emptyset$.  Since $D^\pm$ is
+the subgroup of order $\gcd(q\mp1,p)$, this is (i).
+\item Finally $\psi=0$ on $\mathcal N$ says $\cK_J(\theta_k)=0$ for
+$k\in\mathcal N$, which is (ii) by the lemma below.
+\end{itemize}
+\emph{Sufficiency.}  Under (i), $D^{\pm*}=\emptyset$ and
+$pD_J(n)=2\sum_{\mathcal N}\sin(\nu\theta_k)\cK_J(\theta_k)$, which
+vanishes identically when $\cK_J=0$ on $\mathcal N$, i.e.\ under (ii).
+
+\emph{Lemma.}  Under (i), $\cK_J=0$ on $\mathcal N$ iff \eqref{eq:odd-measure}.
+Indeed, on $\mathcal N$ both denominators of $\cK_J$ are nonzero, so
+$\cK_J(\theta)=0$ iff
+\[
+ S(\theta):=\sin(X\theta)\bigl(\cos(q^*\theta)-\cos\theta\bigr)
+ +\sin(Y\theta)\bigl(\cos(q\theta)-\cos\theta\bigr)=0 .
+\]
+Product-to-sum gives
+$2S(\theta)=\sum_{a\in P}\sin(a\theta)-\sum_{b\in M}\sin(b\theta)$ with
+$P=(X+q^*,X-q^*,Y+q,Y-q)$ and $M=(X+1,X-1,Y+1,Y-1)$.  At $k\in Z$
+(where $\theta\in\{0,\pi\}$) $S$ vanishes automatically, and under (i)
+$\mathcal N\cup Z=\Z/p$; so $\cK_J=0$ on $\mathcal N$ iff $S(\theta_k)=0$
+for all $k\in\Z/p$.  Now $S$ is the sine transform of the odd measure
+$\mu=\sum_P[a]-\sum_M[b]$: $\sum_r\mu(r)\e^{ir\theta}=4iS(\theta)$.
+By Fourier inversion $S\equiv0$ iff $\mu=0$, which is \eqref{eq:odd-measure}.
+
+For $p=1$ the two branches have equal dimension; for $p=2$ both branch
+weights have the parity of $n$ and the invariant counts agree.
+\end{proof}
+
+\subsection{Consequences and the three sufficient families}
+
+\begin{corollary}
+\label{cor:criterion-consequences}
+Let $p\geq3$.
+\begin{enumerate}[label=(\alph*)]
+\item \textup{(Descent.)}  If $L(p,q)$ is rank-$J$ balanced, so is
+$L(d,q\bmod d)$ for every $d\mid p$.
+\item \textup{(Rank periodicity and reflection, level-wise.)}  The
+rank-$J$ verdict depends on $J$ only modulo $p$, and $J$ and $-J$ give
+the same verdict.
+\item \textup{(Mirror.)}  If $q^2\equiv-1\pmod p$, then $L(p,q)$ is
+rank-$J$ balanced for every $J$.
+\item \textup{(Silver family.)}  If $p\mid4J^2-2$ and
+$q\equiv\pm(2J-1)$ or $q\equiv\pm(2J+1)\pmod p$, then $L(p,q)$ is
+rank-$J$ balanced and chiral.
+\item \textup{(Blind ranks.)}  If $p\mid2J$ and \eqref{eq:clifford} holds,
+then $L(p,q)$ is rank-$J$ balanced.
+\item If $L(p,q)$ is rank-$J$ balanced, then $\eta_J(L(p,q))=0$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) Condition (i) passes to divisors, and $S=0$ on $\Z/p$ restricts to
+$S=0$ on the subgroup $(p/d)\Z/p$, which is the function $S$ of
+$L(d,q\bmod d)$.
+(b) \eqref{eq:odd-measure} involves $J$ only through $X,Y$ modulo $p$,
+and $J\mapsto-J$ sends $\mu\mapsto-\mu$.
+(c) If $d\mid\gcd(q\mp1,p)$ then $q^2+1\equiv2\pmod d$, so $d\leq2$, and
+(i) holds; moreover $q^*\equiv-q$, so $Y\equiv-X$ and the four $P$-terms
+cancel in pairs, as do the $M$-terms.  (Alternatively, the
+orientation-reversing isometry exchanges the branches.)
+(d) The verdict is invariant under $q\mapsto-q$ (which negates $\mu$) and
+$q\mapsto q^*$ (which exchanges $X$ and $Y$), so take $q=2J-1$; then
+$q^*=2J+1$ because $(2J-1)(2J+1)=2(2J^2-1)+1$.  Put $e=2J^2-1$ (odd) and
+$c=0$ if $p$ is odd, $c=p/2$ if $p$ is even.  If $p$ is even then $p=2d$
+with $d\mid e$ odd and $e\equiv d\pmod{2d}$; in both cases
+$X=J(2J-1)=e-J+1\equiv c+1-J$ and $Y=J(2J+1)\equiv c+1+J$.  Hence
+$P=(c+J+2,\ c-3J,\ c+3J,\ c+2-J)$ and $M=(c+2-J,\ c-J,\ c+J+2,\ c+J)$.
+Using $[c-a]=-[c+a]$ (as $2c\equiv0$), the terms $[c-3J]+[c+3J]$ and
+$[c-J]+[c+J]$ vanish and the remaining terms match, proving
+\eqref{eq:odd-measure}.  Condition (i): $\gcd(2J-2,2e)=\gcd(2J,2e)=2$
+because $e=2J\cdot J-1$ and $e=2(J-1)(J+1)+1$.  Chirality:
+$(2J-1)^2+1\equiv-4(J-1)\pmod p$, and $p\mid4(J-1)$ is impossible for
+$p\geq3$ since the odd part of $p$ divides $e$ and $\gcd(e,J-1)=1$.
+(e) $2X\equiv2Y\equiv0$ gives $[X+a]+[X-a]=0$ for every $a$, so both
+sides of \eqref{eq:odd-measure} vanish.
+(f) The eta function \eqref{eq:eta-def} of a balanced space vanishes
+identically.
+\end{proof}
+
+\begin{remark}
+\label{rem:family-b-versus-paper1}
+Family (d) contains, for $p=2J^2-1$, the zeros $q=2J-1$ of
+\cite[Thm.~7.1]{MahmoodP1Collection2026}, which form a uniformly
+balanced family (balanced at every $J$); the other three
+parametrizations of that theorem are not balanced in general, although
+individual members can lie on the balanced or mirror loci (see
+Example~\ref{ex:zero-not-balanced}).  It also contains every proper
+divisor $p$ of $2J^2-1$ and the even levels $p=2d$, $d\mid2J^2-1$, which
+lie outside that theorem (``every level $p_J$ in these families is
+odd'').  Some proper-divisor members are reachable from
+\cite{MahmoodP1Collection2026} by combining its zero families with its
+rank symmetries (for instance $\eta_5(L(7,q))=-\eta_2(L(7,q))=0$ for
+$q\in\{2,3,4,5\}$); others
+are not, for instance $L(23,4)$ at $J=9$, where $23\mid2\cdot81-1=7\cdot23$,
+no $J'$ has $2J'^2-1=23$, and the rank symmetries only relate
+$J\equiv\pm9\pmod{23}$.  Every even level $p\equiv2\pmod4$ lies outside
+both \cite[Thm.~7.1]{MahmoodP1Collection2026} (odd levels) and
+\cite[Thm.~6.2]{MahmoodP1Collection2026} (which needs $\gcd(p,6)=1$).
+\end{remark}
+
+\begin{remark}[Mechanism of the blind ranks]
+If $p\mid2J$ then $\sin(Jq\theta_k)=\sin(Jq^*\theta_k)=0$ for every $k$,
+so the kernel $\cK_J$ vanishes at every class.  This is the same vanishing
+of the $SU(2)$ character $\chi_{J-1}$ at every noncentral class that
+underlies the blind adjacent-rank families of
+\cite{MahmoodP7Collection2026}, and condition \eqref{eq:clifford} is the
+primality-free non-centrality condition used there.  What is new at the
+level-wise scale is the \emph{necessity} of \eqref{eq:clifford} for
+balance, the criterion \eqref{eq:odd-measure}, and the silver family (d).
+\end{remark}
+
+\subsection{Boundedness, existence, and even levels}
+
+\begin{proposition}[Bounded versus growing imbalance]
+\label{prop:bounded}
+Let $p\geq3$.  The sequence $D_J(n;p,q)$ is bounded in $n$ iff
+$\gcd(q-1,p)\mid2J$ and $\gcd(q+1,p)\mid2J$.  In that case $D_J$ is
+$p$-periodic in $n$; otherwise $|D_J|$ grows linearly along at least one
+residue class modulo $p$.  A Clifford-translation element (a $k\in D^{+*}\cup D^{-*}$)
+precludes balance at every level, but need not force growth: for
+$L(3,1)$ and $J=3$ one has $D_3=(-4,4,0)$ repeated with period $3$, with
+$(N^+,N^-)=(3,7),(4,0),(9,9)$ at $n=0,1,2$.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:FG}, $D_J$ is bounded iff $F\equiv0$ iff $\varphi=0$ iff
+$\sin(J\theta_k)=0$ on every noncentral element of $D^+$ and of $D^-$.
+On the subgroup $D^+$ of order $d=\gcd(q-1,p)$ this holds iff $d\mid2J$,
+and it is automatic for $d\leq2$; likewise for $D^-$.  If $F=0$ then
+$pD_J=G$ is $p$-periodic; if $F\neq0$ some class has nonzero slope.  The
+last assertion is Theorem~\ref{thm:criterion}: with $F=0$ the residual
+$G$ detects the Clifford elements.
+\end{proof}
+
+\begin{proposition}[Existence of balanced ranks]
+\label{prop:existence}
+For $p\geq3$, some pair $(q,J)$ with $L(p,q)$ rank-$J$ balanced exists
+iff $\gcd(p,12)\in\{1,2\}$.  A chiral balanced example exists iff, in
+addition, $p\notin\{5,10\}$.
+\end{proposition}
+
+\begin{proof}
+If $3\mid p$, every unit $q$ is $\equiv\pm1\pmod3$, so
+\eqref{eq:clifford} fails; if $4\mid p$, $q$ is odd and $4$ divides one of
+$q\mp1$, so \eqref{eq:clifford} fails.  Conversely, for odd $p$ coprime
+to $6$ take $q=2$, $J=p$; for $p=2d$ with $d$ odd and $3\nmid d$ take
+$q=3$, $J=d$: both satisfy \eqref{eq:clifford} and $p\mid2J$, so
+Corollary~\ref{cor:criterion-consequences}(e) applies.  For chirality,
+$q=2$ is mirror only when $p=5$ and $q=3$ only when $p=10$; at $p=5$ the
+admissible $q$ are $2,3$ and at $p=10$ they are $3,7$, all mirror.
+\end{proof}
+
+\begin{lemma}[Even levels are a parity projection of their odd parent]
+\label{lem:parity-projection}
+Let $p$ be odd and $\tilde q$ the odd lift of $q$.  Then for every $J$
+and every level $n$,
+\[
+ N^\pm_{J}(n;2p,\tilde q)=
+ \begin{cases}N^\pm_J(n;p,q),&n\text{ even},\\0,&n\text{ odd}.\end{cases}
+\]
+Consequently $L(2p,\tilde q)$ is rank-$J$ balanced iff $L(p,q)$ is.  The
+analogous transfer of $\eta_J=0$ fails: $\eta_3(L(17,3))=0$ but
+$\eta_3(L(34,3))=-4$.
+\end{lemma}
+
+\begin{proof}
+The same $A,B$ of \eqref{eq:AB} define both actions.  Since
+$w_L\equiv w_R\equiv n\pmod2$ and $A+B=1$, one has
+$Aw_L+Bw_R\equiv n\pmod2$.  For odd $n$ no weight pair is invariant
+modulo $2p$; for even $n$ divisibility by $p$ is equivalent to
+divisibility by $2p$.  If $L(p,q)$ is balanced so is its double; if the
+double is balanced, each residue class modulo the odd number $p$ contains
+infinitely many even $n$, and the affine function
+\eqref{eq:affine-mod-p} vanishing at them vanishes identically.  The two
+eta values quoted are exact computations from \eqref{eq:master}.
+\end{proof}
+
+\begin{remark}
+For $p=2d$ with $d$ odd satisfying \eqref{eq:clifford}, the rank-$J$
+verdict has period $d$ in $J$, sharper than the period $p$ of
+Corollary~\ref{cor:criterion-consequences}(b): balance at $2d$ is balance
+at the odd parent $d$, whose verdict has period $d$.
+\end{remark}
+
+\section{The classification of balanced triples}
+\label{sec:classification}
+
+\begin{theorem}[Classification of level-wise balance]
+\label{thm:classification}
+Let $p\geq3$, $q$ a unit modulo $p$ and $J\geq1$.  Then $L(p,q)$ has
+equal numbers of positive- and negative-helicity rank-$J$ TT modes at
+every level if and only if one of the following holds:
+\begin{enumerate}[label=(\alph*)]
+\item \textup{(mirror)} $q^2\equiv-1\pmod p$;
+\item \textup{(silver family)} $p\mid4J^2-2$ and $q\equiv\pm(2J\pm1)\pmod p$;
+\item \textup{(blind rank)} $p\mid2J$ and the Clifford condition
+\eqref{eq:clifford} holds.
+\end{enumerate}
+\end{theorem}
+
+Sufficiency is Corollary~\ref{cor:criterion-consequences}(c)--(e).  The
+proof of necessity occupies the rest of this subsection.  One step of it,
+the exhaustion of $105$ finite congruence systems, is certificate-assisted:
+the hand reduction below covers the structure, and the complete case list
+was verified by integer Gr\"obner-basis certificates whose meaning is made
+explicit in Remark~\ref{rem:certificate}.
+
+\begin{proof}[Proof of necessity]
+\emph{Step 0 (reductions).}  By Theorem~\ref{thm:criterion}, balance
+requires \eqref{eq:clifford}, which fails if $3\mid p$ or $4\mid p$
+(Proposition~\ref{prop:existence}).  If $p\equiv2\pmod4$, write $p=2d$
+with $d$ odd.  By Lemma~\ref{lem:parity-projection} balance at $2d$ is
+equivalent to balance at $d$ with $q\bmod d$; and each of (a), (b), (c) at
+$2d$ is equivalent to the same condition at $d$: for (a) because $q$ is
+odd, so $q^2\equiv-1\pmod2$ always; for (b) because $4J^2-2$ is even and
+$q$, $2J\pm1$ are odd; for (c) because $2d\mid2J$ iff $d\mid J$ iff
+$d\mid2J$; and \eqref{eq:clifford} at $2d$ iff at $d$.  It therefore
+suffices to treat odd $p\geq5$ with $\gcd(q-1,p)=\gcd(q+1,p)=1$, so that
+$2$, $q$ and $q\pm1$ are units modulo $p$.
+
+\emph{Step 1 (matchings).}  Condition \eqref{eq:odd-measure} says that
+the multiset of the eight atoms
+\begin{gather*}
+ a_1=X+q^*,\quad a_2=X-q^*,\quad a_3=Y+q,\quad a_4=Y-q,\\
+ a_5=-X-1,\quad a_6=-X+1,\quad a_7=-Y-1,\quad a_8=-Y+1
+\end{gather*}
+($X=Jq$, $Y=Jq^*$) is invariant under negation in $\Z/p$.  For odd $p$
+a nonzero residue is never its own negative, so negation invariance holds
+iff the nonzero atoms pair off as $\{a,-a\}$ and the zero atoms are even
+in number; that is, iff the eight labelled atoms admit a perfect matching
+all four of whose pair sums are $\equiv0\pmod p$.  There are $105$
+labelled perfect matchings of eight points.
+
+\emph{Step 2 (pair sums).}  Multiplying each pair sum by the unit $q$
+gives an element of $\Z[J,q]$:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+pairs & $q\times$(pair sum) & condition after cancelling units\\
+\midrule
+$12$, $56$ & $\pm2Jq^2$ & $J\equiv0$\\
+$34$, $78$ & $\pm2J$ & $J\equiv0$\\
+$13$ & $(J+1)(q^2+1)$ & \\
+$24$ & $(J-1)(q^2+1)$ & \\
+$14$ & $(J-1)q^2+(J+1)$ & \\
+$23$ & $(J+1)q^2+(J-1)$ & \\
+$58$, $67$ & $-J(q^2+1)$ & \\
+$57$ & $-(J(q^2+1)+2q)$ & \\
+$68$ & $-(J(q^2+1)-2q)$ & \\
+$17$ & $(q-1)(J(q+1)-1)$ & $J(q+1)\equiv1$\\
+$18$ & $(q+1)(J(q-1)+1)$ & $J(q-1)\equiv-1$\\
+$27$ & $(q+1)(J(q-1)-1)$ & $J(q-1)\equiv1$\\
+$28$ & $(q-1)(J(q+1)+1)$ & $J(q+1)\equiv-1$\\
+$35$ & $(q-1)(q-J(q+1))$ & $J(q+1)\equiv q$\\
+$36$ & $(q+1)(q-J(q-1))$ & $J(q-1)\equiv q$\\
+$45$ & $-(q+1)(J(q-1)+q)$ & $J(q-1)\equiv-q$\\
+$46$ & $-(q-1)(J(q+1)+q)$ & $J(q+1)\equiv-q$\\
+$15,16,25,26,37,38,47,48$ & $\pm(q-1)$, $\pm(q+1)$, $\pm q(q\pm1)$ & a unit: cannot vanish\\
+\bottomrule
+\end{tabular}
+\end{center}
+The eight ``forbidden'' pairs in the last row are units under the
+standing hypotheses, so any matching containing one of them is
+contradictory.  This leaves $33$ matchings.
+
+\emph{Step 3 (case analysis).}  Call a pair $ij$ a $P$--$N$ pair if
+$i\leq4<j$.
+\begin{itemize}
+\item \emph{Case A: no $P$--$N$ pair ($9$ matchings).}  The pairs are
+drawn from $\{12,13,14,23,24,34\}$ and $\{56,57,58,67,68,78\}$.  Each
+system reduces, by unit-coefficient linear combinations of the rows of
+the table, to $J\equiv0$, to $q^2+1\equiv0$, or to a contradiction of the
+form $2q\equiv0$, $4q\equiv0$ or $q^2\equiv1$.
+\item \emph{Case B: four $P$--$N$ pairs ($4$ matchings).}  Avoiding the
+forbidden pairs, the four cross pairs are one of $17,18,27,28$ paired
+with one of $35,36,45,46$, and the complementary pairs.  Each system
+contains $J(q\pm1)\equiv1$ together with $J(q\pm1)\equiv-1$ for the same
+sign: contradiction since $2$ is a unit.
+\item \emph{Case C: two $P$--$N$ pairs ($20$ matchings).}  If the two
+cross pairs share a block (subcases C1, C2), the system contains a
+contradiction of the same kind as in Case B.  Otherwise (subcase C3, $16$
+matchings) one cross pair comes from $\{1,2\}\times\{7,8\}$ and one from
+$\{3,4\}\times\{5,6\}$.  Their two conditions $J(q\pm1)\equiv c_1$,
+$J(q\mp1)\equiv c_2$ with $c_1,c_2\in\{\pm1,\pm q\}$ are of three kinds.
+If both involve the same factor $J(q+1)$ or $J(q-1)$ with different
+right sides, they force $q\equiv\pm1$, a contradiction (eight
+matchings).  Otherwise subtracting them gives a linear relation
+$2J\equiv\pm1\pm q$.  For four matchings, combining the two conditions
+then gives $2J^2\equiv1$, which is exactly (b) with $q\equiv\pm(2J\pm1)$.
+For the remaining four the linear relation is $2J\equiv1-q$, $1+q$,
+$-1-q$ or $-1+q$, which does not by itself make $J$ silver; there the
+two remaining same-block pairs are $(J\mp1)K$ and $JK$ with $K=q^2+1$,
+so their difference forces $K\equiv0$, that is (a), with the linear
+relation as an additional necessary condition on that matching
+(Remark~\ref{rem:certificate}).
+\end{itemize}
+Every step divides only by $2$, $q$ and $q\pm1$, which are units modulo
+every odd $p$ satisfying \eqref{eq:clifford}, prime or composite.  Hence
+whenever some matching has all four pair sums $\equiv0\pmod p$, one of
+$J\equiv0$ (that is, $p\mid J$, so $p\mid2J$, which is (c) since
+\eqref{eq:clifford} holds), $q^2\equiv-1$ (that is, (a)), or
+$2J^2\equiv1$ with $q\equiv\pm(2J\pm1)$ (that is, (b), because $p$ odd
+and $p\mid2J^2-1$ give $p\mid4J^2-2$) holds.
+\end{proof}
+
+\begin{remark}[The certificate]
+\label{rem:certificate}
+The hand analysis of Step~3 is a case list, and it was checked
+mechanically as follows.  For each of the $105$ labelled matchings, let
+$I\subset\Z[J,q]$ be the ideal generated by its four polynomials
+$q\times(\text{pair sum})$, and let $I^{\mathrm{sat}}$ be its saturation by
+the unit $2q(q^2-1)$, computed as the elimination ideal of
+$I+\bigl(t\cdot2q(q^2-1)-1\bigr)$ in $\Z[J,q,t]$ by a Gr\"obner basis with
+integer coefficient domain.  A matching is \emph{certified} contradictory
+if $I^{\mathrm{sat}}=(1)$, and certified of class (a), (b) or (c) if the
+generators $q^2+1$, resp.\ $\{2J^2-1,\ q-s\}$ ($s$ the named root
+$\pm(2J\pm1)$), resp.\ $J$ reduce to $0$ modulo $I^{\mathrm{sat}}$ over the
+integers.  Membership of $f$ in $I^{\mathrm{sat}}$ means that
+$(2q(q^2-1))^Nf\in I$ for some $N$, an identity in $\Z[J,q]$; reducing
+modulo any odd $p$ satisfying \eqref{eq:clifford} then gives
+$f\equiv0\pmod p$ whenever the four pair sums vanish.  The certificate
+is therefore a set of \emph{implications} (vanishing pair sums force the
+class generators to vanish), tested matching by matching; it is not a
+list of $105$ exported ideal bases, and one representative basis per
+class (the first of its class) was retained.  The certified classes
+are: $93$ contradictions (representative basis $\{1\}$); two matchings
+of class (c), $\{12,34,56,78\}$ and $\{12,34,58,67\}$ (representative
+$\{J\}$); one matching, $\{13,24,56,78\}$, of both classes (a) and (c)
+(representative $\{1+q^2,J\}$: the ideal forces both conditions, not
+their union); five of class (a), $\{13,24,58,67\}$, $\{17,24,36,58\}$,
+$\{18,24,35,67\}$, $\{13,27,46,58\}$, $\{13,28,45,67\}$ (representative
+$\{1+q^2\}$, the basis of the first of them); and four of class (b), one
+for each root, with the bases
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+matching & root & certified Gr\"obner basis\\
+\midrule
+$\{17,23,45,68\}$ & $q\equiv2J-1$ & $\{q^2+2q-1,\ 2J-q-1,\ J(q+1)-1\}$\\
+$\{18,23,46,57\}$ & $q\equiv-(2J-1)$ & $\{q^2-2q-1,\ 2J+q-1,\ J(q+1)+q\}$\\
+$\{14,27,35,68\}$ & $q\equiv2J+1$ & $\{q^2-2q-1,\ 2J-q+1,\ J(q+1)-q\}$\\
+$\{14,28,36,57\}$ & $q\equiv-(2J+1)$ & $\{q^2+2q-1,\ 2J+q+1,\ J(q+1)+1\}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each (b) basis says exactly ``$q$ is the named root and $2J^2\equiv1$''.
+The representative basis $\{1+q^2\}$ is the saturated ideal of
+$\{13,24,58,67\}$ only.  For the four class-(a) matchings with two cross
+pairs the ideal also contains a linear relation between $q$ and $J$:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+matching & relations forced, besides $q^2+1\equiv0$\\
+\midrule
+$\{17,24,36,58\}$ & $2J+q-1\equiv0$\\
+$\{18,24,35,67\}$ & $2J-q-1\equiv0$\\
+$\{13,27,46,58\}$ & $2J+q+1\equiv0$\\
+$\{13,28,45,67\}$ & $2J-q+1\equiv0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+(for the first, the pairs $17$ and $36$ give $J(q+1)\equiv1$ and
+$J(q-1)\equiv q$, whence $2J\equiv1-q$; the pairs $24$ and $58$ give
+$(J-1)(q^2+1)\equiv J(q^2+1)\equiv0$, whence $q^2+1\equiv0$).  That the
+one-generator basis is not the full ideal of these four is witnessed at
+$p=5$, $q=2$, $J=5$: there $q^2+1\equiv0$ and $2q(q^2-1)$ is a unit, yet
+the pair sums of $\{17,24,36,58\}$ are $(2,0,3,0)$ modulo $5$.  This
+concerns only the description of the certificate; the implication to
+class (a), which is all that the classification uses, holds for all
+five.  The semantic check of Appendix~\ref{app:verification} confirms on
+concrete moduli that the criterion is equivalent to
+``\eqref{eq:clifford} and some matching with vanishing pair sums'', that
+every such matching is one of the twelve above, and that the criterion
+is equivalent to (a) or (b) or (c).
+
+\emph{Elementary hand check.}  Exhaust the $33$
+matchings without a forbidden pair by hand, dividing only by the units
+$2$, $q$, $q\pm1$ and never by $J$ or by $q^2+1$: the $9$ matchings
+without a cross pair (the positive pairings $(12,34)$, $(13,24)$,
+$(14,23)$ against the negative pairings $(56,78)$, $(57,68)$, $(58,67)$;
+the first forces $J\equiv0$ and is compatible with $(56,78)$ and
+$(58,67)$ but not with $(57,68)$; the second forces $q^2+1\equiv0$ by
+subtraction and is compatible with $(56,78)$ only together with
+$J\equiv0$, with $(58,67)$ without restriction, and not with $(57,68)$;
+the third forces $2(q^2-1)\equiv0$, impossible), giving $4$ possible
+matchings and $5$ contradictions; the $4$ matchings with four cross
+pairs and the $4$ with two cross pairs in the same pair of blocks, all
+contradictions (equal factors $J(q\pm1)$ with opposite right sides); and
+the $16$ mixed-block matchings, of which $8$ force $q\equiv\pm1$, $4$ are
+the mirror matchings of the table above, and $4$ are the silver
+matchings (cross pairs $(17,45)$, $(18,46)$, $(27,35)$, $(28,36)$, giving
+$q\equiv2J-1$, $1-2J$, $2J+1$, $-2J-1$ with $2J^2\equiv1$).  In all, the
+$12$ possible matchings and $21$ contradictions of the certified list,
+which with the $72$ matchings containing a forbidden pair exhaust the
+$105$.  This gives the
+elementary proof of the case list; the certificate remains as
+mechanical corroboration.
+\end{remark}
+
+\begin{corollary}
+\label{cor:classification-consequences}
+Let $p\geq3$.
+\begin{enumerate}[label=(\alph*)]
+\item A chiral lens space is rank-$J$ balanced only through the blind
+ranks (c) or the silver family (b).  For odd $p$, (b) allows at most four
+residue classes of $J$ modulo $p$ (namely $2J\equiv\pm q\pm1$); for
+$p\equiv2\pmod4$ the same holds modulo $p/2$.
+\item If $p$ is odd and $L(p,q)$ is chiral and rank-$J$ balanced, then
+$p\mid J$ or $\gcd(J,p)=1$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) is immediate from the theorem.  (b) In case (c), $p\mid2J$ and $p$ odd
+give $p\mid J$; in case (b), $p\mid2J^2-1$ and $\gcd(J,2J^2-1)=1$ give
+$\gcd(J,p)=1$.
+\end{proof}
+
+\begin{corollary}[Rank one]
+\label{cor:rank-one}
+For every $p\geq1$ and every unit $q$, the rank-one (coexact curl)
+spectrum of $L(p,q)$ is balanced at every level if and only if
+$q^2\equiv-1\pmod p$, i.e.\ iff $L(p,q)$ is amphicheiral.
+\end{corollary}
+
+\begin{proof}
+For $p\geq3$ this is Theorem~\ref{thm:classification} at $J=1$: (b)
+would need $p\mid2$ and (c) would need $p\mid2$.  For $p\leq2$ both sides
+hold.  A direct proof valid for all $p$: if $q^2\equiv-1$ the
+orientation-reversing isometry $T$ of Definition~\ref{def:terms}
+exchanges the two branches.  Conversely balance forces
+$\eta_1(L(p,q))=-4s(q,p)=0$, and $s(q,p)=0$ iff $q^2\equiv-1\pmod p$
+\cite[p.~36]{RademacherGrosswald1972}.  For completeness: if $s(q,p)=0$
+then Dedekind reciprocity multiplied by $12pq$ gives
+$12pq\,s(p,q)=p^2+q^2+1-3pq$, whose left side is a multiple of $p$ because
+$6q\,s(p,q)\in\Z$, so $q^2+1\equiv0\pmod p$; if $q^*\equiv-q$ then
+$s(q,p)=s(q^*,p)=s(-q,p)=-s(q,p)$.
+\end{proof}
+
+This rank-one statement is classical by composition: the eta invariant
+of coexact curl is the signature eta (Millson, as recalled in
+\cite{Bar2019}), which
+on $L(p,q)$ is $-4s(q,p)$ \cite{APS1975,Katase1987,Jeffrey1992}; the
+Dedekind sum vanishes iff $q^2\equiv-1$
+\cite{RademacherGrosswald1972,Meyer2005,Girstmair2016}; and
+$q^2\equiv-1$ is the amphicheirality criterion
+\cite{PrzytyckiYasuhara2003,Boldt2017}.  The composed sentence itself we
+did not find in print; its nearest published relative is
+\cite[Rem.~4.13]{Boldt2017} for the Dirac operator, proved there for
+prime $p$ and conjectured for odd $p$.  The rank-$J\geq2$ statements of
+Theorems~\ref{thm:criterion} and \ref{thm:classification}, and the
+families (b) and (c), were not found in the literature we searched; the
+helicity-\emph{summed} spin-$s$ multiplicities on $L(p,q)$ as sums over
+$\Z_p$ of products of $SU(2)$ characters are standard
+\cite{CastroLashkariMaloney2011Farey,Basu2015,MartinSvesko2020}.  This
+is a bounded statement about a search, not a claim of absence.
+
+\begin{example}[Zero eta without balance]
+\label{ex:zero-not-balanced}
+The four zero families of \cite[Thm.~7.1]{MahmoodP1Collection2026} at
+$p=2J^2-1$ are $q=J$, $J+1$, $2J-1$ and $J(J-1)$ and their orbit images.
+The parametrization $q=2J-1$ (with its inverse $2J+1$ and their
+negatives) is uniformly balanced, at every $J$; the other three are not
+balanced in general, but their members can overlap the balanced or
+mirror loci, and the named families are not disjoint.  For $J=3$,
+$p=17$: $\eta_3(L(17,q))=0$ for $q\in\{3,6,11,14\}$ (the orbit of
+$q=J=3$), but $L(17,3)$ has $(N^+_3,N^-_3)=(1,3)$ at level $n=2$;
+$L(17,4)$ (the orbit of $q=J+1$) is balanced, but only because
+$4^2\equiv-1\pmod{17}$, i.e.\ it is mirror; and $L(17,5)$ (the orbit of
+$q=2J-1$) is balanced and chiral.  At $J=2$, $p=7$, the member $q=J=2$
+of the first family lies in the balanced silver orbit $\{2,3,4,5\}$
+(Proposition~\ref{prop:C3-balance}) and is balanced too, whereas
+$L(17,3)$ above is a genuine regularization-only zero.  Similarly
+$\eta_2(L(35,q))=0$ for
+$q\in\{8,13,22,27\}$ with $(N^+_2,N^-_2)=(2,0)$ at $n=3$ on $L(35,8)$.
+Balance is rank-specific: $L(17,5)$ is balanced at $J=3$ but has
+$(N^+_2,N^-_2)=(2,0)$ at $n=1$.
+\end{example}
+
+\begin{example}[Small balanced chiral spaces]
+\label{ex:balanced-table}
+For $p\leq260$ and $J\leq8$, the chiral rank-$J$ balanced spaces are
+exactly the following (exact computation; the rows $J\geq5$ were
+predicted from Theorem~\ref{thm:classification}'s families before being
+computed, see Appendix~\ref{app:verification}):
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+$J$ & balanced chiral $(p:\ q)$, $p\leq260$\\
+\midrule
+$2$ & $7{:}\{2,3,4,5\}$; $14{:}\{3,5,9,11\}$\\
+$3$ & $17{:}\{5,7,10,12\}$; $34{:}\{5,7,27,29\}$\\
+$4$ & $31{:}\{7,9,22,24\}$; $62{:}\{7,9,53,55\}$\\
+$5$ & $7{:}\{2,3,4,5\}$; $14{:}\{3,5,9,11\}$; $49{:}\{9,11,38,40\}$; $98{:}\{9,11,87,89\}$\\
+$6$ & $71{:}\{11,13,58,60\}$; $142{:}\{11,13,129,131\}$\\
+$7$ & $7{:}\{2,3,4,5\}$; $14{:}\{3,5,9,11\}$ (blind rank); $97{:}\{13,15,82,84\}$; $194{:}\{13,15,179,181\}$\\
+$8$ & $127{:}\{15,17,110,112\}$; $254{:}\{15,17,237,239\}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+At $J=5$ the divisor $7$ of $4\cdot25-2=98$ enters family (b); at $J=7$
+the spaces $L(7,q)$, $L(14,q)$ enter through the blind rank $7\mid2J$.
+Rank scans at fixed space: $L(7,3)$ and $L(14,3)$ are balanced exactly
+at $J\in\{2,5,7,9,12,14,16\}$ for $J\leq16$; $L(17,5)$ at
+$\{3,14,17,20,31,34\}$ for $J\leq36$; $L(11,2)$ at $\{11,22\}$ for
+$J\leq24$; $L(9,2)$ at no rank (it fails \eqref{eq:clifford});
+$L(23,4)$ at $\{9,14,23\}$ for $J\leq25$; $L(31,7)$ at $\{4,27,31\}$ for
+$J\leq31$;
+$L(49,9)$ at $\{5,44,49\}$ for $J\leq50$.
+\end{example}
+
+\section{Divisor decomposition of the eta invariant}
+\label{sec:decomposition}
+
+Level-wise balance is a strictly smaller phenomenon than $\eta_J=0$
+(Example~\ref{ex:zero-not-balanced}).  To study the zeros of $\eta_J$
+themselves we first localize $p\,\eta_J$ over the divisors of $p$.
+
+\subsection{Per-element regularized sums}
+
+For a nonidentity element $g^k$ of $L(p,q)$ let
+\begin{equation}
+ \eta_k(p,q,J)=\sum_{n\geq0}^{\text{reg}}E_k(n)\,\nu^{-s}\Big|_{s=0},
+ \qquad\nu=n+J+1,
+ \label{eq:per-element-eta}
+\end{equation}
+the zeta-regularized level sum of the signed character
+\eqref{eq:Ek}.  Since $E_k(n)$ is, for fixed $k$, a finite linear
+combination of $\nu^j\omega^\nu$ with $j\leq1$ and $\omega$ a $2p$th root
+of unity, its Dirichlet series is a finite combination of Hurwitz zeta
+functions, is regular at $s=0$, and equals there the Abel value of the
+series \cite[Lem.~5.4]{MahmoodP1Collection2026}; the identity element
+contributes zero at every level, and $\omega=1$ never occurs for
+$k\neq0$.  Hence
+\begin{equation}
+ p\,\eta_J(L(p,q))=\sum_{k=1}^{p-1}\eta_k(p,q,J).
+ \label{eq:eta-as-element-sum}
+\end{equation}
+Writing $\theta=\theta_k$, $N=J+1$, and
+\[
+ S_{\sin}(a)=\tfrac12\cot\tfrac a2-\sum_{\nu=1}^{N-1}\sin(\nu a),\qquad
+ S_{n\cos}(a)=-\frac1{4\sin^2(a/2)}-\sum_{\nu=1}^{N-1}\nu\cos(\nu a)
+\]
+for the Abel values of $\sum_{\nu\geq N}\sin(\nu a)$ and
+$\sum_{\nu\geq N}\nu\cos(\nu a)$ ($a\notin2\pi\Z$), the proof of
+Theorem~\ref{thm:kernel} gives the explicit terms
+\begin{align}
+ \eta_k&=\frac{2\bigl[S_{\sin}(\theta)\sin(Jq\theta)-S_{\sin}(q\theta)\sin(J\theta)\bigr]}
+ {\cos(q\theta)-\cos\theta}
+ &&(k\in\mathcal N),\label{eq:generic-element}\\
+ \eta_k&=\pm\frac{2\bigl[S_{n\cos}(\theta)\sin(J\theta)-J\,S_{\sin}(\theta)\cos(J\theta)\bigr]}
+ {\sin\theta}
+ &&(k\in D^{\pm*}),\label{eq:clifford-element}\\
+ \eta_{p/2}&=0&&(p\text{ even}).\nonumber
+\end{align}
+
+\begin{lemma}[Trace form for nonsingular $q$]
+\label{lem:trace-form}
+Let $p\geq3$ be odd and let the unit $q$ satisfy
+$\gcd(q-1,p)=\gcd(q+1,p)=1$ (so every
+nonidentity element is generic).  Then, with $\varphi_k=\pi k/p$,
+\begin{equation}
+ p\,\eta_J(L(p,q))=\sum_{k=1}^{p-1}
+ \frac{\cos((2J+1)\varphi_k)\dfrac{\sin(2Jq\varphi_k)}{\sin\varphi_k}
+ -\cos((2J+1)q\varphi_k)\dfrac{\sin(2J\varphi_k)}{\sin(q\varphi_k)}}
+ {\cos(2q\varphi_k)-\cos(2\varphi_k)},
+ \label{eq:E1}
+\end{equation}
+and, after the reindexing $k\mapsto q^*k$ in the second term,
+\begin{equation}
+ p\,\eta_J(L(p,q))=\sum_{k=1}^{p-1}
+ \cK_J(\theta_k)\,\frac{\cos\bigl((J+\tfrac12)\theta_k\bigr)}{\sin(\theta_k/2)}.
+ \label{eq:trace-form}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Sum the formal character of
+\cite[Sec.~5.1]{MahmoodP1Collection2026},
+\[
+ D^{\mathrm{form}}_J(m;\ell)=\frac{\sin(2m\beta)\sin(2J\alpha)-\sin(2m\alpha)\sin(2J\beta)}
+ {\sin(\alpha+\beta)\sin(\beta-\alpha)},\qquad
+ \alpha=\frac{\pi\ell q}p,\quad\beta=\frac{\pi\ell}p,
+\]
+over the physical modes $m\geq J+1$ using the Abel
+value $\sum_{m\geq J+1}\sin(2mx)=\cos((2J+1)x)/(2\sin x)$ and
+$\sin(\alpha+\beta)\sin(\beta-\alpha)=\tfrac12(\cos2\alpha-\cos2\beta)$.
+Summing over $m\geq J+1$ directly removes the sub-threshold modes, so no
+$L_J$ term appears.  With $\varphi=\beta$ and $\alpha=q\varphi$ this is
+\eqref{eq:E1}, which is \eqref{eq:generic-element} summed over $k$.  The
+reindexing is Step~3 of Theorem~\ref{thm:kernel}; in terms of
+$x=\e^{i\theta}$ the summand of \eqref{eq:trace-form} is
+$f(x)=C(x)[A_q(x)+A_{q^*}(x)]$ with
+\begin{equation}
+ C(x)=\frac{x^{J+1}+x^{-J}}{x-1},\qquad
+ A_r(x)=\frac{x^{Jr}-x^{-Jr}}{x^r+x^{-r}-x-x^{-1}},
+ \label{eq:C-A}
+\end{equation}
+which is even under $x\mapsto1/x$.
+\end{proof}
+
+\subsection{Primitive parts}
+
+\begin{theorem}[Divisor decomposition]
+\label{thm:decomposition}
+For $p\geq2$, every unit $q$ modulo $p$ and $J\geq1$,
+\begin{equation}
+ p\,\eta_J(L(p,q))=\sum_{\substack{d\mid p\\ d>1}}P_d(q\bmod d,\,J),
+ \qquad
+ P_d(q,J)=\sum_{k\in(\Z/d)^\times}\eta_k(d,q,J),
+ \label{eq:decomposition}
+\end{equation}
+where $P_d$, the \emph{primitive part} of order $d$, is the regularized
+contribution of the elements of exact order $d$ and depends only on
+$(d,\,q\bmod d,\,J)$.  M\"obius inversion recovers the primitive parts
+from the eta invariants of the divisor lens spaces:
+\begin{equation}
+ P_d(q,J)=\sum_{\substack{e\mid d\\ e>1}}\mu(d/e)\,e\,\eta_J(L(e,q\bmod e)).
+ \label{eq:moebius}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Group the nonidentity elements in \eqref{eq:eta-as-element-sum} by their
+exact order $d$.  An element of order $d$ in $L(p,q)$, $k=(p/d)k'$ with
+$k'\in(\Z/d)^\times$, acts on $S^3$ as the rotation
+$(\e^{2\pi ik'/d},\e^{2\pi iqk'/d})$, which is the element $g^{k'}$ of
+$L(d,q\bmod d)$; its signed character at every level, hence its
+regularized sum, depends only on $(d,q\bmod d,J,k')$ (the character
+products are lift-independent by \cite[Lem.~5.2]{MahmoodP1Collection2026}).
+The finite sum over group elements commutes with the continuation, and
+the identity contributes nothing ($H_1=0$).  Applying
+\eqref{eq:decomposition} to each divisor $e$ and inverting gives
+\eqref{eq:moebius}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:decomposition}
+\begin{enumerate}[label=(\alph*)]
+\item At a prime $p$, $p\,\eta_J(L(p,q))=P_p(q,J)$ is a single primitive
+part.
+\item If $L(p,q)$ is rank-$J$ balanced or mirror, then
+$P_d(q\bmod d,J)=0$ for every $d\mid p$.
+\item If every primitive part vanishes then $\eta_J=0$.  The converse
+fails at composite $p$: for $(p,q,J)=(42,11,9)$ one has $\eta_9=0$ with
+$D_9(0)=2$, and the primitive parts are $P_3=12$, $P_6=36$, $P_{21}=-54$,
+$P_{42}=6$, $P_2=P_7=P_{14}=0$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) is the case of a single nontrivial divisor.  (b) Balance and the
+mirror condition descend to every divisor
+(Corollary~\ref{cor:criterion-consequences}(a); $q^2\equiv-1\pmod d$),
+where $\eta_J=0$, so every M\"obius sum \eqref{eq:moebius} vanishes.
+(c) The first claim is \eqref{eq:decomposition}; the example is an exact
+computation from \eqref{eq:master} and \eqref{eq:moebius}.
+\end{proof}
+
+\begin{proposition}[Shift invariance and the first-moment form]
+\label{prop:first-moment}
+Fix $p,q,J$ and write $D_J(r+pk)=v_r+ku_r$ as in \eqref{eq:affine-mod-p}.
+For any $c>0$ the value at $s=0$ of $\sum_{n\geq0}D_J(n)(n+c)^{-s}$ is
+\[
+ \sum_{r=0}^{p-1}\Bigl[v_r\Bigl(\tfrac12-a_r\Bigr)
+ +u_r\Bigl(\tfrac{a_r^2}2-\tfrac1{12}\Bigr)\Bigr],\qquad a_r=\frac{r+c}p,
+\]
+and it is independent of $c$.  In particular, under
+\eqref{eq:clifford} (where $u_r=0$ and $D_J$ is $p$-periodic with
+$\sum_rv_r=0$),
+\begin{equation}
+ \eta_J(L(p,q))=-\frac1p\sum_{r=0}^{p-1}r\,D_J(r).
+ \label{eq:first-moment}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The Hurwitz evaluation is \cite[Prop.~4.1]{MahmoodP1Collection2026} with
+period $p$.  By \eqref{eq:FG}, $pD_J(n)=\nu F(\nu)+G(\nu)$ where $F$ and
+$G$ are finite Fourier sums over nonidentity elements, so both have mean
+zero over a period: $\sum_ru_r=0$ and $p\sum_rv_r=\sum_r(r+J+1)u_r$.
+Shifting $c\mapsto c+h$ changes the value by
+$\frac h{p^2}\bigl[-p\sum_rv_r+\sum_r(r+c)u_r\bigr]+\frac{h^2}{2p^2}\sum_ru_r$,
+which vanishes by these two identities.  Under \eqref{eq:clifford},
+$F=0$, so $u_r=0$, and $\sum_rv_r=0$ gives \eqref{eq:first-moment}.
+\end{proof}
+
+Thus at a prime $p$ with $q\not\equiv\pm1$, $\eta_J=0$ requires only a
+vanishing first moment of the periodic sequence $D_J(0),\ldots,D_J(p-1)$,
+whereas balance requires every term to vanish.  This is the algebraic
+reason why the classification of Section~\ref{sec:classification} does
+not classify the zeros of $\eta_J$.
+
+\subsection{Observations at prime moduli}
+
+The following facts were found by exact computation and are recorded as
+observations; the theorems that explain them are in
+Sections~\ref{sec:congruences} and \ref{sec:silver}.
+
+\begin{observation}
+\label{obs:prime-zeros}
+Over all primes $41\leq p\leq199$, all units $q$ and $1\leq J\leq12$
+($47{,}952$ rows), and all primes $41\leq p\leq101$, all $q$ and
+$13\leq J\leq(p-1)/2$ ($23{,}278$ rows), $\eta_J(L(p,q))$ has $1{,}004$
+zeros.  Every zero is one of: a mirror space; a member of the silver family
+(b); a member of the four families of \cite[Thm.~7.1]{MahmoodP1Collection2026}
+at $p=2J'^2-1$ with $J\equiv\pm J'$; or one of $196$ further zeros in
+$49$ orbits under $q\mapsto\pm q^{\pm1}$.  Every one of these $49$ orbits
+lies at a silver rank $2J^2\equiv1\pmod p$; the nine silver pairs
+$(p,J)$ in range are $(41,12)$, $(71,6)$, $(97,7)$, $(127,8)$, $(199,10)$,
+$(47,20)$, $(73,16)$, $(79,35)$, $(89,32)$, and every one of them carries
+such zeros.  Among them, $q\equiv J$ is a zero at every silver pair in
+range (the first family of \cite{MahmoodP1Collection2026}, at primes
+dividing $2J^2-1$ rather than equal to it), whereas the analogous
+extensions of $q=J+1$ and $q=J(J-1)$ fail; at $(97,7)$ and $(199,10)$ the
+cube roots of unity modulo $p$ are also zeros.  At silver ranks every
+value in range is an even integer; at other ranks $\eta_J$ is in general
+a non-integral rational.  For example $\eta_{12}(L(41,12))=0$ with
+$D_{12}(3)=-2$, while $\eta_{12}(L(41,1))=-76$.
+\end{observation}
+
+\begin{observation}
+\label{obs:silver-blind}
+On primes never inspected before the following three statements were
+formulated: for every prime $211\leq p\leq331$, every $q$ and $J\leq12$
+off the silver ranks ($67{,}032$ rows) the $238$ zeros are exactly the
+mirror rows; for every non-silver rank $13\leq J\leq(p-1)/2$ at
+$p\in\{211,223\}$ ($41{,}286$ rows) there is no zero, as both primes are
+$\equiv3\pmod4$; at the silver rank of each of the $31$ primes
+$p\equiv\pm1\pmod8$ in $[211,599]$ and every $q$ ($12{,}210$ rows) every
+value is an even integer, and $q=J$ is a zero at all $31$ primes.  At the
+adjacent rank $J+1$, the control computation on the first eight of these
+primes ($223\leq p\leq281$) has $1{,}992$ nonintegral values among
+$2{,}000$ rows; only the eight mirror rows are integral, as
+Corollary~\ref{cor:E}(a) explains.  At the silver rank $J$, the residue
+$q=J+1$ fails to be a zero at $22$ of the $31$ primes.  Descriptively, at
+these silver ranks $471$ of $3{,}076$ $q$-orbits ($15.3\%$) are zeros; the
+zero fraction is highest for small silver ranks ($33\%$ at $p=241$,
+$J=11$; $27\%$ at $p=449$, $J=15$; $25\%$ at $p=337$, $J=13$), and the
+extreme values occur at $q=\pm1$ (up to $|\eta|=15{,}640$ at $p=569$).
+\end{observation}
+
+\begin{observation}[Composite moduli]
+\label{obs:composite}
+Over composites $41\leq p\leq120$, all units $q$ and $J\leq10$
+($25{,}180$ rows), the zeros of $\eta_J$ fall into the classes: balanced
+(Theorem~\ref{thm:classification}) $196$; the families of
+\cite[Thm.~7.1]{MahmoodP1Collection2026} $12$; all primitive parts zero
+but neither of the above $24$; and cross-cancellations of $2$, $3$, $4$
+nonzero primitive parts, $44$, $16$, $28$ respectively.
+\end{observation}
+
+\section{Congruences for the eta invariant}
+\label{sec:congruences}
+
+\subsection{Two elementary inputs valid at every modulus}
+
+\begin{lemma}[Low-mode parity]
+\label{lem:low-mode-parity}
+For every $p\geq2$, every unit $q$ and all $a,b\geq1$ with
+$a\equiv b\pmod2$,
+$I_{a,b}(p,q)\equiv\ind_{a,b\text{ both odd}}\pmod2$.  Hence
+$I_{a,b}-I_{b,a}$ is even and $L_J(p,q)$ is even.
+\end{lemma}
+
+\begin{proof}
+The involution $(r,t)\mapsto(-r,-t)$ of $W_{a-1}\times W_{b-1}$ preserves
+the congruence $(1+q)r+(1-q)t\equiv0\pmod{2p}$.  Its only fixed point is
+$(0,0)$, which lies in $W_{a-1}\times W_{b-1}$ exactly when $a$ and $b$
+are both odd.
+\end{proof}
+
+\begin{lemma}[Dedekind-sum facts at every modulus]
+\label{lem:dedekind-facts}
+Let $p\geq2$ and $1\leq q<p$ with $\gcd(q,p)=1$.  For $1\leq k<p$ put
+$r_k=\langle qk\rangle_p\in\{1,\ldots,p-1\}$, $n_k=\lfloor qk/p\rfloor$,
+and
+\[
+ R=\sum_{k=1}^{p-1}k\,r_k,\qquad
+ S_2=\sum_{k=1}^{p-1}k^2=\frac{p(p-1)(2p-1)}6,\qquad
+ \Lambda=\sum_{k=1}^{p-1}n_k^2 .
+\]
+Then
+\begin{align}
+ 2qR&=(q^2+1)S_2-p^2\Lambda,\label{eq:square-identity}\\
+ s(q,p)&=\frac R{p^2}-\frac{p-1}4,\qquad
+ T:=12p\,s(q,p)=\frac{12R}p-3p(p-1)\in2\Z,\label{eq:T}\\
+ qT&\equiv q^2+1\pmod{\gcd(3,p)\,p},\qquad
+ T\equiv q+q^*\pmod p.\label{eq:rademacher-congruence}
+\end{align}
+If $p\geq5$ is prime, moreover $p\mid R$ and $2p\,s(q,p)\in\Z$.
+\end{lemma}
+
+\begin{proof}
+The residues $r_k$ permute $\{1,\ldots,p-1\}$.  Expanding
+$r_k=qk-pn_k$ in $\sum r_k^2=S_2$ and using $\sum k\,n_k=(qS_2-R)/p$
+gives \eqref{eq:square-identity}.  Expanding the sawtooth definition of
+$s(q,p)$ gives the first part of \eqref{eq:T}.  Multiplying
+\eqref{eq:square-identity} by $3$ shows $p\mid6qR$, since
+$(q^2+1)(p-1)(2p-1)/2$ is an integer ($p-1$ is even for odd $p$, and
+$q^2+1$ is even for even $p$); as $\gcd(q,p)=1$, $p\mid6R$, so $T$ is an
+integer, and it is even because $12R/p=2\cdot(6R/p)$ and $3p(p-1)$ are
+even.  Multiplying \eqref{eq:square-identity} by $6$, dividing by $p$
+and substituting \eqref{eq:T} gives the exact identity
+\begin{equation}
+ qT-(q^2+1)=p\bigl[(q^2+1)(2p-3)-6\Lambda-3q(p-1)\bigr],
+ \label{eq:qT-identity}
+\end{equation}
+whose bracket is divisible by $3$ when $3\mid p$; this is
+\eqref{eq:rademacher-congruence}, the second congruence following on
+multiplication by $q^*$.  If $p\geq5$ is prime, $6$ is invertible modulo
+$p$ and $R\equiv qS_2\equiv0\pmod p$ (a permutation of the residues
+changes nothing modulo $p$), whence $2ps=2R/p-p(p-1)/2\in\Z$.
+\end{proof}
+
+The congruence $12pq\,s(q,p)\equiv q^2+1\pmod{\gcd(3,p)p}$ is
+Rademacher's \cite[Ch.~3]{RademacherGrosswald1972}; the finite-sum proof
+above is included so that nothing below rests on an unverified citation.
+
+\subsection{Prime moduli}
+
+\begin{theorem}[Prime-modulus congruence]
+\label{thm:E}
+Let $p\geq5$ be prime, $q$ a unit modulo $p$ and $J\geq1$.  Then
+\begin{enumerate}[label=(\roman*)]
+\item $p\,\eta_J(L(p,q))\in2\Z$;
+\item $p\,\eta_J(L(p,q))\equiv-\dfrac{J(2J^2-1)(q+q^{-1})}3\pmod p$.
+\end{enumerate}
+Equivalently, $\eta_J\equiv J(2J^2-1)\,\eta_1$ modulo $\Z_{(p)}$, where
+$\eta_1=-4s(q,p)$ and
+$p\eta_1=-T/3\equiv-(q+q^{-1})/3\pmod p$ by
+Lemma~\ref{lem:dedekind-facts}.
+\end{theorem}
+
+\begin{proof}
+Multiply \eqref{eq:master} by $p$.  The Dedekind term becomes
+$-2J\cdot(2ps)$, an even integer by Lemma~\ref{lem:dedekind-facts}; the
+residue term is $2\sum_a(J-a)[\rho_p(aq)+\rho_p(aq^*)]$, visibly even;
+the aliasing term is $2p$ times an integer; and $-pL_J$ is even by
+Lemma~\ref{lem:low-mode-parity}.  This is (i).  Modulo $p$ the last two
+terms vanish.  Since $\rho_p(k)\equiv-2k\pmod p$ in both cases of its
+definition, and $\sum_{a=1}^{J-1}a(J-a)=J(J^2-1)/6$,
+\[
+ 2\sum_{a=1}^{J-1}(J-a)\bigl[\rho_p(aq)+\rho_p(aq^*)\bigr]
+ \equiv-4(q+q^*)\sum_{a=1}^{J-1}a(J-a)
+ =-\tfrac23J(J^2-1)(q+q^*),
+\]
+while $-4Jps=-\tfrac J3T\equiv-\tfrac J3(q+q^*)$ by
+\eqref{eq:rademacher-congruence}; here $3$ is invertible because
+$p\geq5$.  Adding, $p\,\eta_J\equiv-\tfrac J3(q+q^*)[1+2(J^2-1)]
+=-J(2J^2-1)(q+q^*)/3$, which is (ii).
+\end{proof}
+
+\begin{corollary}[Integrality, denominators, and the zero set off the silver ranks]
+\label{cor:E}
+Let $p\geq5$ be prime, $q$ a unit and $J\geq1$.
+\begin{enumerate}[label=(\alph*)]
+\item $\eta_J(L(p,q))\in\Z$ iff $p\mid J(2J^2-1)(q^2+1)$, and then
+$\eta_J\in2\Z$.  Otherwise the reduced denominator of $\eta_J$ is exactly
+$p$; in particular $\eta_J\neq0$.
+\item \textup{(Silver integrality.)}  If $2J^2\equiv1\pmod p$ then
+$\eta_J(L(p,q))\in2\Z$ for every unit $q$.
+\item \textup{(Dichotomy off the silver ranks.)}  If $2J^2\not\equiv1\pmod p$
+and $p\nmid J$, then $\eta_J(L(p,q))=0$ iff $q^2\equiv-1\pmod p$.
+\item \textup{(Blind ranks.)}  If $p\mid J$ then $\eta_J(L(p,q))=0$ for
+every $q\not\equiv\pm1$, while for $J=np$, $n\geq1$,
+\begin{equation}
+ \eta_{np}(L(p,\pm1))=\mp\frac{n(p^2-1)}6\neq0,
+ \label{eq:blind-clifford}
+\end{equation}
+and $\eta_{J+p}(L(p,\pm1))-\eta_J(L(p,\pm1))=\mp(p^2-1)/6$ for every
+$J\geq1$.
+\end{enumerate}
+Consequently, for a prime $p\geq5$ and a rank $J$ with
+$2J^2\not\equiv1\pmod p$, the zero set of $\eta_J(L(p,\cdot))$ is
+completely known: the mirror spaces if $p\nmid J$, and all
+$q\not\equiv\pm1$ if $p\mid J$.  At $J=1$, (c) is the classical Dedekind
+zero criterion at prime moduli.
+\end{corollary}
+
+\begin{proof}
+(a) Write $p\,\eta_J=2\Theta$ with $\Theta\in\Z$ by (i).  Then
+$\eta_J\in\Z$ iff $p\mid2\Theta$ iff $p\mid\Theta$ ($p$ odd), and then
+$\eta_J=2\Theta/p\in2\Z$; otherwise the denominator is exactly $p$.  By
+(ii), $p\mid\Theta$ iff $p\mid J(2J^2-1)(q+q^*)$ iff
+$p\mid J(2J^2-1)(q^2+1)$ (multiply by the unit $q$).  (b) is (a) with
+$p\mid2J^2-1$.  (c) Under the hypotheses $p\nmid J(2J^2-1)$, so by (a)
+$\eta_J$ is nonzero unless $p\mid q^2+1$; conversely mirror spaces have
+$\eta_J=0$ by \eqref{eq:lens-symmetries}.  (d) The vanishing for
+$q\not\equiv\pm1$ is the rank reflection $\eta_p=0$ and periodicity of
+\cite[Thm.~6.2]{MahmoodP1Collection2026}, whose hypothesis
+$\gcd(1\pm q,p)=1$ holds at a prime for $q\not\equiv\pm1$.  For $q=1$
+every element is a Clifford translation and, by
+\eqref{eq:clifford-element} and \eqref{eq:C-A}, in the variable
+$x=\e^{i\theta_k}$,
+\[
+ \eta_k=f_{J,1}(x)
+ :=\frac{J\,C(x)\,(x^J+x^{-J})-C'(x)\,(x^J-x^{-J})}{x-x^{-1}},
+ \qquad C'(x)=x\frac{dC}{dx},
+\]
+so that $p\,\eta_J(L(p,1))=\Tr_{\Q(\zeta_p)/\Q}f_{J,1}(\zeta_p)$.  At
+$J=np$ and a primitive $p$th root of unity, $x^J=x^{-J}=1$ and
+$x^{J+1}=x$, so
+\[
+ f_{J,1}(x)=\frac{2J\,C(x)}{x-x^{-1}}
+ =\frac{2J(x+1)}{(x-1)(x-x^{-1})}=\frac{2Jx}{(x-1)^2}
+ =2J\bigl(\lambda^{-2}-\lambda^{-1}\bigr),\qquad\lambda=1-x .
+\]
+The elementary traces $\Tr\lambda^{-1}=(p-1)/2$ and
+$\Tr\lambda^{-2}=-(p-1)(p-5)/12$ (obtained by differentiating
+$\Phi_p(x)=1+\cdots+x^{p-1}$ at $x=1$) give
+$\Tr f_{J,1}=-J(p^2-1)/6$, hence \eqref{eq:blind-clifford} at $q=1$; the
+case $q=-1$ is the sign \eqref{eq:lens-symmetries}.  For the rank
+increment, $C_{J+p}=C_J$ at $p$th roots of unity while
+$C'_{J+p}-C'_J=p(x^{J+1}-x^{-J})/(x-1)$, and substitution gives
+$f_{J+p,1}-f_{J,1}=2px/(x-1)^2$, whose trace is $-p(p^2-1)/6$.
+\end{proof}
+
+\begin{remark}[Cyclotomic-trace route]
+\label{rem:trace-route}
+Theorem~\ref{thm:E} was first proved by a different route, which we
+sketch because it explains the shape of the congruence.  By
+Lemma~\ref{lem:trace-form}, for $q\not\equiv\pm1$ one has
+$p\,\eta_J=\Tr_{K/\Q}f(\zeta)$ with $K=\Q(\zeta)$, $\zeta=\e^{2\pi i/p}$,
+$f=C\,[A_q+A_{\bar q}]$ as in \eqref{eq:C-A} ($\bar q$ a positive integer
+inverse of $q$), and $p\,\eta_J=\pm\Tr f_{J,1}(\zeta)$ for $q\equiv\pm1$.
+The denominators factor as
+$x^r+x^{-r}-x-x^{-1}=x^{-r}(x^{r-1}-1)(x^{r+1}-1)$, so $f$ is integral
+away from $p$, and at $\lambda=1-\zeta$ it has a pole of order at most
+two with $p$-integral Laurent coefficients:
+$f(\zeta)=c_{-2}\lambda^{-2}+c_{-1}\lambda^{-1}+c_0+\lambda h$,
+$h\in\Z_{(p)}[\zeta]$.  Since $\Tr(\lambda h)\in p\Z_{(p)}$ and the
+traces of $\lambda^{-1},\lambda^{-2},1$ are congruent modulo $p$ to
+$-\tfrac12,-\tfrac5{12},-1$, which are minus the constant terms of
+$(1-\e^u)^{-1},(1-\e^u)^{-2},1$, one gets
+$\Tr g(\zeta)\equiv-[u^0]g(\e^u)\pmod p$ for such $g$.  The constant
+term of $f(\e^u)$ is
+$4J\sum_{r\in\{q,\bar q\}}\frac r{r^2-1}\bigl[\frac{J^2}2+\frac J2+\frac{J^2r^2}6-\frac{r^2}{12}\bigr]$,
+which after $\bar q\equiv q^{-1}$ collapses to $J(2J^2-1)(q^2+1)/(3q)$;
+this is (ii).  Evenness follows because $f$ is even under $x\mapsto1/x$,
+so $\Tr_{K/\Q}f=2\Tr_{K^+/\Q}f$, and $f$ lies in the inverse different of
+$K^+=\Q(\zeta+\zeta^{-1})$ (valuation $\geq-1$ at the prime above $p$,
+against the exponent $-(p-3)/2$ for $p\geq5$).
+\end{remark}
+
+\begin{remark}
+Even integrality never by itself gives a zero: $p=7$, $J=2$, $q=1$ is a
+silver row with $\eta_2(L(7,1))=-2$.  The boundary $p\geq5$ is
+substantive: $\eta_1(L(3,1))=-2/9$, so (i) fails at $p=3$, and the
+division by $3$ in (ii) is unavailable there.
+\end{remark}
+
+\subsection{Every modulus}
+
+\begin{theorem}[Universal congruence]
+\label{thm:U}
+For every modulus $p\geq2$, every unit $q$ modulo $p$ and every $J\geq1$,
+\begin{equation}
+ \eta_J(L(p,q))-J(2J^2-1)\,\eta_1(L(p,q))\in2\Z,\qquad
+ \eta_1(L(p,q))=-4s(q,p).
+ \label{eq:U}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Put $N=J(J^2-1)/6=\sum_{a=1}^{J-1}a(J-a)\in\Z$ and fix representatives
+$q,q^*\in[1,p-1]$ with $qq^*\equiv1$.  Subtracting
+$J(2J^2-1)\eta_1=-4J(2J^2-1)s$ from \eqref{eq:master}, the Dedekind term
+becomes $-4Js+4J(2J^2-1)s=8J(J^2-1)s=48Ns$.  For the residue term use
+$\rho_p(k)=p-2\langle k\rangle_p-p\,\delta_p(k)$ and
+$\langle aq\rangle_p=aq-p\lfloor aq/p\rfloor$:
+\[
+ \frac2p\sum_{a=1}^{J-1}(J-a)\bigl[\rho_p(aq)+\rho_p(aq^*)\bigr]
+ =-\frac{4N}p(q+q^*)+(\text{even integers}).
+\]
+The aliasing double sum in \eqref{eq:master} is $2\times$ an integer, and
+$L_J$ is even by Lemma~\ref{lem:low-mode-parity}.  Hence
+\[
+ \eta_J-J(2J^2-1)\eta_1
+ =\frac{4N}p\bigl(12ps-(q+q^*)\bigr)+(\text{even integers})-L_J .
+\]
+By \eqref{eq:rademacher-congruence}, $12ps-(q+q^*)=T-(q+q^*)\in p\Z$, so
+the first term lies in $4N\Z\subseteq2\Z$.
+\end{proof}
+
+\begin{theorem}[Exact denominator and necessary conditions for a zero]
+\label{thm:denominator}
+Let $p\geq2$, $q$ a unit, $J\geq1$, and put $C=J(2J^2-1)$ and
+$T=12p\,s(q,p)\in2\Z$.  Then
+\begin{enumerate}[label=(\alph*)]
+\item the reduced denominator of $\eta_J(L(p,q))$ is
+$3p/\gcd(3p,\,CT)$; in particular $\eta_J\in\Z$ iff $3p\mid CT$, and
+$\eta_J\in2\Z$ iff $6p\mid CT$;
+\item if $\eta_J(L(p,q))=0$ then $p\mid C(q^2+1)$; if moreover $4\mid p$
+then $2^{v_2(p)}\mid J$, and if $3\mid p$ then $3^{v_3(p)+1}\mid J$;
+\item writing $p=2^a3^bm$ with $\gcd(m,6)=1$,
+\[
+ \eta_J(L(p,q))\in2\Z\iff
+ m\mid C(q^2+1)\ \text{ and }\ (a<2\text{ or }2^a\mid J)\ \text{ and }\
+ (b=0\text{ or }3^{b+1}\mid J);
+\]
+\item if $3\nmid p$, then $p\,\eta_J\in2\Z$ and
+$p\,\eta_J\equiv-C(q+q^*)/3\pmod p$; that is, both parts of
+Theorem~\ref{thm:E} hold at every modulus coprime to $3$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:U} and $\eta_1=-T/(3p)$ there is $H\in\Z$ with
+$\eta_J=-CT/(3p)+2H$; adding an integer does not change a reduced
+denominator, which proves (a).  For (b), a zero gives $3p\mid CT$, hence
+$p\mid CT$, and by \eqref{eq:rademacher-congruence}
+$C(q^2+1)\equiv qCT\equiv0\pmod p$.  If $4\mid p$ then $q$ is odd,
+$q^2+1\equiv2\pmod4$, and \eqref{eq:rademacher-congruence} modulo $4$
+gives $v_2(T)=1$; a zero needs $6p\mid CT$, so $v_2(C)\geq v_2(p)$, and
+$v_2(C)=v_2(J)$ since $2J^2-1$ is odd.  If $3\mid p$ then
+\eqref{eq:rademacher-congruence} modulo $3$ gives $qT\equiv q^2+1\equiv2$,
+so $v_3(T)=0$, and $6p\mid CT$ forces $v_3(C)\geq v_3(p)+1$;
+$v_3(C)=v_3(J)$ because $2J^2-1\not\equiv0\pmod3$.  For (c), the
+$m$-part: $T\equiv q+q^*\pmod m$, so $m\mid CT$ iff $m\mid C(q+q^*)$ iff
+$m\mid C(q^2+1)$.  The $2$-part: $T$ is always even; if $a=1$, write
+$p=2u$ with $u$ odd: $r_k\equiv k\pmod2$ so $R\equiv\sum k=u(2u-1)$ is
+odd, $u\mid3R$ makes $3R/u$ odd, and
+$T=2[3R/u-3u(2u-1)]$ is divisible by $4$; if $a\geq2$, $v_2(T)=1$ as
+above.  The $3$-part: if $b=0$ then $p\mid6R$ and $\gcd(p,3)=1$ give
+$p\mid2R$, so $3\mid T$; if $b\geq1$, $v_3(T)=0$.  Comparing with
+$v_2(6p)=1+a$ and $v_3(6p)=1+b$ gives (c).  For (d), if $3\nmid p$ then
+$T\in6\Z$ by the $3$-part just shown, so $CT/3\in2\Z$ and
+$p\,\eta_J=-CT/3+2pH\in2\Z$; reducing modulo $p$ and using
+$T\equiv q+q^*$ with $3$ invertible gives the congruence.
+\end{proof}
+
+\begin{remark}[Boundaries]
+\label{rem:U-boundaries}
+The conditions in (b) are necessary, not sufficient:
+$\eta_{25}(L(25,1))=-104$ although $25\mid C(q^2+1)$ with
+$C=25(2\cdot625-1)$.  At even moduli an integral value need not be
+even: $\eta_2(L(4,1))=-1$, $\eta_1(L(4,1))=-1/2$, and the difference
+\eqref{eq:U} is $6$.  At $p=2$ the two branch multiplicities agree at
+every level, so $\eta_J(L(2,1))=0$ for all $J$ and (d) holds trivially.
+Prime powers must be read with valuations: at $p=25$, $J=5$, $q=2$ one
+factor $5$ comes from $J$ and one from $q^2+1$.  Part (b) with the full
+modulus replaced by its largest divisor coprime to $6$ is the weaker
+statement one obtains by localizing at primes $\ell\geq5$.
+\end{remark}
+
+\begin{remark}[Status of the zero problem after this section]
+\label{rem:zero-status}
+For prime $p\geq5$ the zero set of $\eta_J(L(p,\cdot))$ is known at every
+rank with $2J^2\not\equiv1\pmod p$ (Corollary~\ref{cor:E}).  At a silver
+rank it is an even integer whose zeros include the balanced family (b),
+the family of Theorem~\ref{thm:C3} below, mirror spaces when
+$p\equiv1\pmod4$, and further zeros not yet characterized
+(Section~\ref{sec:silver-zero-set}).  At composite moduli
+Theorem~\ref{thm:denominator} gives necessary local conditions only;
+Observation~\ref{obs:composite} shows that cross-cancellations between
+primitive parts occur.  Congruences of the type of
+Theorems~\ref{thm:E} and \ref{thm:U} may follow from index theory for
+flat bundles; that literature has not been searched, and no novelty is
+claimed for them.
+\end{remark}
+
+\section{The silver zero at \texorpdfstring{$q=J$}{q = J}}
+\label{sec:silver}
+
+\subsection{Statement}
+
+\begin{theorem}
+\label{thm:C3}
+For every $J\geq2$ and every divisor $p>1$ of $2J^2-1$,
+\[
+ \eta_J(L(p,J))=0,
+\]
+and hence also $\eta_J(L(p,q))=0$ for $q\equiv\pm J$ and $q\equiv\pm2J
+\pmod p$.
+\end{theorem}
+
+For $p=2J^2-1$ this is the first family of
+\cite[Thm.~7.1]{MahmoodP1Collection2026}, proved there by repeated
+Dedekind reciprocity with residues that do not wrap modulo $p$.  At a
+proper divisor the residues wrap and that argument does not apply; the
+proof below uses instead the conjugacy invariance of Rademacher's symbol.
+The transfer to $q\equiv\pm J,\pm2J$ is \eqref{eq:lens-symmetries}
+together with $2J\equiv J^{-1}\pmod p$.
+
+Throughout, fix $J\geq2$ and a divisor $p>1$ of $N:=2J^2-1$.  Then $p$
+is odd, coprime to $3$, and $m_0:=N/p$ is odd.  The residues $2J$,
+$J\pm1$, $2J\pm1$ are units modulo $p$: a prime dividing $J\pm1$ and $N$
+would divide $2J^2-1-2(J\mp1)(J\pm1)=1$; $(2J+1)(2J-1)=2N+1\equiv1$; and
+$(J+1)(J-1)\equiv-\tfrac12$.  In particular $q=J$ is nonsingular in the
+sense of Lemma~\ref{lem:trace-form}: no nonidentity element is a
+Clifford translation, and this holds at composite $p$ as well.  Put
+\begin{equation}
+ \varepsilon:=4J+3,\qquad\lambda:=-\varepsilon,\qquad
+ \lambda^2+6\lambda+1=\varepsilon^2-6\varepsilon+1=8N\equiv0\pmod p;
+ \label{eq:silver-unit}
+\end{equation}
+$\varepsilon$ is the silver unit $3+2\sqrt2$ read modulo $p$ with
+$\sqrt2\equiv2J$.  Two notational conventions are essential: $c_m(z)$
+denotes the centered residue of $z$ modulo $m$ in $(-m/2,m/2]$; and a
+fraction $a/b$ written inside $c_p(\cdot)$ means the modular quotient
+$ab^{-1}$ in $\Z/p$, not a real number.  For instance
+$c_p(j+\tfrac12)=j-\tfrac{p-1}2$ for $0\leq j<p$, and
+$c_{17}(\tfrac12)=c_{17}(9)=-8$.  Finally $s_n(a,b;p)$ is the
+Fourier--Dedekind sum \cite{BeckRobins2004}
+\[
+ s_n(a,b;p)=\frac1p\sum_{\substack{\zeta^p=1\\\zeta\neq1}}
+ \frac{\zeta^n}{(\zeta^a-1)(\zeta^b-1)},\qquad\gcd(a,p)=\gcd(b,p)=1,
+\]
+which satisfies $s_n=s_{a+b-n}$ and $s_n(a,-b)=-s_{n+b}(a,b)$.
+
+\subsection{Reduction to a quarter-shifted covariance}
+
+\begin{lemma}[Step 1: a trigonometric sum]
+\label{lem:C3-step1}
+With $\varphi_k=\pi k/p$,
+\[
+ p\,\eta_J(L(p,J))=\sum_{k=1}^{p-1}
+ \frac{(-1)^k\cos(\pi k/p)}{\cos(2\pi k/p)-\cos(2\pi Jk/p)} .
+\]
+\end{lemma}
+
+\begin{proof}
+Apply \eqref{eq:E1} with $q=J$.  Write $2J^2=1+m_0p$ with $m_0$ odd;
+then $\sin(2J^2\varphi_k)=(-1)^k\sin\varphi_k$,
+$\cos((2J+1)J\varphi_k)=(-1)^k\cos((J+1)\varphi_k)$,
+$\sin(2J\varphi_k)/\sin(J\varphi_k)=2\cos(J\varphi_k)$, and
+$\cos((2J+1)\varphi)-2\cos((J+1)\varphi)\cos(J\varphi)=-\cos\varphi$.
+The numerator of \eqref{eq:E1} becomes $-(-1)^k\cos\varphi_k$ and the
+denominator $\cos(2J\varphi_k)-\cos(2\varphi_k)$.
+\end{proof}
+
+\begin{lemma}[Step 2: Fourier--Dedekind form]
+\label{lem:C3-step2}
+$p\,\eta_J(L(p,J))=2p\,s_J(2J+1,\,2J-1;\,p)$.
+\end{lemma}
+
+\begin{proof}
+Put $h=(p+1)/2$, $\theta=2\pi k/p$ and $\zeta=\e^{i\theta}$.  Then
+$(-1)^k\cos(\pi k/p)=\cos(h\theta)$ and
+$\cos\theta-\cos(J\theta)=-\tfrac12\zeta^{-J}(\zeta^{J+1}-1)(\zeta^{J-1}-1)$,
+so by Lemma~\ref{lem:C3-step1}, using $s_n=s_{a+b-n}$ with $a+b=2J$,
+$p\,\eta_J=-2p\,s_{J+h}(J+1,J-1;p)$.  The substitution
+$\zeta\mapsto\zeta^{2J}$ (a permutation of the nontrivial $p$th roots of
+unity, as $\gcd(2J,p)=1$) sends the exponents $(J+1,J-1,J+h)$ to
+$(2J+1,-(2J-1),J+1)$ modulo $p$, because $2J^2\equiv1$ and $2h\equiv1$.
+Then $s_n(a,-b)=-s_{n+b}(a,b)$ and once more $s_n=s_{a+b-n}$ give
+$s_{J+h}(J+1,J-1)=-s_{3J}(2J+1,2J-1)=-s_J(2J+1,2J-1)$.
+\end{proof}
+
+\begin{lemma}[Step 3: covariance form]
+\label{lem:C3-step3}
+Let $K:=\sum_{x\in\Z/p}c_p\bigl(x+\tfrac14\bigr)\,c_p\bigl(\lambda x+\tfrac14\bigr)$.
+Then $\eta_J(L(p,J))=2K/p^2$; in particular
+$\eta_J(L(p,J))=0\iff K=0$.
+\end{lemma}
+
+\begin{proof}
+For $\zeta^p=1$, $\zeta\neq1$ and $a$ a unit,
+$1/(\zeta^a-1)=\frac1p\sum_{j=0}^{p-1}j\zeta^{aj}$.  Inserting this for
+both factors of $s_n(a,b;p)$ and using orthogonality of the $p$th roots
+of unity gives, with $\mu=(p-1)/2$,
+\[
+ p\,s_n(a,b;p)=\frac1p\sum_{j_1=0}^{p-1}(j_1-\mu)(j_2-\mu),
+ \qquad aj_1+bj_2+n\equiv0\pmod p,\ 0\leq j_2<p .
+\]
+Now $j-\mu=c_p(j+\tfrac12)$.  For $(a,b,n)=(2J+1,2J-1,J)$, using
+$b^{-1}\equiv a$ and $a^2\equiv4J+3=\varepsilon$, the constraint reads
+$y_2\equiv-\varepsilon y_1+(1+J)$ for $y_i=j_i+\tfrac12$, and
+$1+J=(1+\varepsilon)/4$ in $\Z/p$.  With $x=y_1-\tfrac14$ this is
+$y_2=\lambda x+\tfrac14$, so $p\,s_J=K/p$, and Lemma~\ref{lem:C3-step2}
+gives $\eta_J=2K/p^2$.
+\end{proof}
+
+\subsection{From the quarter shift to Dedekind sums at even moduli}
+
+\begin{lemma}[Step 4: lifting to modulus $4p$]
+\label{lem:C3-step4}
+Put $u=c_p(x+\tfrac14)$, $w=c_p(\lambda x+\tfrac14)$, $U=4u-1$,
+$W=4w-1$.  Fix $\hat\lambda\in\Z$ with $\hat\lambda\equiv\lambda\pmod p$
+and $\hat\lambda\equiv1\pmod4$.  Then $\hat\lambda^2+6\hat\lambda+1\equiv0
+\pmod{4p}$, and as $x$ runs over $\Z/p$, $U$ runs over the $p$ integers
+$\equiv3\pmod4$ in $(-2p,2p)$, with $W=c_{4p}(\hat\lambda U)$.
+Consequently
+\begin{equation}
+ 16K=T-p,\qquad
+ T:=\sum_{\substack{U\in\Z/4p\\U\equiv3\,(4)}}c_{4p}(U)\,c_{4p}(\hat\lambda U).
+ \label{eq:16K}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The congruence modulo $4p$ holds modulo $p$ by \eqref{eq:silver-unit}
+and modulo $4$ because $1+6+1=8$.  As $x$ runs over $\Z/p$ so does
+$x+\tfrac14$, so $u$ runs over the centered residues and $U=4u-1$ over the
+stated set; since $\lambda$ is a unit the same holds for $w$ and $W$.
+Now $W\equiv4\lambda x\equiv\hat\lambda U\pmod p$ and
+$W\equiv3\equiv\hat\lambda U\pmod4$, so $W\equiv\hat\lambda U\pmod{4p}$,
+and $W\in(-2p,2p)$ is the centered representative.  Finally
+$\sum U=\sum W=-p$ (the centered residues sum to zero), so
+$16K=\sum(U+1)(W+1)=T-p-p+p$.
+\end{proof}
+
+\begin{lemma}[Step 5: parity split]
+\label{lem:C3-step5}
+For an even modulus $m$ and $h$ odd and coprime to $m$ put
+$D_m(h):=\sum_{V\in\Z/m}c_m(V)\,c_m(hV)$.  Then
+$2T=D_{4p}(\hat\lambda)-4D_{2p}(\hat\lambda)$.
+\end{lemma}
+
+\begin{proof}
+$U\mapsto-U$ exchanges the odd classes $1$ and $3$ modulo $4$ and
+preserves each summand ($\hat\lambda$ is odd and $\pm2p$ is even), so the
+sum over odd $U$ is $2T$.  The even $U=2V$ contribute
+$c_{4p}(2V)c_{4p}(2\hat\lambda V)=4c_{2p}(V)c_{2p}(\hat\lambda V)$.
+\end{proof}
+
+\begin{lemma}[Centered residues and Dedekind sums]
+\label{lem:D}
+For even $m$ and $h$ odd and coprime to $m$,
+$D_m(h)=\dfrac{m^2}4+m^2\,s(h,m)$.
+\end{lemma}
+
+\begin{proof}
+For $V\not\equiv m/2$, $c_m(V)/m=\sawtooth{V/m+\tfrac12}$; at $V\equiv m/2$
+the left side is $\tfrac12$ and the right side $0$, and $hV\equiv m/2$
+iff $V\equiv m/2$ because $h$ is odd.  Hence
+$D_m/m^2=\tfrac14+\sum_V\sawtooth{V/m+\tfrac12}\sawtooth{hV/m+\tfrac12}$.
+Use $\sawtooth{x+\tfrac12}=\sawtooth{2x}-\sawtooth x$ in both factors.
+Of the four resulting sums, $\sum_V\sawtooth{2V/m}\sawtooth{2hV/m}=2s(h,m/2)$;
+the two mixed sums each equal $s(h,m/2)$, by splitting $V$ modulo $m/2$
+and using $\sawtooth y+\sawtooth{y+\tfrac12}=\sawtooth{2y}$; and
+$\sum_V\sawtooth{V/m}\sawtooth{hV/m}=s(h,m)$.  The signed total is
+$2s(h,m/2)-2s(h,m/2)+s(h,m)$.
+\end{proof}
+
+Combining Lemmas~\ref{lem:C3-step4}--\ref{lem:D},
+$2T=16p^2\bigl[s(\hat\lambda,4p)-s(\hat\lambda,2p)\bigr]$, and therefore
+\begin{equation}
+ \eta_J(L(p,J))=0\iff K=0\iff T=p\iff
+ s(\hat\lambda,4p)-s(\hat\lambda,2p)=\frac1{8p}.
+ \label{eq:C3-reduced}
+\end{equation}
+
+\subsection{Rademacher's symbol and the centralizer}
+
+For $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\Z)$ Rademacher's
+functions are
+\begin{equation}
+ \Phi(M)=\begin{cases}\dfrac{a+d}c-12\,\sgn(c)\,s(d,|c|),&c\neq0,\\[6pt]
+ \dfrac bd,&c=0,\end{cases}
+ \qquad
+ \Psi(M)=\Phi(M)-3\,\sgn\bigl(c(a+d)\bigr),
+ \label{eq:rademacher-symbol}
+\end{equation}
+and $\Psi$ is invariant under $SL_2(\Z)$-conjugation on hyperbolic
+elements \cite[Ch.~4]{RademacherGrosswald1972}; this normalization
+agrees with \cite[eq.~(1.2)]{Burrin2022} and
+\cite[eq.~(1.2)]{Matsusaka2024}.  Directly from the definition, with
+$F=\operatorname{diag}(1,-1)$,
+\begin{equation}
+ \Psi(FMF)=-\Psi(M),
+ \label{eq:psi-reflection}
+\end{equation}
+since $FMF=\begin{pmatrix}a&-b\\-c&d\end{pmatrix}$ negates $\Phi$ and
+$\sgn(c(a+d))$.
+
+\begin{lemma}[Dedekind sums at the silver unit, even moduli]
+\label{lem:R}
+For $m\in\{2p,4p\}$, $s(\hat\lambda,m)=\dfrac{m-2}{4m}$.
+\end{lemma}
+
+\begin{proof}
+Write $\hat\lambda=1+4t$; then $\hat\lambda^2+6\hat\lambda+1=8\sigma$
+with $\sigma=1+4t+2t^2$ odd and $p\mid\sigma$.  For $m\in\{2p,4p\}$ the
+integer $b:=-(\hat\lambda^2+6\hat\lambda+1)/m$ is even ($-4\sigma/p$ or
+$-2\sigma/p$).  Let
+\[
+ M=\begin{pmatrix}-6-\hat\lambda&b\\ m&\hat\lambda\end{pmatrix}\in SL_2(\Z),
+ \qquad\operatorname{tr}M=-6,
+\]
+which is hyperbolic.  Since $\hat\lambda+3\equiv0\pmod4$ and $b,m$ are
+even, $A:=(M+3I)/2$ is integral; Cayley--Hamilton ($M^2+6M+I=0$) gives
+$A^2=2I$, $\operatorname{tr}A=0$, $\det A=-2$.  Hence $R:=I+A$ is
+integral, commutes with $M$, and has $\det R=(1+\sqrt2)(1-\sqrt2)=-1$.
+Put $P=RF$; then $\det P=1$ and $P^{-1}MP=FR^{-1}MRF=FMF$.  By
+conjugation invariance and \eqref{eq:psi-reflection},
+$\Psi(M)=\Psi(FMF)=-\Psi(M)$, so $\Psi(M)=0$.  Now $c=m>0$ and
+$a+d=-6<0$, so
+\[
+ 0=\Psi(M)=-\frac6m-12\,s(\hat\lambda,m)+3,\qquad
+ s(\hat\lambda,m)=\frac{3-6/m}{12}=\frac{m-2}{4m}.
+\]
+With the unreduced lift $\hat\lambda=-(4J+3)$ (already $\equiv1\pmod4$)
+and $n_0=N/p$, the centralizers are explicit:
+$A_{2p}=\begin{pmatrix}2J&-2n_0\\p&-2J\end{pmatrix}$ and
+$A_{4p}=\begin{pmatrix}2J&-n_0\\2p&-2J\end{pmatrix}$, both squaring to
+$2I$ because $4J^2-2pn_0=2$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:C3}]
+By Lemma~\ref{lem:R},
+$s(\hat\lambda,4p)-s(\hat\lambda,2p)=\frac{4p-2}{16p}-\frac{2p-2}{8p}=\frac1{8p}$,
+so \eqref{eq:C3-reduced} gives $K=0$ and $\eta_J(L(p,J))=0$.
+\end{proof}
+
+\begin{remark}[The binary-form route]
+\label{rem:class-number-route}
+Lemma~\ref{lem:R} was first proved through binary quadratic forms.  The
+form $Q_M=[m,\,2\hat\lambda+6,\,-b]$ attached to $M$ (via
+$M\mapsto[c,\,d-a,\,-b]$) has discriminant $32$ and content exactly $2$,
+since $32/\content^2$ must be $\equiv0,1\pmod4$.  Its primitive part has
+discriminant $8$; because $\Z[\sqrt2]$ is norm-Euclidean, hence a
+principal ideal domain, and has the unit $1+\sqrt2$ of norm $-1$, there
+is a single proper class of primitive forms of discriminant $8$, so $M$
+is $SL_2(\Z)$-conjugate to $M_0=\begin{pmatrix}-3&4\\2&-3\end{pmatrix}$
+(whose form is $[2,0,-4]$), and $\Psi(M_0)=-3-12s(1,2)+3=0$.  The
+$SL_2$ (rather than $GL_2$) conjugacy is obtained by adjusting an
+integral $O$-basis of $\Z^2$ by $I+A_0$, $A_0=\begin{pmatrix}0&2\\1&0\end{pmatrix}$,
+which has determinant $-1$ and commutes with $M_0$.  The centralizer
+proof above avoids the class-number input.  Both routes rest on the
+conjugacy invariance of $\Psi$, which we cite and do not re-prove.
+\end{remark}
+
+\begin{remark}[Why a quarter shift, and why silver ranks]
+The shift $\tfrac14$ in Lemma~\ref{lem:C3-step3} is what forces
+$\hat\lambda\equiv1\pmod4$.  With $\hat\lambda\equiv3\pmod4$ the form at
+$m=4p$ is primitive, $\Psi=\pm3$, and the evaluation fails (for
+$(J,p)=(3,17)$ one gets $s=-1/136$ instead of $33/136$).  The unit
+$1+\sqrt2$ of norm $-1$ is what makes the content-two class have
+$\Psi=0$; in the language of Section~\ref{sec:rademacher}, $M$ is
+\emph{inert}.
+\end{remark}
+
+\subsection{Consequences and clarifications}
+
+\begin{corollary}[The Dedekind sum at the silver unit, odd moduli]
+\label{cor:S}
+Let $p$ be odd and let $\varepsilon\in\Z/p$ satisfy
+$\varepsilon^2-6\varepsilon+1\equiv0\pmod p$.  Then
+\[
+ s(\varepsilon,p)=
+ \begin{cases}-\dfrac{p-1}{2p},&p\equiv1\pmod8,\\[6pt]
+ \dfrac1{2p},&p\equiv7\pmod8.\end{cases}
+\]
+\end{corollary}
+
+\begin{proof}
+Lift $h=-\varepsilon$ to $h\equiv1\pmod4$ and write
+$h^2+6h+1=8\sigma$ with $\sigma$ odd and $p\mid\sigma$.  The matrix
+$M_p=\begin{pmatrix}-6-h&-8\sigma/p\\p&h\end{pmatrix}$ has trace $-6$,
+and its form $H=[p,\,2h+6,\,8\sigma/p]$ has discriminant $32$ and is
+primitive ($p$ is odd).  The integral form $G=[p,\,h+3,\,2\sigma/p]$ has
+discriminant $8$ and $H(x,y)=G(x,2y)$; by Remark~\ref{rem:class-number-route}
+$G$ is properly equivalent to $x^2-2y^2$, so $H$ is that norm form
+restricted to an oriented sublattice of index two.  There are three such
+sublattices, the preimages of the three lines in $(\Z/2)^2$: on
+$\{x\text{ even}\}$ the norm is always even, impossible since $H$
+represents the odd number $p$; on $\{y\text{ even}\}$ the restricted form is
+$x^2-8y^2$; on $\{x\equiv y\pmod2\}$, with the positively oriented basis
+$(1,1),(0,2)$, it is $-x^2-8xy-8y^2$, properly equivalent to $-x^2+8y^2$
+by a unimodular substitution.  The odd values of these two forms are
+respectively $\equiv1$ and $\equiv7\pmod8$, so they are not properly
+equivalent, and $H$ is determined by $p\bmod8$.  At fixed trace $t$ the
+map $M\mapsto Q_M=[c,d-a,-b]$ is injective: from $[u,v,w]$ one recovers
+$c=u$, $b=-w$, $a=(t-v)/2$ and $d=(t+v)/2$.  It is equivariant because
+$Q_M(x)=\det(x,Mx)$ gives $Q_{P^{-1}MP}(x)=Q_M(Px)$ for
+$P\in SL_2(\Z)$.  Thus $M_p$ is conjugate to
+$M_+=\begin{pmatrix}-3&8\\1&-3\end{pmatrix}$ ($\Psi=-3$) if
+$p\equiv1\pmod8$ and to $M_-=\begin{pmatrix}-3&-8\\-1&-3\end{pmatrix}$
+($\Psi=+3$) if $p\equiv7\pmod8$.  Since
+$\Psi(M_p)=3-6/p-12s(h,p)=3-6/p+12s(\varepsilon,p)$, solving gives the
+two values.
+\end{proof}
+
+\begin{proposition}[The silver zero and level balance]
+\label{prop:C3-balance}
+Let $J\geq2$ and $p>1$ divide $2J^2-1$.  Then $L(p,J)$ is chiral, and it
+is rank-$J$ balanced if and only if $p=7$.  Thus for $p\neq7$
+Theorem~\ref{thm:C3} produces zeros of $\eta_J$ which are not level-wise
+balanced; for example at $(J,p)=(3,17)$ the imbalance sequence begins
+$D_3=(0,0,-2,4,-2,2,-4,2,0,\ldots)$, and only its Hurwitz moments cancel.
+\end{proposition}
+
+\begin{proof}
+Mirror balance would require $J^2\equiv-1$ together with $2J^2\equiv1$,
+forcing $p\mid3$, but $3\nmid2J^2-1$.  A blind rank is impossible since
+$J$ is a unit.  For the silver family, $J\equiv2J\pm1$ forces $J\equiv\mp1$,
+contradicting $p\mid2J^2-1$; $J\equiv-(2J\pm1)$ gives $3J\equiv\mp1$,
+hence $9J^2\equiv1$ and, with $2J^2\equiv1$, $9\equiv2$, i.e.\ $p\mid7$.
+Conversely at $p=7$, $2J^2\equiv1$ gives $J\equiv\pm2$, and
+$q=J$ then lies in $\{\pm(2J\pm1)\}=\{2,3,4,5\}$.  The sequence quoted is
+an exact computation.
+\end{proof}
+
+\begin{remark}
+The other universal zero orbit at silver ranks, $q\equiv\pm(2J\pm1)$, is
+the balanced family (b) of Theorem~\ref{thm:classification}; in
+\eqref{eq:E1} its two terms are exchanged with opposite signs by
+$k\mapsto(2J+1)k$, which gives a second, Fourier-side proof of
+$\eta_J=0$ for that family.  Theorems~\ref{thm:E} and \ref{thm:U} are
+not used in the proof of Theorem~\ref{thm:C3}; they are consistent with
+it, an exact vanishing being finer than any congruence.
+\end{remark}
+
+\section{Zero versus symmetry: the Rademacher symbol}
+\label{sec:rademacher}
+
+The proof of Lemma~\ref{lem:R} turned on an integral matrix of
+determinant $-1$ commuting with a hyperbolic $M\in SL_2(\Z)$, which forces
+$\Psi(M)=0$.  This section records, with citations, the extent to which
+that mechanism is necessary.  None of the facts about $\Psi$ below is
+claimed as new: the forward implications are classical, and the negative
+answer also follows from known asymptotic counts.  What we add are
+explicit small witnesses with elementary proofs, exact statements for the
+two- and four-block classes, an elementary density bound, and the
+identification of the matrices behind Theorem~\ref{thm:C3}.
+
+\subsection{Conventions and cited inputs}
+
+Let $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in SL_2(\Z)$ be hyperbolic
+with $t=a+d$, and $\Phi,\Psi$ as in \eqref{eq:rademacher-symbol}.  Put
+$R=\begin{pmatrix}1&1\\0&1\end{pmatrix}$,
+$L=\begin{pmatrix}1&0\\1&1\end{pmatrix}$, $F=\operatorname{diag}(1,-1)$,
+$S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ and
+$W=\begin{pmatrix}0&1\\1&0\end{pmatrix}=SF$.  The form
+$Q_M=[c,\,d-a,\,-b]$ has content $g$, and $Q_M/g=[A',B',C']$ has
+discriminant $D=(t^2-4)/g^2$; $O_D$ is the order of discriminant $D$.
+For $t>2$, $w(M)$ denotes the cyclic word in $R,L$ of $M$ (input (K3)
+below); $\sigma$ swaps the two letters, $\rho$ reverses the word, and
+$w\sim w'$ means equality up to rotation.  A class is \emph{primitive}
+if $M$ is not a proper power, i.e.\ its word is aperiodic.  Following
+Sarnak \cite{Sarnak2007}, $M$ is \emph{inert} if $M\sim FMF$,
+\emph{reciprocal} if $M\sim M^{-1}$, and \emph{ambiguous} if
+$M\sim FM^{-1}F$, all conjugacies in $SL_2(\Z)$.  A zero $\Psi(M)=0$ is
+called \emph{accidental} if $M$ is neither inert nor reciprocal.  Classes
+with $t<-2$ are handled through $-M$: $\Psi(-M)=\Psi(M)$, and the three
+symmetries commute with negation.
+
+The following inputs are cited, not re-proved.
+\begin{enumerate}[label=(K\arabic*)]
+\item $\Psi$ is an $SL_2(\Z)$-class function on hyperbolic elements
+\cite[Ch.~4]{RademacherGrosswald1972}.
+\item $\Psi(M^{-1})=-\Psi(M)$ \cite[Lem.~6.1(ii)]{BurrinVonEssen2024}.
+\item Every $M$ with $t>2$ is $SL_2(\Z)$-conjugate to a positive word in
+$R$ and $L$ containing both letters, unique up to rotation; $M$ is
+primitive iff the word is aperiodic.  This is the cyclically reduced
+normal form in $PSL_2(\Z)\cong C_2*C_3$; see
+\cite[pp.~268,272]{Ghys2006} for the free-product and left-right coding.
+\item $\Psi(M)=\#R-\#L$, the alternating sum of the run lengths of $w(M)$
+\cite[Prop.~4.1]{BurrinVonEssen2024}; see also Zagier
+\cite{Zagier1975}.
+\item \emph{(Context only.)}  $-\Psi(M)/3$ is the Atiyah--Patodi--Singer
+eta invariant of the mapping torus $T_M$ and its adiabatic limit, in the
+normalization of \cite[eq.~(5.60)]{Atiyah1987} as restated in
+\cite[Sec.~4.2]{BurrinVonEssen2024}; $\Psi(M)$ is also the linking number
+of the modular knot of $M$ with the trefoil \cite{Ghys2006}.  The
+statement ``$T_M$ has vanishing eta invariant'' below refers to this
+cited normalization only, not to arbitrary metrics or other operators.
+\item For Anosov $M$, $T_M$ admits an orientation-reversing
+self-homeomorphism iff there is an integral $X$ with $\det X=-1$ and
+$XM=MX$, or with $\det X=+1$ and $XM=M^{-1}X$
+\cite[Sec.~1.3 and the Anosov case of the degree theorem]{SunWangWu2008}.
+\item Sarnak's counts by trace \cite[Thm.~2]{Sarnak2007} and the
+Sarnak--Mozzochi winding law as stated in
+\cite[Cor.~1.3]{BurrinVonEssen2024}; used only in
+Theorem~\ref{thm:Z}(vi)(b).
+\end{enumerate}
+Two elementary facts: $\Psi(FMF)=-\Psi(M)$ (eq.~\eqref{eq:psi-reflection});
+and $WRW=L$, $WLW=R$, $SR^{-1}S^{-1}=L$, $SL^{-1}S^{-1}=R$.
+
+\begin{lemma}[Witness dictionary]
+\label{lem:W}
+Let $t>2$ and $w=w(M)$.
+\begin{enumerate}[label=(\alph*)]
+\item The following are equivalent: (1) there is $X\in M_2(\Z)$ with
+$\det X=-1$ and $XM=MX$; (2) $P^{-1}MP=FMF$ for some $P\in SL_2(\Z)$;
+(3) $\sigma(w)\sim w$; (4) $x^2-Dy^2=-4$ has an integer solution, i.e.\
+$O_D$ has a unit of norm $-1$.
+\item $M$ is reciprocal iff $\sigma\rho(w)\sim w$.
+\item $M$ is ambiguous iff $\rho(w)\sim w$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)$\Leftrightarrow$(2): given $X$ put $P=XF$; given $P$ put $X=PF$; in
+both directions $X^{-1}MX=M\iff(XF)^{-1}M(XF)=FMF$.
+(2)$\Leftrightarrow$(3): $WMW=S(FMF)S^{-1}$, and $WMW$ has the word
+$\sigma(w)$; apply (K3).
+(1)$\Leftrightarrow$(4): write $M=\begin{pmatrix}(t-gB')/2&-gC'\\gA'&(t+gB')/2\end{pmatrix}$.
+The rational centralizer of $M$ is $\Q[M]$, and its integral elements are
+$X(x,y)=\begin{pmatrix}(x-B'y)/2&-C'y\\A'y&(x+B'y)/2\end{pmatrix}$ with
+$x,y\in\Z$, $x\equiv B'y\pmod2$ ($y$ is integral because $[A',B',C']$ is
+primitive), and $\det X(x,y)=(x^2-Dy^2)/4$.
+(b) Inversion reverses the letters, and conjugation by $S$ then gives the
+word $\sigma\rho(w)$ for $M^{-1}$.
+(c) $FM^{-1}F\sim WM^{-1}W$, and conjugating by $S$ gives the word $\rho(w)$.
+\end{proof}
+
+\subsection{What a zero of \texorpdfstring{$\Psi$}{Psi} detects and forgets}
+
+\begin{theorem}
+\label{thm:Z}
+\begin{enumerate}[label=(\roman*)]
+\item \textup{(Witnessed zeros.)}  If $M$ is inert or reciprocal then
+$\Psi(M)=0$.  Ambiguity alone forces nothing: $R^2L$ is ambiguous and
+$\Psi(R^2L)=1$.
+\item \textup{(The inert witness is not necessary.)}
+$M_1=RLR^2L^2=\begin{pmatrix}12&5\\7&3\end{pmatrix}$ has $\Psi(M_1)=0$
+and $D=221$; the order $O_{221}$ has no unit of norm $-1$, so no
+integral matrix of determinant $-1$ commutes with $M_1$.  Its zero is
+witnessed by reciprocity: $P=RLS=\begin{pmatrix}1&-2\\1&-1\end{pmatrix}$
+satisfies $P^{-1}M_1P=M_1^{-1}$.
+\item \textup{(Neither inert nor reciprocal witness is necessary.)}
+$M_2=L^3R^2LR^2=\begin{pmatrix}3&8\\10&27\end{pmatrix}$ has
+$\Psi(M_2)=0$ and $D=224$; it is neither inert nor reciprocal.  (It is
+ambiguous: reversing $LLLRRLRR$ gives a rotation of it.  Ambiguity does
+not negate $\Psi$ and does not force the zero.)  By (K6) the Sol
+manifold $T_{M_2}$ is chiral, that is, it admits no orientation-reversing
+self-homeomorphism, while by (K5) its eta invariant, in the cited
+normalization, vanishes.
+\item \textup{(Minimality.)}  Every primitive balanced class of word length
+$\leq6$ is inert or reciprocal.  Word length $8$ has exactly $8$
+primitive balanced classes: $2$ inert, $4$ reciprocal and not inert, and
+$2$ accidental, the $\sigma$-pair $\{L^3R^2LR^2,\ L^2RL^2R^3\}$.
+\item \textup{(Delimited converse.)}
+\begin{enumerate}[label=(\alph*)]
+\item For two-block classes $R^aL^b$ ($a,b\geq1$): $\Psi=a-b$, and
+$\Psi=0\iff a=b\iff$ inert.  Here the converse holds exactly.
+\item For primitive four-block classes $R^aL^bR^cL^d$
+($a,b,c,d\geq1$, $(a,b)\neq(c,d)$): $\Psi=0\iff a+c=b+d$; no such class
+is inert; the class is reciprocal iff $(a=d$ and $b=c)$ or $(a=b$ and
+$c=d)$; every other solution of $a+c=b+d$ is an accidental zero.  In
+particular $R^2LR^{n-1}L^n$ is an accidental zero for every $n\geq3$,
+with $n=3$ the class of $M_2$.  For unrestricted four-block tuples
+$(a,b,c,d)$, the class is inert iff $a=b=c=d$.
+\end{enumerate}
+\item \textup{(Density.)}
+\begin{enumerate}[label=(\alph*)]
+\item Let $B_{2n}$ be the number of primitive balanced classes of word
+length $2n$ and $W_{2n}$ the number of those that are inert or
+reciprocal.  Then
+\[
+ B_{2n}=\frac1{2n}\sum_{d\mid n}\mu(d)\binom{2n/d}{n/d}
+ \sim\frac{4^n}{2n\sqrt{\pi n}},\qquad W_{2n}<2^{n+1},
+\]
+so $W_{2n}/B_{2n}\to0$.
+\item \textup{(Cited, not computed.)}  By (K7), inert or reciprocal
+primitive classes of trace $\leq x$ number $O(x)$, while primitive
+classes with $\Psi=0$ number $\sim x^2/(12(\log x)^2)$; so in the
+ordering by trace as well, almost every zero is accidental.
+\end{enumerate}
+\item \textup{(What is detected.)}  $\Psi(M)=0$ detects exactly the
+balance $\#R=\#L$ of the cutting sequence (K4), equivalently zero
+winding about the cusp, zero linking with the trefoil, and vanishing
+eta invariant of $T_M$ in the cited normalization (K5).  The two
+$\Psi$-negating symmetries, reflection of the fibre (inert) and time
+reversal of the geodesic (reciprocal), force it.  It does not reveal
+whether either of them is present.
+\item \textup{(Transfer of the silver zero.)}  For every $J\geq2$, every
+divisor $p>1$ of $2J^2-1$ and $m\in\{2p,4p\}$, the matrix $M$ of
+Lemma~\ref{lem:R} satisfies $-M\sim R^2L^2$, the inert two-block class of
+(v)(a), whose determinant $-1$ commuter is $\begin{pmatrix}2&1\\1&0\end{pmatrix}$,
+i.e.\ $1+\sqrt2$.  The lens space $L(p,J)$ is chiral and, for $p\neq7$,
+unbalanced (Proposition~\ref{prop:C3-balance}); so for $p\neq7$ its zero
+has neither of the two named lens-space mechanisms (orientation
+reversal, level balance), yet it is the image of a zero that is
+witnessed on the Sol side.  At $p=7$ the zero is also level-wise
+balanced.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) is (K1), (K2) and \eqref{eq:psi-reflection}; $\Psi(R^2L)=2-1=1$ by
+(K4), and $R^2L$ is ambiguous because $\rho(RRL)=LRR\sim RRL$.
+
+(ii) $\Psi(M_1)=3-3=0$ by (K4); directly, $Q_{M_1}=[7,-9,-5]$,
+$s(3,7)=-1/14$, $\Phi=15/7+6/7=3$ and $\Psi=0$.  A unit $\eta>1$ of
+$O_{221}$ is $(x+y\sqrt{221})/2$ with $x,y\geq1$.  If $y\geq2$ then
+$\eta>15>\epsilon:=(15+\sqrt{221})/2$; if $y=1$ then $x^2=221\pm4$
+forces $x=15$ and norm $+1$.  So $\epsilon$ is the least unit $>1$,
+every unit is $\pm\epsilon^k$, and all have norm $+1$; by
+Lemma~\ref{lem:W}(a) $M_1$ is not inert.  Direct multiplication gives
+$P^{-1}M_1P=\begin{pmatrix}3&-5\\-7&12\end{pmatrix}=M_1^{-1}$.
+
+(iii) $\Psi(M_2)=4-4=0$; $Q_{M_2}=[10,24,-8]$, content $2$, $D=224$.
+Not inert: $x^2-224y^2=-4$ would give $x^2\equiv3\pmod7$, a
+non-residue.  Not reciprocal: $\sigma\rho(LLLRRLRR)=LLRLLRRR$ has cyclic
+$R$-runs of lengths $\{1,3\}$, whereas $LLLRRLRR$ has $R$-runs $\{2,2\}$,
+so the former is not a rotation of the latter.
+Ambiguous: $\rho(LLLRRLRR)=RRLRRLLL$ is the rotation by three places.
+The last two sentences are (K6) and (K5).
+
+(iv) A primitive balanced word of length $\leq6$ is a rotation of
+$RL$, $R^2L^2$, $RLRL$ (not primitive), $R^3L^3$, $R^2LRL^2$, $R^2L^2RL$,
+or $RLR^2L^2$ and their letter swaps; each is inert or reciprocal by
+Lemma~\ref{lem:W}.  At length $8$, classifying by cyclic run count
+gives one two-run class ($R^4L^4$, inert), four primitive four-run
+classes (two reciprocal, two accidental) and three six-run classes (one
+inert, two reciprocal); the accidental pair is $\{L^3R^2LR^2,L^2RL^2R^3\}$.
+Proper powers inherit the witness of their primitive root, so the first
+accidental length is $8$ even among all balanced words.
+
+(v)(a) $R^aL^b=\begin{pmatrix}1+ab&a\\b&1\end{pmatrix}$, $\Psi=a-b$ by
+(K4), and $\sigma(R^aL^b)=R^bL^a\sim R^aL^b$ iff $a=b$.
+(b) Primitivity of a four-block word is exactly $(a,b)\neq(c,d)$.  The
+$R$-first exponent sequences of one necklace are the rotations by an
+even number of places, i.e.\ $(a,b,c,d)$ and $(c,d,a,b)$.  Now
+$\sigma(w)\sim R^bL^cR^dL^a$ has sequence $(b,c,d,a)$, which equals one of
+the two only if $a=b=c=d$, excluded by primitivity (and giving the
+unrestricted statement); $\sigma\rho(w)=R^dL^cR^bL^a$ has sequence
+$(d,c,b,a)$, which equals $(a,b,c,d)$ iff $a=d$, $b=c$, and equals
+$(c,d,a,b)$ iff $a=b$, $c=d$; both patterns satisfy $a+c=b+d$.  For
+$(2,1,n-1,n)$: $a+c=b+d=n+1$, $a=d$ would force $n=2$, $a\neq b$, and
+$(2,1)\neq(n-1,n)$.
+
+(vi)(a) The count of aperiodic necklaces with $n$ letters of each kind
+is the displayed M\"obius sum.  If $\sigma(w)=\mathrm{rot}_k(w)$ with
+$k\not\equiv0$, then $w_{i+k}=1-w_i$, so $w$ is determined by its values
+on the $\gcd(2n,k)\leq n$ cycles of $i\mapsto i+k$; if
+$\sigma\rho(w)=\mathrm{rot}_k(w)$ then $w_{k-i}=1-w_i$, and the reflection
+$i\mapsto k-i$ has no fixed points, so it pairs the $2n$ positions.
+Either way at most $2^n$ words per $k$, fewer than $4n\cdot2^n$ words in
+all, and each primitive class contains $2n$ words.  (b) is cited.
+
+(vii) restates (K4), (K5), (i) and (iii).
+
+(viii) With $h=\hat\lambda\equiv1\pmod4$, $h^2+6h+1\equiv8\pmod{16}$, and
+$p$ divides the same number, so $8p$ divides it and both $b$ and $m$ are
+even while $-6-h$ and $h$ are odd: $-M\equiv I\pmod2$, and
+$\operatorname{tr}(-M)=6$.  A positive word with four or more cyclic
+runs has trace $\geq\operatorname{tr}((RL)^2)=7$, so a trace-$6$ word is
+$R^aL^b$ with $2+ab=6$: one of $R^4L$, $R^2L^2$, $RL^4$.  Of these only
+$R^2L^2=\begin{pmatrix}5&2\\2&1\end{pmatrix}$ is $\equiv I\pmod2$, a
+conjugacy-invariant condition.  Hence $-M\sim R^2L^2$.  (Directly,
+$X=(M+5I)/2$ is integral, commutes with $M$ and has determinant
+$(1-30+25)/4=-1$.)  Chirality of $L(p,J)$: $J^2\equiv-1$ with
+$2J^2\equiv1$ would force $p\mid3$.
+\end{proof}
+
+\begin{remark}
+The class $R^2L^2$ contains, for every admissible $(J,p)$ and both
+$m\in\{2p,4p\}$, the matrix $-M$ of Lemma~\ref{lem:R}; this is the
+precise sense in which the zero of Theorem~\ref{thm:C3} is a
+``witnessed'' zero on the Sol side while, for $p\neq7$, having no
+orientation-reversing or level-balance mechanism on the lens-space side
+(at $p=7$ it is level-wise balanced, Proposition~\ref{prop:C3-balance}).
+Neither statement
+transfers symmetries between the two geometries; the zero itself
+cannot identify why it is zero.
+\end{remark}
+
+\section{The silver-rank zero set}
+\label{sec:silver-zero-set}
+
+At a silver rank $\eta_J$ is an even integer at every modulus
+(Corollary~\ref{cor:E}(b) and Theorem~\ref{thm:denominator}(c)), and its
+zeros include the balanced family (b) of
+Theorem~\ref{thm:classification}, the orbit $q\equiv\pm J,\pm2J$ of
+Theorem~\ref{thm:C3}, and the mirror orbit when $-1$ is a square modulo
+$p$.  At the level $p=2J^2-1$ itself the zero set is the subject of the
+companion paper \cite{SilverRankZeros2026}.  We record its main statements without
+proofs; the numbering refers to \cite{SilverRankZeros2026}, and nothing
+else in this paper depends on them.
+
+\begin{itemize}
+\item \emph{The $S$-unit coordinate} \cite[Lem.~4.1,
+Prop.~4.3]{SilverRankZeros2026}.  Reading $\Z[\sqrt2]$ modulo $p$
+through $\sqrt2\mapsto2J$, the four zero families of
+\cite[Thm.~7.1]{MahmoodP1Collection2026} are the orbits of $\sqrt2$,
+$\delta/\sqrt2$, $\delta$ and $2\delta$, $\delta=1+\sqrt2$.  In the
+Cayley coordinate $\rho=(1+q)/(1-q)$ the family (b), the orbit of
+Theorem~\ref{thm:C3} and the mirror orbit are $\rho\in\{\pm\delta^{\pm1}\}$,
+$\rho\in\{\pm\delta^{\pm2}\}$ and $\rho^2\equiv-1$.
+\item \emph{A fifth family} \cite[Thm.~5.1]{SilverRankZeros2026}:
+$\eta_J(L(2J^2-1,\,3-4J))=(J-1)\ind_{J\text{ odd}}$.
+\item \emph{The Pell ladder} \cite[Thm.~6.1]{SilverRankZeros2026}.  With
+$\delta^n=a_n+P_n\sqrt2$ and $q_n=a_n+2P_nJ$: if $P_n\mid J$ then
+$\eta_J(L(p,q_n))=0$ for odd $n$ and $\frac23P_{n-2}J$ for even $n$; if
+$n\geq2$ and $J\equiv1\pmod{P_n}$ then $\eta_J(L(p,q_n))=\gamma_n(J-1)/P_n$
+for an explicit $\gamma_n>0$.
+\item \emph{The period law} \cite[Conj.~7.1, Thm.~8.4,
+Cor.~8.5]{SilverRankZeros2026}.  Conjecturally every nonconstant $S$-unit orbit is
+eventually quasi-polynomial in $J$ with period dividing its coefficient
+of $\sqrt2$, supported by a reported out-of-sample test on $64$ orbits
+(only summary counts were retained; see the companion's Appendix~A).
+This is proved for every nonconstant orbit of norm $\pm1$ or
+$\pm2$ (the powers $\delta^n$, $n\geq1$, and the norm-two orbits
+$a_nJ\pm P_n$), with explicit thresholds past which $\eta_J$ is linear in
+$J$ on each residue class, complete zero sets for $24$ families, and
+eventually periodic zero sets; the constant orbit $q=\pm1$ lies outside
+the law, and there $\eta_J(L(2J^2-1,1))=-J(J-1)(2J-1)/3$ is cubic.
+\item \emph{Rank-uniform zeros} \cite[Cor.~8.9,
+Cor.~7.2(a)]{SilverRankZeros2026}.  Among the orbits of norm $\pm1$ and
+$\pm2$ exactly $q\equiv J$, $J+1$, $2J-1$ vanish at every rank; in a
+window of $64$ orbits exactly the four families of
+\cite{MahmoodP1Collection2026} do.
+\item \emph{Unbounded ambiguity} \cite[Cor.~8.13]{SilverRankZeros2026}.
+For every $K$ there is a rank $J$ at which $K$ pairwise non-homeomorphic
+chiral lens spaces $L(2J^2-1,q_i)$, none rank-$J$ balanced
+(Theorem~\ref{thm:classification}), all have $\eta_J=0$.
+\end{itemize}
+
+The last item is the sharp form of the gap between vanishing and balance
+of Example~\ref{ex:zero-not-balanced}.  By Corollary~\ref{cor:rank-one}
+a zero of $\eta_1$ is exactly a mirror symmetry, and by
+Corollary~\ref{cor:E}(c) the same holds at prime moduli off the silver
+ranks with $p\nmid J$; at silver ranks $J\geq2$ a single vanishing $\eta_J$ can hide an
+unbounded amount of handedness.  The companion also records a refuted
+conjecture \cite[Conj.~4.6]{SilverRankZeros2026} and the reason the
+Rademacher mechanism of Section~\ref{sec:silver} does not close the
+classification \cite[Rem.~4.5]{SilverRankZeros2026}.
+
+\section{Open problems}
+\label{sec:open}
+
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Silver-rank zeros.}  Determine, for $p\mid2J^2-1$, the set of
+$q$ with $\eta_J(L(p,q))=0$ (Section~\ref{sec:silver-zero-set} and
+\cite[Sec.~9]{SilverRankZeros2026}); in particular prove the period law
+\cite[Conj.~7.1]{SilverRankZeros2026} beyond norm $\pm2$, and describe
+the zeros outside the $S$-unit sector.
+\item \emph{Composite moduli.}  Theorem~\ref{thm:denominator}(b),(c) gives
+necessary local conditions for a zero; they are not sufficient
+($\eta_{25}(L(25,1))=-104$).  Observation~\ref{obs:composite} shows zeros
+in which several nonzero primitive parts cancel.  A classification of
+the zeros of $\eta_J$ at composite $p$, even off the silver ranks of the
+prime factors, is open.
+\item \emph{The prime $3$ and $p=2,3$ boundaries.}  Theorem~\ref{thm:E}
+fails at $p=3$ ($\eta_1(L(3,1))=-2/9$) and Theorem~\ref{thm:denominator}(d)
+needs $3\nmid p$; the $3$-primary behaviour of $\eta_J$ is described only
+by Theorem~\ref{thm:denominator}(c).
+\item \emph{Literature.}  Congruences of the type of Theorems~\ref{thm:E}
+and \ref{thm:U} may be instances of index-theoretic congruences for
+flat bundles; and Corollary~\ref{cor:S} is likely classical.  Neither
+has been searched for.
+\item \emph{Other operators.}  Whether the level-wise criterion of
+Theorem~\ref{thm:criterion} has an analogue for twisted or half-integer
+spin operators on lens spaces, where the eta invariants are known
+\cite{Bar1996,Boldt2017}, is not addressed here.
+\end{enumerate}
+
+\appendix
+
+\section{Exact computations}
+\label{app:verification}
+
+Every statement in this paper was accompanied by exact computations,
+using integer or rational arithmetic (or certified interval arithmetic
+where a transcendental identity is involved), and in several cases by
+predictions fixed before the corresponding rows were computed
+(``held-out'' below; ``opened'' rows were available when the statement
+was formulated).  These computations test the identities and the
+conventions; they are not substitutes for the proofs.  Numerical values
+quoted as ``worst difference'' are high-precision floating-point
+corroboration, not interval enclosures.
+
+\begin{small}
+\begin{longtable}{@{}L{0.24\textwidth}L{0.41\textwidth}L{0.2\textwidth}L{0.07\textwidth}@{}}
+\toprule
+statement & what was checked & rows & failures\\
+\midrule
+\endhead
+Branch counts \eqref{eq:branch-counts} & direct weight-pair enumeration
+against a Clebsch--Gordan recurrence on residue-class character vectors,
+$p\leq40$, all $q$, $J\in\{1,2\}$, levels $\leq2p+10$ & $63{,}198$
+(opened) & $0$\\
+Eta anchor & the regularized level sum equals $\eta_J$ from the master
+formula \eqref{eq:master} as emitted by an independent certified
+implementation, $p\leq30$, all $q$, $J\in\{1,2,3\}$ & $831$ (opened) & $0$\\
+Corollary~\ref{cor:affine} & periodic increments of residue-class weight
+counts, $p\leq60$, every multiplier; windows $n<2p$ and $n<6p$ give
+identical verdicts, $p\leq40$, $J\leq4$ & all rows & $0$\\
+Corollary~\ref{cor:rank-one} & rank-one balance $\iff q^2\equiv-1$,
+$p\leq60$; $s(h,k)=0\iff h^2\equiv-1$, $k\leq300$ & all rows & $0$\\
+Rank $4$ prediction & chiral balanced spaces at $J=4$, $p\leq64$, predicted
+as $p\in\{31,62\}$ with four $q$ each before computation & held-out & hit\\
+Theorem~\ref{thm:kernel} & \eqref{eq:kernel-form} evaluated in $200$-bit
+interval arithmetic contains the exact integer $pD_J(n)$, $p\leq30$, all
+$q$, $J\leq8$, $n\leq2p$ & $91{,}840$ (opened) & $0$\\
+Theorem~\ref{thm:criterion} & criterion (i)$\wedge$(ii) equals direct
+balance on $n<6p$, $p\leq260$, all $q$, $J\leq8$; the symbolic identities
+of the proof verified in a computer algebra system & $164{,}784$ & $0$\\
+Example~\ref{ex:balanced-table} & chiral balanced sets for $J\leq8$,
+$p\leq260$, and eight rank scans, predicted from the families before the
+rows $J\geq5$ were computed & held-out & hit\\
+Theorem~\ref{thm:classification} (support) & criterion $\iff$ (a)$\vee$(b)$\vee$(c)
+for all $p\leq300$, all $q$, all $J$ mod $p$ & $5{,}483{,}516$ & $0$\\
+Lemma~\ref{lem:parity-projection} & balance of $L(2p,\tilde q)$ equals
+balance of $L(p,q)$ by the criterion, odd $p\leq151$, all $q$, $J\leq2p$
+& $954{,}920$ & $0$\\
+Remark~\ref{rem:certificate} & class-generator membership over $\Z$ in
+the unit-saturated ideal, tested for each of the $105$ matchings (one
+representative basis per class retained); semantic check on every odd
+$p\in[5,101]$ and the
+composites $121$, $125$, $143$, $169$, $175$, $187$, $221$, $245$, $289$,
+$323$, $343$, $385$ (all units
+$q$, all $J$ mod $p$); even reduction for $p\equiv2\pmod4$, $p\leq402$
+& $105$; $712{,}060$; $1{,}116{,}462$ & $0$\\
+Theorem~\ref{thm:decomposition} & primitive parts by the element route
+\eqref{eq:generic-element}--\eqref{eq:clifford-element} against M\"obius
+inversion, $d\leq60$, all $q$, $J\leq8$ (worst difference
+$1.7\cdot10^{-55}$ at $60$ digits) & $8{,}808$ & $0$\\
+Proposition~\ref{prop:first-moment} & $\sum_ru_r=0$ and
+$\sum_r[v_r-a_ru_r]=0$, $p<40$, all $q$, $J\in\{1,2,3,5\}$ & $1{,}888$ & $0$\\
+Observation~\ref{obs:prime-zeros} & zeros of $\eta_J$ on primes
+$41$--$199$ ($J\leq12$) and $41$--$101$ ($13\leq J\leq(p-1)/2$); the
+prediction, fixed in advance, ``zeros are mirror, silver-family, or the four families
+at $p=2J'^2-1$'' was refuted by $196$ zeros in $49$ orbits & $71{,}230$
+(held-out) & $196$ unpredicted\\
+Observation~\ref{obs:composite} & zeros on composites $41$--$120$,
+$J\leq10$, classified by primitive parts & $25{,}180$ & --\\
+Observation~\ref{obs:silver-blind} & dichotomy, silver integrality and
+$q=J$ on primes $211$--$599$ never inspected before the statements were
+fixed & $67{,}032+41{,}286+12{,}210$ (held-out) & $0$\\
+Theorem~\ref{thm:E} & symbolic Laurent coefficients of $f$, $f_{J,1}$ and
+the trace constants (two independent computer algebra systems); trace
+form \eqref{eq:trace-form} against $p\,\eta_J$, primes $5$--$47$, all $q$,
+$J\leq6$ (worst difference $8.7\cdot10^{-57}$); (i), (ii),
+Corollary~\ref{cor:E}(a) on all $17$ primes $601$--$701$, all $q$,
+$J\in\{1,2,3\}$, plus silver ranks $J_s,J_s+1$ and $J=p$ at $601,607$;
+master formula against the evaluator, $p\leq40$, $J\leq8$; Rademacher's
+congruence, primes $5$--$199$ & $1{,}860$; $43{,}026$ (held-out); $3{,}912$;
+$4{,}178$ & $0$\\
+Corollary~\ref{cor:E}(d) & $\eta_{np}(L(p,\pm1))=\mp n(p^2-1)/6$ at
+$p\in\{5,7,11,13\}$, $n\in\{1,2\}$; $\eta_J-J(2J^2-1)\eta_1\in2\Z$ on
+primes $5$--$59$, all $q$, $J\leq12$ & $8$; $5{,}040$ & $0$\\
+Theorem~\ref{thm:U} & master formula against the evaluator,
+$41\leq p\leq60$, $J\leq8$; Lemma~\ref{lem:dedekind-facts}, $p\leq400$;
+Lemma~\ref{lem:low-mode-parity}, $p\leq80$, $J\leq16$; \eqref{eq:U} on
+every composite $121$--$220$ ($J\leq6$), on $p\in\{2,3\}$
+($9\leq J\leq60$) and on $p\in\{4,8,9,16,25,27,32,49\}$ ($9\leq J\leq24$);
+Theorem~\ref{thm:denominator}(b) on the $364$ zeros found & $4{,}896$;
+$48{,}677$; $31{,}440$; $45{,}072+156+1{,}856$ (held-out except $p=121,150,200$
+and $p\in\{2,3\}$, which were computed earlier) & $0$\\
+Theorem~\ref{thm:C3} & the chain $K=0$, $16K=T-p$, parity split,
+Lemma~\ref{lem:D} at $m\in\{2p,4p\}$, Lemma~\ref{lem:R} by two
+Dedekind-sum routes, $\Psi(M)=0$ and content $2$, on every divisor
+$p>1500$ of $2J^2-1$ for $60\leq J\leq110$ and at both silver ranks of the
+first $12$ primes $\equiv1$ and $12$ primes $\equiv7\pmod8$ above
+$100{,}000$ (held-out), and on $p\leq1500$, $60\leq J\leq110$ (opened);
+$\eta_J(L(p,J))=2K/p^2=0$ by the exact evaluator for $p\leq12000$;
+Corollary~\ref{cor:S} on every row; family (b) on $15$ rows &
+$62+48$ (held-out) $+73$; $29$; $183$; $15$ & $0$\\
+Theorem~\ref{thm:Z} & (K4), \eqref{eq:psi-reflection}, (K2), word route
+against the Gauss reduced-form route, inert $\iff$ negative Pell, on every
+primitive word of length $\leq18$; $M_1$, $M_2$; all primitive balanced
+classes of length $\leq8$; two-block $a,b\leq60$; primitive four-block
+tuples with $a+b+c+d\leq32$ ($1{,}232$ zeros, $1{,}008$ accidental);
+the family $(2,1,n-1,n)$, $n\leq60$; $B_{2n}$ and $W_{2n}$ at every even
+length $\leq24$ ($B_{22}=32{,}065$, $W_{22}=1{,}085$; $B_{24}=112{,}632$,
+$W_{24}=2{,}150$); $-M\sim R^2L^2$ for $J\leq40$, all divisors, both $m$ &
+$31{,}040$; $13$; $3{,}600$; $35{,}840$; $58$; $12$ lengths; $154$ & $0$\\
+Section~\ref{sec:silver-zero-set} & the exact computations behind the
+companion's statements (fifth family, Pell ladder, period-law test and
+proof, complete zero sets, the refuted Conjecture~4.6) are listed in
+\cite[App.~A]{SilverRankZeros2026} & -- & --\\
+\bottomrule
+\end{longtable}
+\end{small}
+
+Share of primitive balanced classes with an inert or reciprocal witness,
+$W_{2n}/B_{2n}$: $6/8$ at length $8$, $29/75$ at $12$, $128/800$ at $16$,
+$531/9{,}225$ at $20$, $1{,}085/32{,}065$ at $22$, $2{,}150/112{,}632$ at $24$.
+
+In each block, deliberately mutated versions of the statements (a wrong
+sign, a dropped term, a wrong root, a wrong residue class) were run and
+failed at a named witness; these mutation checks guard against a checker
+that passes vacuously.  One refutation of a prediction fixed in advance
+is recorded above: the conjectured prime-modulus zero list was false,
+and the zeros it missed led to Observation~\ref{obs:prime-zeros} and
+thence to Theorems~\ref{thm:E} and \ref{thm:C3}.  Two further
+refutations, of the companion's Conjecture~4.6 at $p=1129$ and of a control premise at
+$q=4-4J$, are recorded in \cite[App.~A]{SilverRankZeros2026}.
+
+\input{disclosure}
+\begin{thebibliography}{99}
+
+\bibitem{MahmoodP1Collection2026}
+L. Mahmood, \emph{Eta invariants of transverse-traceless tensor curl on
+three-dimensional lens spaces}, companion preprint, 2026,
+\texttt{doi:10.5281/zenodo.21433675}.
+
+\bibitem{SilverRankZeros2026}
+L. Mahmood, \emph{Silver-rank zeros of the tensor-curl eta invariant on
+lens spaces: silver $S$-units, a Pell ladder, and a period law},
+companion preprint, 2026. DOI:
+\url{https://doi.org/10.5281/zenodo.23049615}.
+
+\bibitem{MahmoodP3Collection2026}
+L. Mahmood, \emph{Dirac-to-tensor-curl eta transfer on round spherical
+space forms with affine-ADE specializations}, companion preprint, 2026,
+\texttt{doi:10.5281/zenodo.21433687}.
+
+\bibitem{MahmoodP7Collection2026}
+L. Mahmood, \emph{Square elliptic completions and APS boundary
+information on round spherical quotients}, companion preprint, 2026,
+\texttt{doi:10.5281/zenodo.22917346}.
+
+\bibitem{APS1975}
+M. F. Atiyah, V. K. Patodi and I. M. Singer, Spectral asymmetry and
+Riemannian geometry. II, \emph{Math. Proc. Cambridge Philos. Soc.}
+\textbf{78} (1975), 405--432.
+
+\bibitem{Atiyah1987}
+M. F. Atiyah, The logarithm of the Dedekind $\eta$-function,
+\emph{Math. Ann.} \textbf{278} (1987), 335--380.
+
+\bibitem{Bar1996}
+C. B\"ar, The Dirac operator on space forms of positive curvature,
+\emph{J. Math. Soc. Japan} \textbf{48} (1996), 69--83.
+
+\bibitem{Bar2019}
+C. B\"ar, The curl operator on odd-dimensional manifolds,
+\emph{J. Math. Phys.} \textbf{60} (2019), 031501; arXiv:1702.02044.
+
+\bibitem{Basu2015}
+R. Basu, Higher spin de Sitter quantum gravity, \emph{J. High Energy
+Phys.} \textbf{2015}, no.~10, 151; arXiv:1507.04757.
+
+\bibitem{BeckRobins2004}
+M. Beck and S. Robins, Dedekind sums: a combinatorial-geometric
+viewpoint, in \emph{Unusual applications of number theory}, DIMACS Ser.
+Discrete Math. Theoret. Comput. Sci. \textbf{64}, Amer. Math. Soc., 2004,
+25--35; arXiv:math/0112076.
+
+\bibitem{Boldt2017}
+S. Boldt, Properties of the Dirac spectrum on three dimensional lens
+spaces, \emph{Osaka J. Math.} \textbf{54} (2017), 747--765; arXiv:1504.03121.
+
+\bibitem{Burrin2022}
+C. Burrin, The Manin--Drinfeld theorem and the rationality of Rademacher
+symbols, \emph{J. Th\'eor. Nombres Bordeaux} \textbf{34} (2022), 739--753.
+
+\bibitem{BurrinVonEssen2024}
+C. Burrin and F. von Essen, Windings of prime geodesics, \emph{Int.
+Math. Res. Not. IMRN} \textbf{2024}, no.~22, 13931--13963,
+\texttt{doi:10.1093/imrn/rnae225}; arXiv:2209.06233.
+
+\bibitem{CastroLashkariMaloney2011Farey}
+A. Castro, N. Lashkari and A. Maloney, A de Sitter Farey tail,
+\emph{Phys. Rev. D} \textbf{83} (2011), 124027; arXiv:1103.4620.
+
+\bibitem{COMPACTIIIa2024}
+COMPACT Collaboration (A. Samandar et al.), Cosmic topology. Part IIIa.
+Microwave background parity violation without parity-violating
+microphysics, \emph{J. Cosmol. Astropart. Phys.} \textbf{11} (2024), 020;
+arXiv:2407.09400.
+
+\bibitem{Ghys2006}
+\'E. Ghys, Knots and dynamics, in \emph{Proceedings of the International
+Congress of Mathematicians (Madrid, 2006)}, Vol.~I, European
+Mathematical Society, Z\"urich, 2007, 247--277.
+
+\bibitem{Girstmair2016}
+K. Girstmair, On the values of Dedekind sums, arXiv:1610.05588.
+
+\bibitem{Jeffrey1992}
+L. C. Jeffrey, Chern--Simons--Witten invariants of lens spaces and torus
+bundles, and the semiclassical approximation, \emph{Comm. Math. Phys.}
+\textbf{147} (1992), 563--604.
+
+\bibitem{Katase1987}
+K. Katase, On the value of Dedekind sums and eta-invariants for
+3-dimensional lens spaces, \emph{Tokyo J. Math.} \textbf{10} (1987),
+327--347.
+
+\bibitem{MartinSvesko2020}
+V. L. Martin and A. Svesko, Higher spin partition functions via the
+quasinormal mode method in de Sitter quantum gravity, \emph{SciPost Phys.}
+\textbf{9} (2020), 039; arXiv:2004.00128.
+
+\bibitem{Matsusaka2024}
+T. Matsusaka, A hyperbolic analogue of the Rademacher symbol,
+\emph{Math. Ann.} \textbf{388} (2024), 2843--2886;
+\href{https://doi.org/10.1007/s00208-023-02588-9}{doi:10.1007/s00208-023-02588-9};
+arXiv:2003.12354v4.
+
+\bibitem{Meyer2005}
+J. L. Meyer, Symmetric arguments in the Dedekind sum, \emph{Fibonacci
+Quart.} \textbf{43} (2005), 122--123.
+
+\bibitem{PrzytyckiYasuhara2003}
+J. H. Przytycki and A. Yasuhara, Symmetry of links and classification of
+lens spaces, \emph{Geom. Dedicata} \textbf{98} (2003), 57--61;
+arXiv:math/0011119.
+
+\bibitem{RademacherGrosswald1972}
+H. Rademacher and E. Grosswald, \emph{Dedekind sums}, Carus Mathematical
+Monographs \textbf{16}, Mathematical Association of America, 1972.
+
+\bibitem{Sarnak2007}
+P. Sarnak, Reciprocal geodesics, \emph{Clay Math. Proc.} \textbf{7}
+(2007), 217--237.
+
+\bibitem{SunWangWu2008}
+H. Sun, S. Wang and J. Wu, Self-mapping degrees of torus bundles and
+torus semi-bundles, \emph{Osaka J. Math.} \textbf{47} (2010), 131--155;
+\href{https://doi.org/10.18910/4707}{doi:10.18910/4707}; arXiv:0810.1799.
+
+\bibitem{Zagier1975}
+D. Zagier, Nombres de classes et fractions continues, in
+\emph{Journ\'ees Arithm\'etiques de Bordeaux (1974)},
+\emph{Ast\'erisque} \textbf{24--25} (1975), 81--97.
+
+\end{thebibliography}
+
+\end{document}

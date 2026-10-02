@@ -1,0 +1,343 @@
+\documentclass[11pt]{article}
+\usepackage{paperreview}
+\title{When Memory Is Observable:\\Control Bounds and Temporal-Coarse-Graining Obstructions}
+\author{Luqman Mahmood}
+\date{1 October 2026}
+\hypersetup{pdftitle={When Memory Is Observable: Control Bounds and Temporal-Coarse-Graining Obstructions},pdfauthor={Luqman Mahmood}}
+\begin{document}
+\maketitle
+\draftstatus{SM2, v1.0.0}{Conditional bounds and interval-certified scales; no performed physical experiment.}
+\begin{abstract}
+An increase of distinguishability in an averaged qubit evolution can be
+dynamically real yet difficult to identify from measured records. For a qubit
+coupled along a fixed axis to a symmetric classical telegraph process, we
+derive, in the fast-switching regime $\gamma\geq4v$ ($0<v/\gamma\leq1/4$),
+an all-control ceiling of order $v^2D^2/\gamma^4$ on each endpoint
+increase of squared trace distance when transverse drive strength is bounded.
+An explicit constant-drive construction attains that order. We then consider
+unresolved timing: without a common bound on control speed, one continuous
+unitary trajectory can approximate the entire time-averaged path of any
+continuous unital qubit channel. This gives a uniform finite-sample
+indistinguishability result for independently reset, single-time experiments.
+A separate, externally calibrated set of speed-and-clock assumptions restores a
+nonempty distinguishability region. For a specified eight-setting,
+point-time experiment, information bounds make a fourth-power trial cost
+necessary. Independent readout flips at a fixed nonzero rate raise this
+necessary order to the eighth power, even with exactly known mean bias.
+Standard quantum-channel theory and
+classical noise are assumed. No physical bath, instrument precision,
+experimental confidence or practicable shot count is demonstrated.
+\end{abstract}
+
+\section{A dynamics claim is not yet a measurement claim}
+The relevant comparison is between two explanations for an observed
+change in distinguishability: an averaged evolution with memory, and an
+ordinary fine-time evolution viewed through an unresolved observation clock.
+The comparison class, reset rule and calibration are parts of the theorem.
+Trace-distance backflow is the established Breuer--Laine--Piilo witness
+\cite{BLP}; completely positive divisibility and correlation-based criteria
+are distinct notions \cite{RHP,BLPV}. This paper bounds individual returns
+of squared trace distance, not the complete positive-variation measure,
+and does not identify that witness with full multitime process memory.
+Classical telegraph and colored noise already produce memory effects
+\cite{Daffer,Benedetti2013,Benedetti2014}. The contribution sought here is
+the bounded-drive fast-switching estimate and its acquisition constraints,
+not memory from classical noise itself.
+
+Unital-qubit canonical forms and decompositions into unitary channels are
+established \cite{RSW,LiChoi}. We use them rather than claim a new channel
+classification. The candidate contributions are an explicit bounded-drive
+visibility law, a time-path construction with a uniform error estimate, and
+their operational separation. Comparison with the broader control,
+relaxation and statistical-testing literature has not been attempted here;
+no priority is claimed for these bounds.
+Exact telegraph-noise dynamics and pulse control are established
+\cite{BergliFaoro}; the present drive contract instead excludes
+instantaneous pulses of unbounded transverse strength. The time-path
+construction is a quantitative application of relaxed-control/chattering
+ideas \cite{Artstein}, not a claim to have discovered rapid-control
+approximation. Its observation model is independently reset single-time
+experiments, not a general multitime quantum-process tomography theorem.
+
+\section{Classical telegraph model and conventions}
+Let a symmetric two-state process switch at rate $\gamma>0$, and couple to
+a qubit with Hamiltonian contribution $\xi(t)v\sigma_z$, $\xi=\pm1$.
+A prescribed system Hamiltonian is $b(t)\cdot\sigma$.
+For half the Bloch-vector difference of any two preparations write
+$m$ for the mean and $h$ for the signed conditional difference.
+In time $s=\gamma t$,
+\begin{equation}\label{eq:tele}
+ m'=\Omega m+2\epsilon Jh,\qquad
+ h'=\Omega h+2\epsilon Jm-2h,
+ \quad Jx=e_z\times x,\quad\epsilon=v/\gamma .
+\end{equation}
+The independent balanced initial noise state gives $h(0)=0$ and
+$\norm{m(0)}\leq1$. Require
+\[
+ \norm{[\Omega(s),J]}\leq2\delta,\qquad
+ \delta=D/\gamma ,
+\]
+equivalently $\sqrt{b_x^2+b_y^2}\leq D$ in the physical Hamiltonian.
+The longitudinal field is locally bounded but need not obey the same cap.
+Controls are piecewise continuous and prescribed, not feedback using the
+hidden fluctuator. Neither a bandwidth cap nor an instantaneous-pulse model
+is implied.
+
+The trace distance of the two mean states is $\norm m$.
+Skew symmetry gives the exact balance
+\begin{equation}\label{eq:balance}
+ (\norm m^2+\norm h^2)'=-4\norm h^2.
+\end{equation}
+This is a distinguishability identity, not a thermodynamic-energy law.
+
+\section{A uniform endpoint-return ceiling}
+\begin{theorem}\label{thm:ceiling}
+For $0<\epsilon\leq1/4$ and every admitted control and preparation,
+\[
+ \norm{m(s_2)}^2-\norm{m(s_1)}^2
+ \leq\frac{16\epsilon^2\delta^2}
+ {(1+\sqrt{1-4\epsilon^2})^4}
+ <2\epsilon^2\delta^2
+ \quad(s_2\geq s_1).
+\]
+The final strict inequality is non-strict in a degenerate zero-coupling
+or zero-transverse-drive case.
+\end{theorem}
+\begin{proof}
+Put $\beta=\sqrt{1-4\epsilon^2}$, $\lambda=1+\beta$ and
+\[
+ k(s)=
+ \frac{2\epsilon(1-\e^{-2\beta s})}
+ {1+\beta-(1-\beta)\e^{-2\beta s}} .
+\]
+Then $k'=2\epsilon-2k+2\epsilon k^2$, $k(0)=0$,
+and $0\leq k\leq2\epsilon/\lambda$.
+The residual $r=h-kJm$ obeys
+\[
+ r'=(\Omega-2I-2\epsilon kJ^2)r+k[\Omega,J]m .
+\]
+Its homogeneous symmetric part is at most $-\lambda I$.
+The balance \eqref{eq:balance} gives $\norm m\leq1$, hence
+\[
+ \norm r\leq2\delta\int_0^s\e^{-\lambda(s-u)}k(u)\dd u
+ \leq4\epsilon\delta/\lambda^2=:R.
+\]
+Let $f=\norm m^2$, $g=\norm h^2$ and $x=Jm$. Direct calculation gives
+$f'=-4\epsilon(k\norm x^2+x\cdot r)$.
+Whenever $f'>0$,
+\[
+ g=\norm r^2+2k(k\norm x^2+x\cdot r)-k^2\norm x^2\leq R^2.
+\]
+If a positive derivative occurs between two endpoints, let $\tau$ be the
+infimum of such times. Before $\tau$, $f$ is nonincreasing; continuity
+gives $g(\tau)\leq R^2$. Nonincrease of $f+g$ then gives
+$f(s_2)-f(s_1)\leq g(\tau)-g(s_2)\leq R^2$.
+If there is no positive derivative, the conclusion is immediate.
+Finally $\lambda>7/4$ and $16/(7/4)^4<2$.
+\end{proof}
+The theorem bounds each endpoint increase. It does not bound the sum of
+all positive variations over an arbitrarily long record.
+The fast-switching assumption is essential to the stated ceiling. With no
+drive and an initially transverse vector, eliminating $h$ gives
+$m''+2m'+4\epsilon^2m=0$. For $\epsilon>1/2$, its scalar factor is
+$\e^{-s}(\cos\omega s+\sin\omega s/\omega)$,
+$\omega=\sqrt{4\epsilon^2-1}$, and it has distinguishability revivals even
+though $D=0$. The present ceiling makes no claim in that regime.
+
+\section{A matching-order construction}
+\begin{proposition}\label{prop:lower}
+For $0<\epsilon,\delta\leq1/32$, use a constant drive $D\sigma_x$ and
+\[
+ m(0)=\frac{(0,2\delta,1-\delta^2)}{1+\delta^2}.
+\]
+Between $s=1$ and $s=5/4$ the squared-distance return $\Delta$ satisfies
+\[
+ \frac{\epsilon^2\delta^2}{32}<\Delta<2\epsilon^2\delta^2.
+\]
+\end{proposition}
+\begin{proof}
+The invariant subsystem for
+$H=h_x/(\epsilon\delta)$, $Y=m_y/\delta$, $Z=m_z$ is
+\[
+ H'=-2H-2Y,\quad Y'=2\epsilon^2H-2Z,\quad Z'=2\delta^2Y.
+\]
+The rescaled zero-parameter reference is
+$Z_0=1$, $Y_0=2-2s$, $H_0=2s-3+3\e^{-2s}$.
+The exact return is $4\epsilon^2\delta^2\int_1^{5/4}YH\dd s$,
+whose reference coefficient is
+\[
+ c_0=\frac16-6\e^{-2}+9\e^{-5/2}>\frac9{100}.
+\]
+The integral equations on $[0,5/4]$ give
+$\sup|Y|<5$, $|Z-1|\leq(29/2)\delta^2$, and
+\[
+ |Y-Y_0|,\ |H-H_0|\leq
+ E:=\frac{25}{2}\epsilon^2+\frac{153}{4}\delta^2\leq\frac{203}{4096}.
+\]
+On the integration interval, $|Y_0|\leq1/2$ and $|H_0|<3/5$.
+Consequently the coefficient error is at most $11E/10+E^2$.
+The rational inequality
+$9/100-11(203/4096)/10-(203/4096)^2>1/32$ proves the lower bound.
+The upper bound is Theorem \ref{thm:ceiling}.
+\end{proof}
+At fixed $v,D$, the order is $\gamma^{-4}$. The preparation depends on
+$D/\gamma$ and the observation window scales as $1/\gamma$.
+This is not a fixed-preparation, fixed-clock prediction.
+
+\section{A whole-path timing obstruction}
+Write
+$d(\Phi,\Psi)=\frac12\norm{\Phi-\Psi}_\diamond$.
+It is at most one for channels and bounds all single-outcome probability
+differences, including ancilla-assisted ones.
+
+Every unital qubit channel is an equal average of four unitary channels
+\cite{LiChoi}. For a diagonal canonical channel with Bell--Choi
+probabilities $p_0,\ldots,p_3$, one construction is
+\[
+ U_k=\sqrt{p_0}I-\ii\sum_{a=1}^3s_{ka}\sqrt{p_a}\sigma_a ,
+\]
+where the sign rows are $(+++),(+--),(-+-),(--+)$. Averaging kills
+the cross terms. Outer unitary conjugations restore the general channel.
+
+\begin{theorem}[Time-averaged closure]\label{thm:clock}
+Let $\mathcal C(s)$ be a diamond-continuous unital-qubit channel path on
+$[0,T]$, with $0<w<T/2$, and define
+\[
+ \overline{\mathcal C}(t)=\frac1{2w}
+ \int_{t-w}^{t+w}\mathcal C(s)\dd s,\quad w\leq t\leq T-w.
+\]
+For every $\varepsilon>0$ there is one continuous, piecewise-smooth
+$U(s)\in SU(2)$ with $U(0)=I$ whose averaged conjugation channel is
+uniformly within $\varepsilon$ of $\overline{\mathcal C}$.
+Each chosen path has finite-speed pieces, but no common speed cap as
+$\varepsilon\downarrow0$ is asserted.
+\end{theorem}
+\begin{proof}
+Divide time into equal cells of length $\ell$. Freeze the target at each
+left endpoint and dwell equally at its four representing unitaries.
+If $\omega(\ell)$ is the target modulus of continuity, freezing costs
+at most $\omega(\ell)$. Full cells have the exact same average; the
+two possible partial cells cost at most $\ell/w$.
+
+Replace each jump by an $SU(2)$ arc in the first $\tau\leq\ell/4$ of the
+next subcell, including an initial arc from $I$.
+At most $8w/\ell+2$ arc intervals intersect an averaging window.
+Their changed fraction is at most $4\tau/\ell+\tau/w$. Therefore
+\[
+ \sup_t d(\overline{\mathcal U}(t),\overline{\mathcal C}(t))
+ \leq\omega(\ell)+\ell/w+4\tau/\ell+\tau/w .
+\]
+Choose $\omega(\ell)\leq\varepsilon/4$, $\ell\leq\varepsilon w/4$ and
+$\tau\leq\varepsilon\ell/16$, reducing $\varepsilon$ to at most one if
+needed. The bound is at most $49\varepsilon/64$.
+The connecting arcs have finite generators for each positive $\tau$.
+\end{proof}
+This approximates an \emph{already averaged} target path. It does not
+realize arbitrary incompatible maps at overlapping windows, nor does it
+cover nonunital channels or higher-dimensional quantum Birkhoff problems.
+
+\begin{corollary}[Uniform finite-sample obstruction]
+Assume independent reset trials and fresh independent uniform clock draws;
+only nominal times and outcomes are recorded. For any finite number $N$ of
+single-time channel uses, a test with size at most $\alpha$ for every
+admitted fine-time unitary path without a common speed cap has rejection
+probability at most $\alpha$ on the averaged target.
+\end{corollary}
+\begin{proof}
+The uniform channel approximation gives a record-law total-variation
+distance at most $N\varepsilon$ by the hybrid argument, including adaptive
+input/effect choices and single-time ancillas. The rejection probability is
+at most $\alpha+N\varepsilon$ for every $\varepsilon>0$.
+\end{proof}
+The approximating path may change with $\varepsilon$. This is not one fixed
+finite-speed null with identical laws at arbitrarily large sample sizes.
+Within-trial multitime interventions and time-resolved records are outside
+the experiment.
+
+\section{What external calibration restores}
+Under an independently justified pair-state speed cap of $4$, the special
+target $v=D=1$, $\gamma\geq32$ admits a sufficient clock-and-error region
+\[
+ w\leq\frac1{256\gamma^2},\qquad
+ \eta_{\rm other}\leq\frac{\gamma^{-4}}{2400}.
+\]
+The squared distinguishability witness from three first-time orthogonal
+axes and one free-rotated final axis has an all-centres ideal margin
+greater than $\gamma^{-4}/500$. The null clock allowance is
+$16w^2/3\leq\gamma^{-4}/12288$, giving a clock-aware margin greater than
+$\gamma^{-4}/600$. The target's probability curvature bounds its centered
+jitter error by $7w^2/6$; that error and $\eta_{\rm other}$ stay below
+the required total $\gamma^{-4}/1200$ budget.
+These inequalities are a conditional acquisition region, not achieved
+instrument performance. Their detailed calibration proof is included in
+the supplement as the bounded-drive and tomography-clock proofs.
+They use a different set of assumptions from
+the unrestricted-speed obstruction.
+
+The operational prediction, within $\gamma\geq4v$, is that increasing the
+switching rate at fixed coupling and drive makes the best endpoint visibility scale no better than
+the fourth inverse power, while a tailored admitted preparation attains
+that order. More samples cannot compensate for an unrestricted clock/control
+null class; an external bound must first narrow that class.
+
+\input{observation_costs}
+
+\section{Limitations and next physical test}
+A physical test must separately qualify state preparation, independent reset,
+the coupling axis, drive strength, clock distribution, gain/offset and
+systematic error. The derived trial bounds concern the stated model and
+detector contracts, not an achieved shot budget or hardware rate.
+The present construction does not identify a quantum bath. The mathematical
+obstruction and positive region have different assumptions; neither should
+be substituted for the other after observing an outcome.
+
+\aistatement
+\begin{thebibliography}{99}
+\bibitem{BLP} H.-P. Breuer, E.-M. Laine and J. Piilo,
+\emph{Measure for the Degree of Non-Markovian Behavior of Quantum Processes
+in Open Systems}, Phys. Rev. Lett. \textbf{103}, 210401 (2009).
+\url{https://doi.org/10.1103/PhysRevLett.103.210401}.
+\bibitem{RHP} A. Rivas, S. F. Huelga and M. B. Plenio,
+\emph{Entanglement and Non-Markovianity of Quantum Evolutions},
+Phys. Rev. Lett. \textbf{105}, 050403 (2010).
+\url{https://doi.org/10.1103/PhysRevLett.105.050403}.
+\bibitem{BLPV} H.-P. Breuer, E.-M. Laine, J. Piilo and B. Vacchini,
+\emph{Colloquium: Non-Markovian dynamics in open quantum systems},
+Rev. Mod. Phys. \textbf{88}, 021002 (2016).
+\url{https://doi.org/10.1103/RevModPhys.88.021002}.
+\bibitem{Daffer} S. Daffer, K. W\'odkiewicz, J. D. Cresser and J. K. McIver,
+\emph{Depolarizing channel as a completely positive map with memory},
+Phys. Rev. A \textbf{70}, 010304(R) (2004).
+\url{https://doi.org/10.1103/PhysRevA.70.010304}.
+\bibitem{Benedetti2013} C. Benedetti, F. Buscemi, P. Bordone and M. G. A. Paris,
+\emph{Dynamics of quantum correlations in colored-noise environments},
+Phys. Rev. A \textbf{87}, 052328 (2013).
+\url{https://doi.org/10.1103/PhysRevA.87.052328}.
+\bibitem{Benedetti2014} C. Benedetti, M. G. A. Paris and S. Maniscalco,
+\emph{Non-Markovianity of colored noisy channels},
+Phys. Rev. A \textbf{89}, 012114 (2014).
+\url{https://doi.org/10.1103/PhysRevA.89.012114}.
+\bibitem{RSW} M. B. Ruskai, S. Szarek and E. Werner,
+\emph{An Analysis of Completely-Positive Trace-Preserving Maps on $2\times2$
+Matrices}, Linear Algebra Appl. \textbf{347}, 159--187 (2002).
+\url{https://arxiv.org/abs/quant-ph/0101003}.
+\bibitem{LiChoi} C.-K. Li and M.-D. Choi,
+\emph{On unital qubit channels} (2023).
+\url{https://arxiv.org/abs/2301.01358}.
+\bibitem{Canonne} C. L. Canonne,
+\emph{A short note on an inequality between KL and TV},
+arXiv:2202.07198v2 (2023), Corollary 4.
+\url{https://arxiv.org/abs/2202.07198}.
+\bibitem{BergliFaoro} J. Bergli and L. Faoro,
+\emph{Exact solution for the dynamical decoupling of a qubit with telegraph noise},
+Phys. Rev. B \textbf{75}, 054515 (2007).
+\url{https://doi.org/10.1103/PhysRevB.75.054515}.
+\bibitem{Artstein} Z. Artstein,
+\emph{Rapid Oscillations, Chattering Systems, and Relaxed Controls},
+SIAM J. Control Optim. \textbf{27}, 940--948 (1989).
+\url{https://doi.org/10.1137/0327050}.
+\bibitem{Internal} L. Mahmood, Reproducibility supplement to this paper (2026):
+calibration and count proofs, independently coded floating-point check,
+and Arb interval certificate. See \texttt{supplement/README.md}.
+\end{thebibliography}
+\end{document}

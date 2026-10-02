@@ -1,0 +1,17 @@
+{
+ "M0_independent": "270988332696903/281474976710656",
+ "checks_passed": 125,
+ "date": "2026-08-13",
+ "negative_tests_rejected": [
+  "bracket-forgery",
+  "control-value-corruption",
+  "upper-bound-corruption",
+  "verdict-token-swap",
+  "radius-forgery",
+  "stats-forgery",
+  "exploratory-forgery"
+ ],
+ "results_sha256": "2307fd4dae5e11afa435b00fd27316bfa579742cb5468bda23778bdf7ff48b87",
+ "schema": "p6.t1.cond0.verify.v1",
+ "verdict_confirmed": "CERTIFIED_UPPER_ONLY(M0)__LOWER_OPEN"
+}

@@ -1,0 +1,58 @@
+{
+  "members": [
+    {
+      "bytes": 254,
+      "path": "AI_DISCLOSURE.txt",
+      "sha256": "20d37ba3bc552aefcce75044d04e93d44bea3f40cfb6f4102d824f97d2c480fc"
+    },
+    {
+      "bytes": 422,
+      "path": "CITATION.cff",
+      "sha256": "e4be62eadeaa72a655c74aa22dbad7cd9d7ba6e0730a4711965156183646166b"
+    },
+    {
+      "bytes": 706,
+      "path": "LICENSE.md",
+      "sha256": "7a6f04e52d2b0464a47053a4aca3f4907e6994432daebdf7dd2ae4f82e9c7f52"
+    },
+    {
+      "bytes": 2573,
+      "path": "README.md",
+      "sha256": "ed7283b09732388d2f9490fc0e8d68d33529d1949fde2fd4d6d299008adc4885"
+    },
+    {
+      "bytes": 531557,
+      "path": "affine_ade_twisted_tt_eta.pdf",
+      "sha256": "84f03a0bac66f773b951f976862414ca73dea04a76c35e80723ca98fc522c07d"
+    },
+    {
+      "bytes": 1569,
+      "path": "metadata.json",
+      "sha256": "465345279b8adfe68d7d8ae8a8ab5b2e2fa3ad6cc19f0e11bc8b4abd703abef7"
+    },
+    {
+      "bytes": 47548,
+      "path": "paper/affine_ade_twisted_tt_eta.tex",
+      "sha256": "d284c67048db6274a44aa9931c83d7662e2c05f4fd7364bc7c1f5cc3cc4fea78"
+    },
+    {
+      "bytes": 10645,
+      "path": "paper/references.bib",
+      "sha256": "f4832fc997b23cbc7c3c29db55bdf608026ee48fe1e9eb89441c2ceb8af31113"
+    },
+    {
+      "bytes": 4844,
+      "path": "supplement/check_spin_lift_parity.py",
+      "sha256": "55afc1e3f4e4608350a043337234e34b5549a9510d78c1443535376fa85a3ca6"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "P3",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

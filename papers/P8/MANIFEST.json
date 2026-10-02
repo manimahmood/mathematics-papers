@@ -1,0 +1,68 @@
+{
+  "members": [
+    {
+      "bytes": 254,
+      "path": "AI_DISCLOSURE.txt",
+      "sha256": "20d37ba3bc552aefcce75044d04e93d44bea3f40cfb6f4102d824f97d2c480fc"
+    },
+    {
+      "bytes": 420,
+      "path": "CITATION.cff",
+      "sha256": "27ec38e81ed1400a7fc4181d96527668154cc0fd8ae3e0456a6851fcb8b4afce"
+    },
+    {
+      "bytes": 706,
+      "path": "LICENSE.md",
+      "sha256": "7a6f04e52d2b0464a47053a4aca3f4907e6994432daebdf7dd2ae4f82e9c7f52"
+    },
+    {
+      "bytes": 4352,
+      "path": "README.md",
+      "sha256": "d093e6b6dfcf318c1c6fc3818d300a419cad8217bab8e4954f02a8433ae30e51"
+    },
+    {
+      "bytes": 12211,
+      "path": "check_response.py",
+      "sha256": "9e954c73650075b4360b6566ebdde7da44115eec9d4be58f884c587002fc3751"
+    },
+    {
+      "bytes": 1010,
+      "path": "data/full_model_separating_minor.csv",
+      "sha256": "358b70f5026cccc928b20d5c758eda7d7f8897a1e67b2134fafb1ed7b11c5412"
+    },
+    {
+      "bytes": 395201,
+      "path": "exact_quadratic_response_note.pdf",
+      "sha256": "3e17a2cc983e2bdebe5928eae62b8aaad7a622a7b72c907e3c12c71bd8cb4b13"
+    },
+    {
+      "bytes": 1355,
+      "path": "metadata.json",
+      "sha256": "374939ccb7ce5c3a81c2186d0aead427fa1a34e35637c85aec3a3462cb585e2a"
+    },
+    {
+      "bytes": 20393,
+      "path": "paper/exact_quadratic_response_note.tex",
+      "sha256": "94d9a58adebc6b01d64efdd53e343cc845874fa17741c1155a97841d5b5f4963"
+    },
+    {
+      "bytes": 7331,
+      "path": "paper/exact_supplement.tex",
+      "sha256": "bde6f5b86f15487c26274ab523c604a77e9557cee3dad93120d6e357ae9e2087"
+    },
+    {
+      "bytes": 3235,
+      "path": "paper/references.bib",
+      "sha256": "5f2ffba648714e045ca93aa0fdc6f9922ac778397d111656c0bb8055fea8f5ca"
+    },
+    {
+      "bytes": 1292,
+      "path": "verify_bundle.py",
+      "sha256": "5cc062cb5bef08979f09826a336477c10d498a16a79d985e1454965db24d2b29"
+    }
+  ],
+  "paper": "P8",
+  "schema": "math-paper.public-package.v1",
+  "self_excluded": true,
+  "version": "1.0.0"
+}

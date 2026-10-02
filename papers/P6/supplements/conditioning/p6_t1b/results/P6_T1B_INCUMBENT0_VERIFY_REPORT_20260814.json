@@ -1,0 +1,44 @@
+{
+ "boundary": "Finite-dimensional mathematical conditioning data only; no device or experimental performance claim.",
+ "clean_checks_passed": 32447,
+ "date": "2026-08-14",
+ "logged_boxes_reestablished": 875,
+ "negative_test_classes_rejected": [
+  {
+   "name": "M1_kernel_corruption",
+   "rejected_at": "V2_symmetric"
+  },
+  {
+   "name": "M2_m0_inflation",
+   "rejected_at": "V4_L0_below_exploratory_witness"
+  },
+  {
+   "name": "M3_L0_forgery",
+   "rejected_at": "V4_L0_product"
+  },
+  {
+   "name": "M4_log_truncation",
+   "rejected_at": "V5_log_len"
+  },
+  {
+   "name": "M5_box_forgery",
+   "rejected_at": "V6_box_qlo_positive"
+  },
+  {
+   "name": "M6_verdict_swap",
+   "rejected_at": "V4_verdict"
+  },
+  {
+   "name": "M7_stats_forgery",
+   "rejected_at": "V5_rung_tree_identity"
+  },
+  {
+   "name": "M8_s_lo_inflation",
+   "rejected_at": "V3_s_lo_below_lambda_min"
+  }
+ ],
+ "negative_test_count": 8,
+ "results_sha256": "277a51e8fc80989a442e9972f314e108c70112111465855ec96a0d12bfaec8fb",
+ "schema": "p6.t1b.projector0.verify.v1",
+ "verdict_confirmed": "PASS_T1B_CERTIFIED(m0=1/1024,L0=812873440394747353670787185015095602549/107573159067303512656215633229844714501439488)"
+}

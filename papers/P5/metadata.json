@@ -1,0 +1,28 @@
+{
+ "access_right": "open",
+ "creators": [
+  {
+   "name": "Mahmood, Luqman"
+  }
+ ],
+ "description": "<p>Exact coexact modes and convention-fixed triad coefficients on the round lens space L(137,1), together with decay and attractor statements for the declared unforced Hodge-Stokes evolution. The finite triad data and normalization layers are supplied. No three-dimensional regularity theorem, turbulent cascade, physical coupling or preferred topology is claimed.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+ "keywords": [
+  "coexact modes",
+  "lens spaces",
+  "Hodge-Stokes evolution"
+ ],
+ "language": "eng",
+ "license": "cc-by-4.0",
+ "publication_date": "2026-10-01",
+ "publication_type": "preprint",
+ "related_identifiers": [
+  {
+   "identifier": "10.5281/zenodo.21433675",
+   "relation": "references",
+   "scheme": "doi"
+  }
+ ],
+ "title": "Coexact Spectral Hydrodynamics on L(137,1): Exact Modes, Triad Couplings, and Decay",
+ "upload_type": "publication",
+ "version": "1.0.0"
+}

@@ -1,0 +1,21 @@
+{
+ "access_right": "open",
+ "creators": [
+  {
+   "name": "Mahmood, Luqman"
+  }
+ ],
+ "description": "<p>An exact arithmetic study of X0(137): Fricke eigenspaces, newform coefficient fields, a certified modular-symbol period map, and Dedekind-sum data. Target values taken from level 137 illustrate an exact inverse-arithmetic decision procedure in stated prime families; they are inputs, not independently selected constants. Exact arithmetic certificates accompany the manuscript.</p><p>AI-assisted research, computation, checking, and editorial support used OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the research and is responsible for the claims and final text. Automated and internal checks are not external peer review.</p><p>CC BY 4.0 covers the scholarly documents and mathematical data. Software is excluded from that grant; see LICENSE.md.</p>",
+ "keywords": [
+  "modular curves",
+  "modular symbols",
+  "Dedekind sums"
+ ],
+ "language": "eng",
+ "license": "cc-by-4.0",
+ "publication_date": "2026-10-01",
+ "publication_type": "preprint",
+ "title": "An Exact Arithmetic Profile of X0(137): Fricke Decomposition, Newform Orbits, Period Maps, and Dedekind Data",
+ "upload_type": "publication",
+ "version": "1.0.0"
+}

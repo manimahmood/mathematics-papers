@@ -1,0 +1,1237 @@
+\ifdefined\pdfsuppressptexinfo
+  \pdfsuppressptexinfo=15
+\fi
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Dirac-to-Tensor-Curl Eta Transfer on Round Spherical Space Forms with Affine-ADE Specializations},
+  pdfauthor={Luqman Mahmood}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\TT}{\mathrm{TT}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\e}{\mathrm e}
+\newcommand{\tr}{\operatorname{tr}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Dirac-to-Tensor-Curl Eta Transfer on Round Spherical Space Forms\\
+with Affine-ADE Specializations}
+\author{Luqman Mahmood\thanks{Copyright 2026 Luqman Mahmood. This paper is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0); see \url{https://creativecommons.org/licenses/by/4.0/}. Software is excluded from this grant.}}
+\date{1 October 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $G<SO(4)$ be finite and effective, act freely on the unit round
+three-sphere, and fix a lift of $G$ to
+$\operatorname{Spin}(4)=SU(2)_L\times SU(2)_R$.  On the resulting spherical
+space form, for every integer $J\geq1$ and every flat bundle associated to an
+irreducible representation of $G$, we consider the eta invariant of the
+helicity-signed transverse-traceless tensor-curl spectral family of rank $J$.
+If $\boldsymbol\eta^D_C$ is the twisted spin-Dirac eta vector and
+$A_m^L,A_m^R$ denote multiplication in the representation ring of $G$ by the
+restricted symmetric powers of the two lifted defining representations, then
+\[
+ \boldsymbol\eta^{\TT}_J
+ =-\frac12\left(A^L_{2J-1}+A^R_{2J-1}\right)
+ \boldsymbol\eta^D_C.
+\]
+The proof combines a two-variable character identity with a continuation
+lemma for finite-order Hurwitz--Lerch series and requires neither
+commutativity of $G$ nor a one-sided action.  For one-sided subgroups of
+$SU(2)$, the transfer specializes along the McKay correspondence: the eta
+vectors satisfy a rank recurrence governed by the affine-ADE adjacency matrix
+with an explicit linear-plus-periodic source.  We give closed formulas for
+the cyclic and binary-dihedral families and specify the recurrence and source
+periods for the exceptional binary polyhedral families.  The two-sided cyclic
+case covers every lens space $L(p,q)$, while the nonabelian direct product
+$Q_8\times\mathbb Z_3$ illustrates the general statement.  At rank one the
+identity is consistent with the classical modulo-integers relation between
+curl and Dirac eta invariants, with the Dirac sign specified below.  The contribution
+here is the exact all-rank, flat-twisted transfer and its McKay-level
+organization.
+\end{abstract}
+
+\section{Introduction}
+
+Eta invariants measure the signed imbalance of a self-adjoint spectrum.
+Their classical uses include index theory on manifolds with boundary,
+rho-invariants, and phases of spectral determinants
+\cite{APS1975,Donnelly1978,Gilkey1984}.  On spherical space forms, twisted
+spin-Dirac eta invariants are well developed: character formulas,
+Molien-series encodings, and complete spin-$\tfrac12$ tables for the finite
+subgroups of $SU(2)$ are already in the literature
+\cite{CisnerosMolina2001,Degeratu2009,Degeratu2001}.  The representation
+theory behind the affine-ADE diagrams is likewise classical
+\cite{McKay1980,Kostant1985,Rossmann2003}.
+
+The operator studied here is different.  On the round sphere we use the
+helicity-signed, projected transverse-traceless branch of the higher-spin
+self-gradient family described by Homma and Homma--Tomihisa
+\cite{Homma2001,HommaTomihisa2021}.  We denote its convention-fixed spectral
+realization by $\mathcal C_J$.  At $J=1$ it is the classical coexact curl
+operator; for $J\geq2$ the argument below uses the round-sphere module
+decomposition and signed eigenvalues recorded in
+\eqref{eq:tt-hilbert-space}--\eqref{eq:tt-sphere-branches}.  The rank-two
+massive-gravity literature records the corresponding unsigned spectrum while
+leaving its phase choice unresolved
+\cite{Homma2001,HommaTomihisa2021,CastroLashkariMaloney2011,
+BertinGrumillerVassilevichZojer2011}.  We retain the
+helicity sign, analytically continue the imbalance, and organize all flat
+twists by the representation ring of the deck group.
+
+The rank-one member is the classical coexact curl sector, whose spectral and
+eta-theoretic setting is already established \cite{APS1975,Bar2019}.  The
+contribution begins at $J\geq2$ with the all-rank transfer and its McKay
+organization; we do not claim novelty for curl itself.
+
+The main result is not merely a list of exceptional-group values.  It is a
+universal transfer from a classical spin-Dirac eta vector to every
+integer-rank projected-TT eta vector on an oriented round spherical space
+form with a chosen Spin(4) lift.  The proof is classwise and does not assume
+that the deck group is cyclic or one-sided.  For one-sided finite subgroups of
+$SU(2)$, this transfer turns the McKay graph into an eta-level computational
+object and yields a sourced rank recurrence.  The cyclic, binary-dihedral,
+and exceptional formulas then become explicit specializations of the general
+identity.
+
+The theorem concerns this round-sphere spectral family and its eta invariant;
+it is not an operator intertwining or isospectrality statement.  The
+affine-ADE labels organize the one-sided representation theory, without any
+physical interpretation or selection of a group, representation, or
+topology.
+
+This paper is part of a series.  The lens-space conventions and closed-form
+evaluations to which the cyclic corollary applies are developed in
+\cite{MahmoodP1Collection2026}; the bivariate Chebyshev--McKay algebra
+underlying the recurrences is treated in greater generality in
+\cite{MahmoodP4Collection2026}; and the realization of $\mathcal C_J$ within a
+four-dimensional boundary problem, together with the resulting APS
+corollaries, appears in \cite{MahmoodP7Collection2026}.  The present proof is
+self-contained and uses none of those companion results.
+
+Section~\ref{sec:conventions} fixes the operator and continuation conventions.
+Section~\ref{sec:transfer} proves the general transfer and its one-sided
+specialization.  The remaining sections treat lens spaces, a mixed
+nonabelian example, and the affine-ADE recurrences before discussing scope and
+open problems.
+
+\section{Operator, quotient, and twisting conventions}
+\label{sec:conventions}
+
+Identify $S^3$ with $SU(2)$.  Let $G<SO(4)$ be finite and effective, choose a
+spin lift
+\begin{equation}
+ \tau=(\tau_L,\tau_R):G\longrightarrow SU(2)_L\times SU(2)_R,
+ \qquad
+ g\cdot x=\tau_L(g)x\tau_R(g)^{-1},
+ \label{eq:spin4-action}
+\end{equation}
+and assume the action is free.  Equivalently, for every $g\ne e$,
+\begin{equation}
+ \chi_1(\tau_L(g))\ne\chi_1(\tau_R(g)).
+ \label{eq:freeness-character}
+\end{equation}
+The ineffective central pair $(-1,-1)$ is therefore absent from $\tau(G)$.
+Put $M_G=S^3/G$, with the unit round metric and orientation inherited
+from the boundary of the standard oriented ball in $\mathbb C^2$.
+The positive-left-heavy convention below agrees with
+\cite{MahmoodP1Collection2026,MahmoodP7Collection2026}; in the latter's
+full boundary operator the auxiliary finite character is subtracted.
+
+\begin{proposition}[Lifts and spin structures]
+\label{prop:spin-lifts}
+Let $\pi:\operatorname{Spin}(4)\to SO(4)$ be the double covering.  A lift in
+\eqref{eq:spin4-action} is a homomorphic section of the pulled-back central
+extension
+\[
+ 1\longrightarrow\{(1,1),(-1,-1)\}
+ \longrightarrow\pi^{-1}(G)\longrightarrow G\longrightarrow1.
+\]
+For a free effective action, such lifts are equivalent to spin structures on
+$M_G$.  They exist because every oriented three-manifold is spin, and the set
+of lifts is a torsor for
+\[
+ H^1(M_G;\mathbb Z_2)\cong\Hom(G,\mathbb Z_2).
+\]
+Every lift is automatically injective.  If instead one starts with a
+subgroup of $\operatorname{Spin}(4)$ containing $(-1,-1)$, its action on $S^3$ is
+ineffective and the effective deck group is the quotient by that kernel.
+\end{proposition}
+
+\begin{proof}
+A spin structure on the quotient pulls back to the unique spin structure on
+$S^3$ and lifts the deck transformations compatibly with composition;
+conversely, a homomorphic lift descends the spin bundle.  The ratio of two
+lifts takes values in the central kernel and is a homomorphism
+$G\to\mathbb Z_2$, while multiplying a lift by any such character produces
+another lift.  Since $\pi\circ\tau$ is the inclusion of the effective group,
+$\tau(g)=1$ implies $g=1$.  The last assertion is the kernel statement for
+the $\operatorname{Spin}(4)$ action.  See also the spherical-space-form spin conventions in
+\cite{Bar1992,Bar1996}.
+\end{proof}
+
+Write $V_n=\Sym^n\C^2$ for the irreducible $SU(2)$ representation of
+highest weight $n$ and dimension $n+1$.  For integer $J\geq1$, put
+\begin{equation}
+ \mathcal H_J=\mathop{\widehat{\bigoplus}}_{n\geq0}
+ \left(F^+_{J,n}\oplus F^-_{J,n}\right),
+ \qquad
+ F^+_{J,n}=V_{n+2J}\boxtimes V_n,
+ \quad
+ F^-_{J,n}=V_n\boxtimes V_{n+2J}.
+ \label{eq:tt-hilbert-space}
+\end{equation}
+The completed sum uses the invariant Hilbert norms on its finite-dimensional
+summands.  Define the signed spectral operator $\mathcal C_J$ by
+\begin{align}
+ \mathcal C_J|_{F^+_{J,n}}&=+(n+J+1),\nonumber\\
+ \mathcal C_J|_{F^-_{J,n}}&=-(n+J+1),
+ \qquad n\geq0.
+ \label{eq:tt-sphere-branches}
+\end{align}
+Equations~\eqref{eq:tt-hilbert-space}--\eqref{eq:tt-sphere-branches} define the
+representation-theoretic spectral realization used below.  The cited
+higher-spin sources supply the round-sphere module decomposition and
+eigenvalue normalization \cite{Homma2001,HommaTomihisa2021}.  For $J=1$ this
+is the familiar coexact-curl branch.  For higher rank we refer to it as the
+projected TT tensor-curl family in this convention-fixed sense; no extension
+to a different metric or to an unprojected tensor operator is asserted.
+
+\begin{proposition}[Analytic foundation]
+\label{prop:analytic-foundation}
+The operator $\mathcal C_J$ with domain
+\[
+ \operatorname{Dom}(\mathcal C_J)=
+ \left\{v=(v_n^+,v_n^-):
+ \sum_{n\geq0}(n+J+1)^2
+ \bigl(\lVert v_n^+\rVert^2+\lVert v_n^-\rVert^2\bigr)<\infty\right\}
+\]
+is self-adjoint, has compact resolvent, and has no zero modes.  The left and
+right $SU(2)$ actions preserve its domain and commute with it.  Hence the
+induced operator on the multiplicity space
+\begin{equation}
+ \mathcal H_{J,\rho}
+ =\Hom_G(V_\rho,\mathcal H_J)
+ \cong(\mathcal H_J\otimes V_\rho^*)^G
+ \label{eq:twisted-multiplicity-space}
+\end{equation}
+is self-adjoint with compact resolvent for every quotient satisfying
+\eqref{eq:spin4-action}--\eqref{eq:freeness-character}.
+\end{proposition}
+
+\begin{proof}
+The orthogonal summands in \eqref{eq:tt-hilbert-space} are finite-dimensional,
+the displayed eigenvalues are real, and their absolute values tend to infinity.
+The stated weighted-square-summability domain is therefore the maximal domain
+of the diagonal self-adjoint operator, and its resolvent is compact.  Equivariance
+is immediate because each summand is an $SU(2)\times SU(2)$ module on which
+$\mathcal C_J$ is scalar.  Finite-group isotypic projections commute with the
+operator and its resolvent.  Passing to the displayed multiplicity space,
+rather than the full isotypic summand
+$V_\rho\otimes\Hom_G(V_\rho,\mathcal H_J)$, is exactly the
+copy-multiplicity normalization used below and introduces no extra factor of
+$\dim\rho$.
+\end{proof}
+
+For $\rho\in\Irr(G)$, the associated-bundle normalization is the copy
+multiplicity
+\begin{equation}
+ m_\rho(W)=\frac1{|G|}\sum_{g\in G}
+ \overline{\chi_\rho(g)}\chi_W(g).
+ \label{eq:copy-multiplicity}
+\end{equation}
+There is no additional factor of $\dim\rho$.  Replacing the associated-bundle
+convention by its dual relabels $\rho$ by $\rho^*$ and changes no vector
+identity when done consistently.
+
+The full twisted eta invariant is
+\begin{equation}
+ \eta^{\TT}_{J,\rho}(s)=
+ \sum_{n\geq0}
+ \frac{m_\rho(F^+_{J,n})-m_\rho(F^-_{J,n})}
+ {(n+J+1)^s},
+ \qquad
+ \eta^{\TT}_{J,\rho}=\eta^{\TT}_{J,\rho}(0).
+ \label{eq:tt-eta-definition}
+\end{equation}
+The equality at $s=0$ means meromorphic continuation.  The operator has no
+zero modes in these conventions.
+
+The proof architecture is deliberately separated into four steps:
+\begin{enumerate}[label=(\roman*)]
+\item express each nonidentity class contribution as a finite
+root-of-unity exponential--polynomial sum;
+\item continue it by residue classes, proving that its value at $s=0$ is the
+Abel value and is independent of the positive spectral shift;
+\item compare the Dirac and TT rational generating functions at $t=1$; and
+\item project the resulting class-function identity into irreducible
+copy-multiplicity coordinates.
+\end{enumerate}
+This shift-independence step is what permits the Dirac origin
+$n+\tfrac32$ and the TT origin $n+J+1$ to enter one eta identity.
+
+\begin{lemma}[Finite-order Hurwitz--Lerch continuation]
+\label{lem:hurwitz-continuation}
+For a nonidentity class of a free effective finite action, each signed Dirac
+or TT shell coefficient is a finite sum
+\begin{equation}
+ \sum_{\lambda}\sum_{k=0}^2 c_{\lambda,k}n^k\lambda^n,
+ \qquad \lambda^{|G|}=1,\quad\lambda\ne1.
+ \label{eq:finite-order-shell}
+\end{equation}
+Its eta continuation is a finite sum of shifted Hurwitz--Lerch functions
+$\Phi(\lambda,s-j,a)$ and is regular at $s=0$.
+Moreover,
+\begin{equation}
+ \Phi(\lambda,0,a)=\frac1{1-\lambda},
+ \qquad\lambda\ne1,
+ \label{eq:lerch-zero}
+\end{equation}
+independently of the positive spectral shift $a$.  Consequently the eta value
+at zero equals the Abel value of the corresponding rational generating
+function at $t=1$.
+\end{lemma}
+
+\begin{proof}
+The two eigenvalues of each lifted factor are roots of unity.  A noncentral
+$SU(2)$ character is a sum of two exponentials in $n$, while a Weyl limit at
+$\pm1$ contributes at most one factor linear in $n$.  Products of the two
+factor characters therefore have the form
+\eqref{eq:finite-order-shell} with degree at most two.  Freeness gives
+$z\ne w$ and $zw\ne1$ in eigenvalue coordinates for every nonidentity class;
+equivalently, none of the four phases $zw,z/w,w/z,(zw)^{-1}$ that survives
+the signed difference equals one.  If exactly one of $z,w$ is central, the
+same conclusion follows by the corresponding single Weyl limit; freeness
+keeps the remaining denominator nonzero.  The mixed fully central cases have
+phase $-1$.
+The identity shells cancel termwise, and the ineffective pair $(-1,-1)$ is
+excluded.
+
+If $q$ is the order of $\lambda$, decomposition into residue classes gives
+\begin{equation}
+ \Phi(\lambda,s,a)=q^{-s}\sum_{r=0}^{q-1}
+ \lambda^r\zeta\!\left(s,\frac{a+r}{q}\right).
+ \label{eq:lerch-hurwitz-decomposition}
+\end{equation}
+This formula, not the defining power series, is the meaning of
+$\Phi(\lambda,s,a)$ at a root of unity on $|\lambda|=1$.
+The possible pole at $s=1$ cancels because
+$\sum_{r=0}^{q-1}\lambda^r=0$.  Using
+$\zeta(0,x)=\tfrac12-x$ and
+$\sum_{r=0}^{q-1}r\lambda^r=-q/(1-\lambda)$ gives
+\eqref{eq:lerch-zero}.  For the polynomial weights use the finite identity
+\[
+ \sum_{n\geq0}n^k\lambda^n(n+a)^{-s}
+ =\sum_{j=0}^k\binom{k}{j}(-a)^{k-j}\Phi(\lambda,s-j,a),
+\]
+initially where the series converges and then by continuation.  No
+differentiation with respect to a root of unity is needed.  At nonpositive
+integers the Bernoulli-polynomial formula for Hurwitz zeta gives the Abel
+value of each polynomial-geometric series.  In particular, the value at
+$s=0$ is the Abel value of $\sum n^k\lambda^n$, independent of $a$.
+This proves regularity at zero and independence from the Dirac or TT shift.
+\end{proof}
+
+For the spin-Dirac control, use the branches
+\begin{equation}
+ D_n^+=V_n\boxtimes V_{n+1},\qquad
+ D_n^-=V_{n+1}\boxtimes V_n,
+ \label{eq:dirac-branches}
+\end{equation}
+with eigenvalues $\pm(n+3/2)$, and put
+\begin{equation}
+ \eta^D_{C,\rho}(s)=\sum_{n\geq0}
+ \frac{m_\rho(D_n^+)-m_\rho(D_n^-)}{(n+3/2)^s}.
+ \label{eq:dirac-eta-definition}
+\end{equation}
+On a one-sided quotient this is the sign printed in Cisneros--Molina's
+spectral convention: the positive branch carries $V_n$ in $n+2$ copies and
+the negative branch carries $V_{n+1}$ in $n+1$ copies
+\cite{CisnerosMolina2001}.  We denote the resulting full twisted eta vector
+by $\boldsymbol\eta^D_C$.  This fixes the Dirac sign convention used
+throughout.
+
+\section{General Spin(4) Dirac-to-tensor-curl transfer}
+\label{sec:transfer}
+
+For $g\in G$, write $z,z^{-1}$ and $w,w^{-1}$ for the defining eigenvalues
+of $\tau_L(g)$ and $\tau_R(g)$.  For $\Re s>3$, define the equivariant
+Dirichlet series
+\begin{align}
+ d_C(g;s)&=\sum_{n\geq0}
+ \frac{\chi_n(z)\chi_{n+1}(w)-\chi_{n+1}(z)\chi_n(w)}
+ {(n+3/2)^s},
+ \label{eq:equivariant-dirac-series}\\
+ t_J(g;s)&=\sum_{n\geq0}
+ \frac{\chi_{n+2J}(z)\chi_n(w)-\chi_n(z)\chi_{n+2J}(w)}
+ {(n+J+1)^s}.
+ \label{eq:equivariant-tt-series}
+\end{align}
+Put $d_C(g)=d_C(g;0)$ and $\epsilon_J(g)=t_J(g;0)$ by the continuation of
+Lemma~\ref{lem:hurwitz-continuation}.
+
+\begin{lemma}[Two-variable class identity]
+\label{lem:two-variable-identity}
+For noncentral eigenvalue coordinates, set
+\begin{equation}
+ P_{a,b}(z,w;t)=\sum_{n\geq0}\chi_{n+a}(z)\chi_{n+b}(w)t^n.
+ \label{eq:Pab-definition}
+\end{equation}
+For $|t|<1$,
+\begin{align}
+ P_{a,b}(z,w;t)=\frac1{(z-z^{-1})(w-w^{-1})}\bigg[&
+ \frac{z^{a+1}w^{b+1}}{1-tzw}
+ -\frac{z^{a+1}w^{-b-1}}{1-tz/w}\nonumber\\
+ &-\frac{z^{-a-1}w^{b+1}}{1-tw/z}
+ +\frac{z^{-a-1}w^{-b-1}}{1-t/(zw)}\bigg].
+ \label{eq:Pab-rational}
+\end{align}
+At $t=1$, freeness makes the simplified denominators nonzero and
+\begin{align}
+ P_{0,1}-P_{1,0}
+ &=-\frac{2zw}{(z-w)(zw-1)}
+ =\frac{2}{\chi_1(w)-\chi_1(z)},
+ \label{eq:dirac-rational-density}\\
+ P_{2J,0}-P_{0,2J}
+ &=\frac{zw\,[\chi_{2J-1}(z)+\chi_{2J-1}(w)]}
+ {(z-w)(zw-1)}.
+ \label{eq:tt-rational-density}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Insert
+$\chi_n(z)=(z^{n+1}-z^{-n-1})/(z-z^{-1})$ into
+\eqref{eq:Pab-definition} and sum the four geometric series, giving
+\eqref{eq:Pab-rational}.  Subtraction and cancellation give
+\eqref{eq:dirac-rational-density}--\eqref{eq:tt-rational-density}.  By
+Lemma~\ref{lem:hurwitz-continuation}, these Abel values are the eta values at
+zero despite the different positive spectral shifts.
+\end{proof}
+
+For $m\geq0$, let
+\begin{equation}
+ W_m^X=\Sym^m(\C^2)\circ\tau_X,
+ \qquad
+ (A_m^X)_{\rho\sigma}
+ =\dim\Hom_G(\rho,W_m^X\otimes\sigma),
+ \quad X=L,R.
+ \label{eq:spin4-representation-matrices}
+\end{equation}
+Both matrices act on the representation ring of the full deck group $G$;
+neither projection is required to be faithful.
+
+\begin{theorem}[General free-Spin(4) Dirac-to-TT transfer]
+\label{thm:spin4-transfer}
+Under the hypotheses of Section~\ref{sec:conventions}, for every integer
+$J\geq1$,
+\begin{align}
+ \epsilon_J(g)
+ &=-\frac12\left[
+ \chi_{2J-1}(\tau_L(g))+\chi_{2J-1}(\tau_R(g))
+ \right]d_C(g),
+ \label{eq:spin4-class-transfer}\\
+ &\boxed{\boldsymbol\eta^{\TT}_J
+ =-\frac12\left(A^L_{2J-1}+A^R_{2J-1}\right)
+ \boldsymbol\eta^D_C.}
+ \label{eq:spin4-transfer}
+\end{align}
+This is an identity of full eta invariants with copy-multiplicity
+normalization.
+\end{theorem}
+
+Equation~\eqref{eq:spin4-transfer} relates meromorphically continued eta
+invariants.  The Dirac and TT spectra lie on different arithmetic
+progressions, so the formula is neither a shellwise relation nor an operator
+intertwining or isospectrality statement.
+
+\begin{proof}
+For a noncentral pair,
+\eqref{eq:spin4-class-transfer} is the quotient of
+\eqref{eq:tt-rational-density} by
+\eqref{eq:dirac-rational-density}.  Removable Weyl limits use
+\begin{equation}
+ \chi_m(1)=m+1,
+ \qquad
+\chi_m(-1)=(-1)^m(m+1).
+\label{eq:weyl-central-values}
+\end{equation}
+If exactly one coordinate is central and the other is not, the corresponding
+single Weyl limit exists; freeness keeps the simplified denominator nonzero,
+so \eqref{eq:spin4-class-transfer} still holds.  The two fully central mixed
+cases are
+\begin{equation}
+ (-1,1):\ d_C=\frac12,\ \epsilon_J=0,
+ \qquad
+ (1,-1):\ d_C=-\frac12,\ \epsilon_J=0.
+ \label{eq:mixed-central-values}
+\end{equation}
+At $(1,1)$ the signed Dirac and TT shells vanish termwise.  The same
+shellwise cancellation occurs at $(-1,-1)$, but that pair is excluded by
+effectivity.
+
+For clarity, all fully central possibilities are:
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$(\tau_L,\tau_R)$ & $d_C$ & $\epsilon_J$ &
+$-\tfrac12(\chi_{2J-1}^L+\chi_{2J-1}^R)$ & status\\
+\midrule
+$(1,1)$ & $0$ & $0$ & $-2J$ & identity\\
+$(-1,-1)$ & $0$ & $0$ & $+2J$ & ineffective, excluded\\
+$(-1,1)$ & $\tfrac12$ & $0$ & $0$ & free mixed class allowed\\
+$(1,-1)$ & $-\tfrac12$ & $0$ & $0$ & free mixed class allowed\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The irreducible characters are an orthonormal basis for class functions.
+Multiplication by $\chi(W_m^X)$ has matrix $A_m^X$ in that basis, so projection
+of \eqref{eq:spin4-class-transfer} using
+\eqref{eq:copy-multiplicity} gives \eqref{eq:spin4-transfer}; no factor
+$\dim\rho$ appears.
+\end{proof}
+
+\begin{remark}[Spin-lift covariance]
+Two lifts differ by a sign character $\lambda:G\to\{\pm1\}$.  Simultaneous
+central multiplication gives
+\[
+ d_C^{\lambda\tau}=\lambda d_C^\tau,
+ \qquad
+ W_m^{X,\lambda\tau}=\lambda^m\otimes W_m^{X,\tau}
+ \quad(m\geq0),
+\]
+whereas every TT shell has even total central parity and is unchanged.  Thus
+if $P_\lambda$ denotes the permutation of irreducible coordinates induced by
+tensoring with $\lambda$, then
+\[
+ (\boldsymbol\eta^D_C)^{\lambda\tau}
+ =P_\lambda(\boldsymbol\eta^D_C)^\tau,
+ \qquad
+ A_m^{X,\lambda\tau}=P_\lambda^m A_m^{X,\tau}
+ =A_m^{X,\tau}P_\lambda^m,
+ \qquad P_\lambda^2=I.
+\]
+Consequently, for general $m\geq0$,
+\[
+ A_m^{X,\lambda\tau}(\boldsymbol\eta^D_C)^{\lambda\tau}
+ =P_\lambda^{m+1}A_m^{X,\tau}(\boldsymbol\eta^D_C)^\tau.
+\]
+For the odd powers $m=2J-1$ used in \eqref{eq:spin4-transfer}, the
+factor $P_\lambda^{m+1}=P_\lambda^{2J}=I$ cancels.  This cancellation
+is not asserted for even $m$.  In particular, $A_0^{X,\tau}=I$ for
+either lift; replacing $P_\lambda^m$ by $P_\lambda$ would incorrectly
+give $I=P_\lambda$ for a nontrivial sign character.
+The integer-rank TT vector is lift-independent.
+\end{remark}
+
+\subsection{One-sided affine-ADE specialization}
+\label{sec:one-sided-specialization}
+
+Now let $G=\Gamma< SU(2)$ act from the left, so
+$\tau_L(g)=g$ and $\tau_R(g)=1$.  Put
+$M_\Gamma=\Gamma\backslash S^3$ and let
+$\Delta=V_1$ be the defining representation.  The general eta definition
+becomes
+\begin{equation}
+ \eta^{\TT}_{J,\rho}(s)=
+ \sum_{n\geq0}
+ \frac{(n+1)m_\rho(V_{n+2J})-(n+2J+1)m_\rho(V_n)}
+ {(n+J+1)^s}.
+ \label{eq:one-sided-tt-eta-definition}
+\end{equation}
+For a noncentral element with eigenvalues $u,u^{-1}$, set
+\begin{equation}
+ F_J(u)=u\left[
+ \frac{u(u^{2J}-1)}{(1-u)^2}
+ +\frac{u^{2J}-2J-1}{1-u}
+ \right].
+ \label{eq:FJ}
+\end{equation}
+Then
+\begin{equation}
+ \epsilon_J(g)=\frac{F_J(u)-F_J(u^{-1})}{u-u^{-1}}.
+ \label{eq:epsilon-density}
+\end{equation}
+Character projection gives
+\begin{equation}
+ \eta^{\TT}_{J,\rho}(M_\Gamma)=\frac1{|\Gamma|}
+ \sum_{g\in\Gamma}\overline{\chi_\rho(g)}\epsilon_J(g).
+ \label{eq:class-transform}
+\end{equation}
+The identity and central $-1$ classes have value zero by signed shellwise
+cancellation.
+
+Define
+\begin{equation}
+ (A_m)_{\rho\sigma}
+ =\dim\Hom_\Gamma(\rho,V_m\otimes\sigma).
+ \label{eq:generalized-mckay}
+\end{equation}
+Thus $A_0=I$, $A_1$ is the ordinary McKay matrix, and
+$A_{m+1}=A_1A_m-A_{m-1}$.  Since $A^R_{2J-1}=2JI$, the general theorem gives
+the following corollary.
+
+\begin{corollary}[One-sided Dirac-to-TT transfer]
+\label{cor:one-sided-transfer}
+For every finite $\Gamma< SU(2)$ and every integer $J\geq1$,
+\begin{equation}
+ \boxed{
+ \boldsymbol\eta^{\TT}_J
+ =-\left(JI+\frac12A_{2J-1}\right)
+ \boldsymbol\eta^D_C.}
+ \label{eq:transfer}
+\end{equation}
+Equivalently, with
+\begin{equation}
+ d_C(1)=0,
+ \qquad
+ d_C(g)=\frac{2}{2-\chi_\Delta(g)}\quad(g\ne1),
+ \label{eq:dirac-density}
+\end{equation}
+one has
+$\epsilon_J(g)=-(J+\chi_{2J-1}(g)/2)d_C(g)$, including the central values.
+\end{corollary}
+
+There is an equivalent finite-representation form that makes the identity
+subtraction explicit.  Define
+\begin{equation}
+ P_J=\bigoplus_{r=0}^{2J-2}(2J-1-r)\Sym^r\Delta,
+ \qquad
+ \dim P_J=\frac{J(4J^2-1)}3.
+ \label{eq:PJ}
+\end{equation}
+
+\begin{corollary}[Triangular representation form]
+\label{cor:triangular}
+For every $\rho\in\Irr(\Gamma)$,
+\begin{equation}
+ \boxed{
+ \eta^{\TT}_{J,\rho}
+ =-2J\eta^D_{C,\rho}
+ +\langle\rho,P_J|_\Gamma\rangle
+ -\frac{\dim\rho}{|\Gamma|}\frac{J(4J^2-1)}3.}
+ \label{eq:triangular-transfer}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The $SU(2)$ character recurrence gives
+\begin{equation}
+ (2-x)\chi_{P_J}=2J-\chi_{2J-1}.
+ \label{eq:PJ-character}
+\end{equation}
+Indeed, for $a_r=2J-1-r$, the coefficient of $\chi_0$ in
+$(2-x)\sum_ra_r\chi_r$ is $2a_0-a_1=2J$, every interior coefficient is
+$2a_r-a_{r-1}-a_{r+1}=0$, and the terminal coefficient is $-1$.
+Combining \eqref{eq:PJ-character} with \eqref{eq:dirac-density}, projecting,
+and removing the identity contribution gives
+\eqref{eq:triangular-transfer}.
+\end{proof}
+
+\begin{remark}[Sign conventions]
+Some references use the sign-reversed Dirac operator $-D_C$, which reverses
+the leading sign in the transfer, and reversing the two TT helicity branches
+negates $\boldsymbol\eta^{\TT}_J$.  Every formula here uses the
+Cisneros--Molina Dirac sign and the TT branch order fixed in
+\eqref{eq:tt-sphere-branches}.
+\end{remark}
+
+\section{Lens-space specialization}
+\label{sec:general-lens}
+
+A general lens space has a mixed cyclic action and is not another affine-$A$
+rung in the one-sided McKay classification.  It is, however, an immediate
+cyclic specialization of Theorem~\ref{thm:spin4-transfer}.  The resulting
+closed-form evaluations and detailed convention comparisons are developed in
+\cite{MahmoodP1Collection2026}; here we record the transfer itself.
+
+Write
+\[
+ L(p,q)=S^3/\langle\gamma\rangle,\qquad
+ \gamma(z_1,z_2)=(\zeta z_1,\zeta^qz_2),\qquad
+ \zeta=\e^{2\pi i/p},\quad \gcd(p,q)=1.
+\]
+Choose a lift bit $\ell$ satisfying
+\begin{equation}
+ q+1+\ell p\equiv0\pmod2
+ \label{eq:lens-lift-condition}
+\end{equation}
+and put $\widetilde q=q+\ell p$.  The lifted left and right angles are
+\begin{equation}
+ \alpha=\frac{\pi(1+\widetilde q)}p,\qquad
+ \beta=\frac{\pi(1-\widetilde q)}p.
+ \label{eq:lens-lift-angles}
+\end{equation}
+Thus the two factors of a lifted deck class are represented by
+$g_L=\e^{i\alpha}$ and $g_R=\e^{i\beta}$ in their defining tori.  Odd $p$ has
+one valid lift; even $p$ has the two lifts $\widetilde q=q$ and $q+p$.
+
+For this section the Dirac branches are
+\[
+ E_n^{D,+}=V_n\boxtimes V_{n+1},\qquad
+ E_n^{D,-}=V_{n+1}\boxtimes V_n,
+\]
+and the TT branches are exactly
+\eqref{eq:tt-sphere-branches}.  Let $d_C(g_L,g_R)$ denote the full
+Cisneros-sign equivariant Dirac eta density for these branches.
+
+\begin{corollary}[General lens-space transfer]
+\label{thm:general-lens-transfer}
+For every $p\geq2$, $\gcd(p,q)=1$, every valid spin lift, and every
+$J\geq1$, a nonidentity deck class obeys
+\begin{equation}
+ \boxed{
+ \epsilon_J(g_L,g_R)
+ =-\frac12\left[
+   \chi_{2J-1}(g_L)+\chi_{2J-1}(g_R)
+ \right]d_C(g_L,g_R).}
+ \label{eq:general-lens-class-transfer}
+\end{equation}
+After projection to all flat characters of $\Z_p$,
+\begin{equation}
+ \boxed{
+ \boldsymbol\eta^{\TT}_J(L(p,q))
+ =-\frac12\left(A^L_{2J-1}+A^R_{2J-1}\right)
+ \boldsymbol\eta^D_C(L(p,q)).}
+ \label{eq:general-lens-vector-transfer}
+\end{equation}
+The two matrices are the finite weight-convolution actions induced by the
+left and right lifted circle homomorphisms.
+\end{corollary}
+
+\begin{proof}
+Substitute the lifted torus elements into
+\eqref{eq:spin4-class-transfer}.  Their characters are
+\[
+ \chi_{2J-1}(g_L)=\frac{\sin(2J\alpha)}{\sin\alpha},
+ \qquad
+ \chi_{2J-1}(g_R)=\frac{\sin(2J\beta)}{\sin\beta},
+\]
+with the Weyl limits
+\eqref{eq:weyl-central-values} at central factors.  Fourier projection over
+$\mathbb Z_p$ gives \eqref{eq:general-lens-vector-transfer}.
+\end{proof}
+
+The finite convolution can be written explicitly.  Set
+\[
+ s=\frac{1+\widetilde q}{2},\qquad
+ t=\frac{1-\widetilde q}{2}\pmod p,
+\]
+and let $j$ run through the odd weights
+$-(2J-1),-(2J-3),\ldots,2J-1$.  Then
+\begin{equation}
+ \eta^{\TT}_{J,a}
+ =-\frac12\sum_j\left(
+   \eta^D_{C,a-js}+\eta^D_{C,a-jt}
+ \right).
+ \label{eq:general-lens-convolution}
+\end{equation}
+For $q=1$ and $\ell=0$, one has $t=0$, so
+$A^R_{2J-1}=2JI$ and the one-sided theorem
+\eqref{eq:transfer} is recovered exactly.  Changing the even-order spin lift
+shifts the Dirac vector and both odd kernels by $p/2$; these shifts cancel in
+\eqref{eq:general-lens-convolution}, so the integer-rank TT vector is
+lift-independent.
+
+\section{A mixed nonabelian example}
+\label{sec:mixed-q8c3}
+
+A mixed nonabelian action is
+\begin{equation}
+ G=Q_8\times\mathbb Z_3,
+ \qquad
+ (a,u^r)\cdot x=a\,x\,u^{-r}.
+ \label{eq:q8c3-action}
+\end{equation}
+The defining trace sets of the two projections are respectively
+$\{2,-2,0\}$ and $\{2,-1\}$.  Their sole common trace is $2$, attained only
+by the identity in each factor, so the action is free; $(-1,-1)$ is absent,
+so it is effective.  The group has 15 complex
+irreducible representations and four spin lifts.  Write
+$A_0,A_1,A_2,A_3,D$ for the four one-dimensional and one two-dimensional
+$Q_8$ irreps, and $c_0,c_1,c_2$ for the $\mathbb Z_3$ characters.  In the
+manuscript convention, the rank-one values are
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+$Q_8$ irrep & $\eta^D_C(\rho\otimes c_0)$ & $\eta^D_C(\rho\otimes c_1)$
+& $\eta^{\TT}_1(\rho\otimes c_0)$ & $\eta^{\TT}_1(\rho\otimes c_1)$ \\
+\midrule
+$A_0$ & $-89/144$ & $103/144$ & $-17/36$ & $-5/36$ \\
+$A_1,A_2,A_3$ & $55/144$ & $-41/144$ & $19/36$ & $-5/36$ \\
+$D$ & $-35/72$ & $13/72$ & $-4/9$ & $2/9$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The $c_2$ column equals the $c_1$ column.  These values illustrate the
+theorem; they do not prove it.
+
+\begin{example}[A non-self-dual coordinate and the matrix side]
+\label{ex:nonselfdual-coordinate}
+The characters $c_1$ and $c_2=c_1^*$ are genuinely complex and
+non-self-dual.  The lifted defining representations are
+\[
+ W_1^L=D\otimes c_0,\qquad
+ W_1^R=A_0\otimes(c_1\oplus c_2).
+\]
+With the row index denoting the target copy and the column index the source
+copy in \eqref{eq:spin4-representation-matrices}, the
+$A_0\otimes c_1$ component of the rank-one transfer is therefore
+\[
+ \eta^{\TT}_1(A_0c_1)
+ =-\frac12\left[
+ \eta^D_C(A_0c_0)+\eta^D_C(A_0c_2)+\eta^D_C(Dc_1)\right].
+\]
+The table gives
+\[
+ -\frac12\left[-\frac{89}{144}
+ +\frac{103}{144}+\frac{13}{72}\right]
+ =-\frac5{36},
+\]
+exactly the displayed TT coordinate.  This calculation fixes the
+associated-bundle convention, shows why the multiplication matrix acts
+without a transpose, and exhibits directly that no factor
+$\dim(A_0c_1)$ or $\dim D$ is inserted.  Relabeling every coordinate by its
+dual exchanges $c_1$ and $c_2$ and leaves the vector theorem unchanged.
+\end{example}
+
+\section{The affine-ADE source recurrence}
+\label{sec:mckay}
+
+Let $N=A_1$ be the McKay matrix and put
+$E_J=(\eta^{\TT}_{J,\rho})_{\rho\in\Irr(\Gamma)}$.  For a noncentral class
+with defining eigenvalues $u,u^{-1}$, define the recurrence residual
+\begin{equation}
+ r_J(g)=\epsilon_{J+1}(g)+\epsilon_{J-1}(g)
+ -\chi_\Delta(g)\epsilon_J(g),
+ \qquad J\geq2,
+ \label{eq:source-residual-definition}
+\end{equation}
+and put $r_J(\pm1)=0$.  Substitution of
+\eqref{eq:epsilon-density} and the $SU(2)$ character recurrence gives
+\begin{equation}
+ r_J(u)=-2J+
+ \frac{(u^2+u+1)(u^{2J}-u^{-2J})}{u^2-1},
+ \qquad u\neq\pm1,
+ \label{eq:source-density}
+\end{equation}
+and set
+\begin{equation}
+ R_{J,\rho}=\frac1{|\Gamma|}\sum_{g\in\Gamma}
+ \overline{\chi_\rho(g)}r_J(g).
+ \label{eq:source-vector}
+\end{equation}
+
+\begin{theorem}[Sourced McKay recurrence]
+\label{thm:mckay-source}
+For $J\geq2$,
+\begin{equation}
+ \boxed{E_{J+1}+E_{J-1}-NE_J=R_J.}
+ \label{eq:mckay-source}
+\end{equation}
+Moreover,
+\begin{equation}
+ \sum_{\rho}\dim(\rho)E_{J,\rho}=0,
+ \qquad
+ \sum_{\rho}\dim(\rho)R_{J,\rho}=0.
+ \label{eq:regular-completeness}
+\end{equation}
+For every finite $\Gamma$, there is a vector $v$ and a periodic vector
+$b_J$ such that
+\begin{equation}
+ R_J=Jv+b_J.
+ \label{eq:linear-periodic}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Project the defining identity
+\eqref{eq:source-residual-definition} against the irreducible characters.
+Multiplication by $\chi_\Delta$ becomes $N$, giving
+\eqref{eq:mckay-source}; direct algebra in $u$ is the displayed
+\eqref{eq:source-density}.  The regular character vanishes off the identity,
+while $\epsilon_J$ and $r_J$ vanish at the identity, proving
+\eqref{eq:regular-completeness}.  Every
+noncentral eigenvalue $u$ is a root of unity.  The $u^{\pm2J}$ part is
+therefore periodic in $J$, while the explicit first term is linear.  Finite
+character transformation gives \eqref{eq:linear-periodic}.
+\end{proof}
+
+The shape ``linear plus periodic'' has a classical antecedent at the
+multiplicity level for the spin-Dirac problem
+\cite{CisnerosMolina2001}.  The claim here is the eta-vector lift for the
+integer-rank projected-TT family, not novelty for the underlying
+Clebsch--Gordan or McKay recurrence.
+
+\section{Affine A: cyclic groups}
+\label{sec:A}
+
+For $\Gamma=\Z_p$ in the one-sided action, the irreducible representations
+are the flat characters $\chi_c$, $c\in\Z/p\Z$, and the McKay graph is
+$\widetilde A_{p-1}$.  Put $d=\min(c,p-c)$.  In the nonoverlap chamber
+$p\geq4J-3$ for $J\geq2$ (and $p\geq2$ for $J=1$), the exact twisted formula
+is
+\begin{equation}
+ \boxed{
+ \eta^{\TT}_{J,c}(L(p,1))
+ =-\frac{J}{3p}
+ \left(p^2-6pd+6d^2+4J^2-2\right)
+ +\left\lfloor\frac{\max(2J-d,0)^2}{4}\right\rfloor.}
+ \label{eq:cyclic-stable}
+\end{equation}
+Outside this chamber the exact finite character formula
+\eqref{eq:class-transform}, or equivalently the transfer theorem, remains
+valid.  The first excluded row $p=4J-4$ differs only at the self-conjugate
+character $c=p/2$, by $+1$.
+
+\section{Affine D: every binary-dihedral group}
+\label{sec:D}
+
+Let
+\begin{equation}
+ \operatorname{Dic}_m=
+ \langle a,x\mid a^{2m}=1,\ x^2=a^m,\ xax^{-1}=a^{-1}\rangle,
+ \qquad m\geq2.
+ \label{eq:dic-presentation}
+\end{equation}
+Its McKay graph is $\widetilde D_{m+2}$.  Write
+\[
+ h^{\mathrm{cyc}}_{J,c}
+ =\eta^{\TT}_{J,c}(L(2m,1)),\qquad c\in\Z/(2m),
+\]
+for the cyclic value in the same orientation, generator, associated-bundle,
+and full-eta convention.  When the value is represented through the Dirac
+transfer, we use the canonical one-sided spin lift.
+
+The four one-dimensional representations are
+\[
+ A_t(a)=1,\quad A_t(x)=t,\qquad t=\pm1,
+\]
+and
+\[
+ B_t(a)=-1,\quad B_t(x)=t,\qquad t=\pm i^m.
+\]
+Thus $t^2=(-1)^m$, as required by $x^2=a^m$.
+The remaining irreducibles are two-dimensional:
+\[
+ V_r(a)=\begin{pmatrix}\zeta^r&0\\0&\zeta^{-r}\end{pmatrix},
+ \qquad
+ V_r(x)=\begin{pmatrix}0&(-1)^r\\1&0\end{pmatrix},
+ \quad \zeta=\e^{\pi i/m},\quad1\leq r<m.
+\]
+
+\begin{theorem}[Binary-dihedral all-irrep corollary]
+\label{thm:dic}
+For every $m\geq2$ and $J\geq1$,
+\begin{align}
+ \eta^{\TT}_{J,A_t}&=\frac12h^{\mathrm{cyc}}_{J,0}-\frac{tJ}{2},
+ \label{eq:dic-A}\\
+ \eta^{\TT}_{J,B_t}&=\frac12h^{\mathrm{cyc}}_{J,m},
+ \label{eq:dic-B}\\
+ \eta^{\TT}_{J,V_r}&=h^{\mathrm{cyc}}_{J,r}.
+ \label{eq:dic-V}
+\end{align}
+These formulas remain valid without a stable-chamber restriction.
+\end{theorem}
+
+\begin{proof}
+The cyclic subgroup $\langle a\rangle$ has order $2m$.  The restrictions are
+$A_t|_{\langle a\rangle}=\chi_0$,
+$B_t|_{\langle a\rangle}=\chi_m$, and
+$V_r|_{\langle a\rangle}=\chi_r\oplus\chi_{-r}$.
+Every element of the coset $x\langle a\rangle$ has defining eigenvalues
+$+i,-i$, where the TT density is $-J$.  Its character contribution is
+$-tJ/2$ on $A_t$, cancels on $B_t$, and vanishes on $V_r$.
+Finally $h^{\mathrm{cyc}}_{J,r}=h^{\mathrm{cyc}}_{J,2m-r}$, giving
+\eqref{eq:dic-A}--\eqref{eq:dic-V}.
+\end{proof}
+
+At $m=2$, $\operatorname{Dic}_2=Q_8$ and the graph is
+$\widetilde D_4$.  The two-dimensional defining-irrep eta vanishes for every
+rank; the four line representations carry the nontrivial source.  For general
+$m$, the source and rank shifts are explicit.  Put
+\[
+ Q_{J,c}=h^{\mathrm{cyc}}_{J+1,c}
+ +h^{\mathrm{cyc}}_{J-1,c}
+ -h^{\mathrm{cyc}}_{J,c-1}
+ -h^{\mathrm{cyc}}_{J,c+1},
+ \qquad c\pmod{2m}.
+\]
+
+\begin{corollary}[Binary-dihedral source]
+\label{cor:dic-source}
+Under the node labels of Theorem~\ref{thm:dic},
+\begin{align}
+ R_{J,A_t}&=\frac12Q_{J,0}-tJ,&
+ R_{J,B_t}&=\frac12Q_{J,m},&
+ R_{J,V_r}&=Q_{J,r}.
+ \label{eq:dic-source}
+\end{align}
+The source after subtraction of its linear part has period dividing $m$.
+\end{corollary}
+
+\begin{corollary}[Binary-dihedral rank shift]
+\label{cor:dic-rank-shift}
+For the representatives $0\leq c<2m$,
+\begin{equation}
+ h^{\mathrm{cyc}}_{J+m,c}-h^{\mathrm{cyc}}_{J,c}
+ =-\frac{4m^2-1}{12}+\frac{c(2m-c)}2+\frac{(-1)^c}{4}.
+ \label{eq:cyclic-rank-shift}
+\end{equation}
+Consequently
+\begin{align}
+ \eta^{\TT}_{J+m,A_t}-\eta^{\TT}_{J,A_t}
+   &=-\frac{m^2-1}{6}-\frac{tm}{2},\nonumber\\
+ \eta^{\TT}_{J+m,B_t}-\eta^{\TT}_{J,B_t}
+   &=\frac{2m^2+1+3(-1)^m}{24},\nonumber\\
+ \eta^{\TT}_{J+m,V_r}-\eta^{\TT}_{J,V_r}
+   &=-\frac{4m^2-1}{12}+\frac{r(2m-r)}2+\frac{(-1)^r}{4}.
+ \label{eq:dic-rank-shift}
+\end{align}
+\end{corollary}
+
+\begin{proof}
+Write $\eta^D_c$ for the cyclic Dirac eta value in the canonical one-sided
+lift.  The transfer identity~\eqref{eq:transfer} gives
+\[
+ h^{\mathrm{cyc}}_{J+m,c}-h^{\mathrm{cyc}}_{J,c}
+ =-m\eta^D_c-\sum_{\substack{j\bmod 2m\\j\text{ odd}}}\eta^D_{c-j}.
+\]
+Indeed, the $2m$ added weights in the symmetric-power character cover each
+odd residue modulo $2m$ twice.  For $0\leq c<2m$, character projection of
+the one-sided Dirac density~\eqref{eq:dirac-density} evaluates to
+\[
+ \eta^D_c=\frac{4m^2-1}{12m}-\frac{c(2m-c)}{2m}.
+\]
+Summing this quadratic over the odd residues gives
+$\sum_{j\text{ odd}}\eta^D_{c-j}=-(-1)^c/4$, where subscripts are reduced
+modulo $2m$.  Substitution proves~\eqref{eq:cyclic-rank-shift};
+Theorem~\ref{thm:dic} then gives the three binary-dihedral shifts.
+\end{proof}
+
+\section{Affine E: the exceptional binary polyhedral groups}
+\label{sec:E}
+
+For the binary tetrahedral, octahedral, and icosahedral groups, the same
+class-transform and transfer theorems give the affine $E_6$, $E_7$, and $E_8$
+eta vectors.  Table~\ref{tab:exceptional} records the explicit atlas scope.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}lrrrL{0.34\textwidth}@{}}
+\toprule
+Group & Order & Irreps & Graph & Source structure \\
+\midrule
+$2T$ & 24 & 7 & $\widetilde E_6$ & linear plus vector period $3$ \\
+$2O$ & 48 & 8 & $\widetilde E_7$ & linear plus vector period $12$ \\
+$2I$ & 120 & 9 & $\widetilde E_8$ & linear plus vector period $15$ \\
+\bottomrule
+\end{tabular}
+\caption{Exceptional affine-E families and the periods of their eta-vector
+source terms.}
+\label{tab:exceptional}
+\end{table}
+
+For $2I$, the conjugacy-class sizes are
+\[
+ (1,1,30,20,20,12,12,12,12),
+\]
+with defining traces
+\[
+ 2,-2,0,1,-1,\varphi,\varphi^{-1},-\varphi^{-1},-\varphi.
+\]
+In the irrep order
+\[
+ (\mathrm{triv},\Delta,\Delta_2,\mathrm{3D},\mathrm{3D}_2,
+  \mathrm{4S},\mathrm{4A5},\mathrm{5A5},\mathrm{6S}),
+\]
+the dimension vector $d=(1,2,2,3,3,4,4,5,6)$ satisfies $Nd=2d$.
+The rank source has vector period $15$.  Analogous class formulas and periods
+hold for $2T$ and $2O$.  Complete rational tables are omitted for space.  At
+spin $\tfrac12$ such exceptional tables are classical
+\cite{CisnerosMolina2001}; the present extension is the projected-TT
+integer-rank eta tower.
+
+\section{Numerical verification}
+
+We checked the finite specializations with independent exact-arithmetic
+implementations.  Direct spectral evaluation and the transfer formula agree
+for every flat twist in forty lifted lens-space cases, for all 120 coordinates
+of the $Q_8\times\mathbb Z_3$ example at ranks $1,\ldots,8$, and throughout the
+cyclic, binary-dihedral, and binary-polyhedral tables used here.  These
+computations check the sign, lift, and copy-multiplicity conventions; the
+all-rank statements rest on the proofs above.
+
+\section{Antecedents, novelty perimeter, and exclusions}
+\label{sec:scope}
+
+Flat-twisted eta invariants, equivariant fixed-point formulas, and the
+rank-one coexact curl sector are classical
+\cite{APS1975,Donnelly1978,Gilkey1984,Bar2019}.  So are spin-Dirac eta on
+spherical space forms and its complete exceptional-group tables
+\cite{Seade1981,Bar1992,Bar1996,Goette1997,CisnerosMolina2001}, the
+Molien-series approach \cite{Degeratu2009,Degeratu2001}, and the
+Clebsch--Gordan and McKay recurrences
+\cite{McKay1980,Kostant1985,Rossmann2003}.  Higher-spin sphere spectra and
+quotient-character methods provide the geometric and representation-theoretic
+background \cite{Homma2001,HommaTomihisa2021,Dowker2007,
+CastroLashkariMaloney2011}; charged spin-$\tfrac12$ and spin-$\tfrac32$
+lens-space formulas provide related half-integer antecedents
+\cite{BasileLeone2023,DebrayEtAl2023}.
+
+The rank-one perimeter is especially strict.  Millson's equivariant curl
+calculation is recorded here through B\"ar's full-text attribution, and
+B\"ar treats curl spectra for general spherical space forms
+\cite{Bar2019}.  Capoferri--Vassiliev state the classical APS-derived
+relation, in their Dirac convention,
+\[
+ \eta_{\rm curl}(0)=-4\eta_{\rm Dirac}(0)+k,\qquad k\in\mathbb Z,
+\]
+on a general closed oriented three-manifold
+\cite[Rem.~D.4(ii)--(iii)]{CapoferriVassiliev2023}.  Their Dirac operator
+carries the opposite sign to the operator whose positive branch is
+$V_n\boxtimes V_{n+1}$ in \eqref{eq:dirac-branches}.
+In the present convention the same relation is
+$\eta_{\rm curl}\equiv+4\eta^D_C\pmod{\mathbb Z}$.  For example, on
+$L(p,1)$ with the canonical one-sided lift $\tau_R=1$, it reads
+$\eta_{\rm curl}-4\eta^D_C=-(p-1)$.
+The transfer identity is not a determination of the integer in the general
+closed-manifold relation.  Thus the rank-one,
+untwisted, modulo-integers shadow of
+\eqref{eq:spin4-transfer} is not new.  Fixed-rank constructions of
+higher-spin eta from twisted Dirac data in the Rarita--Schwinger anomaly
+literature are also mechanism antecedents; the claim here is the exact,
+mod-$\mathbb Z$-free, integer-rank vector identity with arbitrary flat
+irreducible twists.
+
+Eta invariants at flat connections also enter gauge Chern--Simons theory
+classically \cite{Jeffrey1992}; we do not claim a new connection to that
+theory.
+
+Cisneros--Molina also gives a linear-plus-periodic multiplicity recurrence in
+the spectral label.  Theorem~\ref{thm:mckay-source} must therefore be framed
+as an eta-level lift to an operator family indexed by integer rank, not as the
+first appearance of linear-periodic representation data.  Likewise, the new
+claims concerning the exceptional families are confined to the projected-TT
+higher-rank transfer and source recurrence at $J\geq2$.
+
+To the best of our knowledge, the all-rank identities
+\eqref{eq:spin4-transfer} and \eqref{eq:mckay-source} are new for $J\geq2$,
+as is the genuinely mixed two-sided form of
+Theorem~\ref{thm:spin4-transfer}.  This is not a claim of absolute priority.
+
+The results are restricted to free, effective, orientation-preserving round
+quotients with a specified spin lift.  They do not treat orbifolds, off-round
+metrics, or a complete determinant or numerical APS index.
+No physical interpretation is attached to these results.
+
+\section{Discussion and outlook}
+
+The transfer theorem changes the computational organization of the problem.
+Without it, each rank and twist appears to require a new infinite signed
+spectral continuation.  With it, the analytic work is concentrated in the
+classical Dirac vector; every integer-rank TT eta vector follows by finite
+representation-ring algebra.  The affine-ADE diagrams then organize the
+calculation rather than merely label the deck groups.
+
+The theorem supplies exact compact-manifold phase data and finite recurrences
+that may enter a properly gauge-fixed determinant or topological field theory
+calculation.  Constructing such a theory would additionally require ghosts,
+zero modes, spectral cuts, and local counterterms, and lies beyond the present
+spectral result.
+
+The classwise identity now covers every free effective finite round action
+with a chosen Spin(4) lift.  Three further directions are natural.  First, one
+can turn the theorem into explicit irrep tables for the remaining mixed
+nonabelian spherical-space-form families; this is an atlas problem, not a new
+transfer theorem.  Second, one can study metric deformation away from the
+round quotient.  Third, the eta transfer may be combined with determinant
+magnitudes only after fixing ghosts, zero modes, spectral cuts, and local
+counterterms.  Each requires separate analysis and none follows from the
+present theorem.
+
+A companion result realizes $\mathcal C_J$ naturally as the TT reducing
+summand of the tangential operator of a four-dimensional chiral twisted-Dirac
+problem on round spherical quotients.  That boundary realization is logically
+independent of the eta-transfer proof and is not used here.  In particular,
+it does not identify $\eta(\mathcal C_J)$ with the whole APS boundary
+correction: the complementary boundary summand and its kernel remain separate
+terms \cite{MahmoodP7Collection2026}.  The branchwise all-$s$ recurrences,
+pole laws, heat expansions, and relative determinants are likewise developed
+in the separate bivariate McKay manuscript rather than duplicated here
+\cite{MahmoodP4Collection2026}.
+
+\appendix
+
+\section{Character identity behind the transfer}
+
+For completeness, the triangular identity
+\eqref{eq:PJ-character} can be checked without spectral analysis.  Write
+\[
+ \chi_{P_J}=\sum_{r=0}^{2J-2}(2J-1-r)\chi_r
+\]
+and use $x\chi_r=\chi_{r+1}+\chi_{r-1}$ with $\chi_{-1}=0$.  Every interior
+coefficient cancels.  The two endpoints leave $2J\chi_0$ and
+$-\chi_{2J-1}$.  This proof also shows that $P_J$ is finite and that
+\[
+ \dim P_J=\sum_{r=0}^{2J-2}(2J-1-r)(r+1)
+ =\frac{J(4J^2-1)}3.
+\]
+
+\section{Regular completeness}
+
+Let $\mathcal R=\bigoplus_\rho(\dim\rho)\rho$ be the regular representation.
+Summing an eta vector with weights $\dim\rho$ is the same as taking the
+regular character.  It vanishes off the identity; the signed sphere eta
+density vanishes at the identity.  Hence
+\[
+ \sum_\rho\dim\rho\,\eta^{\TT}_{J,\rho}=0.
+\]
+The identical argument applies to the source vector.  This is the correct
+completeness normalization; replacing copy multiplicity by isotypic dimension
+would generally spoil it.
+
+\section*{Acknowledgment of assistance}
+AI-assisted research, computation, checking, and editorial support used
+OpenAI Codex and Anthropic Claude. Luqman Mahmood directed the work
+and is responsible for the claims and final text. These internal
+checks are not external peer review.
+
+\bibliographystyle{alpha}
+\bibliography{references}
+
+\end{document}
